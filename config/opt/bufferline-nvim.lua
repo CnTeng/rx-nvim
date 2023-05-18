@@ -10,6 +10,7 @@ local opts = {
       },
     },
     enforce_regular_tabs = true,
+    always_show_bufferline = false,
   },
   highlights = require("catppuccin.groups.integrations.bufferline").get {
     styles = { "bold" },
