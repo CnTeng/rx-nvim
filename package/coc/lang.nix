@@ -4,7 +4,6 @@
   alejandra,
   stylua,
   lua-language-server,
-  pyright,
   black,
 }: {
   diagnosticSettings = {
@@ -50,7 +49,6 @@
   };
 
   pythonSettings = {
-    "pyright.server" = "${lib.getExe pyright}";
     "python.formatting.provider" = "black";
     "python.formatting.blackPath" = "${lib.getExe black}";
     "python.linting.flake8Enabled" = true;
