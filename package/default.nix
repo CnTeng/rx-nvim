@@ -15,7 +15,6 @@
   alejandra ? nixSupport,
   stylua ? luaSupport,
   lua-language-server ? luaSupport,
-  pyright ? pythonSupport,
   black ? pythonSupport,
 }: let
   inherit (import ./lib.nix lib) getPlugins mkInitFile;
@@ -51,7 +50,7 @@
     inherit (import ./coc/coc.nix) basicSettings;
     inherit (import ./coc/plugins.nix) highlightSettings;
     inherit
-      (import ./coc/lang.nix {inherit lib stylua lua-language-server nil alejandra pyright black;})
+      (import ./coc/lang.nix {inherit lib stylua lua-language-server nil alejandra black;})
       diagnosticSettings
       luaSettings
       nixSettings
