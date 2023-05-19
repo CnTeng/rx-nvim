@@ -47,13 +47,10 @@
   };
 
   cocSettings = let
+    inherit (import ./coc/coc.nix) basicSettings;
+    inherit (import ./coc/plugins.nix) highlightSettings explorerSettings;
     inherit
-      (import ./coc.nix {
-        inherit lib stylua lua-language-server nil alejandra;
-      })
-      basicSettings
-      highlightSettings
-      explorerSettings
+      (import ./coc/lang.nix {inherit lib stylua lua-language-server nil alejandra pyright;})
       diagnosticSettings
       luaSettings
       nixSettings
@@ -67,9 +64,6 @@
     // lib.optionalAttrs luaSupport luaSettings;
 
   extraPackages = [
-    nil
-    alejandra
-    pyright
     ripgrep
     fd
   ];
