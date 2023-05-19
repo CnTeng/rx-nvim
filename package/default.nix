@@ -16,6 +16,7 @@
   stylua ? luaSupport,
   lua-language-server ? luaSupport,
   pyright ? pythonSupport,
+  black ? pythonSupport,
 }: let
   inherit (import ./lib.nix lib) getPlugins mkInitFile;
 
@@ -48,9 +49,9 @@
 
   cocSettings = let
     inherit (import ./coc/coc.nix) basicSettings;
-    inherit (import ./coc/plugins.nix) highlightSettings explorerSettings;
+    inherit (import ./coc/plugins.nix) highlightSettings;
     inherit
-      (import ./coc/lang.nix {inherit lib stylua lua-language-server nil alejandra pyright;})
+      (import ./coc/lang.nix {inherit lib stylua lua-language-server nil alejandra pyright black;})
       diagnosticSettings
       luaSettings
       nixSettings
@@ -58,7 +59,6 @@
   in
     basicSettings
     // highlightSettings
-    // explorerSettings
     // diagnosticSettings
     // lib.optionalAttrs nixSupport nixSettings
     // lib.optionalAttrs luaSupport luaSettings;
@@ -83,7 +83,6 @@ in
           coc-snippets
           coc-sumneko-lua
           coc-pyright
-          coc-explorer
           coc-highlight
           coc-diagnostic
           friendly-snippets

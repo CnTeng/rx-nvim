@@ -9,7 +9,7 @@ local keys = {
 }
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "help", "alpha", "coc-explorer" },
+  pattern = { "help", "alpha", "NvimTree" },
   callback = function() vim.b.miniindentscope_disable = true end,
 })
 
