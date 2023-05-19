@@ -48,7 +48,8 @@
     ];
     "Lua.workspace.library" = ["\${3rd}/luv/library"];
   };
-  pythonSupport = {
+
+  pythonSettings = {
     "pyright.server" = "${lib.getExe pyright}";
     "python.formatting.provider" = "black";
     "python.formatting.blackPath" = "${lib.getExe black}";
