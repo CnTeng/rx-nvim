@@ -55,13 +55,15 @@
       diagnosticSettings
       luaSettings
       nixSettings
+      pythonSettings
       ;
   in
     basicSettings
     // highlightSettings
     // diagnosticSettings
     // lib.optionalAttrs nixSupport nixSettings
-    // lib.optionalAttrs luaSupport luaSettings;
+    // lib.optionalAttrs luaSupport luaSettings
+    // lib.optionalAttrs pythonSupport pythonSettings;
 
   extraPackages = [
     ripgrep
