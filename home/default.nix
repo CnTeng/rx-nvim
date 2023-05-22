@@ -10,6 +10,8 @@ with lib; let
     nixSupport = cfg.languages.nix;
     luaSupport = cfg.languages.lua;
     pythonSupport = cfg.languages.python;
+    gCalendar = cfg.gCalendar.enable;
+    gCalendarCred = cfg.gCalendar.CredPath;
   };
 in {
   options.programs.rx-nvim = {
@@ -18,6 +20,13 @@ in {
       nix = "Nix support";
       lua = "Lua support";
       python = "Python support";
+    };
+    gCalendar = {
+      enable = mkEnableOption "Google calendar";
+      CredPath = mkOption {
+        type = with types; nullOr path;
+        default = null;
+      };
     };
   };
 
