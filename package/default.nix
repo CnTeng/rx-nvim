@@ -56,6 +56,7 @@
         vim.g.calendar_google_task = 1
       ''
       + lib.optionalString (gCalendarCred != null) ''
+        vim.opt.rtp:append("${gCalendarCred}")
         require("${gCalendarCred}")
       '';
   };
