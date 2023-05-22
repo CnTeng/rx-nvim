@@ -45,19 +45,10 @@
         require "core"
       ''
       + mkInitFile "start" startPlugins
-      + mkInitFile "opt" optPlugins;
-  };
-
-  calFile = writeTextFile {
-    name = "init.lua";
-    text =
-      ''
+      + mkInitFile "opt" optPlugins
+      + lib.optionalString gCalendar ''
         vim.g.calendar_google_calendar = 1
         vim.g.calendar_google_task = 1
-      ''
-      + lib.optionalString (gCalendarCred != null) ''
-        vim.opt.rtp:append("${gCalendarCred}")
-        require("${gCalendarCred}")
       '';
   };
 
@@ -88,11 +79,9 @@ in
   {
     configure = {
       customRC =
-        ''
-          luafile ${initFile}
-        ''
-        + lib.optionalString gCalendar ''
-          luafile ${calFile}
+        "luafile ${initFile}"
+        + lib.optionalString (gCalendarCred != null) ''
+          luafile ${gCalendarCred}
         '';
       packages.all.opt =
         (map (n: vimPlugins.${n}) optPlugins)
