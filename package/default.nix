@@ -79,7 +79,9 @@ in
   {
     configure = {
       customRC =
-        "luafile ${initFile}"
+        ''
+          luafile ${initFile}
+        ''
         + lib.optionalString (gCalendarCred != null) ''
           luafile ${gCalendarCred}
         '';
