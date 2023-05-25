@@ -28,5 +28,4 @@ dashboard.section.footer.opts.hl = "DashboardFooter"
 
 local keys = { { "n", "<leader>a", "<cmd>Alpha<cr>", { desc = "Alpha" } } }
 
-
 require("core.utils").load_plugin { name = "alpha", opts = dashboard.opts, keys = keys }
