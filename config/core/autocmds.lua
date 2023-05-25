@@ -32,6 +32,6 @@ autocmd("InsertEnter", {
   group = restore_im,
   callback = function()
     local current_im = tonumber(vim.fn.system "fcitx5-remote")
-    if current_im ~= vim.g.saved_im then vim.fn.system "fcitx5-remote -o" end
+    if current_im ~= vim.g.previous_im then vim.fn.system "fcitx5-remote -o" end
   end,
 })
