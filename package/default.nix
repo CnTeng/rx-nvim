@@ -98,6 +98,8 @@ in
           coc-pyright
           coc-highlight
           coc-diagnostic
+          coc-markdownlint
+          coc-prettier
           friendly-snippets
           plenary-nvim
           telescope-undo-nvim
