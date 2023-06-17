@@ -24,24 +24,15 @@
     };
   };
 
-  outputs = inputs @ {
-    self,
-    flake-parts,
-    ...
-  }:
-    flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = ["x86_64-linux"];
+  outputs = inputs@{ self, flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" ];
 
-      imports = [./devshell];
+      imports = [ ./devshell ];
       flake.homeModules.default = import ./home self;
 
-      perSystem = {
-        pkgs,
-        lib,
-        config,
-        ...
-      }: {
-        packages.default = pkgs.callPackage ./package {};
+      perSystem = { pkgs, lib, config, ... }: {
+        packages.default = pkgs.callPackage ./package { };
       };
     };
 }
