@@ -1,1 +1,1 @@
-{ highlightSettings = { "highlight.colorNames.enable" = false; }; }
+{highlightSettings = {"highlight.colorNames.enable" = false;};}
