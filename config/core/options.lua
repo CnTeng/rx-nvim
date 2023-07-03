@@ -32,3 +32,4 @@ opt.updatetime = 300 -- Length of time to wait before triggering the plugin
 opt.whichwrap = "h,l,<,>,[,],~" -- Set which key can jump to the next line
 opt.wrap = false -- Disable wrapping of lines longer than the width of window
 opt.writebackup = false -- Disable making a backup before overwriting a file
+opt.fileencodings = "ucs-bom,utf-8,gbk,default,latin1"
