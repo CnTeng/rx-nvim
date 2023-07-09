@@ -1,5 +1,5 @@
 local opts = {
-  flavour = "macchiato", -- latte, frappe, macchiato, mocha
+  flavour = "mocha", -- latte, frappe, macchiato, mocha
   styles = {
     comments = { "italic" },
     conditionals = {},
@@ -43,7 +43,10 @@ local opts = {
         information = { "underline" },
       },
     },
-    telescope = true,
+    telescope = {
+      enabled = true,
+      style = "nvchad",
+    },
     illuminate = true,
     gitsigns = true,
     which_key = true,
@@ -52,4 +55,4 @@ local opts = {
 
 require("core.utils").load_plugin { name = "catppuccin", opts = opts }
 
--- vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme "catppuccin"
