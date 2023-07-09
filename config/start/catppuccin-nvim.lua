@@ -52,4 +52,4 @@ local opts = {
 
 require("core.utils").load_plugin { name = "catppuccin", opts = opts }
 
-vim.cmd.colorscheme "catppuccin"
+-- vim.cmd.colorscheme "catppuccin"
