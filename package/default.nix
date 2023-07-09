@@ -16,8 +16,6 @@
   stylua ? luaSupport,
   lua-language-server ? luaSupport,
   black ? pythonSupport,
-  gCalendar ? false,
-  gCalendarCred ? null,
 }: let
   inherit (import ./lib.nix lib) getPlugins mkInitFile;
 
@@ -45,11 +43,7 @@
         require "core"
       ''
       + mkInitFile "start" startPlugins
-      + mkInitFile "opt" optPlugins
-      + lib.optionalString gCalendar ''
-        vim.g.calendar_google_calendar = 1
-        vim.g.calendar_google_task = 1
-      '';
+      + mkInitFile "opt" optPlugins;
   };
 
   cocSettings = let
@@ -76,13 +70,7 @@
 in
   wrapNeovim neovim-unwrapped {
     configure = {
-      customRC =
-        ''
-          luafile ${initFile}
-        ''
-        + lib.optionalString (gCalendarCred != null) ''
-          luafile ${gCalendarCred}
-        '';
+      customRC = "luafile ${initFile}";
       packages.all.opt = (map (n: vimPlugins.${n}) optPlugins) ++ [];
       packages.all.start =
         (map (n: vimPlugins.${n}) startPlugins)
