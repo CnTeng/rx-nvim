@@ -33,19 +33,6 @@ local keys = {
   },
   { "i", "<S-TAB>", function() return fn["coc#pum#visible"]() == 1 and fn["coc#pum#prev"](1) or "<S-TAB>" end, opts },
 
-  {
-    "i",
-    "<space>",
-    function()
-      if fn["coc#pum#visible"]() == 1 then
-        return fn["coc#pum#confirm"]()
-      else
-        return "<space>"
-      end
-    end,
-    { expr = true, desc = "Confirm selection" },
-  },
-
   -- coc-diagnostics
   { "n", "]d", "<Plug>(coc-diagnostic-next)", { silent = true, desc = "Next diagnostic" } },
   { "n", "[d", "<Plug>(coc-diagnostic-prev)", { silent = true, desc = "Previous diagnostic" } },
