@@ -90,6 +90,7 @@ in
           telescope-undo-nvim
           telescope-ui-select-nvim
           coc-clangd
+          coc-toml
         ]);
     };
     extraMakeWrapperArgs = ''--suffix PATH : "${lib.makeBinPath extraPackages}"'';
