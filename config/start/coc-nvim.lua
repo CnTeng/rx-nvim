@@ -14,7 +14,7 @@ local keys = {
   { "i", "<up>", function() return fn["coc#pum#visible"]() == 1 and fn["coc#pum#prev"](1) or "<up>" end, opts },
   { "i", "<down>", function() return fn["coc#pum#visible"]() == 1 and fn["coc#pum#next"](1) or "<down>" end, opts },
   { "i", "<C-e>", function() return fn["coc#pum#visible"]() == 1 and fn["coc#pum#cancel"]() or "<C-e>" end, opts },
-  { "i", "<c-s>", function() return fn["coc#refresh"]() end, { silent = true, expr = true } },
+  { "i", "<C-s>", function() return fn["coc#refresh"]() end, { silent = true, expr = true } },
   {
     "i",
     "<TAB>",
@@ -32,6 +32,19 @@ local keys = {
     opts,
   },
   { "i", "<S-TAB>", function() return fn["coc#pum#visible"]() == 1 and fn["coc#pum#prev"](1) or "<S-TAB>" end, opts },
+
+  {
+    "i",
+    "<space>",
+    function()
+      if fn["coc#pum#visible"]() == 1 then
+        return fn["coc#pum#confirm"]()
+      else
+        return "<space>"
+      end
+    end,
+    { expr = true, desc = "Confirm selection" },
+  },
 
   -- coc-diagnostics
   { "n", "]d", "<Plug>(coc-diagnostic-next)", { silent = true, desc = "Next diagnostic" } },
