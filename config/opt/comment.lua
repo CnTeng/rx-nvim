@@ -8,10 +8,9 @@ local keys = {
   },
 }
 
-require("core.utils").lazy_plugin {
+require("utils.plugin").lazy_plugin {
   events = { "BufReadPre", "BufNewFile" },
-  callback = function()
-    vim.cmd.packadd "comment.nvim"
-    require("core.utils").load_plugin { name = "Comment", keys = keys }
-  end,
+  pname = "comment.nvim",
+  name = "Comment",
+  keys = keys,
 }

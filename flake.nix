@@ -22,6 +22,12 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    neovim-nightly = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
   };
 
   outputs = inputs @ {
@@ -32,16 +38,6 @@
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux" "aarch64-linux"];
 
-      imports = [./devshell];
-      flake.homeModules.default = import ./home self;
-
-      perSystem = {
-        pkgs,
-        lib,
-        config,
-        ...
-      }: {
-        packages.default = pkgs.callPackage ./package {};
-      };
+      imports = [./flake];
     };
 }

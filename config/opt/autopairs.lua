@@ -14,22 +14,14 @@ local opts = {
   },
 }
 
-local keys = {
-  {
-    "i",
-    "<cr>",
-    function()
-      return vim.fn["coc#pum#visible"]() == 1 and vim.fn["coc#pum#confirm"]()
-        or require("nvim-autopairs").autopairs_cr()
-    end,
-    { expr = true, desc = "Confirm selection" },
-  },
-}
-
-require("core.utils").lazy_plugin {
+require("utils.plugin").lazy_plugin {
   events = { "BufReadPre", "BufNewFile" },
+  pname = "nvim-autopairs",
+  name = "nvim-autopairs",
+  opts = opts,
   callback = function()
-    vim.cmd.packadd "nvim-autopairs"
-    require("core.utils").load_plugin { name = "nvim-autopairs", opts = opts, keys = keys }
+    local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+    local cmp = require "cmp"
+    cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
   end,
 }

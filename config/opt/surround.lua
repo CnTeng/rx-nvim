@@ -13,10 +13,9 @@ local opts = {
   },
 }
 
-require("core.utils").lazy_plugin {
+require("utils.plugin").lazy_plugin {
   events = "InsertEnter",
-  callback = function()
-    vim.cmd.packadd "nvim-surround"
-    require("core.utils").load_plugin { name = "nvim-surround", opts = opts }
-  end,
+  pname = "nvim-surround",
+  name = "nvim-surround",
+  opts = opts,
 }
