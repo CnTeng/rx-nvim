@@ -28,4 +28,4 @@ local keys = {
   { "n", "<leader>gd", function() require("gitsigns").diffthis() end, { desc = "View diff" } },
 }
 
-require("core.utils").load_plugin { name = "gitsigns", opts = opts, keys = keys }
+require("utils.plugin").load_plugin { name = "gitsigns", opts = opts, keys = keys }

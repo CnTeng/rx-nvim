@@ -15,6 +15,7 @@ local opts = {
     operators = {},
   },
   integrations = {
+    barbar = true,
     mini = true,
     indent_blankline = {
       enabled = true,
@@ -53,6 +54,6 @@ local opts = {
   },
 }
 
-require("core.utils").load_plugin { name = "catppuccin", opts = opts }
+require("utils.plugin").load_plugin { name = "catppuccin", opts = opts }
 
 vim.cmd.colorscheme "catppuccin"

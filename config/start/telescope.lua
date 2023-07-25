@@ -66,7 +66,7 @@ local keys = {
   { "n", "<leader>gc", function() require("telescope.builtin").git_commits() end, { desc = "Git commits" } },
 }
 
-require("core.utils").load_plugin { name = "telescope", opts = opts, keys = keys }
+require("utils.plugin").load_plugin { name = "telescope", opts = opts, keys = keys }
 
 telescope.load_extension "ui-select"
 telescope.load_extension "undo"

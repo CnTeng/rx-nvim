@@ -19,12 +19,9 @@ require("which-key").register {
   ["gz"] = { name = "+Surround" },
   ["gr"] = { name = "+Go to references" },
   ["<leader>b"] = { name = "+Buffer" },
-  ["<leader>d"] = { name = "+Debugger" },
   ["<leader>f"] = { name = "+File" },
   ["<leader>g"] = { name = "+Git" },
   ["<leader>l"] = { name = "+LSP" },
-  ["<leader>o"] = { name = "+Org" },
-  ["<leader>p"] = { name = "+Plugin" },
   ["<leader>s"] = { name = "+Search" },
   ["<leader>t"] = { name = "+Term" },
 }
