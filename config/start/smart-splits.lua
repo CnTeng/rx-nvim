@@ -21,4 +21,4 @@ local keys = {
   { "n", "<C-l>", function() require("smart-splits").move_cursor_right() end },
 }
 
-require("core.utils").load_plugin { name = "smart-splits", opts = opts, keys = keys }
+require("utils.plugin").load_plugin { name = "smart-splits", opts = opts, keys = keys }

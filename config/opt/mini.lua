@@ -13,12 +13,11 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function() vim.b.miniindentscope_disable = true end,
 })
 
-require("core.utils").lazy_plugin {
+require("utils.plugin").lazy_plugin {
   events = { "BufReadPre", "BufNewFile" },
+  pname = "mini.nvim",
   callback = function()
-    vim.cmd.packadd "mini.nvim"
-
-    require("core.utils").load_plugin { name = "mini.indentscope", opts = opts }
-    require("core.utils").load_plugin { name = "mini.bufremove", keys = keys }
+    require("utils.plugin").load_plugin { name = "mini.indentscope", opts = opts }
+    require("utils.plugin").load_plugin { name = "mini.bufremove", keys = keys }
   end,
 }

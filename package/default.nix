@@ -3,7 +3,6 @@
   stdenv,
   wrapNeovim,
   neovim-unwrapped,
-  writeText,
   writeTextFile,
   ripgrep,
   fd,
@@ -16,13 +15,13 @@
   stylua ? luaSupport,
   lua-language-server ? luaSupport,
   black ? pythonSupport,
+  nodePackages,
+  clang-tools,
 }: let
-  inherit (import ./lib.nix lib) getPlugins mkInitFile;
+  inherit (import ./lib.nix lib vimPlugins) getPluginName getPluginPkg mkInitFile;
 
-  startPlugins = getPlugins ../config/start;
-  optPlugins = getPlugins ../config/opt;
-
-  cocSettingsFile = writeText "coc-settings.json" (builtins.toJSON cocSettings);
+  startPlugins = getPluginName ../config/start;
+  optPlugins = getPluginName ../config/opt;
 
   configDir = stdenv.mkDerivation {
     name = "nvim-config";
@@ -30,7 +29,6 @@
     installPhase = ''
       mkdir -p $out/lua
       mv ./* $out/lua
-      cp ${cocSettingsFile} $out/coc-settings.json
     '';
   };
 
@@ -39,58 +37,56 @@
     text =
       ''
         vim.opt.rtp:append("${configDir}")
-        vim.g.coc_config_home = "${configDir}"
         require "core"
       ''
       + mkInitFile "start" startPlugins
       + mkInitFile "opt" optPlugins;
   };
 
-  cocSettings = let
-    inherit (import ./coc/coc.nix) basicSettings;
-    inherit (import ./coc/plugins.nix) highlightSettings;
-    inherit
-      (import ./coc/lang.nix {
-        inherit lib stylua lua-language-server nil alejandra black;
-      })
-      diagnosticSettings
-      luaSettings
-      nixSettings
-      pythonSettings
-      ;
-  in
-    basicSettings
-    // highlightSettings
-    // diagnosticSettings
-    // lib.optionalAttrs nixSupport nixSettings
-    // lib.optionalAttrs luaSupport luaSettings
-    // lib.optionalAttrs pythonSupport pythonSettings;
+  extraPackages = [
+    nodePackages.diagnostic-languageserver
+    lua-language-server
+    ripgrep
+    fd
+    # Lua
+    lua-language-server # LSP
+    stylua # Formatter
 
-  extraPackages = [ripgrep fd];
+    # C & C++
+    clang-tools # LSP & Formatter
+
+    # Nix
+    nil # LSP
+    alejandra
+  ];
 in
   wrapNeovim neovim-unwrapped {
     configure = {
       customRC = "luafile ${initFile}";
-      packages.all.opt = (map (n: vimPlugins.${n}) optPlugins) ++ [];
+      packages.all.opt = getPluginPkg optPlugins ++ [];
       packages.all.start =
-        (map (n: vimPlugins.${n}) startPlugins)
+        getPluginPkg startPlugins
         ++ (with vimPlugins; [
+          (nvim-treesitter.withPlugins (
+            plugins:
+              with plugins; [
+                nix
+                lua
+              ]
+          ))
           nvim-web-devicons
-          coc-json
-          coc-snippets
-          coc-sumneko-lua
-          coc-pyright
-          coc-highlight
-          coc-diagnostic
-          coc-markdownlint
-          coc-yaml
-          coc-prettier
           friendly-snippets
           plenary-nvim
           telescope-undo-nvim
           telescope-ui-select-nvim
-          coc-clangd
-          coc-toml
+          neodev-nvim
+
+          cmp-nvim-lsp
+          cmp_luasnip
+          cmp-buffer
+          cmp-path
+          cmp-cmdline
+          lspkind-nvim
         ]);
     };
     extraMakeWrapperArgs = ''--suffix PATH : "${lib.makeBinPath extraPackages}"'';

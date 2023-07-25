@@ -39,10 +39,9 @@ local opts = {
   },
 }
 
-require("core.utils").lazy_plugin {
+require("utils.plugin").lazy_plugin {
   events = "BufEnter",
-  callback = function()
-    vim.cmd.packadd "lualine.nvim"
-    require("core.utils").load_plugin { name = "lualine", opts = opts }
-  end,
+  pname = "lualine.nvim",
+  name = "lualine",
+  opts = opts,
 }

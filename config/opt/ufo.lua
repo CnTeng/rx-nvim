@@ -17,25 +17,16 @@ local keys = {
     "K",
     function()
       local winid = require("ufo").peekFoldedLinesUnderCursor()
-      if not winid then
-        local cw = vim.fn.expand "<cword>"
-        if vim.fn.index({ "vim", "help" }, vim.bo.filetype) >= 0 then
-          vim.api.nvim_command("h " .. cw)
-        elseif vim.api.nvim_eval "coc#rpc#ready()" then
-          vim.fn.CocActionAsync "doHover"
-        else
-          vim.api.nvim_command("!" .. vim.o.keywordprg .. " " .. cw)
-        end
-      end
+      if not winid then vim.lsp.buf.hover() end
     end,
     { desc = "Hover" },
   },
 }
 
-require("core.utils").lazy_plugin {
+require("utils.plugin").lazy_plugin {
   events = { "BufReadPre", "BufNewFile" },
   callback = function()
     vim.cmd.packadd "nvim-ufo"
-    require("core.utils").load_plugin { name = "ufo", opts = opts, keys = keys }
+    require("utils.plugin").load_plugin { name = "ufo", opts = opts, keys = keys }
   end,
 }
