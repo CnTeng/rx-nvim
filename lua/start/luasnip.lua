@@ -3,7 +3,7 @@ local opts = {
   delete_check_events = "TextChanged",
 }
 
-require("utils.plugin").load_plugin {
+require("utils.plugin").load {
   name = "luasnip",
   opts = opts,
 }

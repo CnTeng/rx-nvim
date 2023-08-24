@@ -14,7 +14,7 @@ local opts = {
   },
 }
 
-require("utils.plugin").lazy_plugin {
+require("utils.plugin").lazy {
   events = { "BufReadPre", "BufNewFile" },
   pname = "nvim-autopairs",
   name = "nvim-autopairs",

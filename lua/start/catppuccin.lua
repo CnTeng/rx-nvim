@@ -15,7 +15,10 @@ local opts = {
     operators = {},
   },
   integrations = {
-    barbar = true,
+    dropbar = {
+      enabled = true,
+      color_mode = true,
+    },
     mini = true,
     indent_blankline = {
       enabled = true,
@@ -23,26 +26,10 @@ local opts = {
     },
     leap = true,
     markdown = true,
-    nvimtree = true,
-    coc_nvim = true,
+    neotree = true,
     dap = {
       enabled = true,
       enable_ui = true,
-    },
-    native_lsp = {
-      enabled = true,
-      virtual_text = {
-        errors = { "italic" },
-        hints = { "italic" },
-        warnings = { "italic" },
-        information = { "italic" },
-      },
-      underlines = {
-        errors = { "underline" },
-        hints = { "underline" },
-        warnings = { "underline" },
-        information = { "underline" },
-      },
     },
     telescope = {
       enabled = true,
@@ -54,6 +41,6 @@ local opts = {
   },
 }
 
-require("utils.plugin").load_plugin { name = "catppuccin", opts = opts }
+require("utils.plugin").load { name = "catppuccin", opts = opts }
 
 vim.cmd.colorscheme "catppuccin"

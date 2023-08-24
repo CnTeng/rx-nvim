@@ -93,7 +93,7 @@ local config = function()
   })
 end
 
-require("utils.plugin").load_plugin {
+require("utils.plugin").load {
   name = "cmp",
   opts = opts,
   config = config,

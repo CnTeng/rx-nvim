@@ -10,7 +10,7 @@
 
 ## 🌟 Preview
 
-![startup](./assets/screenshots/startup.png)
+<!-- ![startup](./assets/screenshots/startup.png) -->
 
 ## ✨ Features
 

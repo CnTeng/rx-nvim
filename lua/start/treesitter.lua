@@ -16,4 +16,4 @@ local opts = {
   },
 }
 
-require("utils.plugin").load_plugin { name = "nvim-treesitter.configs", opts = opts }
+require("utils.plugin").load { name = "nvim-treesitter.configs", opts = opts }
