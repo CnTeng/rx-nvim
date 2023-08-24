@@ -8,7 +8,7 @@ local keys = {
   },
 }
 
-require("utils.plugin").lazy_plugin {
+require("utils.plugin").lazy {
   events = { "BufReadPre", "BufNewFile" },
   pname = "comment.nvim",
   name = "Comment",

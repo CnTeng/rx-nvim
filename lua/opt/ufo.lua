@@ -23,10 +23,10 @@ local keys = {
   },
 }
 
-require("utils.plugin").lazy_plugin {
-  events = { "BufReadPre", "BufNewFile" },
-  callback = function()
-    vim.cmd.packadd "nvim-ufo"
-    require("utils.plugin").load_plugin { name = "ufo", opts = opts, keys = keys }
-  end,
+require("utils.plugin").lazy {
+  events = { "VimEnter" },
+  pname = "nvim-ufo",
+  name = "ufo",
+  opts = opts,
+  keys = keys,
 }
