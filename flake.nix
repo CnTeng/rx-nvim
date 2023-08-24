@@ -1,13 +1,6 @@
 {
   description = "NixOS Configuration";
 
-  # nixConfig = {
-  #   extra-substituters = ["https://cache.snakepi.xyz"];
-  #   extra-trusted-public-keys = [
-  #     "cache.snakepi.xyz-1:CnMDci45ncAX/kR+3RyxeRLYa+9cFHH+LrOhVEiE1ss="
-  #   ];
-  # };
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 

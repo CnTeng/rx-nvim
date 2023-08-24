@@ -13,7 +13,7 @@ local opts = {
   },
 }
 
-require("utils.plugin").lazy_plugin {
+require("utils.plugin").lazy {
   events = "InsertEnter",
   pname = "nvim-surround",
   name = "nvim-surround",

@@ -1,11 +1,12 @@
 local keys = {
   { "n", "<leader>li", "<cmd>LspInfo<cr>", desc = "LSP info" },
 }
+
 local signs = {
-  { name = "DiagnosticSignError", text = "" },
-  { name = "DiagnosticSignWarn", text = "" },
-  { name = "DiagnosticSignHint", text = "" },
-  { name = "DiagnosticSignInfo", text = "" },
+  { name = "DiagnosticSignError", text = "" },
+  { name = "DiagnosticSignWarn", text = "" },
+  { name = "DiagnosticSignHint", text = "" },
+  { name = "DiagnosticSignInfo", text = "" },
 }
 
 local opts = {
@@ -23,29 +24,14 @@ local opts = {
   },
 }
 
-require("utils.plugin").load_plugin {
+require("utils.plugin").load {
   name = "neodev",
-  opts = {
-    override = function(root_dir, library)
-      if root_dir:find("/home/yufei/Projects/rx-nvim", 1, true) == 1 then
-        library.enabled = true
-        library.plugins = true
-      end
-    end,
-  },
+  opts = {},
 }
 
-require("utils.plugin").load_plugin { keys = keys }
+require("utils.plugin").load { keys = keys }
 
 require("utils.lsp").setup_diagnostic_signs(signs, opts.diagnostics)
-
-require("lspconfig").lua_ls.setup {
-  settings = {
-    Lua = {
-      format = { enable = false },
-    },
-  },
-}
 
 require("lspconfig").diagnosticls.setup {
   filetypes = { "lua" },
@@ -67,6 +53,16 @@ require("lspconfig").diagnosticls.setup {
     },
     formatFiletypes = {
       lua = "stylua",
+    },
+  },
+}
+
+require("lspconfig").lua_ls.setup {
+  settings = {
+    Lua = {
+      workspace = { checkThirdParty = false },
+      format = { enable = false },
+      completion = { callSnippet = "Replace" },
     },
   },
 }

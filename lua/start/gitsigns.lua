@@ -1,11 +1,17 @@
 local opts = {
   signs = {
-    add = { text = "+" },
-    change = { text = "~" },
-    delete = { text = "_" },
-    topdelete = { text = "‾" },
-    changedelete = { text = "-" },
-    untracked = { text = "~" },
+    -- add = { text = "+" },
+    -- change = { text = "~" },
+    -- delete = { text = "_" },
+    -- topdelete = { text = "‾" },
+    -- changedelete = { text = "-" },
+    -- untracked = { text = "~" },
+    add = { text = "▐" },
+    change = { text = "▐" },
+    delete = { text = "▐" },
+    topdelete = { text = "▐" },
+    changedelete = { text = "▐" },
+    untracked = { text = "░" },
   },
   watch_gitdir = {
     enable = false,
@@ -28,4 +34,8 @@ local keys = {
   { "n", "<leader>gd", function() require("gitsigns").diffthis() end, { desc = "View diff" } },
 }
 
-require("utils.plugin").load_plugin { name = "gitsigns", opts = opts, keys = keys }
+require("utils.plugin").load {
+  name = "gitsigns",
+  opts = opts,
+  keys = keys,
+}

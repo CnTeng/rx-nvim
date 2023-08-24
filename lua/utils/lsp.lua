@@ -77,6 +77,8 @@ local function setup_lsp_on_attach()
     keymap("n", "<leader>lq", vim.diagnostic.setloclist, { buffer = bufnr, desc = "List diagnostic" })
     keymap("n", "]d", vim.diagnostic.goto_next, { buffer = bufnr, desc = "Next diagnostic" })
     keymap("n", "[d", vim.diagnostic.goto_prev, { buffer = bufnr, desc = "Previous diagnostic" })
+
+    vim.lsp.inlay_hint(bufnr, true)
   end
 
   return on_attach
@@ -89,13 +91,27 @@ function M.setup_lspconfig(servers)
   }
 
   for _, server in ipairs(servers) do
-    local has_extra_handlers, extra_handlers = pcall(require, "coding.lspconfig." .. server)
-
-    if has_extra_handlers then
-      require("lspconfig")[server].setup(vim.tbl_deep_extend("force", default_handlers, extra_handlers))
-    else
-      require("lspconfig")[server].setup(default_handlers)
+    --   local has_extra_handlers, extra_handlers = pcall(require, "coding.lspconfig." .. server)
+    --
+    --   if has_extra_handlers then
+    --     require("lspconfig")[server].setup(vim.tbl_deep_extend("force", default_handlers, extra_handlers))
+    --   else
+    if server == "lua_ls" then
+      require("lspconfig")[server].setup(vim.tbl_deep_extend("force", default_handlers, {
+        settings = {
+          Lua = {
+            workspace = { checkThirdParty = false },
+            format = { enable = false },
+            completion = { callSnippet = "Replace" },
+            hint = { enable = true },
+          },
+        },
+      }))
+      return
     end
+
+    require("lspconfig")[server].setup(default_handlers)
+    --   end
   end
 end
 

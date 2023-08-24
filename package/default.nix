@@ -20,12 +20,12 @@
 }: let
   inherit (import ./lib.nix lib vimPlugins) getPluginName getPluginPkg mkInitFile;
 
-  startPlugins = getPluginName ../config/start;
-  optPlugins = getPluginName ../config/opt;
+  startPlugins = getPluginName ../lua/start;
+  optPlugins = getPluginName ../lua/opt;
 
   configDir = stdenv.mkDerivation {
     name = "nvim-config";
-    src = ../config;
+    src = ../lua;
     installPhase = ''
       mkdir -p $out/lua
       mv ./* $out/lua
