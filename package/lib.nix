@@ -9,6 +9,8 @@ with builtins; {
       then vimPlugins."${n}-nvim"
       else if vimPlugins ? "nvim-${n}" && n != "comment"
       then vimPlugins."nvim-${n}"
+      else if vimPlugins ? "vim-${n}"
+      then vimPlugins."vim-${n}"
       else vimPlugins."${n}")
     plugins;
 
