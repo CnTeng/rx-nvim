@@ -1,9 +1,6 @@
-vim.g.neo_tree_remove_legacy_commands = true
-
 local opts = {
   sources = { "filesystem", "buffers", "git_status", "document_symbols" },
   close_if_last_window = true,
-
   source_selector = {
     winbar = true,
     content_layout = "center",
@@ -52,7 +49,8 @@ local opts = {
 }
 
 local keys = {
-  { "<leader>e", "<cmd>Neotree toggle<cr>", "Explorer" },
+  { "<leader>e", "<cmd>Neotree toggle left<cr>", "Explorer" },
+  { "<leader>lo", "<cmd>Neotree toggle document_symbols right<cr>", "Code outline" },
 }
 
 require("utils.plugin").load {

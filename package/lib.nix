@@ -15,5 +15,8 @@ with builtins; {
     plugins;
 
   mkInitFile = dir: plugins:
-    concatStringsSep "\n" (map (n: ''require "${dir}.${n}"'') plugins);
+    concatStringsSep "" (map (n: ''
+        require "${dir}.${n}"
+      '')
+      plugins);
 }

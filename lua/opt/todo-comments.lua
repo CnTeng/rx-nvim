@@ -5,8 +5,7 @@ local keys = {
 }
 
 require("utils.plugin").lazy {
-  events = { "VimEnter", "BufRead" },
-  pname = "todo-comments.nvim",
+  event = { "VimEnter", "BufRead" },
   name = "todo-comments",
   keys = keys,
 }

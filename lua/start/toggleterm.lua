@@ -34,4 +34,8 @@ local keys = {
   },
 }
 
-require("utils.plugin").load { name = "toggleterm", opts = opts, keys = keys }
+require("utils.plugin").load {
+  name = "toggleterm",
+  opts = opts,
+  keys = keys,
+}

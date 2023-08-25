@@ -40,8 +40,7 @@ local opts = {
 }
 
 require("utils.plugin").lazy {
-  events = "BufEnter",
-  pname = "lualine.nvim",
+  event = "BufEnter",
   name = "lualine",
   opts = opts,
 }
