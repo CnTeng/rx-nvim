@@ -21,19 +21,29 @@ local opts = {
     "lua_ls", -- Lua
     "clangd", -- C++ & C
     "nil_ls", -- Nix
+    "diagnosticls",
   },
 }
 
-require("utils.plugin").load {
-  name = "neodev",
-  opts = {},
-}
+require("utils.plugin").load { name = "neodev" }
 
 require("utils.plugin").load { keys = keys }
 
 require("utils.lsp").setup_diagnostic_signs(signs, opts.diagnostics)
 
-require("lspconfig").diagnosticls.setup {
+local lsp_config = {}
+
+lsp_config.lua_ls = {
+  settings = {
+    Lua = {
+      workspace = { checkThirdParty = false },
+      format = { enable = false },
+      completion = { callSnippet = "Replace" },
+    },
+  },
+}
+
+lsp_config.diagnosticls = {
   filetypes = { "lua" },
   init_options = {
     filetypes = {
@@ -57,14 +67,4 @@ require("lspconfig").diagnosticls.setup {
   },
 }
 
-require("lspconfig").lua_ls.setup {
-  settings = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      format = { enable = false },
-      completion = { callSnippet = "Replace" },
-    },
-  },
-}
-
-require("utils.lsp").setup_lspconfig(opts.servers)
+require("utils.lsp").setup_lspconfig(opts.servers, lsp_config)
