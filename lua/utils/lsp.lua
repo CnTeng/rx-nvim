@@ -9,14 +9,6 @@ function M.setup_diagnostic_signs(signs, diagnostics)
   vim.diagnostic.config(diagnostics)
 end
 
-local function keymap(mode, lhs, rhs, opts)
-  vim.keymap.set(mode, lhs, rhs, {
-    silent = true,
-    buffer = opts.buffer,
-    desc = opts.desc,
-  })
-end
-
 local function setup_lsp_capabilities()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
 
@@ -30,7 +22,7 @@ local function setup_lsp_capabilities()
 end
 
 local function on_attach(client, bufnr)
-  local function telescope_lsp(api)
+  local function telescope(api)
     require("telescope.builtin")["lsp_" .. api] {
       layout_strategy = "bottom_pane",
       layout_config = {
@@ -43,90 +35,75 @@ local function on_attach(client, bufnr)
     }
   end
 
+  local function keymap(mode, lhs, rhs, desc)
+    vim.keymap.set(mode, lhs, rhs, {
+      silent = true,
+      buffer = bufnr,
+      desc = desc,
+    })
+  end
+
   if client.supports_method "textDocument/definition" then
-    keymap("n", "gd", function() telescope_lsp "definitions" end, { buffer = bufnr, desc = "Goto definition" })
+    keymap("n", "gd", function() telescope "definitions" end, "Goto definition")
   end
 
   if client.supports_method "textDocument/declaration" then
-    keymap("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr, desc = "Go todeclaration" })
+    keymap("n", "gD", vim.lsp.buf.declaration, "Go todeclaration")
   end
 
   if client.supports_method "textDocument/implementation" then
-    keymap("n", "gI", function() telescope_lsp "implementations" end, { buffer = bufnr, desc = "Goto implementation" })
+    keymap("n", "gI", function() telescope "implementations" end, "Goto implementation")
   end
 
   if client.supports_method "textDocument/references" then
-    keymap("n", "gr", function() telescope_lsp "references" end, { buffer = bufnr, desc = "Goto references" })
+    keymap("n", "gr", function() telescope "references" end, "Goto references")
   end
 
   if client.supports_method "textDocument/typeDefinition" then
-    keymap(
-      "n",
-      "gt",
-      function() telescope_lsp "type_definitions" end,
-      { buffer = bufnr, desc = "Goto type definitions" }
-    )
+    keymap("n", "gt", function() telescope "type_definitions" end, "Goto type definitions")
   end
 
   if client.supports_method "textDocument/codeAction" then
-    keymap({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, { buffer = bufnr, desc = "Code action" })
+    keymap({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, "Code action")
   end
 
   if client.supports_method "textDocument/formatting" then
-    keymap({ "n", "v" }, "<leader>lf", vim.lsp.buf.format, { buffer = bufnr, desc = "Format code (LSP)" })
+    keymap({ "n", "v" }, "<leader>lf", vim.lsp.buf.format, "Format code")
   end
 
   if client.supports_method "textDocument/codeLens" then
-    keymap("n", "<leader>lL", vim.lsp.codelens.run, { buffer = bufnr, desc = "CodeLens run" })
+    keymap("n", "<leader>lL", vim.lsp.codelens.run, "CodeLens run")
   end
 
   if client.supports_method "textDocument/rename" then
-    keymap("n", "<leader>lr", vim.lsp.buf.rename, { buffer = bufnr, desc = "Rename current symbol" })
+    keymap("n", "<leader>lr", vim.lsp.buf.rename, "Rename current symbol")
   end
 
   if client.supports_method "textDocument/signatureHelp" then
-    keymap("n", "<leader>ls", vim.lsp.buf.signature_help, { buffer = bufnr, desc = "Signature help" })
+    keymap("n", "<leader>ls", vim.lsp.buf.signature_help, "Signature help")
   end
 
-  keymap("n", "<leader>ld", vim.diagnostic.open_float, { buffer = bufnr, desc = "Line diagnostics" })
-  keymap("n", "<leader>lq", vim.diagnostic.setloclist, { buffer = bufnr, desc = "List diagnostic" })
-  keymap("n", "]d", vim.diagnostic.goto_next, { buffer = bufnr, desc = "Next diagnostic" })
-  keymap("n", "[d", vim.diagnostic.goto_prev, { buffer = bufnr, desc = "Previous diagnostic" })
+  keymap("n", "<leader>ld", vim.diagnostic.open_float, "Line diagnostics")
+  keymap("n", "<leader>lq", vim.diagnostic.setloclist, "List diagnostic")
+  keymap("n", "]d", vim.diagnostic.goto_next, "Next diagnostic")
+  keymap("n", "[d", vim.diagnostic.goto_prev, "Previous diagnostic")
 
   if client.supports_method "textDocument/inlayHint" then
     vim.lsp.inlay_hint(bufnr, true)
-    keymap("n", "<leader>lI", function() vim.lsp.inlay_hint(bufnr) end, { buffer = bufnr, desc = "Toggle inlay hints" })
+    keymap("n", "<leader>lI", function() vim.lsp.inlay_hint(bufnr) end, "Toggle inlay hints")
   end
 end
 
-function M.setup_lspconfig(servers)
+function M.setup_lspconfig(servers, lsp_config)
   local default_handlers = {
     on_attach = on_attach,
     capabilities = setup_lsp_capabilities(),
   }
 
   for _, server in ipairs(servers) do
-    --   local has_extra_handlers, extra_handlers = pcall(require, "coding.lspconfig." .. server)
-    --
-    --   if has_extra_handlers then
-    --     require("lspconfig")[server].setup(vim.tbl_deep_extend("force", default_handlers, extra_handlers))
-    --   else
-    if server == "lua_ls" then
-      require("lspconfig")[server].setup(vim.tbl_deep_extend("force", default_handlers, {
-        settings = {
-          Lua = {
-            workspace = { checkThirdParty = false },
-            format = { enable = false },
-            completion = { callSnippet = "Replace" },
-            hint = { enable = true },
-          },
-        },
-      }))
-      return
+    if lsp_config[server] ~= nil then
+      require("lspconfig")[server].setup(vim.tbl_deep_extend("force", default_handlers, lsp_config[server]))
     end
-
-    require("lspconfig")[server].setup(default_handlers)
-    --   end
   end
 end
 
