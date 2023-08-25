@@ -1,7 +1,7 @@
 local keys = {
-  { "n", "]t", function() require("todo-comments").jump_next() end, { desc = "Next todo comment" } },
-  { "n", "[t", function() require("todo-comments").jump_prev() end, { desc = "Previous todo comment" } },
-  { "n", "<leader>st", ":TodoTelescope<CR>", { desc = "Todo comment" } },
+  { "]t", function() require("todo-comments").jump_next() end, "Next todo comment" },
+  { "[t", function() require("todo-comments").jump_prev() end, "Previous todo comment" },
+  { "<leader>st", ":TodoTelescope<CR>", "Todo comment" },
 }
 
 require("utils.plugin").lazy {

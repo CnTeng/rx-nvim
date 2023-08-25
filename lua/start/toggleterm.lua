@@ -18,21 +18,19 @@ local opts = {
 }
 
 local keys = {
-  { "n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", { desc = "ToggleTerm float" } },
-  { "n", "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", { desc = "ToggleTerm horizontal split" } },
-  { "n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", { desc = "ToggleTerm vertical split" } },
+  { "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", "ToggleTerm float" },
+  { "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "ToggleTerm horizontal split" },
+  { "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", "ToggleTerm vertical split" },
   {
-    "n",
     "<leader>tg",
     function() require("toggleterm.terminal").Terminal:new({ cmd = "lazygit", hidden = true }):toggle() end,
-    { desc = "Lazygit" },
+    "Lazygit",
   },
 
   {
-    "n",
     "<leader>tl",
     function() require("toggleterm.terminal").Terminal:new({ cmd = "lf", hidden = true }):toggle() end,
-    { desc = "lf" },
+    "lf",
   },
 }
 

@@ -1,10 +1,10 @@
 local keys = {
-  { "n", "<leader>/", function() require("Comment.api").toggle.linewise.current() end, { desc = "Comment line" } },
+  { "<leader>/", function() require("Comment.api").toggle.linewise.current() end, desc = "Comment line" },
   {
-    "v",
+    mode = "v",
     "<leader>/",
     "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
-    { desc = "Comment line" },
+    "Comment line",
   },
 }
 
