@@ -15,22 +15,26 @@ function M.load(args)
   if args.config ~= nil then args.config() end
 end
 
-local lazy_group = augroup("lazy", { clear = true })
+local lazy_group = augroup("lazy load", { clear = true })
 
 function M.lazy(args)
   if args.pattern == nil then args.pattern = "*" end
+  if args.setup == nil then args.setup = true end
 
-  autocmd(args.events, {
+  autocmd(args.event, {
     desc = "Lazy load plugin",
     group = lazy_group,
     once = true,
     pattern = args.pattern,
     callback = function()
-      if args.pname ~= nil then vim.cmd.packadd(args.pname) end
+      local pack = args.name:gsub("_", "-"):lower()
 
-      M.load { name = args.name, opts = args.opts, keys = args.keys }
+      vim.cmd.packadd(pack .. ".nvim")
+      vim.cmd.packadd("nvim-" .. pack)
+      vim.cmd.packadd(pack)
 
-      if args.callback ~= nil then args.callback() end
+      args.name = args.setup and args.name or nil
+      M.load(args)
     end,
   })
 end

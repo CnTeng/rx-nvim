@@ -15,4 +15,7 @@ local opts = {
   },
 }
 
-require("utils.plugin").load { name = "statuscol", opts = opts }
+require("utils.plugin").load {
+  name = "statuscol",
+  opts = opts,
+}
