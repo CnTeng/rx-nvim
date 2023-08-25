@@ -26,7 +26,7 @@ end
 dashboard.section.header.opts.hl = "DashboardHeader"
 dashboard.section.footer.opts.hl = "DashboardFooter"
 
-local keys = { { "n", "<leader>a", "<cmd>Alpha<cr>", { desc = "Alpha" } } }
+local keys = { { "<leader>a", "<cmd>Alpha<cr>", "Alpha" } }
 
 require("utils.plugin").load {
   name = "alpha",

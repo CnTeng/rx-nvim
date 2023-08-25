@@ -19,7 +19,7 @@ local opts = {
       enabled = true,
       color_mode = true,
     },
-    mini = true,
+    gitsigns = true,
     indent_blankline = {
       enabled = true,
       colored_indent_levels = true,
@@ -36,7 +36,6 @@ local opts = {
       style = "nvchad",
     },
     illuminate = true,
-    gitsigns = true,
     which_key = true,
   },
 }

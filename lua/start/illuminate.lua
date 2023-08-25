@@ -5,8 +5,8 @@ local opts = {
   },
 }
 local keys = {
-  { "n", "]]", function() require("illuminate").goto_next_reference(false) end, { desc = "Next reference" } },
-  { "n", "[[", function() require("illuminate").goto_prev_reference(false) end, { desc = "Previous reference" } },
+  { "]]", function() require("illuminate").goto_next_reference(false) end, "Next reference" },
+  { "[[", function() require("illuminate").goto_prev_reference(false) end, "Previous reference" },
 }
 
 require("utils.plugin").load {

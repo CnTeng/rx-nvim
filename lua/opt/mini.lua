@@ -1,6 +1,6 @@
 local keys = {
-  { "n", "<leader>c", function() require("mini.bufremove").delete(0, false) end, { desc = "Close buffer" } },
-  { "n", "<leader>bc", function() require("mini.bufremove").delete(0, false) end, { desc = "Close buffer" } },
+  { "<leader>c", function() require("mini.bufremove").delete(0, false) end, "Close buffer" },
+  { "<leader>bc", function() require("mini.bufremove").delete(0, false) end, "Close buffer" },
 }
 
 require("utils.plugin").lazy {

@@ -39,6 +39,7 @@ lsp_config.lua_ls = {
       workspace = { checkThirdParty = false },
       format = { enable = false },
       completion = { callSnippet = "Replace" },
+      hint = { enable = true },
     },
   },
 }

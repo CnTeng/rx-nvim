@@ -42,28 +42,28 @@ local opts = {
 
 local keys = {
   -- Buffer
-  { "n", "<leader>bs", function() require("telescope.builtin").buffers() end, { desc = "Swicth buffer" } },
+  { "<leader>bs", function() require("telescope.builtin").buffers() end, "Swicth buffer" },
   -- File
-  { "n", "<leader>fr", function() require("telescope.builtin").oldfiles() end, { desc = "Recent files" } },
-  { "n", "<leader>ff", function() require("telescope.builtin").find_files() end, { desc = "Find files" } },
+  { "<leader>fr", function() require("telescope.builtin").oldfiles() end, "Recent files" },
+  { "<leader>ff", function() require("telescope.builtin").find_files() end, "Find files" },
   -- Search
-  { "n", "<leader>sb", function() require("telescope.builtin").current_buffer_fuzzy_find() end, { desc = "Buffer" } },
-  { "n", "<leader>sc", function() require("telescope.builtin").commands() end, { desc = "Commands" } },
-  { "n", "<leader>sC", function() require("telescope.builtin").command_history() end, { desc = "Command history" } },
-  { "n", "<leader>sh", function() require("telescope.builtin").help_tags() end, { desc = "Help pages" } },
-  { "n", "<leader>sH", function() require("telescope.builtin").highlights() end, { desc = "Highlight groups" } },
-  { "n", "<leader>sk", function() require("telescope.builtin").keymaps() end, { desc = "Key maps" } },
-  { "n", "<leader>sm", function() require("telescope.builtin").man_pages() end, { desc = "Man pages" } },
-  { "n", "<leader>sn", function() require("telescope").extensions.notify.notify() end, { desc = "Notifications" } },
-  { "n", "<leader>so", function() require("telescope.builtin").vim_options() end, { desc = "Options" } },
-  { "n", "<leader>sr", function() require("telescope.builtin").registers() end, { desc = "Registers" } },
-  { "n", "<leader>su", function() require("telescope.builtin").grep_string() end, { desc = "Current word" } },
-  { "n", "<leader>sU", function() require("telescope").extensions.undo.undo() end, { desc = "Undo" } },
-  { "n", "<leader>sw", function() require("telescope.builtin").live_grep() end, { desc = "Word" } },
+  { "<leader>sb", function() require("telescope.builtin").current_buffer_fuzzy_find() end, "Buffer" },
+  { "<leader>sc", function() require("telescope.builtin").commands() end, "Commands" },
+  { "<leader>sC", function() require("telescope.builtin").command_history() end, "Command history" },
+  { "<leader>sh", function() require("telescope.builtin").help_tags() end, "Help pages" },
+  { "<leader>sH", function() require("telescope.builtin").highlights() end, "Highlight groups" },
+  { "<leader>sk", function() require("telescope.builtin").keymaps() end, "Key maps" },
+  { "<leader>sm", function() require("telescope.builtin").man_pages() end, "Man pages" },
+  { "<leader>sn", function() require("telescope").extensions.notify.notify() end, "Notifications" },
+  { "<leader>so", function() require("telescope.builtin").vim_options() end, "Options" },
+  { "<leader>sr", function() require("telescope.builtin").registers() end, "Registers" },
+  { "<leader>su", function() require("telescope.builtin").grep_string() end, "Current word" },
+  { "<leader>sU", function() require("telescope").extensions.undo.undo() end, "Undo" },
+  { "<leader>sw", function() require("telescope.builtin").live_grep() end, "Word" },
   -- Git
-  { "n", "<leader>gt", function() require("telescope.builtin").git_status() end, { desc = "Git status" } },
-  { "n", "<leader>gb", function() require("telescope.builtin").git_branches() end, { desc = "Git branches" } },
-  { "n", "<leader>gc", function() require("telescope.builtin").git_commits() end, { desc = "Git commits" } },
+  { "<leader>gt", function() require("telescope.builtin").git_status() end, "Git status" },
+  { "<leader>gb", function() require("telescope.builtin").git_branches() end, "Git branches" },
+  { "<leader>gc", function() require("telescope.builtin").git_commits() end, "Git commits" },
 }
 
 require("utils.plugin").load { name = "telescope", opts = opts, keys = keys }

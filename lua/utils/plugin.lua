@@ -5,11 +5,13 @@ local augroup = vim.api.nvim_create_augroup
 
 function M.load(args)
   if args.name ~= nil then require(args.name).setup(args.opts) end
+
   if args.keys ~= nil then
-    for _, v in ipairs(args.keys) do
-      vim.keymap.set(v[1], v[2], v[3], v[4])
+    for _, key in ipairs(args.keys) do
+      require("utils").keymap(key)
     end
   end
+
   if args.config ~= nil then args.config() end
 end
 

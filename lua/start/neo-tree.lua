@@ -52,7 +52,7 @@ local opts = {
 }
 
 local keys = {
-  { "n", "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Explorer" },
+  { "<leader>e", "<cmd>Neotree toggle<cr>", "Explorer" },
 }
 
 require("utils.plugin").load {

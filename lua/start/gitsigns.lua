@@ -17,15 +17,15 @@ local opts = {
 }
 
 local keys = {
-  { "n", "]h", function() require("gitsigns").next_hunk() end, { desc = "Next hunk" } },
-  { "n", "[h", function() require("gitsigns").prev_hunk() end, { desc = "Previous hunk" } },
-  { "n", "<leader>gl", function() require("gitsigns").blame_line() end, { desc = "View blame" } },
-  { "n", "<leader>gp", function() require("gitsigns").preview_hunk() end, { desc = "Preview hunk" } },
-  { "n", "<leader>gr", function() require("gitsigns").reset_hunk() end, { desc = "Reset hunk" } },
-  { "n", "<leader>gR", function() require("gitsigns").reset_buffer() end, { desc = "Reset buffer" } },
-  { "n", "<leader>gs", function() require("gitsigns").stage_hunk() end, { desc = "Stage hunk" } },
-  { "n", "<leader>gu", function() require("gitsigns").undo_stage_hunk() end, { desc = "Unstage hunk" } },
-  { "n", "<leader>gd", function() require("gitsigns").diffthis() end, { desc = "View diff" } },
+  { "]h", function() require("gitsigns").next_hunk() end, "Next hunk" },
+  { "[h", function() require("gitsigns").prev_hunk() end, "Previous hunk" },
+  { "<leader>gl", function() require("gitsigns").blame_line() end, "View blame" },
+  { "<leader>gp", function() require("gitsigns").preview_hunk() end, "Preview hunk" },
+  { "<leader>gr", function() require("gitsigns").reset_hunk() end, "Reset hunk" },
+  { "<leader>gR", function() require("gitsigns").reset_buffer() end, "Reset buffer" },
+  { "<leader>gs", function() require("gitsigns").stage_hunk() end, "Stage hunk" },
+  { "<leader>gu", function() require("gitsigns").undo_stage_hunk() end, "Unstage hunk" },
+  { "<leader>gd", function() require("gitsigns").diffthis() end, "View diff" },
 }
 
 require("utils.plugin").load {
