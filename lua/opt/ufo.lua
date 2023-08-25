@@ -53,8 +53,7 @@ local keys = {
 }
 
 require("utils.plugin").lazy {
-  events = { "VimEnter" },
-  pname = "nvim-ufo",
+  event = { "VimEnter" },
   name = "ufo",
   opts = opts,
   keys = keys,

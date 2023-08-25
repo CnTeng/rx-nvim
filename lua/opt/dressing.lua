@@ -1,7 +1,7 @@
 local opts = {
   input = { border = "single" },
   select = {
-    backend = { "fzf_lua", "builtin" },
+    backend = { "builtin" },
     builtin = {
       title_pos = "left",
       border = "single",
@@ -11,7 +11,9 @@ local opts = {
     },
   },
 }
-require("utils.plugin").load {
+
+require("utils.plugin").lazy {
+  event = "UIEnter",
   name = "dressing",
   opts = opts,
 }

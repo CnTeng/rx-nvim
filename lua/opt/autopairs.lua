@@ -15,11 +15,10 @@ local opts = {
 }
 
 require("utils.plugin").lazy {
-  events = { "BufReadPre", "BufNewFile" },
-  pname = "nvim-autopairs",
+  event = { "BufReadPre", "BufNewFile" },
   name = "nvim-autopairs",
   opts = opts,
-  callback = function()
+  config = function()
     local cmp_autopairs = require "nvim-autopairs.completion.cmp"
     local cmp = require "cmp"
     cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())

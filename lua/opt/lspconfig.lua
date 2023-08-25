@@ -1,5 +1,5 @@
 local keys = {
-  { "n", "<leader>li", "<cmd>LspInfo<cr>", desc = "LSP info" },
+  { "<leader>li", "<cmd>LspInfo<cr>", "LSP info" },
 }
 
 local signs = {
@@ -70,8 +70,14 @@ lsp.nil_ls = {
   },
 }
 
-require("utils.plugin").load { name = "neodev", keys = keys }
-
-require("utils.lsp").setup_diagnostic(signs, opts.diagnostics)
-
-require("utils.lsp").setup_lspconfig(opts.servers, lsp)
+require("utils.plugin").lazy {
+  event = { "BufReadPre", "BufNewFile" },
+  name = "lspconfig",
+  setup = false,
+  keys = keys,
+  config = function()
+    vim.api.nvim_exec_autocmds("User", { pattern = "neodev" })
+    require("utils.lsp").setup_diagnostic(signs, opts.diagnostics)
+    require("utils.lsp").setup_lspconfig(opts.servers, lsp)
+  end,
+}
