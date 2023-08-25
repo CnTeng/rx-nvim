@@ -15,15 +15,12 @@ local opts = {
     operators = {},
   },
   integrations = {
+    aerial = true,
     dropbar = {
       enabled = true,
       color_mode = true,
     },
     gitsigns = true,
-    indent_blankline = {
-      enabled = true,
-      colored_indent_levels = true,
-    },
     leap = true,
     markdown = true,
     neotree = true,

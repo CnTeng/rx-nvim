@@ -1,6 +1,6 @@
 local M = {}
 
-function M.setup_diagnostic_signs(signs, diagnostics)
+function M.setup_diagnostic(signs, diagnostics)
   for _, sign in ipairs(signs) do
     if not sign.texthl then sign.texthl = sign.name end
     vim.fn.sign_define(sign.name, sign)
