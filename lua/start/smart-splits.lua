@@ -9,16 +9,16 @@ local opts = {
 }
 
 local keys = {
-  { "n", "<A-r>", function() require("smart-splits").start_resize_mode() end },
-  { "n", "<A-h>", function() require("smart-splits").resize_left() end },
-  { "n", "<A-j>", function() require("smart-splits").resize_down() end },
-  { "n", "<A-k>", function() require("smart-splits").resize_up() end },
-  { "n", "<A-l>", function() require("smart-splits").resize_right() end },
+  { "<A-r>", function() require("smart-splits").start_resize_mode() end },
+  { "<A-h>", function() require("smart-splits").resize_left() end },
+  { "<A-j>", function() require("smart-splits").resize_down() end },
+  { "<A-k>", function() require("smart-splits").resize_up() end },
+  { "<A-l>", function() require("smart-splits").resize_right() end },
   -- Better window navigation
-  { "n", "<C-h>", function() require("smart-splits").move_cursor_left() end },
-  { "n", "<C-j>", function() require("smart-splits").move_cursor_down() end },
-  { "n", "<C-k>", function() require("smart-splits").move_cursor_up() end },
-  { "n", "<C-l>", function() require("smart-splits").move_cursor_right() end },
+  { "<C-h>", function() require("smart-splits").move_cursor_left() end },
+  { "<C-j>", function() require("smart-splits").move_cursor_down() end },
+  { "<C-k>", function() require("smart-splits").move_cursor_up() end },
+  { "<C-l>", function() require("smart-splits").move_cursor_right() end },
 }
 
 require("utils.plugin").load { name = "smart-splits", opts = opts, keys = keys }

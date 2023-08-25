@@ -18,14 +18,14 @@ local opts = {
 }
 
 local keys = {
-  { "n", "[b", "<cmd>bprevious<cr>", { desc = "Previous buffer" } },
-  { "n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" } },
-  { "n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Previous buffer" } },
-  { "n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Previous buffer" } },
-  { "n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" } },
-  { "n", "<leader>bC", "<cmd>bdelete<cr>", { desc = "Close buffer (without layout)" } },
-  { "n", "<leader>bh", "<cmd>BufferLineMovePrev<cr>", { silent = true, desc = "Move buffer Left" } },
-  { "n", "<leader>bl", "<cmd>BufferLineMoveNext<cr>", { silent = true, desc = "Move buffer Right" } },
+  { "[b", "<cmd>bprevious<cr>", "Previous buffer" },
+  { "]b", "<cmd>bnext<cr>", "Next buffer" },
+  { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", "Previous buffer" },
+  { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", "Previous buffer" },
+  { "<S-l>", "<cmd>BufferLineCycleNext<cr>", "Next buffer" },
+  { "<leader>bC", "<cmd>bdelete<cr>", "Close buffer (without layout)" },
+  { "<leader>bh", "<cmd>BufferLineMovePrev<cr>", { silent = true, desc = "Move buffer Left" } },
+  { "<leader>bl", "<cmd>BufferLineMoveNext<cr>", { silent = true, desc = "Move buffer Right" } },
 }
 
 require("utils.plugin").lazy {
