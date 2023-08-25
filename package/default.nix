@@ -78,7 +78,7 @@ in
           friendly-snippets
           plenary-nvim
           telescope-undo-nvim
-          telescope-ui-select-nvim
+          telescope-fzf-native-nvim
           neodev-nvim
 
           cmp-nvim-lsp

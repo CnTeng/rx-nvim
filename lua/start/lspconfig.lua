@@ -25,15 +25,9 @@ local opts = {
   },
 }
 
-require("utils.plugin").load { name = "neodev" }
+local lsp = {}
 
-require("utils.plugin").load { keys = keys }
-
-require("utils.lsp").setup_diagnostic_signs(signs, opts.diagnostics)
-
-local lsp_config = {}
-
-lsp_config.lua_ls = {
+lsp.lua_ls = {
   settings = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -44,7 +38,7 @@ lsp_config.lua_ls = {
   },
 }
 
-lsp_config.diagnosticls = {
+lsp.diagnosticls = {
   filetypes = { "lua" },
   init_options = {
     filetypes = {
@@ -68,4 +62,16 @@ lsp_config.diagnosticls = {
   },
 }
 
-require("utils.lsp").setup_lspconfig(opts.servers, lsp_config)
+lsp.nil_ls = {
+  settings = {
+    ["nil"] = {
+      formatting = { command = { "alejandra" } },
+    },
+  },
+}
+
+require("utils.plugin").load { name = "neodev", keys = keys }
+
+require("utils.lsp").setup_diagnostic(signs, opts.diagnostics)
+
+require("utils.lsp").setup_lspconfig(opts.servers, lsp)

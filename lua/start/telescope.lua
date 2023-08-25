@@ -3,10 +3,8 @@ local actions = require "telescope.actions"
 
 local opts = {
   defaults = {
-    prompt_prefix = "   ",
     selection_caret = "  ",
     path_display = { "smart" },
-
     mappings = {
       i = {
         ["<C-n>"] = actions.cycle_history_next,
@@ -33,8 +31,11 @@ local opts = {
     },
   },
   extensions = {
-    ["ui-select"] = {
-      require("telescope.themes").get_dropdown {},
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = true,
+      override_file_sorter = true,
+      case_mode = "smart_case",
     },
     undo = {},
   },
@@ -68,5 +69,5 @@ local keys = {
 
 require("utils.plugin").load { name = "telescope", opts = opts, keys = keys }
 
-telescope.load_extension "ui-select"
+telescope.load_extension "fzf"
 telescope.load_extension "undo"
