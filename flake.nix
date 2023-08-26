@@ -1,13 +1,6 @@
 {
   description = "NixOS Configuration";
 
-  # nixConfig = {
-  #   extra-substituters = ["https://cache.snakepi.xyz"];
-  #   extra-trusted-public-keys = [
-  #     "cache.snakepi.xyz-1:CnMDci45ncAX/kR+3RyxeRLYa+9cFHH+LrOhVEiE1ss="
-  #   ];
-  # };
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -18,9 +11,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    treefmt-nix = {
+    treefmt = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    neovim-nightly = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
     };
   };
 
@@ -32,16 +31,6 @@
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux" "aarch64-linux"];
 
-      imports = [./devshell];
-      flake.homeModules.default = import ./home self;
-
-      perSystem = {
-        pkgs,
-        lib,
-        config,
-        ...
-      }: {
-        packages.default = pkgs.callPackage ./package {};
-      };
+      imports = [./flake];
     };
 }
