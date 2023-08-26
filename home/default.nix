@@ -10,7 +10,7 @@ with lib; let
     nixSupport = cfg.languages.nix;
     luaSupport = cfg.languages.lua;
     pythonSupport = cfg.languages.python;
-    extraPkgs = cfg.extraPackages;
+    inherit (cfg) extraPackages;
   };
 in {
   options.programs.rx-nvim = {
