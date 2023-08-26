@@ -31,7 +31,8 @@ function M.lazy(args)
     once = true,
     pattern = args.pattern,
     callback = function()
-      local pack = args.name:gsub("_", "-"):lower()
+      local pack = args.name:lower()
+      if args.name == "indent_blankline" then pack = "indent-blankline" end
 
       vim.cmd.packadd(pack .. ".nvim")
       vim.cmd.packadd("nvim-" .. pack)
