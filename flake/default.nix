@@ -3,7 +3,7 @@
   self,
   ...
 }: {
-  flake.homeModules.default = import ./home self;
+  flake.homeModules.default = import ../home self;
 
   imports = [./devshell.nix ./treefmt.nix];
 
