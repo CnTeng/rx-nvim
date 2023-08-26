@@ -11,6 +11,8 @@ with lib; let
     luaSupport = cfg.languages.lua;
     pythonSupport = cfg.languages.python;
     inherit (cfg) extraPackages;
+    gptSupport = cfg.gptSupport.enable;
+    gptSecrets = cfg.gptSupport.secretsPath;
   };
 in {
   options.programs.rx-nvim = {
@@ -25,6 +27,12 @@ in {
       type = with types; listOf package;
       default = [];
       description = "Extra packages available to nvim.";
+    };
+    gptSupport = {
+      enable = mkEnableOption "ChatGPT support";
+      secretsPath = mkOption {
+        type = types.str;
+      };
     };
   };
 

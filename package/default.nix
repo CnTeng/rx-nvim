@@ -5,6 +5,7 @@
   neovim-unwrapped,
   writeTextFile,
   ripgrep,
+  jq,
   fd,
   vimPlugins,
   stylua,
@@ -22,9 +23,10 @@
   nixPkgs ? [nil alejandra],
   pythonSupport ? true,
   pythonPkgs ? [black],
-  defaultPackages ? [nodePackages.diagnostic-languageserver ripgrep fd],
+  defaultPackages ? [nodePackages.diagnostic-languageserver ripgrep fd jq],
   extraPackages ? [],
-  gptSupport ? true,
+  gptSupport ? false,
+  gptSecrets ? "",
 }:
 with lib; let
   inherit (import ./lib.nix lib vimPlugins) getPluginName getPluginPkg mkInitFile;
@@ -53,6 +55,7 @@ with lib; let
       + optionalString nixSupport "vim.g.nixsupport = true\n"
       + optionalString pythonSupport "vim.g.pythonsupport = true\n"
       + optionalString gptSupport "vim.g.gptsupport = true\n"
+      + optionalString gptSupport "vim.g.gptsecrets = \"${gptSecrets}\"\n"
       + mkInitFile "start" startPlugins
       + mkInitFile "opt" optPlugins;
   };
@@ -66,7 +69,7 @@ with lib; let
     (nvim-treesitter.withPlugins (
       p:
         with p;
-          [markdown]
+          [markdown bash]
           ++ optionals cppSupport [c cpp]
           ++ optionals luaSupport [lua]
           ++ optionals nixSupport [nix]
