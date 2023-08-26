@@ -43,7 +43,10 @@ local opts = {
   event_handlers = {
     {
       event = "neo_tree_buffer_enter",
-      handler = function() vim.opt.foldenable = false end,
+      handler = function()
+        vim.opt.foldenable = false
+        vim.opt.foldcolumn = "0"
+      end,
     },
   },
 }
