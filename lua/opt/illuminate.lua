@@ -1,4 +1,5 @@
 local opts = {
+  filetype_overrides = { "neo-tree" },
   large_file_cutoff = 2000,
   large_file_overrides = {
     providers = { "lsp" },

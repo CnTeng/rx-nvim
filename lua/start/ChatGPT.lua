@@ -1,10 +1,7 @@
 if vim.g.gptsupport then
   local opts = {
-    api_key_cmd = "cat ./key",
-    api_host_cmd = "cat ./host",
-    chat = {
-      welcome_message = "hello",
-    },
+    api_key_cmd = "jq -r .key " .. vim.g.gptsecrets,
+    api_host_cmd = "jq -r .host " .. vim.g.gptsecrets,
     openai_params = {
       model = "gpt-3.5-turbo",
       frequency_penalty = 0,
