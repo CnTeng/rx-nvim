@@ -9,7 +9,10 @@ local keys = {
   { "[[", function() require("illuminate").goto_prev_reference(false) end, "Previous reference" },
 }
 
-require("utils.plugin").load {
-  keys = keys,
+require("utils.plugin").lazy {
+  event = { "BufReadPre", "BufNewFile" },
+  name = "illuminate",
+  setup = false,
   config = function() require("illuminate").configure(opts) end,
+  keys = keys,
 }

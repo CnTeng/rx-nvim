@@ -16,8 +16,8 @@ local opts = {
   window = {
     width = 30,
     mappings = {
-      ["<space>"] = false,
-      ["<cr>"] = false,
+      ["<space>"] = "noop",
+      ["<cr>"] = "noop",
       ["l"] = "open",
       ["h"] = "close_node",
       ["K"] = "focus_preview",
@@ -43,7 +43,7 @@ local opts = {
   event_handlers = {
     {
       event = "neo_tree_buffer_enter",
-      handler = function() vim.opt.foldcolumn = "0" end,
+      handler = function() vim.opt.foldenable = false end,
     },
   },
 }

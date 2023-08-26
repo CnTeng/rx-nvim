@@ -28,7 +28,8 @@ local keys = {
   { "<leader>gd", function() require("gitsigns").diffthis() end, "View diff" },
 }
 
-require("utils.plugin").load {
+require("utils.plugin").lazy {
+  event = { "BufReadPre", "BufNewFile" },
   name = "gitsigns",
   opts = opts,
   keys = keys,
