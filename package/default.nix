@@ -7,17 +7,26 @@
   ripgrep,
   fd,
   vimPlugins,
-  nixSupport ? true,
-  luaSupport ? true,
-  pythonSupport ? true,
-  nil ? nixSupport,
-  alejandra ? nixSupport,
-  stylua ? luaSupport,
-  lua-language-server ? luaSupport,
-  black ? pythonSupport,
-  nodePackages,
+  stylua,
+  nil,
+  alejandra,
+  lua-language-server,
+  black,
   clang-tools,
-}: let
+  nodePackages,
+  cppSupport ? true,
+  cppPkgs ? [clang-tools],
+  luaSupport ? true,
+  luaPkgs ? [stylua lua-language-server],
+  nixSupport ? true,
+  nixPkgs ? [nil alejandra],
+  pythonSupport ? true,
+  pythonPkgs ? [black],
+  defaultPackages ? [nodePackages.diagnostic-languageserver ripgrep fd],
+  extraPackages ? [],
+  gptSupport ? true,
+}:
+with lib; let
   inherit (import ./lib.nix lib vimPlugins) getPluginName getPluginPkg mkInitFile;
 
   startPlugins = getPluginName ../lua/start;
@@ -39,55 +48,66 @@
         vim.opt.rtp:append("${configDir}")
         require "core"
       ''
+      + optionalString luaSupport "vim.g.luasupport = true\n"
+      + optionalString cppSupport "vim.g.cppsupport = true\n"
+      + optionalString nixSupport "vim.g.nixsupport = true\n"
+      + optionalString pythonSupport "vim.g.pythonsupport = true\n"
+      + optionalString gptSupport "vim.g.gptsupport = true\n"
       + mkInitFile "start" startPlugins
       + mkInitFile "opt" optPlugins;
   };
 
-  extraPackages = [
-    nodePackages.diagnostic-languageserver
-    lua-language-server
-    ripgrep
-    fd
-    # Lua
-    lua-language-server # LSP
-    stylua # Formatter
+  defaultPlugins = with vimPlugins; [
+    nvim-web-devicons
+    plenary-nvim
+  ];
 
-    # C & C++
-    clang-tools # LSP & Formatter
+  treesitterPlugins = with vimPlugins; [
+    (nvim-treesitter.withPlugins (
+      p:
+        with p;
+          [markdown]
+          ++ optionals cppSupport [c cpp]
+          ++ optionals luaSupport [lua]
+          ++ optionals nixSupport [nix]
+          ++ optionals pythonSupport [python]
+    ))
+    nvim-treesitter-context
+    nvim-ts-rainbow2
+  ];
 
-    # Nix
-    nil # LSP
-    alejandra
+  cmpPlugins = with vimPlugins; [
+    cmp-nvim-lsp
+    cmp_luasnip
+    cmp-buffer
+    cmp-path
+    cmp-cmdline
+    lspkind-nvim
+  ];
+
+  telescopePlugins = with vimPlugins; [
+    telescope-undo-nvim
+    telescope-fzf-native-nvim
   ];
 in
   wrapNeovim neovim-unwrapped {
     configure = {
       customRC = "luafile ${initFile}";
-      packages.all.opt = getPluginPkg optPlugins ++ [];
+      packages.all.opt = getPluginPkg optPlugins;
       packages.all.start =
         getPluginPkg startPlugins
-        ++ (with vimPlugins; [
-          (nvim-treesitter.withPlugins (
-            plugins:
-              with plugins; [
-                nix
-                lua
-              ]
-          ))
-          nvim-web-devicons
-          friendly-snippets
-          plenary-nvim
-          telescope-undo-nvim
-          telescope-fzf-native-nvim
-          neodev-nvim
-
-          cmp-nvim-lsp
-          cmp_luasnip
-          cmp-buffer
-          cmp-path
-          cmp-cmdline
-          lspkind-nvim
-        ]);
+        ++ defaultPlugins
+        ++ treesitterPlugins
+        ++ cmpPlugins
+        ++ telescopePlugins;
     };
-    extraMakeWrapperArgs = ''--suffix PATH : "${lib.makeBinPath extraPackages}"'';
+    extraMakeWrapperArgs = ''--suffix PATH : "${
+        makeBinPath
+        (defaultPackages
+          ++ optionals cppSupport cppPkgs
+          ++ optionals luaSupport luaPkgs
+          ++ optionals pythonSupport pythonPkgs
+          ++ optionals nixSupport nixPkgs
+          ++ extraPackages)
+      }"'';
   }
