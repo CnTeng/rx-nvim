@@ -53,7 +53,7 @@ local keys = {
 }
 
 require("utils.plugin").lazy {
-  event = { "VimEnter" },
+  event = { "BufReadPost", "BufNewFile" },
   name = "ufo",
   opts = opts,
   keys = keys,

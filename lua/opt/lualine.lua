@@ -20,7 +20,7 @@ local opts = {
       { "diff", colored = false, symbols = { added = " ", modified = " ", removed = " " } },
     },
     lualine_c = {
-      { "diagnostics", sources = { "coc" } },
+      { "diagnostics", sources = { "nvim_diagnostic" } },
     },
     lualine_x = {
       { "filetype", icon_only = true },

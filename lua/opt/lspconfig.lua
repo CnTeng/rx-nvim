@@ -18,7 +18,6 @@ local opts = {
     severity_sort = true,
   },
   servers = {
-    "lua_ls", -- Lua
     "clangd", -- C++ & C
     "nil_ls", -- Nix
     "diagnosticls",
@@ -27,16 +26,20 @@ local opts = {
 
 local lsp = {}
 
-lsp.lua_ls = {
-  settings = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      format = { enable = false },
-      completion = { callSnippet = "Replace" },
-      hint = { enable = true },
+if vim.g.luasupport then
+  table.insert(opts.servers, "lua_ls")
+
+  lsp.lua_ls = {
+    settings = {
+      Lua = {
+        workspace = { checkThirdParty = false },
+        format = { enable = false },
+        completion = { callSnippet = "Replace" },
+        hint = { enable = true },
+      },
     },
-  },
-}
+  }
+end
 
 lsp.diagnosticls = {
   filetypes = { "lua" },
@@ -77,6 +80,7 @@ require("utils.plugin").lazy {
   keys = keys,
   config = function()
     vim.api.nvim_exec_autocmds("User", { pattern = "neodev" })
+
     require("utils.lsp").setup_diagnostic(signs, opts.diagnostics)
     require("utils.lsp").setup_lspconfig(opts.servers, lsp)
   end,
