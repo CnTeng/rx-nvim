@@ -1,3 +1,3 @@
-require("utils.plugin").load {
-  name = "notifier",
-}
+-- require("utils.plugin").load {
+--   name = "notifier",
+-- }
