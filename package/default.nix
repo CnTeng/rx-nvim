@@ -3,34 +3,41 @@
   stdenv,
   wrapNeovim,
   neovim-unwrapped,
-  writeText,
   writeTextFile,
   ripgrep,
   fd,
   vimPlugins,
-  nixSupport ? true,
+  stylua,
+  nil,
+  alejandra,
+  lua-language-server,
+  black,
+  clang-tools,
+  nodePackages,
+  cppSupport ? true,
+  cppPkgs ? [clang-tools],
   luaSupport ? true,
+  luaPkgs ? [stylua lua-language-server],
+  nixSupport ? true,
+  nixPkgs ? [nil alejandra],
   pythonSupport ? true,
-  nil ? nixSupport,
-  alejandra ? nixSupport,
-  stylua ? luaSupport,
-  lua-language-server ? luaSupport,
-  black ? pythonSupport,
-}: let
-  inherit (import ./lib.nix lib) getPlugins mkInitFile;
+  pythonPkgs ? [black],
+  defaultPackages ? [nodePackages.diagnostic-languageserver ripgrep fd],
+  extraPackages ? [],
+  gptSupport ? true,
+}:
+with lib; let
+  inherit (import ./lib.nix lib vimPlugins) getPluginName getPluginPkg mkInitFile;
 
-  startPlugins = getPlugins ../config/start;
-  optPlugins = getPlugins ../config/opt;
-
-  cocSettingsFile = writeText "coc-settings.json" (builtins.toJSON cocSettings);
+  startPlugins = getPluginName ../lua/start;
+  optPlugins = getPluginName ../lua/opt;
 
   configDir = stdenv.mkDerivation {
     name = "nvim-config";
-    src = ../config;
+    src = ../lua;
     installPhase = ''
       mkdir -p $out/lua
       mv ./* $out/lua
-      cp ${cocSettingsFile} $out/coc-settings.json
     '';
   };
 
@@ -39,59 +46,68 @@
     text =
       ''
         vim.opt.rtp:append("${configDir}")
-        vim.g.coc_config_home = "${configDir}"
         require "core"
       ''
+      + optionalString luaSupport "vim.g.luasupport = true\n"
+      + optionalString cppSupport "vim.g.cppsupport = true\n"
+      + optionalString nixSupport "vim.g.nixsupport = true\n"
+      + optionalString pythonSupport "vim.g.pythonsupport = true\n"
+      + optionalString gptSupport "vim.g.gptsupport = true\n"
       + mkInitFile "start" startPlugins
       + mkInitFile "opt" optPlugins;
   };
 
-  cocSettings = let
-    inherit (import ./coc/coc.nix) basicSettings;
-    inherit (import ./coc/plugins.nix) highlightSettings;
-    inherit
-      (import ./coc/lang.nix {
-        inherit lib stylua lua-language-server nil alejandra black;
-      })
-      diagnosticSettings
-      luaSettings
-      nixSettings
-      pythonSettings
-      ;
-  in
-    basicSettings
-    // highlightSettings
-    // diagnosticSettings
-    // lib.optionalAttrs nixSupport nixSettings
-    // lib.optionalAttrs luaSupport luaSettings
-    // lib.optionalAttrs pythonSupport pythonSettings;
+  defaultPlugins = with vimPlugins; [
+    nvim-web-devicons
+    plenary-nvim
+  ];
 
-  extraPackages = [ripgrep fd];
+  treesitterPlugins = with vimPlugins; [
+    (nvim-treesitter.withPlugins (
+      p:
+        with p;
+          [markdown]
+          ++ optionals cppSupport [c cpp]
+          ++ optionals luaSupport [lua]
+          ++ optionals nixSupport [nix]
+          ++ optionals pythonSupport [python]
+    ))
+    nvim-treesitter-context
+    nvim-ts-rainbow2
+  ];
+
+  cmpPlugins = with vimPlugins; [
+    cmp-nvim-lsp
+    cmp_luasnip
+    cmp-buffer
+    cmp-path
+    cmp-cmdline
+    lspkind-nvim
+  ];
+
+  telescopePlugins = with vimPlugins; [
+    telescope-undo-nvim
+    telescope-fzf-native-nvim
+  ];
 in
   wrapNeovim neovim-unwrapped {
     configure = {
       customRC = "luafile ${initFile}";
-      packages.all.opt = (map (n: vimPlugins.${n}) optPlugins) ++ [];
+      packages.all.opt = getPluginPkg optPlugins;
       packages.all.start =
-        (map (n: vimPlugins.${n}) startPlugins)
-        ++ (with vimPlugins; [
-          nvim-web-devicons
-          coc-json
-          coc-snippets
-          coc-sumneko-lua
-          coc-pyright
-          coc-highlight
-          coc-diagnostic
-          coc-markdownlint
-          coc-yaml
-          coc-prettier
-          friendly-snippets
-          plenary-nvim
-          telescope-undo-nvim
-          telescope-ui-select-nvim
-          coc-clangd
-          coc-toml
-        ]);
+        getPluginPkg startPlugins
+        ++ defaultPlugins
+        ++ treesitterPlugins
+        ++ cmpPlugins
+        ++ telescopePlugins;
     };
-    extraMakeWrapperArgs = ''--suffix PATH : "${lib.makeBinPath extraPackages}"'';
+    extraMakeWrapperArgs = ''--suffix PATH : "${
+        makeBinPath
+        (defaultPackages
+          ++ optionals cppSupport cppPkgs
+          ++ optionals luaSupport luaPkgs
+          ++ optionals pythonSupport pythonPkgs
+          ++ optionals nixSupport nixPkgs
+          ++ extraPackages)
+      }"'';
   }
