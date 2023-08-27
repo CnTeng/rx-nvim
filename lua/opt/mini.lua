@@ -8,8 +8,5 @@ require("utils.plugin").lazy {
   pname = "mini.nvim",
   name = "mini",
   setup = false,
-  config = function()
-    require("utils.plugin").load { name = "mini.bufremove", keys = keys }
-    require("utils.plugin").load { name = "mini.pairs" }
-  end,
+  config = function() require("utils.plugin").load { name = "mini.bufremove", keys = keys } end,
 }
