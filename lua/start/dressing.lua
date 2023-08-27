@@ -12,8 +12,7 @@ local opts = {
   },
 }
 
-require("utils.plugin").lazy {
-  event = "UIEnter",
+require("utils.plugin").load {
   name = "dressing",
   opts = opts,
 }

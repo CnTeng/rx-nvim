@@ -66,17 +66,17 @@ with lib; let
   ];
 
   treesitterPlugins = with vimPlugins; [
-    (nvim-treesitter.withPlugins (
-      p:
-        with p;
-          [markdown bash]
-          ++ optionals cppSupport [c cpp]
-          ++ optionals luaSupport [lua]
-          ++ optionals nixSupport [nix]
-          ++ optionals pythonSupport [python]
-    ))
+    # (nvim-treesitter.withPlugins (
+    #   p:
+    #     with p;
+    #       [markdown bash]
+    #       ++ optionals cppSupport [c cpp]
+    #       ++ optionals luaSupport [lua]
+    #       ++ optionals nixSupport [nix]
+    #       ++ optionals pythonSupport [python]
+    # ))
+    nvim-treesitter.withAllGrammars
     nvim-treesitter-context
-    nvim-ts-rainbow2
   ];
 
   cmpPlugins = with vimPlugins; [
@@ -96,12 +96,12 @@ in
   wrapNeovim neovim-unwrapped {
     configure = {
       customRC = "luafile ${initFile}";
-      packages.all.opt = getPluginPkg optPlugins;
+      packages.all.opt = getPluginPkg optPlugins ++ cmpPlugins;
       packages.all.start =
         getPluginPkg startPlugins
+        ++ cmpPlugins
         ++ defaultPlugins
         ++ treesitterPlugins
-        ++ cmpPlugins
         ++ telescopePlugins;
     };
     extraMakeWrapperArgs = ''--suffix PATH : "${

@@ -5,7 +5,11 @@ local keys = {
 
 require("utils.plugin").lazy {
   event = { "BufReadPre", "BufNewFile" },
+  pname = "mini.nvim",
   name = "mini",
   setup = false,
-  config = function() require("utils.plugin").load { name = "mini.bufremove", keys = keys } end,
+  config = function()
+    require("utils.plugin").load { name = "mini.bufremove", keys = keys }
+    require("utils.plugin").load { name = "mini.pairs" }
+  end,
 }

@@ -12,6 +12,7 @@ local keys = {
 
 require("utils.plugin").lazy {
   event = { "BufReadPre", "BufNewFile" },
+  pname = "vim-illuminate",
   name = "illuminate",
   setup = false,
   config = function() require("illuminate").configure(opts) end,
