@@ -1,5 +1,4 @@
 require("utils.plugin").lazy {
-  event = "User",
-  pattern = "neodev",
+  pname = "neodev.nvim",
   name = "neodev",
 }

@@ -75,12 +75,12 @@ lsp.nil_ls = {
 
 require("utils.plugin").lazy {
   event = { "BufReadPre", "BufNewFile" },
+  pname = "nvim-lspconfig",
   name = "lspconfig",
   setup = false,
   keys = keys,
+  dependencies = { "neodev", "clangd_extensions" },
   config = function()
-    vim.api.nvim_exec_autocmds("User", { pattern = "neodev" })
-
     require("utils.lsp").setup_diagnostic(signs, opts.diagnostics)
     require("utils.lsp").setup_lspconfig(opts.servers, lsp)
   end,

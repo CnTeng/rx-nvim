@@ -30,6 +30,7 @@ local keys = {
 
 require("utils.plugin").lazy {
   event = { "BufReadPre", "BufNewFile" },
+  pname = "gitsigns.nvim",
   name = "gitsigns",
   opts = opts,
   keys = keys,

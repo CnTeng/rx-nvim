@@ -29,6 +29,7 @@ local keys = {
 }
 
 require("utils.plugin").lazy {
+  pname = "bufferline.nvim",
   event = "BufEnter",
   name = "bufferline",
   opts = opts,
