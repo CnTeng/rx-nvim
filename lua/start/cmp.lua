@@ -1,6 +1,7 @@
 local opts = function()
   local cmp = require "cmp"
   local luasnip = require "luasnip"
+
   return {
     formatting = {
       fields = { "abbr", "kind", "menu" },
@@ -22,6 +23,18 @@ local opts = function()
         end,
       },
     },
+    -- sorting = {
+    --   comparators = {
+    --     cmp.config.compare.offset,
+    --     cmp.config.compare.exact,
+    --     cmp.config.compare.recently_used,
+    --     require "clangd_extensions.cmp_scores",
+    --     cmp.config.compare.kind,
+    --     cmp.config.compare.sort_text,
+    --     cmp.config.compare.length,
+    --     cmp.config.compare.order,
+    --   },
+    -- },
     snippet = {
       expand = function(args) luasnip.lsp_expand(args.body) end,
     },
