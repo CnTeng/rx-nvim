@@ -17,7 +17,8 @@
   clang-tools,
   efm-langserver,
   neocmakelsp,
-  cmake-format,
+  vscode-extensions,
+  gdb,
   cmakeSupport ? true,
   cmakePkgs ? [neocmakelsp],
   cppSupport ? true,
@@ -55,6 +56,8 @@ with lib; let
         vim.opt.rtp:append("${configDir}")
         require "core"
       ''
+      + "vim.g.cpptoolspath = \"${vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7\""
+      + "vim.g.gdbpath = \"${getExe gdb}\""
       + optionalString luaSupport "vim.g.luasupport = true\n"
       + optionalString cppSupport "vim.g.cppsupport = true\n"
       + optionalString nixSupport "vim.g.nixsupport = true\n"
