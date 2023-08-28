@@ -15,6 +15,7 @@
   }: {
     _module.args.pkgs = import inputs.nixpkgs {
       inherit system;
+      config.allowUnfree = true;
       overlays =
         map (n: inputs.${n}.overlays.default) ["neovim-nightly"];
     };
