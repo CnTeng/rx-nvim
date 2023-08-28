@@ -8,13 +8,18 @@
   jq,
   fd,
   vimPlugins,
+  dprint,
   stylua,
   nil,
   alejandra,
   lua-language-server,
   black,
   clang-tools,
-  nodePackages,
+  efm-langserver,
+  neocmakelsp,
+  cmake-format,
+  cmakeSupport ? true,
+  cmakePkgs ? [neocmakelsp],
   cppSupport ? true,
   cppPkgs ? [clang-tools],
   luaSupport ? true,
@@ -23,7 +28,7 @@
   nixPkgs ? [nil alejandra],
   pythonSupport ? true,
   pythonPkgs ? [black],
-  defaultPackages ? [nodePackages.diagnostic-languageserver ripgrep fd jq],
+  defaultPackages ? [efm-langserver ripgrep fd jq dprint],
   extraPackages ? [],
   gptSupport ? false,
   gptSecrets ? "",
@@ -54,6 +59,7 @@ with lib; let
       + optionalString cppSupport "vim.g.cppsupport = true\n"
       + optionalString nixSupport "vim.g.nixsupport = true\n"
       + optionalString pythonSupport "vim.g.pythonsupport = true\n"
+      + optionalString cmakeSupport "vim.g.cmakesupport = true\n"
       + optionalString gptSupport "vim.g.gptsupport = true\n"
       + optionalString gptSupport "vim.g.gptsecrets = \"${gptSecrets}\"\n"
       + mkInitFile "start" startPlugins
@@ -63,18 +69,11 @@ with lib; let
   defaultPlugins = with vimPlugins; [
     nvim-web-devicons
     plenary-nvim
+    fzfWrapper
+    efmls-configs-nvim
   ];
 
   treesitterPlugins = with vimPlugins; [
-    # (nvim-treesitter.withPlugins (
-    #   p:
-    #     with p;
-    #       [markdown bash]
-    #       ++ optionals cppSupport [c cpp]
-    #       ++ optionals luaSupport [lua]
-    #       ++ optionals nixSupport [nix]
-    #       ++ optionals pythonSupport [python]
-    # ))
     nvim-treesitter.withAllGrammars
     nvim-treesitter-context
   ];
@@ -111,6 +110,7 @@ in
           ++ optionals luaSupport luaPkgs
           ++ optionals pythonSupport pythonPkgs
           ++ optionals nixSupport nixPkgs
+          ++ optionals cmakeSupport cmakePkgs
           ++ extraPackages)
       }"'';
   }

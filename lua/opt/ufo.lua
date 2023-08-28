@@ -43,10 +43,7 @@ local keys = {
   {
     "K",
     function()
-      if require("ufo").peekFoldedLinesUnderCursor() then
-      elseif vim.diagnostic.open_float() == nil then
-        vim.lsp.buf.hover()
-      end
+      if not require("ufo").peekFoldedLinesUnderCursor() then vim.lsp.buf.hover() end
     end,
     "Hover",
   },
