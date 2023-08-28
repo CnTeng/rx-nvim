@@ -1,3 +1,1 @@
-require("utils.plugin").load {
-  name = "neogit",
-}
+require("utils.plugin").load { name = "neogit", }

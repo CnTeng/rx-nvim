@@ -15,11 +15,10 @@
   }: {
     _module.args.pkgs = import inputs.nixpkgs {
       inherit system;
-      overlays = [inputs.neovim-nightly.overlays.default];
+      overlays =
+        map (n: inputs.${n}.overlays.default) ["neovim-nightly"];
     };
 
     packages.default = pkgs.callPackage ../package {};
-
-    legacyPackages = pkgs;
   };
 }
