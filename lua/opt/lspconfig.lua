@@ -20,7 +20,8 @@ local opts = {
   servers = {
     "clangd", -- C++ & C
     "nil_ls", -- Nix
-    "diagnosticls",
+    "efm",
+    "neocmake"
   },
 }
 
@@ -41,35 +42,30 @@ if vim.g.luasupport then
   }
 end
 
-lsp.diagnosticls = {
-  filetypes = { "lua" },
-  init_options = {
-    filetypes = {
-      lua = "stylua",
-    },
-    formatters = {
-      stylua = {
-        command = "stylua",
-        args = {
-          "--search-parent-directories",
-          "--stdin-filepath",
-          "%filepath",
-          "--",
-          "-",
-        },
-      },
-    },
-    formatFiletypes = {
-      lua = "stylua",
-    },
-  },
-}
-
 lsp.nil_ls = {
   settings = {
     ["nil"] = {
       formatting = { command = { "alejandra" } },
     },
+  },
+}
+
+local stylua = require "efmls-configs.formatters.stylua"
+local dprint = require "efmls-configs.formatters.dprint"
+local languages = {
+  lua = { stylua },
+  markdown = { dprint },
+}
+
+lsp.efm = {
+  filetypes = vim.tbl_keys(languages),
+  init_options = {
+    documentFormatting = true,
+    documentRangeFormatting = true,
+  },
+  settings = {
+    rootMarkers = { ".git/" },
+    languages = languages,
   },
 }
 

@@ -22,26 +22,13 @@ local function setup_lsp_capabilities()
 end
 
 local function on_attach(client, bufnr)
-  local function telescope(api)
-    require("telescope.builtin")["lsp_" .. api] {
-      layout_strategy = "bottom_pane",
-      layout_config = {
-        height = 0.3,
-        prompt_position = "bottom",
-        preview_cutoff = 1,
-        preview_width = 0.4,
-      },
-      reuse_win = true,
-    }
-  end
-
   local function keymap(key)
     key[3] = { silent = true, buffer = bufnr, desc = key[3] }
     require("utils").keymap(key)
   end
 
   if client.supports_method "textDocument/definition" then
-    keymap { "gd", function() telescope "definitions" end, "Goto definition" }
+    keymap { "gd", "<cmd>Glance definitions<cr>", "Goto definition" }
   end
 
   if client.supports_method "textDocument/declaration" then
@@ -49,15 +36,15 @@ local function on_attach(client, bufnr)
   end
 
   if client.supports_method "textDocument/implementation" then
-    keymap { "gI", function() telescope "implementations" end, "Goto implementation" }
+    keymap { "gI", "<cmd>Glance implementations<cr>", "Goto implementation" }
   end
 
   if client.supports_method "textDocument/references" then
-    keymap { "gr", function() telescope "references" end, "Goto references" }
+    keymap { "gr", "<cmd>Glance references<cr>", "Goto references" }
   end
 
   if client.supports_method "textDocument/typeDefinition" then
-    keymap { "gt", function() telescope "type_definitions" end, "Goto type definitions" }
+    keymap { "gt", "<cmd>Glance type_definitions<cr>", "Goto type definitions" }
   end
 
   if client.supports_method "textDocument/codeAction" then
@@ -80,7 +67,7 @@ local function on_attach(client, bufnr)
     keymap { "<leader>ls", vim.lsp.buf.signature_help, "Signature help" }
   end
 
-  keymap { "<leader>ld", vim.diagnostic.open_float, "Line diagnostics" }
+  keymap { "<leader>lk", vim.diagnostic.open_float, "Line diagnostics" }
   keymap { "<leader>lq", vim.diagnostic.setloclist, "List diagnostic" }
   keymap { "]d", vim.diagnostic.goto_next, "Next diagnostic" }
   keymap { "[d", vim.diagnostic.goto_prev, "Previous diagnostic" }
