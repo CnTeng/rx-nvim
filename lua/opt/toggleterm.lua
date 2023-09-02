@@ -34,8 +34,19 @@ local keys = {
   },
 }
 
-require("utils.plugin").load {
-  name = "toggleterm",
-  opts = opts,
-  keys = keys,
-}
+for _, key in ipairs(keys) do
+  require("utils").keymap(key)
+end
+
+vim.api.nvim_create_user_command("ToggleTerm", function(opt)
+  vim.api.nvim_del_user_command "ToggleTerm"
+  vim.cmd.packadd "toggleterm.nvim"
+
+  require("utils.plugin").load {
+    name = "toggleterm",
+    opts = opts,
+    -- keys = keys,
+  }
+
+  vim.cmd(opt.name .. " " .. opt.args)
+end, {})
