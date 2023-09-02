@@ -53,6 +53,7 @@ with lib; let
     name = "init.lua";
     text =
       ''
+        vim.g.pluginsdir = "${configDir}"
         vim.opt.rtp:append("${configDir}")
         require "core"
       ''
