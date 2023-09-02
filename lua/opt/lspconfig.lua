@@ -21,7 +21,7 @@ local opts = {
     "clangd", -- C++ & C
     "nil_ls", -- Nix
     "efm",
-    "neocmake"
+    "neocmake",
   },
 }
 
@@ -75,7 +75,7 @@ require("utils.plugin").lazy {
   name = "lspconfig",
   setup = false,
   keys = keys,
-  dependencies = { "neodev", "clangd_extensions" },
+  before = { "neodev", "clangd_extensions" },
   config = function()
     require("utils.lsp").setup_diagnostic(signs, opts.diagnostics)
     require("utils.lsp").setup_lspconfig(opts.servers, lsp)
