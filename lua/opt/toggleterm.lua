@@ -18,9 +18,9 @@ local opts = {
 }
 
 local keys = {
-  { "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", "ToggleTerm float" },
-  { "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "ToggleTerm horizontal split" },
-  { "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", "ToggleTerm vertical split" },
+  { "<leader>tf", "ToggleTerm direction=float", "ToggleTerm float" },
+  { "<leader>th", "ToggleTerm size=10 direction=horizontal", "ToggleTerm horizontal split" },
+  { "<leader>tv", "ToggleTerm size=80 direction=vertical", "ToggleTerm vertical split" },
   {
     "<leader>tg",
     function() require("toggleterm.terminal").Terminal:new({ cmd = "lazygit", hidden = true }):toggle() end,
