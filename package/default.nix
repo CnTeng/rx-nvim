@@ -1,8 +1,9 @@
 {
   lib,
   stdenv,
-  wrapNeovim,
+  wrapNeovimUnstable,
   neovim-unwrapped,
+  neovimUtils,
   writeTextFile,
   ripgrep,
   jq,
@@ -95,26 +96,30 @@ with lib; let
     telescope-undo-nvim
     telescope-fzf-native-nvim
   ];
-in
-  wrapNeovim neovim-unwrapped {
-    configure = {
+
+  binPath = makeBinPath (defaultPackages
+    ++ optionals cppSupport cppPkgs
+    ++ optionals luaSupport luaPkgs
+    ++ optionals pythonSupport pythonPkgs
+    ++ optionals nixSupport nixPkgs
+    ++ optionals cmakeSupport cmakePkgs
+    ++ extraPackages);
+
+  neovimConfig =
+    neovimUtils.makeNeovimConfig {
       customRC = "luafile ${initFile}";
-      packages.all.opt = getPluginPkg optPlugins ++ cmpPlugins;
-      packages.all.start =
-        getPluginPkg startPlugins
-        ++ cmpPlugins
-        ++ defaultPlugins
-        ++ treesitterPlugins
-        ++ telescopePlugins;
+    }
+    // {
+      wrapperArgs = escapeShellArgs ["--suffix" "PATH" ":" "${binPath}"];
+      packpathDirs.myNeovimPackages = {
+        opt = getPluginPkg optPlugins;
+        start =
+          getPluginPkg startPlugins
+          ++ cmpPlugins
+          ++ defaultPlugins
+          ++ treesitterPlugins
+          ++ telescopePlugins;
+      };
     };
-    extraMakeWrapperArgs = ''--suffix PATH : "${
-        makeBinPath
-        (defaultPackages
-          ++ optionals cppSupport cppPkgs
-          ++ optionals luaSupport luaPkgs
-          ++ optionals pythonSupport pythonPkgs
-          ++ optionals nixSupport nixPkgs
-          ++ optionals cmakeSupport cmakePkgs
-          ++ extraPackages)
-      }"'';
-  }
+in
+  wrapNeovimUnstable neovim-unwrapped neovimConfig
