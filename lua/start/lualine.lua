@@ -39,9 +39,9 @@ local opts = {
   },
 }
 
-require("utils.plugin").lazy {
-  event = "BufEnter",
-  pname = "lualine.nvim",
+require("utils.plugin").load {
+  -- event = "BufEnter",
+  -- pname = "lualine.nvim",
   name = "lualine",
   opts = opts,
 }

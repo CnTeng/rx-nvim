@@ -28,9 +28,9 @@ local keys = {
   { "<leader>bl", "<cmd>BufferLineMoveNext<cr>", { silent = true, desc = "Move buffer Right" } },
 }
 
-require("utils.plugin").lazy {
-  pname = "bufferline.nvim",
-  event = "BufEnter",
+require("utils.plugin").load {
+  -- pname = "bufferline.nvim",
+  -- event = "BufEnter",
   name = "bufferline",
   opts = opts,
   keys = keys,
