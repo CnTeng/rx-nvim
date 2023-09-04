@@ -1,6 +1,8 @@
-local keys = { { "<Leader>D", function() require("dropbar.api").pick() end, "Dropbar" } }
+local keys = {
+  { "<Leader>D", function() require("dropbar.api").pick() end, "Dropbar" },
+}
 
-require("utils.plugin").lazy {
+require("utils").lazy {
   event = { "BufReadPre", "BufNewFile" },
   pack = "dropbar.nvim",
   name = "dropbar",

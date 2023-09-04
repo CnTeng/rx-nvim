@@ -8,8 +8,8 @@ local init = function()
   }
 end
 
-require("utils.plugin").lazy {
-  event = { "BufReadPre", "BufNewFile" },
+require("utils").lazy {
+  event = { "BufReadPost", "BufNewFile" },
   pack = "rainbow-delimiters.nvim",
   name = "rainbow-delimiters",
   setup = false,

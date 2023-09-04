@@ -28,7 +28,7 @@ local keys = {
   { "<leader>gd", function() require("gitsigns").diffthis() end, "View diff" },
 }
 
-require("utils.plugin").lazy {
+require("utils").lazy {
   event = { "BufReadPre", "BufNewFile" },
   pack = "gitsigns.nvim",
   name = "gitsigns",

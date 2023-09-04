@@ -74,7 +74,11 @@ local function on_attach(client, bufnr)
 
   if client.supports_method "textDocument/inlayHint" then
     vim.lsp.inlay_hint(bufnr, true)
-    keymap { "<leader>lI", function() vim.lsp.inlay_hint(bufnr) end, "Toggle inlay hints" }
+    keymap {
+      "<leader>lI",
+      function() vim.lsp.inlay_hint(bufnr) end,
+      "Toggle inlay hints",
+    }
   end
 end
 

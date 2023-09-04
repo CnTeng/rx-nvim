@@ -34,7 +34,7 @@ local keys = {
   },
 }
 
-require("utils.plugin").lazy {
+require("utils").lazy {
   name = "toggleterm",
   pack = "toggleterm.nvim",
   opts = opts,

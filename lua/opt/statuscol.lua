@@ -19,7 +19,7 @@ local opts = function()
   }
 end
 
-require("utils.plugin").lazy {
+require("utils").lazy {
   event = { "BufReadPre", "BufNewFile" },
   pack = "statuscol.nvim",
   name = "statuscol",

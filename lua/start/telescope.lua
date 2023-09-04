@@ -67,7 +67,7 @@ local keys = {
   { "<leader>gc", function() require("telescope.builtin").git_commits() end, "Git commits" },
 }
 
-require("utils.plugin").lazy {
+require("utils").lazy {
   name = "telescope",
   lazy = false,
   opts = opts,

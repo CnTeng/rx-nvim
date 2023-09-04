@@ -28,7 +28,7 @@ dashboard.section.footer.opts.hl = "DashboardFooter"
 
 local keys = { { "<leader>a", "<cmd>Alpha<cr>", "Alpha" } }
 
-require("utils.plugin").lazy {
+require("utils").lazy {
   name = "alpha",
   lazy = false,
   opts = dashboard.opts,

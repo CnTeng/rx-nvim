@@ -12,7 +12,7 @@ local opts = {
   },
 }
 
-require("utils.plugin").lazy {
+require("utils").lazy {
   name = "dressing",
   lazy = false,
   opts = opts,

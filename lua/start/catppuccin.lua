@@ -39,7 +39,7 @@ local opts = {
   },
 }
 
-require("utils.plugin").lazy {
+require("utils").lazy {
   name = "catppuccin",
   lazy = false,
   opts = opts,

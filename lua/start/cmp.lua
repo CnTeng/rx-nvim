@@ -108,7 +108,7 @@ local config = function()
   })
 end
 
-require("utils.plugin").lazy {
+require("utils").lazy {
   name = "cmp",
   lazy = false,
   -- event = "InsertEnter",
