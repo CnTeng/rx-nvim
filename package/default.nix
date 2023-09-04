@@ -54,7 +54,7 @@ with lib; let
     name = "init.lua";
     text =
       ''
-        vim.g.pluginsdir = "${configDir}"
+        vim.loader.enable()
         vim.opt.rtp:append("${configDir}")
         require "core"
       ''
@@ -115,8 +115,8 @@ with lib; let
         opt = getPluginPkg optPlugins;
         start =
           getPluginPkg startPlugins
-          ++ cmpPlugins
           ++ defaultPlugins
+          ++ cmpPlugins
           ++ treesitterPlugins
           ++ telescopePlugins;
       };

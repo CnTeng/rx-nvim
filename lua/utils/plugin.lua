@@ -1,112 +1,114 @@
 local M = {}
 
-local create_autocmd = vim.api.nvim_create_autocmd
-local create_augroup = vim.api.nvim_create_augroup
-local exec_autocmds = vim.api.nvim_exec_autocmds
-local clear_autocmds = vim.api.nvim_clear_autocmds
-local packadd = vim.cmd.packadd
+local function exec_autocmd(name) vim.api.nvim_exec_autocmds("User", { pattern = name, modeline = false }) end
 
-local function lazy_keymap(name, key)
-  local lhs = key[1]
-  local rhs = type(key[2]) == "function"
-      and function()
-        vim.api.nvim_exec_autocmds("User", { pattern = name, modeline = false })
-        key[2]()
-      end
-    or function()
-      vim.api.nvim_exec_autocmds("User", { pattern = name, modeline = false })
-      local feed = vim.api.nvim_replace_termcodes("<Ignore>" .. key[2], true, true, true)
-      vim.api.nvim_feedkeys(feed, "i", false)
-    end
-  local mode = key.mode ~= nil and key.mode or "n"
-  local opts = type(key[3]) == "string" and { desc = key[3] } or key[3]
-  vim.keymap.set(mode, lhs, rhs, opts)
-end
+local function load_deps(deps)
+  local function to_table(v) return (type(v) == "string" or v == nil) and { v } or v end
 
-function M.load(args)
-  if args.init ~= nil then args.init() end
-  if args.setup == nil then args.setup = true end
-
-  if type(args.opts) == "function" then args.opts = args.opts() end
-
-  if args.name ~= nil and args.setup == true then require(args.name).setup(args.opts) end
-
-  if args.keys ~= nil then
-    for _, key in ipairs(args.keys) do
-      lazy_keymap(args.name, key)
-    end
-  end
-
-  if args.config ~= nil then args.config() end
-end
-
-local function toTable(v)
-  if type(v) == "string" or v == nil then
-    return { v }
-  else
-    return v
+  for _, dep in ipairs(to_table(deps)) do
+    exec_autocmd(dep)
   end
 end
 
-local function load_dep(deps)
-  if deps == nil then return end
+local function load_deps_pack(deps)
+  local function to_table(v) return (type(v) == "string" or v == nil) and { v } or v end
 
-  for _, dep in ipairs(toTable(deps)) do
-    exec_autocmds("User", { pattern = dep, modeline = false })
+  for _, dep in ipairs(to_table(deps)) do
+    vim.cmd.pack(dep)
   end
 end
 
-local function lazy_load(event, pattern, args)
-  create_autocmd(event, {
-    group = args.name,
+local function load(opts)
+  if opts.init ~= nil then opts.init() end
+
+  if opts.packbefore ~= nil then load_deps_pack(opts.packbefore) end
+  if opts.before ~= nil then load_deps(opts.before) end
+
+  if type(opts.opts) == "function" then opts.opts = opts.opts() end
+
+  if opts.name ~= nil and (opts.opts ~= nil or opts.config == true) then require(opts.name).setup(opts.opts) end
+
+  if type(opts.config) == "function" then opts.config() end
+
+  if opts.packafter ~= nil then load_deps_pack(opts.packafter) end
+  if opts.after ~= nil then load_deps(opts.after) end
+end
+
+local function create_autocmd(event, pattern, opts)
+  vim.api.nvim_create_autocmd(event, {
+    group = opts.name,
     pattern = pattern,
     callback = function()
-      clear_autocmds { group = args.name }
+      vim.api.nvim_clear_autocmds { group = opts.name }
 
-      local t_start = os.clock()
-      packadd(args.pname)
+      if opts.lazy then vim.cmd.packadd(opts.pack) end
 
-      local t_end = os.clock()
-      print(args.name .. ": " .. tostring((t_end - t_start) * 1000) .. "ms")
-
-      load_dep(args.before)
-      M.load(args)
-      load_dep(args.after)
+      load(opts)
     end,
   })
 end
 
-function M.lazy(args)
-  if args.keys ~= nil then
-    for _, key in ipairs(args.keys) do
-      lazy_keymap(args.name, key)
-    end
+local function lazy_keys(name, lazy, keys)
+  local function rhs_to_fun(rhs)
+    local feed = vim.api.nvim_replace_termcodes("<Ignore>" .. rhs, true, true, true)
+    vim.api.nvim_feedkeys(feed, "i", false)
   end
-  create_augroup(args.name, { clear = true })
 
-  lazy_load("User", args.name, args)
+  for _, key in ipairs(keys) do
+    local lhs = key[1]
+    local rhs = key[2]
 
-  if args.event == nil then return end
-  lazy_load(args.event, args.pattern, args)
+    if lazy then
+      rhs = type(key[2]) == "function" and function()
+        exec_autocmd(name)
+        key[2]()
+      end or function()
+        exec_autocmd(name)
+        rhs_to_fun(key[2])
+      end
+    end
+
+    local mode = key.mode ~= nil and key.mode or "n"
+    local opts = type(key[3]) == "string" and { desc = key[3] } or key[3]
+    vim.keymap.set(mode, lhs, rhs, opts)
+  end
 end
 
-function M.lazy_cmd(opts)
+local function lazy_autocmd(opts)
+  vim.api.nvim_create_augroup(opts.name, { clear = true })
+
+  create_autocmd("User", opts.name, opts)
+
+  if opts.event == nil then return end
+  create_autocmd(opts.event, opts.ft, opts)
+end
+
+local function lazy_cmd(opts)
   vim.api.nvim_create_user_command(opts.cmd, function(opt)
     vim.api.nvim_del_user_command(opts.cmd)
 
-    packadd(opts.pname)
-    M.load(opts)
+    exec_autocmd(opts.name)
 
     vim.cmd[opt.name](opt.args)
   end, {
     nargs = "*",
     complete = function(_, line)
-      packadd(opts.pname)
-      M.load(opts)
-
+      exec_autocmd(opts.name)
       return vim.fn.getcompletion(line, "cmdline")
     end,
   })
+end
+
+-- opts: name lazy pack event cmd ft keys before after init opts config
+function M.lazy(opts)
+  if opts.lazy == nil then opts.lazy = true end
+  lazy_autocmd(opts)
+
+  if opts.cmd ~= nil then lazy_cmd(opts) end
+
+  if not opts.lazy then exec_autocmd(opts.name) end
+
+  if opts.keys ~= nil then lazy_keys(opts.name, opts.keys, opts.keys) end
 end
 
 return M

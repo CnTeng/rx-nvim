@@ -12,8 +12,8 @@ local keys = {
 }
 
 require("utils.plugin").lazy {
-  event = { "BufReadPre", "BufNewFile" },
-  pname = "flash.nvim",
+  pack = "flash.nvim",
   name = "flash",
   keys = keys,
+  config = true,
 }

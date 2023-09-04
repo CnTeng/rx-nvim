@@ -1,4 +1,5 @@
 require("utils.plugin").lazy {
-  pname = "neodev.nvim",
+  pack = "neodev.nvim",
   name = "neodev",
+  config = true,
 }

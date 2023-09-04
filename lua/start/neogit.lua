@@ -1,1 +1,2 @@
-require("utils.plugin").load { name = "neogit", }
+require("utils.plugin").lazy { name = "neogit", lazy = false }
+

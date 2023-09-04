@@ -12,7 +12,8 @@ local opts = {
   },
 }
 
-require("utils.plugin").load {
+require("utils.plugin").lazy {
   name = "dressing",
+  lazy = false,
   opts = opts,
 }

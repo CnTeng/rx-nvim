@@ -21,8 +21,9 @@ local keys = {
   { "<C-l>", function() require("smart-splits").move_cursor_right() end },
 }
 
-require("utils.plugin").load {
+require("utils.plugin").lazy {
   name = "smart-splits",
+  lazy = false,
   opts = opts,
   keys = keys,
 }
