@@ -69,7 +69,7 @@ lsp.efm = {
   },
 }
 
-require("utils.plugin").lazy {
+require("utils").lazy {
   event = { "BufReadPre", "BufNewFile" },
   pack = "nvim-lspconfig",
   packbefore = "cmp-nvim-lsp",

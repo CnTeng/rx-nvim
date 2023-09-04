@@ -38,8 +38,16 @@ local opts = {
 }
 
 local keys = {
-  { "zR", function() require("ufo").openAllFolds() end, "Open all folds" },
-  { "zM", function() require("ufo").closeAllFolds() end, "Close all folds" },
+  {
+    "zR",
+    function() require("ufo").openAllFolds() end,
+    "Open all folds",
+  },
+  {
+    "zM",
+    function() require("ufo").closeAllFolds() end,
+    "Close all folds",
+  },
   {
     "K",
     function()
@@ -49,7 +57,7 @@ local keys = {
   },
 }
 
-require("utils.plugin").lazy {
+require("utils").lazy {
   event = { "BufReadPost", "BufNewFile" },
   pack = "nvim-ufo",
   name = "ufo",

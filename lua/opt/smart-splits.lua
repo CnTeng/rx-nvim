@@ -21,9 +21,9 @@ local keys = {
   { "<C-l>", function() require("smart-splits").move_cursor_right() end },
 }
 
-require("utils.plugin").lazy {
+require("utils").lazy {
   name = "smart-splits",
-  lazy = false,
+  pack = "smart-splits.nvim",
   opts = opts,
   keys = keys,
 }

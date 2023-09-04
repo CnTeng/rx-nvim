@@ -10,7 +10,7 @@ local keys = {
   { "[[", function() require("illuminate").goto_prev_reference(false) end, "Previous reference" },
 }
 
-require("utils.plugin").lazy {
+require("utils").lazy {
   event = { "BufReadPre", "BufNewFile" },
   pack = "vim-illuminate",
   name = "illuminate",

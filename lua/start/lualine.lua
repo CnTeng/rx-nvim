@@ -9,11 +9,7 @@ local opts = {
   },
   sections = {
     lualine_a = {
-      {
-        "mode",
-        fmt = function(str) return vim.fn.winwidth(0) > 80 and " " .. str .. " " or " " end,
-        padding = 0,
-      },
+      { "mode", fmt = function(str) return vim.fn.winwidth(0) > 80 and " " .. str .. " " or " " end, padding = 0 },
     },
     lualine_b = {
       { "branch", icon = "" },
@@ -31,15 +27,12 @@ local opts = {
       { "progress", padding = { left = 0, right = 1 } },
     },
     lualine_z = {
-      {
-        function() return vim.fn.winwidth(0) > 80 and "  " .. os.date "%R " or " " end,
-        padding = 0,
-      },
+      { function() return vim.fn.winwidth(0) > 80 and "  " .. os.date "%R " or " " end, padding = 0 },
     },
   },
 }
 
-require("utils.plugin").lazy {
+require("utils").lazy {
   -- event = "BufEnter",
   -- pname = "lualine.nvim",
   name = "lualine",
