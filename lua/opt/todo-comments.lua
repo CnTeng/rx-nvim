@@ -4,7 +4,7 @@ local keys = {
   { "<leader>st", ":TodoTelescope<CR>", "Todo comment" },
 }
 
-require("utils.plugin").lazy {
+require("utils").lazy {
   event = { "BufReadPost", "BufNewFile" },
   pack = "todo-comments.nvim",
   name = "todo-comments",

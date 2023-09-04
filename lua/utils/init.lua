@@ -11,4 +11,6 @@ end
 M.setup_diagnostic = require("utils.lsp").setup_diagnostic
 M.setup_lspconfig = require("utils.lsp").setup_lspconfig
 
+function M.lazy(opts) require("utils.plugin").create(opts) end
+
 return M

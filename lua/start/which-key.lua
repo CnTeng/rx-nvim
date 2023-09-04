@@ -8,7 +8,7 @@ local opts = {
   },
 }
 
-require("utils.plugin").lazy {
+require("utils").lazy {
   name = "which-key",
   lazy = false,
   opts = opts,

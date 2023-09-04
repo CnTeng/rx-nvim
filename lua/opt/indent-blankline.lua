@@ -13,7 +13,7 @@ local opts = {
   show_current_context = true,
 }
 
-require("utils.plugin").lazy {
+require("utils").lazy {
   event = { "BufReadPre", "BufNewFile" },
   pack = "indent-blankline.nvim",
   name = "indent_blankline",

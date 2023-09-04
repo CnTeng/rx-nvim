@@ -11,7 +11,7 @@ local keys = {
   { mode = { "c" }, "<c-s>", function() require("flash").toggle() end, "Toggle Flash Search" },
 }
 
-require("utils.plugin").lazy {
+require("utils").lazy {
   pack = "flash.nvim",
   name = "flash",
   keys = keys,

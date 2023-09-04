@@ -1,4 +1,4 @@
-require("utils.plugin").lazy {
+require("utils").lazy {
   event = { "BufReadPre", "BufNewFile" },
   pack = "glance.nvim",
   name = "glance",

@@ -21,7 +21,7 @@ local opts = {
   },
 }
 
-require("utils.plugin").lazy {
+require("utils").lazy {
   pack = "clangd_extensions.nvim",
   name = "clangd_extensions",
   ft = { "*.c", "*.cpp", "*.h", "*.hpp" },

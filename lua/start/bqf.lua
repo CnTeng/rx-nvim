@@ -1,2 +1,1 @@
-require("utils.plugin").lazy { name = "bqf", lazy = false }
-
+require("utils").lazy { name = "bqf", lazy = false }

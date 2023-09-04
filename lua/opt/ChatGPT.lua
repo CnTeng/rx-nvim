@@ -16,7 +16,7 @@ local opts = {
   },
 }
 
-require("utils.plugin").lazy {
+require("utils").lazy {
   name = "chatgpt",
   pack = "ChatGPT.nvim",
   opts = opts,

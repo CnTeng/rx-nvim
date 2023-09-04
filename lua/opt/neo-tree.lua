@@ -56,7 +56,7 @@ local keys = {
   { "<leader>lo", "<cmd>Neotree toggle document_symbols right<cr>", "Code outline" },
 }
 
-require("utils.plugin").lazy {
+require("utils").lazy {
   cmd = "Neotree",
   pack = "neo-tree.nvim",
   name = "neo-tree",
