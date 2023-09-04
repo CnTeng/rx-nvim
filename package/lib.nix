@@ -11,7 +11,7 @@ with builtins; {
       then vimPlugins."nvim-${n}"
       else if vimPlugins ? "vim-${n}"
       then vimPlugins."vim-${n}"
-      else vimPlugins."${n}")
+      else vimPlugins.${n})
     plugins;
 
   mkInitFile = dir: plugins:

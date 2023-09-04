@@ -58,7 +58,7 @@ local keys = {
 
 require("utils.plugin").lazy {
   cmd = "Neotree",
-  pname = "neo-tree.nvim",
+  pack = "neo-tree.nvim",
   name = "neo-tree",
   opts = opts,
   keys = keys,

@@ -28,10 +28,11 @@ local keys = {
   { "<leader>bl", "<cmd>BufferLineMoveNext<cr>", { silent = true, desc = "Move buffer Right" } },
 }
 
-require("utils.plugin").load {
+require("utils.plugin").lazy {
   -- pname = "bufferline.nvim",
   -- event = "BufEnter",
   name = "bufferline",
+  lazy = false,
   opts = opts,
   keys = keys,
 }

@@ -7,7 +7,8 @@ local opts = {
   indent = { enable = true },
 }
 
-require("utils.plugin").load {
+require("utils.plugin").lazy {
   name = "nvim-treesitter.configs",
+  lazy = false,
   opts = opts,
 }

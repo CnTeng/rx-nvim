@@ -10,7 +10,7 @@ end
 
 require("utils.plugin").lazy {
   event = { "BufReadPre", "BufNewFile" },
-  pname = "rainbow-delimiters.nvim",
+  pack = "rainbow-delimiters.nvim",
   name = "rainbow-delimiters",
   setup = false,
   init = init,

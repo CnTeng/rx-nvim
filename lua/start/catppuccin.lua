@@ -39,6 +39,9 @@ local opts = {
   },
 }
 
-require("utils.plugin").load { name = "catppuccin", opts = opts }
-
-vim.cmd.colorscheme "catppuccin"
+require("utils.plugin").lazy {
+  name = "catppuccin",
+  lazy = false,
+  opts = opts,
+  config = function() vim.cmd.colorscheme "catppuccin" end,
+}
