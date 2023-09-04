@@ -21,7 +21,7 @@ end
 
 require("utils.plugin").lazy {
   event = { "BufReadPre", "BufNewFile" },
-  pname = "statuscol.nvim",
+  pack = "statuscol.nvim",
   name = "statuscol",
   init = init,
   opts = opts,

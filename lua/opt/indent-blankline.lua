@@ -15,7 +15,7 @@ local opts = {
 
 require("utils.plugin").lazy {
   event = { "BufReadPre", "BufNewFile" },
-  pname = "indent-blankline.nvim",
+  pack = "indent-blankline.nvim",
   name = "indent_blankline",
   opts = opts,
 }

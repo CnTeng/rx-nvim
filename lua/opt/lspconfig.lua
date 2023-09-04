@@ -71,13 +71,13 @@ lsp.efm = {
 
 require("utils.plugin").lazy {
   event = { "BufReadPre", "BufNewFile" },
-  pname = "nvim-lspconfig",
+  pack = "nvim-lspconfig",
+  packbefore = "cmp-nvim-lsp",
   name = "lspconfig",
-  setup = false,
   keys = keys,
-  before = { "neodev", "clangd_extensions" },
+  before = { "neodev", "clangd_extensions", "cmp_nvim_lsp" },
   config = function()
-    require("utils.lsp").setup_diagnostic(signs, opts.diagnostics)
-    require("utils.lsp").setup_lspconfig(opts.servers, lsp)
+    require("utils").setup_diagnostic(signs, opts.diagnostics)
+    require("utils").setup_lspconfig(opts.servers, lsp)
   end,
 }

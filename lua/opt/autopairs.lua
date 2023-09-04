@@ -15,8 +15,9 @@ local opts = {
 
 require("utils.plugin").lazy {
   event = "InsertEnter",
-  pname = "nvim-autopairs",
+  pack = "nvim-autopairs",
   name = "nvim-autopairs",
+  before = "cmp",
   opts = opts,
   config = function()
     local cmp_autopairs = require "nvim-autopairs.completion.cmp"

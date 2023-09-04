@@ -1,5 +1,6 @@
 require("utils.plugin").lazy {
   event = { "BufReadPre", "BufNewFile" },
-  pname = "glance.nvim",
+  pack = "glance.nvim",
   name = "glance",
+  config = true,
 }

@@ -1,5 +1,6 @@
 require("utils.plugin").lazy {
   event = { "BufReadPre", "BufNewFile" },
-  pname = "guess-indent.nvim",
+  pack = "guess-indent.nvim",
   name = "guess-indent",
+  config = true,
 }

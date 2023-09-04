@@ -1,7 +1,6 @@
 require("utils.plugin").lazy {
   event = { "BufReadPre", "BufNewFile" },
-  pname = "markdown-preview.nvim",
-  pattern = "*.md",
+  pack = "markdown-preview.nvim",
+  ft = "*.md",
   name = "markdown-preview",
-  setup = false,
 }

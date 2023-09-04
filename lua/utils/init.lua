@@ -8,4 +8,7 @@ function M.keymap(key)
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
+M.setup_diagnostic = require("utils.lsp").setup_diagnostic
+M.setup_lspconfig = require("utils.lsp").setup_lspconfig
+
 return M

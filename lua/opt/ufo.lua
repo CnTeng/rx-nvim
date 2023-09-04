@@ -51,7 +51,7 @@ local keys = {
 
 require("utils.plugin").lazy {
   event = { "BufReadPost", "BufNewFile" },
-  pname = "nvim-ufo",
+  pack = "nvim-ufo",
   name = "ufo",
   opts = opts,
   keys = keys,
