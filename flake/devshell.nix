@@ -1,7 +1,19 @@
 {inputs, ...}: {
   imports = [inputs.devshell.flakeModule];
 
-  perSystem = {config, ...}: {
-    devshells.default.packages = [config.packages.default];
+  perSystem = {
+    config,
+    pkgs,
+    ...
+  }: {
+    devshells.default.packages = with pkgs;
+      [
+        nil
+        alejandra
+        lua-language-server
+        stylua
+        dprint
+      ]
+      ++ [config.packages.default];
   };
 }
