@@ -1,40 +1,14 @@
 local opts = {
-  flavour = "mocha", -- latte, frappe, macchiato, mocha
-  styles = {
-    comments = { "italic" },
-    conditionals = {},
-    loops = {},
-    functions = {},
-    keywords = {},
-    strings = {},
-    variables = {},
-    numbers = {},
-    booleans = {},
-    properties = {},
-    types = {},
-    operators = {},
-  },
+  flavour = "mocha",
+  styles = { conditionals = {} },
   integrations = {
-    aerial = true,
-    dropbar = {
-      enabled = true,
-      color_mode = true,
-    },
-    gitsigns = true,
-    leap = true,
-    markdown = true,
+    dropbar = { enabled = true, color_mode = true },
     neotree = true,
     treesitter_context = true,
+    -- TODO: wait for nixpkgs update
+    -- ufo = true,
     rainbow_delimiters = true,
-    dap = {
-      enabled = true,
-      enable_ui = true,
-    },
-    telescope = {
-      enabled = true,
-      style = "nvchad",
-    },
-    illuminate = true,
+    telescope = { style = "nvchad" },
     which_key = true,
   },
 }

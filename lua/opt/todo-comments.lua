@@ -5,8 +5,9 @@ local keys = {
 }
 
 require("utils").lazy {
-  event = { "BufReadPost", "BufNewFile" },
-  pack = "todo-comments.nvim",
   name = "todo-comments",
+  pack = "todo-comments.nvim",
+  event = { "BufReadPre", "BufNewFile" },
   keys = keys,
+  config = true,
 }
