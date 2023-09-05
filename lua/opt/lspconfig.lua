@@ -27,20 +27,18 @@ local opts = {
 
 local lsp = {}
 
-if vim.g.luasupport then
-  table.insert(opts.servers, "lua_ls")
+table.insert(opts.servers, "lua_ls")
 
-  lsp.lua_ls = {
-    settings = {
-      Lua = {
-        workspace = { checkThirdParty = false },
-        format = { enable = false },
-        completion = { callSnippet = "Replace" },
-        hint = { enable = true },
-      },
+lsp.lua_ls = {
+  settings = {
+    Lua = {
+      workspace = { checkThirdParty = false },
+      format = { enable = false },
+      completion = { callSnippet = "Replace" },
+      hint = { enable = true },
     },
-  }
-end
+  },
+}
 
 lsp.nil_ls = {
   settings = {
@@ -52,6 +50,7 @@ lsp.nil_ls = {
 
 local stylua = require "efmls-configs.formatters.stylua"
 local dprint = require "efmls-configs.formatters.dprint"
+
 local languages = {
   lua = { stylua },
   markdown = { dprint },

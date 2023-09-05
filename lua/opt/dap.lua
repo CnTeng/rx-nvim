@@ -1,3 +1,6 @@
+local cppdbg_path = os.getenv "CPPDBG_PATH"
+if cppdbg_path == nil then return end
+
 require("utils").lazy {
   name = "dap",
   pack = "nvim-dap",
@@ -6,7 +9,7 @@ require("utils").lazy {
     dap.adapters.cppdbg = {
       id = "cppdbg",
       type = "executable",
-      command = vim.g.cpptoolspath,
+      command = cppdbg_path,
     }
 
     dap.configurations.cpp = {

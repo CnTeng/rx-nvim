@@ -9,28 +9,7 @@
   jq,
   fd,
   vimPlugins,
-  dprint,
-  stylua,
-  nil,
-  alejandra,
-  lua-language-server,
-  black,
-  clang-tools,
   efm-langserver,
-  neocmakelsp,
-  vscode-extensions,
-  gdb,
-  cmakeSupport ? true,
-  cmakePkgs ? [neocmakelsp],
-  cppSupport ? true,
-  cppPkgs ? [clang-tools],
-  luaSupport ? true,
-  luaPkgs ? [stylua lua-language-server],
-  nixSupport ? true,
-  nixPkgs ? [nil alejandra],
-  pythonSupport ? true,
-  pythonPkgs ? [black],
-  defaultPackages ? [efm-langserver ripgrep fd jq dprint],
   extraPackages ? [],
   gptSupport ? false,
   gptSecrets ? "",
@@ -58,13 +37,6 @@ with lib; let
         vim.opt.rtp:append("${configDir}")
         require "core"
       ''
-      + "vim.g.cpptoolspath = \"${vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7\""
-      + "vim.g.gdbpath = \"${getExe gdb}\""
-      + optionalString luaSupport "vim.g.luasupport = true\n"
-      + optionalString cppSupport "vim.g.cppsupport = true\n"
-      + optionalString nixSupport "vim.g.nixsupport = true\n"
-      + optionalString pythonSupport "vim.g.pythonsupport = true\n"
-      + optionalString cmakeSupport "vim.g.cmakesupport = true\n"
       + optionalString gptSupport "vim.g.gptsupport = true\n"
       + optionalString gptSupport "vim.g.gptsecrets = \"${gptSecrets}\"\n"
       + mkInitFile "start" startPlugins
@@ -97,13 +69,7 @@ with lib; let
     telescope-fzf-native-nvim
   ];
 
-  binPath = makeBinPath (defaultPackages
-    ++ optionals cppSupport cppPkgs
-    ++ optionals luaSupport luaPkgs
-    ++ optionals pythonSupport pythonPkgs
-    ++ optionals nixSupport nixPkgs
-    ++ optionals cmakeSupport cmakePkgs
-    ++ extraPackages);
+  binPath = makeBinPath ([ripgrep fd jq efm-langserver] ++ extraPackages);
 
   neovimConfig =
     neovimUtils.makeNeovimConfig {
