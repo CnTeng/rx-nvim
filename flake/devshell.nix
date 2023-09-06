@@ -7,13 +7,7 @@
     ...
   }: {
     devshells.default.packages = with pkgs;
-      [
-        nil
-        alejandra
-        lua-language-server
-        stylua
-        dprint
-      ]
+      [ lua-language-server stylua ]
       ++ [config.packages.default];
   };
 }
