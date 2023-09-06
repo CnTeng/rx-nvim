@@ -1,6 +1,5 @@
 {
   lib,
-  stdenv,
   wrapNeovimUnstable,
   neovim-unwrapped,
   neovimUtils,
@@ -9,7 +8,6 @@
   jq,
   fd,
   vimPlugins,
-  efm-langserver,
   extraPackages ? [],
   gptSupport ? false,
   gptSecrets ? "",
@@ -20,21 +18,12 @@ with lib; let
   startPlugins = getPluginName ../lua/start;
   optPlugins = getPluginName ../lua/opt;
 
-  configDir = stdenv.mkDerivation {
-    name = "nvim-config";
-    src = ../lua;
-    installPhase = ''
-      mkdir -p $out/lua
-      mv ./* $out/lua
-    '';
-  };
-
   initFile = writeTextFile {
     name = "init.lua";
     text =
       ''
         vim.loader.enable()
-        vim.opt.rtp:append("${configDir}")
+        vim.opt.rtp:append("${../.}")
         require "core"
       ''
       + optionalString gptSupport "vim.g.gptsupport = true\n"
@@ -43,17 +32,9 @@ with lib; let
       + mkInitFile "opt" optPlugins;
   };
 
-  defaultPlugins = with vimPlugins; [
-    nvim-web-devicons
-    plenary-nvim
-    fzfWrapper
-    efmls-configs-nvim
-  ];
+  defaultPlugins = with vimPlugins; [fzfWrapper];
 
-  treesitterPlugins = with vimPlugins; [
-    nvim-treesitter.withAllGrammars
-    nvim-treesitter-context
-  ];
+  treesitterPlugins = with vimPlugins; [nvim-treesitter.withAllGrammars];
 
   cmpPlugins = with vimPlugins; [
     cmp-nvim-lsp
@@ -69,12 +50,10 @@ with lib; let
     telescope-fzf-native-nvim
   ];
 
-  binPath = makeBinPath ([ripgrep fd jq efm-langserver] ++ extraPackages);
+  binPath = makeBinPath ([ripgrep fd jq] ++ extraPackages);
 
   neovimConfig =
-    neovimUtils.makeNeovimConfig {
-      customRC = "luafile ${initFile}";
-    }
+    neovimUtils.makeNeovimConfig {customRC = "luafile ${initFile}";}
     // {
       wrapperArgs = escapeShellArgs ["--suffix" "PATH" ":" "${binPath}"];
       packpathDirs.myNeovimPackages = {
