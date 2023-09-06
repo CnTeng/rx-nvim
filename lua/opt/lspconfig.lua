@@ -18,10 +18,10 @@ local opts = {
     severity_sort = true,
   },
   servers = {
-    "clangd", -- C++ & C
-    "nil_ls", -- Nix
-    "efm",
+    "clangd",
+    "nil_ls",
     "neocmake",
+    "terraformls",
   },
 }
 
@@ -48,33 +48,12 @@ lsp.nil_ls = {
   },
 }
 
-local stylua = require "efmls-configs.formatters.stylua"
-local dprint = require "efmls-configs.formatters.dprint"
-
-local languages = {
-  lua = { stylua },
-  markdown = { dprint },
-}
-
-lsp.efm = {
-  filetypes = vim.tbl_keys(languages),
-  init_options = {
-    documentFormatting = true,
-    documentRangeFormatting = true,
-  },
-  settings = {
-    rootMarkers = { ".git/" },
-    languages = languages,
-  },
-}
-
 require("utils").lazy {
   event = { "BufReadPre", "BufNewFile" },
   pack = "nvim-lspconfig",
-  packbefore = "cmp-nvim-lsp",
   name = "lspconfig",
   keys = keys,
-  before = { "neodev", "clangd_extensions", "cmp_nvim_lsp" },
+  before = { "neodev", "clangd_extensions", "null-ls" },
   config = function()
     require("utils").setup_diagnostic(signs, opts.diagnostics)
     require("utils").setup_lspconfig(opts.servers, lsp)
