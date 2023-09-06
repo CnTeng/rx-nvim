@@ -7,7 +7,6 @@
       programs = {
         alejandra.enable = true;
         prettier.enable = true;
-        shfmt.enable = true;
         stylua.enable = true;
       };
     };
