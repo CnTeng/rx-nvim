@@ -1,7 +1,10 @@
 local opts = function()
   local nls = require "null-ls"
   return {
-    sources = { nls.builtins.formatting.stylua },
+    sources = {
+      nls.builtins.formatting.stylua,
+      nls.builtins.formatting.prettier,
+    },
   }
 end
 
