@@ -1,13 +1,13 @@
 local M = {}
 
 local autocmd = require "utils.plugin.autocmd"
-local cmd = require "utils.plugin.cmd"
+local cmds = require "utils.plugin.cmds"
 local keys = require "utils.plugin.keys"
 
-local function load_deps(deps)
-  local function to_table(v) return (type(v) == "string" or v == nil) and { v } or v end
+function M.to_table(v) return (type(v) == "string" or v == nil) and { v } or v end
 
-  for _, dep in ipairs(to_table(deps)) do
+local function load_deps(deps)
+  for _, dep in ipairs(M.to_table(deps)) do
     autocmd.exec(dep)
   end
 end
@@ -31,7 +31,7 @@ function M.create(opts)
 
   opts.autocmd = autocmd.create(opts, M.load)
 
-  if opts.cmd ~= nil then opts.cmd = cmd.create(opts.cmd, autocmd.exec) end
+  if opts.cmds ~= nil then opts.cmds = cmds.create(opts.cmds, autocmd.exec) end
 
   if not opts.lazy then autocmd.exec(opts.name) end
 
