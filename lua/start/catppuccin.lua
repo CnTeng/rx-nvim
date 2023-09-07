@@ -5,8 +5,7 @@ local opts = {
     dropbar = { enabled = true, color_mode = true },
     neotree = true,
     treesitter_context = true,
-    -- TODO: wait for nixpkgs update
-    -- ufo = true,
+    ufo = true,
     telescope = { style = "nvchad" },
     which_key = true,
   },
