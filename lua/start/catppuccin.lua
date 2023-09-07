@@ -7,7 +7,6 @@ local opts = {
     treesitter_context = true,
     -- TODO: wait for nixpkgs update
     -- ufo = true,
-    rainbow_delimiters = true,
     telescope = { style = "nvchad" },
     which_key = true,
   },
