@@ -12,7 +12,7 @@
         stylua
         nil
         alejandra
-        nodePackages.prettier
+        prettierd
       ]
       ++ [config.packages.default];
   };
