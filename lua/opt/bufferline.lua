@@ -1,5 +1,6 @@
 local opts = {
   options = {
+    mode = "tabs",
     diagnostics = "nvim_lsp",
     offsets = {
       {
@@ -29,10 +30,9 @@ local keys = {
 }
 
 require("utils").lazy {
-  -- pname = "bufferline.nvim",
-  -- event = "BufEnter",
+  pack = "bufferline.nvim",
   name = "bufferline",
-  lazy = false,
+  event = "BufEnter",
   opts = opts,
   keys = keys,
 }
