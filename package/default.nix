@@ -5,12 +5,12 @@
   neovimUtils,
   writeTextFile,
   ripgrep,
-  jq,
   fd,
   vimPlugins,
   extraPackages ? [],
   gptSupport ? false,
-  gptSecrets ? "",
+  gptHost ? "",
+  gptKey ? "",
 }:
 with lib; let
   inherit (import ./lib.nix lib vimPlugins) getPluginName getPluginPkg mkInitFile;
@@ -27,7 +27,8 @@ with lib; let
         require "core"
       ''
       + optionalString gptSupport "vim.g.gptsupport = true\n"
-      + optionalString gptSupport "vim.g.gptsecrets = \"${gptSecrets}\"\n"
+      + optionalString gptSupport "vim.g.gpthost = \"${gptHost}\"\n"
+      + optionalString gptSupport "vim.g.gptkey= \"${gptKey}\"\n"
       + mkInitFile "start" startPlugins
       + mkInitFile "opt" optPlugins;
   };
@@ -50,7 +51,7 @@ with lib; let
     telescope-fzf-native-nvim
   ];
 
-  binPath = makeBinPath ([ripgrep fd jq] ++ extraPackages);
+  binPath = makeBinPath ([ripgrep fd] ++ extraPackages);
 
   neovimConfig =
     neovimUtils.makeNeovimConfig {customRC = "luafile ${initFile}";}

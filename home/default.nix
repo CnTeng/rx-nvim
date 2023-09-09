@@ -9,7 +9,8 @@ with lib; let
   rx-nvim = self.packages.${pkgs.system}.default.override {
     inherit (cfg) extraPackages;
     gptSupport = cfg.gptSupport.enable;
-    gptSecrets = cfg.gptSupport.secretsPath;
+    gptHost = cfg.gptSupport.secrets.hostPath;
+    gptKey = cfg.gptSupport.secrets.keyPath;
   };
 in {
   options.programs.rx-nvim = {
@@ -22,8 +23,13 @@ in {
     };
     gptSupport = {
       enable = mkEnableOption "ChatGPT support";
-      secretsPath = mkOption {
-        type = types.str;
+      secrets = {
+        hostPath = mkOption {
+          type = types.str;
+        };
+        keyPath = mkOption {
+          type = types.str;
+        };
       };
     };
   };

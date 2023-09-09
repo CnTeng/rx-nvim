@@ -3,8 +3,8 @@ if not vim.g.gptsupport then return end
 local keys = { { "<leader>C", "<cmd>ChatGPT<cr>", "ChatGPT" } }
 
 local opts = {
-  api_key_cmd = "jq -r .key " .. vim.g.gptsecrets,
-  api_host_cmd = "jq -r .host " .. vim.g.gptsecrets,
+  api_key_cmd = "cat " .. vim.g.gptkey,
+  api_host_cmd = "cat " .. vim.g.gpthost,
   openai_params = {
     model = "gpt-3.5-turbo",
     frequency_penalty = 0,
