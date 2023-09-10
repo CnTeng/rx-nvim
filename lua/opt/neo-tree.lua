@@ -1,10 +1,6 @@
 local opts = {
   sources = { "filesystem", "buffers", "git_status", "document_symbols" },
   close_if_last_window = true,
-  source_selector = {
-    winbar = true,
-    content_layout = "center",
-  },
   default_component_configs = {
     indent = {
       indent_size = 2,
@@ -22,13 +18,11 @@ local opts = {
       ["h"] = "close_node",
       ["K"] = "focus_preview",
       ["a"] = { "add", config = { show_path = "relative" } },
-      ["H"] = "prev_source",
-      ["L"] = "next_source",
     },
   },
   filesystem = {
     window = {
-      mappings = { ["<cr>"] = "set_root", ["."] = "toggle_hidden" },
+      mappings = { ["<cr>"] = "set_root" },
       fuzzy_finder_mappings = {
         ["<C-j>"] = "move_cursor_down",
         ["<C-k>"] = "move_cursor_up",
@@ -52,8 +46,22 @@ local opts = {
 }
 
 local keys = {
-  { "<leader>e", "<cmd>Neotree toggle left<cr>", "Explorer" },
-  { "<leader>lo", "<cmd>Neotree toggle document_symbols right<cr>", "Code outline" },
+  {
+    "<leader>bs",
+    function() require("neo-tree.command").execute { source = "buffers", position = "float", toggle = true } end,
+    "Swicth buffer",
+  },
+  {
+    "<leader>ge",
+    function() require("neo-tree.command").execute { source = "git_status", position = "float", toggle = true } end,
+    "Git explorer",
+  },
+  { "<leader>e", function() require("neo-tree.command").execute { toggle = true } end, "Explorer" },
+  {
+    "<leader>lo",
+    function() require("neo-tree.command").execute { source = "document_symbols", position = "right", toggle = true } end,
+    "Code outline",
+  },
 }
 
 require("utils").lazy {

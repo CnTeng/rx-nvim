@@ -13,7 +13,6 @@ local opts = {
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
       },
-
       n = {
         ["q"] = actions.close,
       },
@@ -42,8 +41,6 @@ local opts = {
 }
 
 local keys = {
-  -- Buffer
-  { "<leader>bs", function() require("telescope.builtin").buffers() end, "Swicth buffer" },
   -- File
   { "<leader>fr", function() require("telescope.builtin").oldfiles() end, "Recent files" },
   { "<leader>ff", function() require("telescope.builtin").find_files() end, "Find files" },
