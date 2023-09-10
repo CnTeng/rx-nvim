@@ -22,9 +22,9 @@ local keys = {
   { "[b", "<cmd>bprevious<cr>", "Previous buffer" },
   { "]b", "<cmd>bnext<cr>", "Next buffer" },
   { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", "Previous buffer" },
-  { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", "Previous buffer" },
   { "<S-l>", "<cmd>BufferLineCycleNext<cr>", "Next buffer" },
-  { "<leader>bC", "<cmd>bdelete<cr>", "Close buffer (without layout)" },
+  { "<leader>c", "<cmd>bdelete<cr>", "Close buffer" },
+  { "<leader>bc", "<cmd>bdelete<cr>", "Close buffer" },
   { "<leader>bh", "<cmd>BufferLineMovePrev<cr>", { silent = true, desc = "Move buffer Left" } },
   { "<leader>bl", "<cmd>BufferLineMoveNext<cr>", { silent = true, desc = "Move buffer Right" } },
 }

@@ -111,7 +111,6 @@ end
 require("utils").lazy {
   name = "cmp",
   lazy = false,
-  -- event = "InsertEnter",
   opts = opts,
   config = config,
 }
