@@ -5,6 +5,7 @@ function M.keymap(key)
   local rhs = key[2]
   local mode = key.mode ~= nil and key.mode or "n"
   local opts = type(key[3]) == "string" and { desc = key[3] } or key[3]
+  opts = vim.tbl_deep_extend("force", opts, { noremap = true })
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
