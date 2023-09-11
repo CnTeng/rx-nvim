@@ -19,10 +19,6 @@ keymap { "gj", "<C-w>J", "Move window down" }
 keymap { "gk", "<C-w>K", "Move window up" }
 keymap { "gl", "<C-w>L", "Move window right" }
 
---[[ Insert ]]
--- Press jk fast to exit insert mode
-keymap { mode = "i", "jk", "<esc>", "Exit insert mode" }
-
 --[[ Visual && Select ]]
 -- Stay in indent mode
 keymap { mode = "v", "<", "<gv", "unindent line" }
@@ -41,7 +37,7 @@ keymap { mode = "x", "<A-j>", ":move '>+1<cr>gv-gv", "Move text down" }
 
 --[[ Terminal ]]
 -- Better terminal navigation
-keymap { mode = "t", "<esc>", "<C-\\><C-n>", "Terminal normal mode" }
+keymap { mode = "t", "<Esc>", "<C-\\><C-n>", "Terminal normal mode" }
 keymap { mode = "t", "<C-h>", "<C-\\><C-N><C-w>h", "Terminal left window navigation" }
 keymap { mode = "t", "<C-j>", "<C-\\><C-N><C-w>j", "Terminal down window navigation" }
 keymap { mode = "t", "<C-k>", "<C-\\><C-N><C-w>k", "Terminal up window navigation" }
