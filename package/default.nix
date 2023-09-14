@@ -33,9 +33,10 @@ with lib; let
       + mkInitFile "opt" optPlugins;
   };
 
-  defaultPlugins = with vimPlugins; [fzfWrapper];
-
-  treesitterPlugins = with vimPlugins; [nvim-treesitter.withAllGrammars];
+  defaultPlugins = with vimPlugins; [
+    nvim-treesitter.withAllGrammars
+    fzfWrapper
+  ];
 
   cmpPlugins = with vimPlugins; [
     cmp-nvim-lsp
@@ -63,7 +64,6 @@ with lib; let
           getPluginPkg startPlugins
           ++ defaultPlugins
           ++ cmpPlugins
-          ++ treesitterPlugins
           ++ telescopePlugins;
       };
     };
