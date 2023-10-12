@@ -22,6 +22,7 @@ local opts = {
     "nil_ls",
     "neocmake",
     "terraformls",
+    "gopls",
   },
 }
 
