@@ -23,12 +23,12 @@ local opts = {
     "neocmake",
     "terraformls",
     "gopls",
+    "pylsp",
+    "lua_ls",
   },
 }
 
 local lsp = {}
-
-table.insert(opts.servers, "lua_ls")
 
 lsp.lua_ls = {
   settings = {
