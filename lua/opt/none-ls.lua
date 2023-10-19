@@ -11,6 +11,7 @@ local opts = function()
     end,
     sources = {
       nls.builtins.formatting.stylua,
+      nls.builtins.formatting.black,
       nls.builtins.formatting.prettierd,
     },
   }
@@ -18,7 +19,7 @@ end
 
 require("utils").lazy {
   name = "null-ls",
-  pack = "null-ls.nvim",
+  pack = "none-ls.nvim",
   event = { "BufReadPre", "BufNewFile" },
   opts = opts,
 }

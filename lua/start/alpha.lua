@@ -21,10 +21,10 @@ dashboard.section.buttons.val = {
 
 for _, button in ipairs(dashboard.section.buttons.val) do
   button.opts.hl = "keyword"
-  button.opts.hl_shortcut = "DashboardShortCut"
+  button.opts.hl_shortcut = "AlphaShortcut"
 end
-dashboard.section.header.opts.hl = "DashboardHeader"
-dashboard.section.footer.opts.hl = "DashboardFooter"
+dashboard.section.header.opts.hl = "AlphaHeader"
+dashboard.section.footer.opts.hl = "AlphaFooter"
 
 local keys = { { "<leader>a", "<cmd>Alpha<cr>", "Alpha" } }
 
