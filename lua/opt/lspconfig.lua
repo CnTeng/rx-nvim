@@ -23,7 +23,7 @@ local opts = {
     "neocmake",
     "terraformls",
     "gopls",
-    "pylsp",
+    "pyright",
     "lua_ls",
   },
 }
@@ -40,6 +40,8 @@ lsp.lua_ls = {
     },
   },
 }
+
+lsp.pyright = {}
 
 lsp.nil_ls = {
   settings = {
