@@ -52,7 +52,12 @@ local function on_attach(client, bufnr)
   end
 
   if client.supports_method "textDocument/formatting" then
-    keymap { mode = { "n", "v" }, "<leader>lf", vim.lsp.buf.format, "Format code" }
+    keymap {
+      mode = { "n", "v" },
+      "<leader>lf",
+      function() require("conform").format { bufnr = bufnr, lsp_fallback = true } end,
+      "Format code",
+    }
   end
 
   if client.supports_method "textDocument/codeLens" then

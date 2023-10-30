@@ -56,7 +56,7 @@ require("utils").lazy {
   pack = "nvim-lspconfig",
   name = "lspconfig",
   keys = keys,
-  before = { "neodev", "clangd_extensions", "null-ls" },
+  before = { "neodev", "clangd_extensions" },
   config = function()
     require("utils").setup_diagnostic(signs, opts.diagnostics)
     require("utils").setup_lspconfig(opts.servers, lsp)
