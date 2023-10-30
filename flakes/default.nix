@@ -5,7 +5,7 @@
 }: {
   flake.homeModules.default = import ../home self;
 
-  imports = [./devshell.nix ./treefmt.nix];
+  imports = [./devshell.nix ./pre-commit.nix ./treefmt.nix];
 
   perSystem = {
     pkgs,
