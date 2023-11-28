@@ -1,35 +1,20 @@
-{
-  lib,
-  wrapNeovimUnstable,
-  neovim-unwrapped,
-  neovimUtils,
-  writeTextFile,
-  ripgrep,
-  fd,
-  vimPlugins,
-  extraPackages ? [],
-  gptSupport ? false,
-  gptHost ? "",
-  gptKey ? "",
-}:
-with lib; let
-  inherit (import ./lib.nix lib vimPlugins) getPluginName getPluginPkg mkInitFile;
+{ lib, wrapNeovimUnstable, neovim-unwrapped, neovimUtils, writeTextFile, ripgrep
+, fd, vimPlugins, extraPackages ? [ ], extraConfig ? "" }:
+with lib;
+let
+  inherit (import ./lib.nix lib vimPlugins)
+    getPluginName getPluginPkg mkInitFile;
 
   startPlugins = getPluginName ../lua/start;
   optPlugins = getPluginName ../lua/opt;
 
   initFile = writeTextFile {
     name = "init.lua";
-    text =
-      ''
-        vim.loader.enable()
-        vim.opt.rtp:append("${../.}")
-        require "core"
-      ''
-      + optionalString gptSupport "vim.g.gptsupport = true\n"
-      + optionalString gptSupport "vim.g.gpthost = \"${gptHost}\"\n"
-      + optionalString gptSupport "vim.g.gptkey= \"${gptKey}\"\n"
-      + mkInitFile "start" startPlugins
+    text = ''
+      vim.loader.enable()
+      vim.opt.rtp:append("${../.}")
+      require "core"
+    '' + extraConfig + mkInitFile "start" startPlugins
       + mkInitFile "opt" optPlugins;
   };
 
@@ -52,20 +37,15 @@ with lib; let
     telescope-fzf-native-nvim
   ];
 
-  binPath = makeBinPath ([ripgrep fd] ++ extraPackages);
+  binPath = makeBinPath ([ ripgrep fd ] ++ extraPackages);
 
   neovimConfig =
-    neovimUtils.makeNeovimConfig {customRC = "luafile ${initFile}";}
-    // {
-      wrapperArgs = escapeShellArgs ["--suffix" "PATH" ":" "${binPath}"];
+    neovimUtils.makeNeovimConfig { customRC = "luafile ${initFile}"; } // {
+      wrapperArgs = escapeShellArgs [ "--suffix" "PATH" ":" "${binPath}" ];
       packpathDirs.myNeovimPackages = {
         opt = getPluginPkg optPlugins;
-        start =
-          getPluginPkg startPlugins
-          ++ defaultPlugins
-          ++ cmpPlugins
+        start = getPluginPkg startPlugins ++ defaultPlugins ++ cmpPlugins
           ++ telescopePlugins;
       };
     };
-in
-  wrapNeovimUnstable neovim-unwrapped neovimConfig
+in wrapNeovimUnstable neovim-unwrapped neovimConfig
