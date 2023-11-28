@@ -46,7 +46,7 @@ lsp.pyright = {}
 lsp.nil_ls = {
   settings = {
     ["nil"] = {
-      formatting = { command = { "alejandra" } },
+      formatting = { command = { "nixfmt" } },
     },
   },
 }

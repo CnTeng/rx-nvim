@@ -1,11 +1,11 @@
-{inputs, ...}: {
-  imports = [inputs.treefmt.flakeModule];
+{ inputs, ... }: {
+  imports = [ inputs.treefmt.flakeModule ];
 
-  perSystem = {...}: {
+  perSystem = { ... }: {
     treefmt = {
       projectRootFile = "flake.nix";
       programs = {
-        alejandra.enable = true;
+        nixfmt.enable = true;
         prettier.enable = true;
         stylua.enable = true;
       };
