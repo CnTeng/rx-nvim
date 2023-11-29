@@ -3,6 +3,7 @@ local opts = {
   styles = { conditionals = {} },
   integrations = {
     dropbar = { enabled = true, color_mode = true },
+    fidget = true,
     neotree = true,
     treesitter_context = true,
     ufo = true,
