@@ -1,0 +1,22 @@
+defaults:
+  actions:
+    queue:
+      method: rebase
+
+queue_rules:
+  - name: default
+    merge_conditions:
+      - check-success=Evaluate flake.nix
+      - check-success=packages default [x86_64-linux]
+      - check-success=packages default [aarch64-linux]
+      - check-success=devShell default [x86_64-linux]
+      - check-success=devShell default [aarch64-linux]
+
+pull_request_rules:
+  - name: merge using the merge queue
+    conditions:
+      - base=main
+      - label~=merge-queue|dependencies
+    actions:
+      queue:
+        method: rebase
