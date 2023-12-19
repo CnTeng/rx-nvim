@@ -6,9 +6,5 @@
       commitizen.enable = true;
       treefmt.enable = true;
     };
-
-    devshells.default.devshell.startup = {
-      pre-commit.text = config.pre-commit.installationScript;
-    };
   };
 }
