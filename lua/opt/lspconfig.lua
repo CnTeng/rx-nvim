@@ -2,6 +2,7 @@ local keys = {
   { "<leader>li", "<cmd>LspInfo<cr>", "LSP info" },
 }
 
+-- TODO: wait for neo-tree
 local signs = {
   { name = "DiagnosticSignError", text = "" },
   { name = "DiagnosticSignWarn", text = "" },
@@ -11,9 +12,15 @@ local signs = {
 
 local opts = {
   diagnostics = {
-    underline = true,
-    signs = { active = signs },
     virtual_text = { spacing = 2, prefix = "●" },
+    signs = {
+      text = {
+        [vim.diagnostic.severity.ERROR] = "",
+        [vim.diagnostic.severity.WARN] = "",
+        [vim.diagnostic.severity.INFO] = "",
+        [vim.diagnostic.severity.HINT] = "",
+      },
+    },
     update_in_insert = false,
     severity_sort = true,
   },
