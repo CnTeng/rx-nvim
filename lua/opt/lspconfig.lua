@@ -27,7 +27,7 @@ local opts = {
   servers = {
     "clangd",
     "nil_ls",
-    "neocmake",
+    "cmake",
     "terraformls",
     "gopls",
     "pyright",
