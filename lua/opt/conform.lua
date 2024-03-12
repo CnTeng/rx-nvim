@@ -15,6 +15,7 @@ local opts = {
     python = { "black" },
     yaml = { "prettierd" },
     markdown = { "prettierd" },
+    sh = { "shfmt" },
   },
 }
 

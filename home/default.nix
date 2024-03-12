@@ -1,5 +1,10 @@
 self:
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 with lib;
 let
   cfg = config.programs.rx-nvim;
@@ -7,7 +12,8 @@ let
   rx-nvim = self.packages.${pkgs.system}.default.override {
     inherit (cfg) extraPackages extraConfig;
   };
-in {
+in
+{
   options.programs.rx-nvim = {
     enable = mkEnableOption "rx-nvim";
     defaultEditor = mkEnableOption "neovim as default editor" // {
@@ -36,7 +42,10 @@ in {
       terminal = false;
       name = "Neovim Kitty";
       genericName = "Text Editor";
-      categories = [ "Utility" "TextEditor" ];
+      categories = [
+        "Utility"
+        "TextEditor"
+      ];
     };
   };
 }

@@ -32,6 +32,7 @@ local opts = {
     "gopls",
     "pyright",
     "lua_ls",
+    "bashls",
   },
 }
 
@@ -49,6 +50,8 @@ lsp.lua_ls = {
 }
 
 lsp.pyright = {}
+
+lsp.bashls = {}
 
 lsp.nil_ls = {
   settings = {

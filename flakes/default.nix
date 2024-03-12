@@ -1,15 +1,27 @@
-{ inputs, self, ... }: {
+{ inputs, self, ... }:
+{
   flake.homeModules.default = import ../home self;
 
-  imports = [ ./devshell.nix ./pre-commit.nix ./treefmt.nix ];
+  imports = [
+    ./devshell.nix
+    ./pre-commit.nix
+    ./treefmt.nix
+  ];
 
-  perSystem = { pkgs, system, config, ... }: {
-    _module.args.pkgs = import inputs.nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-      overlays = map (n: inputs.${n}.overlays.default) [ "neovim-nightly" ];
+  perSystem =
+    {
+      pkgs,
+      system,
+      config,
+      ...
+    }:
+    {
+      _module.args.pkgs = import inputs.nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+        overlays = map (n: inputs.${n}.overlays.default) [ "neovim-nightly" ];
+      };
+
+      packages.default = pkgs.callPackage ../package { };
     };
-
-    packages.default = pkgs.callPackage ../package { };
-  };
 }

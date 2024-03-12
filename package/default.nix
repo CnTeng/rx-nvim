@@ -1,20 +1,32 @@
-{ lib, wrapNeovimUnstable, neovim-unwrapped, neovimUtils, writeTextFile, ripgrep
-, fd, vimPlugins, extraPackages ? [ ], extraConfig ? "" }:
+{
+  lib,
+  wrapNeovimUnstable,
+  neovim-unwrapped,
+  neovimUtils,
+  writeTextFile,
+  ripgrep,
+  fd,
+  vimPlugins,
+  extraPackages ? [ ],
+  extraConfig ? "",
+}:
 with lib;
 let
-  inherit (import ./lib.nix lib vimPlugins)
-    getPluginName getPluginPkg mkInitFile;
+  inherit (import ./lib.nix lib vimPlugins) getPluginName getPluginPkg mkInitFile;
 
   startPlugins = getPluginName ../lua/start;
   optPlugins = getPluginName ../lua/opt;
 
   initFile = writeTextFile {
     name = "init.lua";
-    text = ''
-      vim.loader.enable()
-      vim.opt.rtp:append("${../.}")
-      require "core"
-    '' + extraConfig + mkInitFile "start" startPlugins
+    text =
+      ''
+        vim.loader.enable()
+        vim.opt.rtp:append("${../.}")
+        require "core"
+      ''
+      + extraConfig
+      + mkInitFile "start" startPlugins
       + mkInitFile "opt" optPlugins;
   };
 
@@ -37,15 +49,25 @@ let
     telescope-fzf-native-nvim
   ];
 
-  binPath = makeBinPath ([ ripgrep fd ] ++ extraPackages);
+  binPath = makeBinPath (
+    [
+      ripgrep
+      fd
+    ]
+    ++ extraPackages
+  );
 
-  neovimConfig =
-    neovimUtils.makeNeovimConfig { customRC = "luafile ${initFile}"; } // {
-      wrapperArgs = escapeShellArgs [ "--suffix" "PATH" ":" "${binPath}" ];
-      packpathDirs.myNeovimPackages = {
-        opt = getPluginPkg optPlugins;
-        start = getPluginPkg startPlugins ++ defaultPlugins ++ cmpPlugins
-          ++ telescopePlugins;
-      };
+  neovimConfig = neovimUtils.makeNeovimConfig { customRC = "luafile ${initFile}"; } // {
+    wrapperArgs = escapeShellArgs [
+      "--suffix"
+      "PATH"
+      ":"
+      "${binPath}"
+    ];
+    packpathDirs.myNeovimPackages = {
+      opt = getPluginPkg optPlugins;
+      start = getPluginPkg startPlugins ++ defaultPlugins ++ cmpPlugins ++ telescopePlugins;
     };
-in wrapNeovimUnstable neovim-unwrapped neovimConfig
+  };
+in
+wrapNeovimUnstable neovim-unwrapped neovimConfig

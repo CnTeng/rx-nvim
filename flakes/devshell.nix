@@ -1,11 +1,22 @@
-{ ... }: {
-  perSystem = { config, pkgs, ... }: {
-    devShells.default = pkgs.mkShell {
-      packages = with pkgs; [ lua-language-server stylua nil nixfmt prettierd ];
+{ ... }:
+{
+  perSystem =
+    { config, pkgs, ... }:
+    {
+      devShells.default = pkgs.mkShell {
+        packages = with pkgs; [
+          lua-language-server
+          stylua
+          nil
+          nixfmt-rfc-style
+          prettierd
+          nodePackages.bash-language-server
+          shfmt
+        ];
 
-      inputsFrom = [ config.packages.default ];
+        inputsFrom = [ config.packages.default ];
 
-      shellHook = config.pre-commit.installationScript;
+        shellHook = config.pre-commit.installationScript;
+      };
     };
-  };
 }
