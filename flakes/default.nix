@@ -1,6 +1,6 @@
 { inputs, self, ... }:
 {
-  flake.homeModules.default = import ./home.nix self;
+  flake.nixosModules.default = import ./module.nix self;
 
   imports = [
     ./devshell.nix
@@ -22,6 +22,7 @@
         overlays = map (n: inputs.${n}.overlays.default) [ "neovim-nightly" ];
       };
 
-      packages.default = pkgs.callPackage ../package { };
+      packages.rx-nvim = pkgs.callPackage ../package { };
+      packages.default = config.packages.rx-nvim;
     };
 }

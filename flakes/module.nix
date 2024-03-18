@@ -10,8 +10,6 @@ let
   cfg = config.programs.rx-nvim;
   inherit (cfg) languages;
 
-  rx-nvim = self.packages.${pkgs.system}.default.override { inherit (cfg) extraConfig; };
-
   cppPkgs = with pkgs; [
     clang-tools
     cmake-language-server
@@ -43,9 +41,20 @@ in
 {
   options.programs.rx-nvim = {
     enable = mkEnableOption "rx-nvim";
+
+    package = mkPackageOption self.packages.${pkgs.system} "rx-nvim" { };
+
+    finalPackage = mkOption {
+      type = types.package;
+      visible = false;
+      readOnly = true;
+      description = mdDoc "Resulting customized neovim package.";
+    };
+
     defaultEditor = mkEnableOption "neovim as default editor" // {
       default = true;
     };
+
     languages = {
       fullSupport = mkEnableOption "full languages support";
       cppSupport = mkEnableOption "C/C++ support";
@@ -55,11 +64,13 @@ in
       pythonSupport = mkEnableOption "Python support";
       shellSupport = mkEnableOption "Shell support";
     };
+
     extraPackages = mkOption {
       type = with types; listOf package;
       default = [ ];
       description = "Extra packages available to nvim.";
     };
+
     extraConfig = mkOption {
       type = types.lines;
       default = "";
@@ -77,8 +88,10 @@ in
       shellSupport = true;
     };
 
-    home.packages =
-      [ rx-nvim ]
+    programs.rx-nvim.finalPackage = cfg.package.override { inherit (cfg) extraConfig; };
+
+    environment.systemPackages =
+      [ cfg.finalPackage ]
       ++ optionals languages.cppSupport cppPkgs
       ++ optionals languages.goSupport goPkgs
       ++ optionals languages.luaSupport luaPkgs
