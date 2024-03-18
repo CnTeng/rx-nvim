@@ -1,0 +1,42 @@
+{
+  "gp-nvim": {
+    "cargoLocks": null,
+    "date": "2024-02-28",
+    "extract": null,
+    "name": "gp-nvim",
+    "passthru": null,
+    "pinned": false,
+    "src": {
+      "deepClone": false,
+      "fetchSubmodules": false,
+      "leaveDotGit": false,
+      "name": null,
+      "owner": "Robitx",
+      "repo": "gp.nvim",
+      "rev": "d76be3d067b4e7352d1e744954327982cf1d24aa",
+      "sha256": "sha256-IIpbLDiC5Th/jbx7LDEPj+6D86eQQCZgPQHsfc8j8GY=",
+      "type": "github"
+    },
+    "version": "d76be3d067b4e7352d1e744954327982cf1d24aa"
+  },
+  "outline-nvim": {
+    "cargoLocks": null,
+    "date": "2024-03-16",
+    "extract": null,
+    "name": "outline-nvim",
+    "passthru": null,
+    "pinned": false,
+    "src": {
+      "deepClone": false,
+      "fetchSubmodules": false,
+      "leaveDotGit": false,
+      "name": null,
+      "owner": "hedyhli",
+      "repo": "outline.nvim",
+      "rev": "bdfd2da90e9a7686d00e55afa9f772c4b6809413",
+      "sha256": "sha256-Il27Z/vQVJ3WSrFnTOUwBeAFCjopXwDhdsi7A5v1gzU=",
+      "type": "github"
+    },
+    "version": "bdfd2da90e9a7686d00e55afa9f772c4b6809413"
+  }
+}

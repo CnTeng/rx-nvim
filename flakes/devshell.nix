@@ -12,6 +12,7 @@
           prettierd
           nodePackages.bash-language-server
           shfmt
+          nvfetcher
         ];
 
         inputsFrom = [ config.packages.default ];
