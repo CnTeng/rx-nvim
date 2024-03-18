@@ -100,7 +100,7 @@ in
       ++ optionals languages.shellSupport shellPkgs
       ++ extraPackages;
 
-    home.sessionVariables = mkIf cfg.defaultEditor { EDITOR = "nvim"; };
+    environment.variables.EDITOR = mkIf cfg.defaultEditor "nvim";
 
     xdg.desktopEntries.nvim-kitty = {
       exec = getExe pkgs.kitty + " -e nvim %F";
