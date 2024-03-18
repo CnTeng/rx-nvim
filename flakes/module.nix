@@ -96,7 +96,7 @@ in
       ++ optionals languages.goSupport goPkgs
       ++ optionals languages.luaSupport luaPkgs
       ++ optionals languages.nixSupport nixPkgs
-      ++ optionals languages.PythonSupport pythonPkgs
+      ++ optionals languages.pythonSupport pythonPkgs
       ++ optionals languages.shellSupport shellPkgs
       ++ extraPackages;
 
