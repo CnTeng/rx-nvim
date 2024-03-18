@@ -1,6 +1,6 @@
 { inputs, self, ... }:
 {
-  flake.homeModules.default = import ../home self;
+  flake.homeModules.default = import ./home.nix self;
 
   imports = [
     ./devshell.nix

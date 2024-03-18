@@ -4,70 +4,45 @@
   neovim-unwrapped,
   neovimUtils,
   writeTextFile,
-  ripgrep,
-  fd,
   vimPlugins,
-  extraPackages ? [ ],
   extraConfig ? "",
+  symlinkJoin,
+  callPackage,
 }:
-with lib;
 let
-  inherit (import ./lib.nix lib vimPlugins) getPluginName getPluginPkg mkInitFile;
+  plugins = callPackage ../plugins { };
 
-  startPlugins = getPluginName ../lua/start;
-  optPlugins = getPluginName ../lua/opt;
+  inherit (plugins) pluginsPath binPath;
 
-  initFile = writeTextFile {
-    name = "init.lua";
-    text =
-      ''
-        vim.loader.enable()
-        vim.opt.rtp:append("${../.}")
-        require "core"
-      ''
-      + extraConfig
-      + mkInitFile "start" startPlugins
-      + mkInitFile "opt" optPlugins;
+  treesitterPath = symlinkJoin {
+    name = "treesitter-parsers";
+    paths = vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
   };
 
-  defaultPlugins = with vimPlugins; [
-    nvim-treesitter.withAllGrammars
-    fzfWrapper
-  ];
+  extraConfigFile = writeTextFile {
+    name = "extra.lua";
+    text = extraConfig;
+  };
 
-  cmpPlugins = with vimPlugins; [
-    cmp-nvim-lsp
-    cmp_luasnip
-    cmp-buffer
-    cmp-path
-    cmp-cmdline
-    lspkind-nvim
-  ];
+  neovimConfig =
+    neovimUtils.makeNeovimConfig {
+      customRC = ''
+        let g:config_path = "${../config}"
+        let g:lazy_path = "${vimPlugins.lazy-nvim}"
+        let g:plugins_path = "${pluginsPath}"
+        let g:treesitter_path = "${treesitterPath}"
 
-  telescopePlugins = with vimPlugins; [
-    telescope-undo-nvim
-    telescope-fzf-native-nvim
-  ];
-
-  binPath = makeBinPath (
-    [
-      ripgrep
-      fd
-    ]
-    ++ extraPackages
-  );
-
-  neovimConfig = neovimUtils.makeNeovimConfig { customRC = "luafile ${initFile}"; } // {
-    wrapperArgs = escapeShellArgs [
-      "--suffix"
-      "PATH"
-      ":"
-      "${binPath}"
-    ];
-    packpathDirs.myNeovimPackages = {
-      opt = getPluginPkg optPlugins;
-      start = getPluginPkg startPlugins ++ defaultPlugins ++ cmpPlugins ++ telescopePlugins;
+        luafile ${../config/init.lua}
+        luafile ${extraConfigFile}
+      '';
+    }
+    // {
+      wrapperArgs = lib.escapeShellArgs [
+        "--suffix"
+        "PATH"
+        ":"
+        binPath
+      ];
     };
-  };
 in
 wrapNeovimUnstable neovim-unwrapped neovimConfig

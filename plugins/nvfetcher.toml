@@ -1,0 +1,7 @@
+[gp-nvim]
+src.git = "https://github.com/Robitx/gp.nvim"
+fetch.github = "Robitx/gp.nvim"
+
+[outline-nvim]
+src.git = "https://github.com/hedyhli/outline.nvim"
+fetch.github = "hedyhli/outline.nvim"
