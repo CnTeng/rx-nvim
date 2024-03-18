@@ -101,18 +101,5 @@ in
       ++ extraPackages;
 
     environment.variables.EDITOR = mkIf cfg.defaultEditor "nvim";
-
-    xdg.desktopEntries.nvim-kitty = {
-      exec = getExe pkgs.kitty + " -e nvim %F";
-      icon = "nvim";
-      comment = "Edit text files";
-      terminal = false;
-      name = "Neovim Kitty";
-      genericName = "Text Editor";
-      categories = [
-        "Utility"
-        "TextEditor"
-      ];
-    };
   };
 }
