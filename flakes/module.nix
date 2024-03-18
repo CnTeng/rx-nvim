@@ -98,7 +98,7 @@ in
       ++ optionals languages.nixSupport nixPkgs
       ++ optionals languages.pythonSupport pythonPkgs
       ++ optionals languages.shellSupport shellPkgs
-      ++ extraPackages;
+      ++ cfg.extraPackages;
 
     environment.variables.EDITOR = mkIf cfg.defaultEditor "nvim";
   };
