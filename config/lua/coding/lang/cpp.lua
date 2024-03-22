@@ -3,14 +3,23 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        clangd = {},
+        clangd = {
+          cmd = {
+            "clangd",
+            "--background-index",
+            "--clang-tidy",
+            "--completion-style=detailed",
+            "--function-arg-placeholders",
+            "--header-insertion=iwyu",
+          },
+        },
         cmake = {},
       },
     },
   },
   {
     "p00f/clangd_extensions.nvim",
-    lazy = true,
+    ft = { "c", "cpp" },
     opts = {
       ast = {
         role_icons = {
