@@ -16,7 +16,7 @@ let
     cmake-format
   ];
 
-  goPkgs = with pkgs; [ go ];
+  goPkgs = with pkgs; [ gopls ];
 
   luaPkgs = with pkgs; [
     lua-language-server
@@ -37,6 +37,8 @@ let
     nodePackages.bash-language-server
     shfmt
   ];
+
+  otherPkgs = with pkgs; [ prettierd ];
 in
 {
   options.programs.rx-nvim = {
@@ -98,6 +100,7 @@ in
       ++ optionals languages.nixSupport nixPkgs
       ++ optionals languages.pythonSupport pythonPkgs
       ++ optionals languages.shellSupport shellPkgs
+      ++ otherPkgs
       ++ cfg.extraPackages;
 
     environment.variables.EDITOR = mkIf cfg.defaultEditor "nvim";
