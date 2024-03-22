@@ -3,16 +3,7 @@
     { config, pkgs, ... }:
     {
       devShells.default = pkgs.mkShell {
-        packages = with pkgs; [
-          lua-language-server
-          stylua
-          nil
-          nixfmt-rfc-style
-          prettierd
-          nodePackages.bash-language-server
-          shfmt
-          nvfetcher
-        ];
+        packages = with pkgs; [ nvfetcher ];
 
         inputsFrom = [ config.packages.default ];
 

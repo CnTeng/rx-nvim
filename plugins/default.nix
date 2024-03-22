@@ -70,6 +70,7 @@ let
       fidget-nvim
       which-key-nvim
       statuscol-nvim
+      toggleterm-nvim
     ];
 
   editorPlugins =
