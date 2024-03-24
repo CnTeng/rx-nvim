@@ -8,37 +8,40 @@ self:
 with lib;
 let
   cfg = config.programs.rx-nvim;
-  inherit (cfg) languages;
 
-  cppPkgs = with pkgs; [
+  languagesPkgs = with pkgs; [
+    # C/C++
     clang-tools
     cmake-language-server
     cmake-format
-  ];
 
-  goPkgs = with pkgs; [ gopls ];
+    # Go
+    gopls
 
-  luaPkgs = with pkgs; [
+    # Lua
     lua-language-server
     stylua
-  ];
 
-  nixPkgs = with pkgs; [
+    # Nix
     nil
     nixfmt-rfc-style
-  ];
 
-  pythonPkgs = with pkgs; [
+    # Python
     nodePackages.pyright
     black
-  ];
 
-  shellPkgs = with pkgs; [
+    # Shell
     nodePackages.bash-language-server
     shfmt
-  ];
 
-  otherPkgs = with pkgs; [ prettierd ];
+    # Terraform
+    terraform-ls
+
+    # Other
+    nodePackages.prettier
+    xmlformat
+    taplo
+  ];
 in
 {
   options.programs.rx-nvim = {
@@ -57,22 +60,6 @@ in
       default = true;
     };
 
-    languages = {
-      fullSupport = mkEnableOption "full languages support";
-      cppSupport = mkEnableOption "C/C++ support";
-      goSupport = mkEnableOption "Go support";
-      luaSupport = mkEnableOption "Lua support";
-      nixSupport = mkEnableOption "Nix support";
-      pythonSupport = mkEnableOption "Python support";
-      shellSupport = mkEnableOption "Shell support";
-    };
-
-    extraPackages = mkOption {
-      type = with types; listOf package;
-      default = [ ];
-      description = "Extra packages available to nvim.";
-    };
-
     extraConfig = mkOption {
       type = types.lines;
       default = "";
@@ -81,27 +68,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.rx-nvim.languages = mkIf languages.fullSupport {
-      cppSupport = true;
-      goSupport = true;
-      luaSupport = true;
-      nixSupport = true;
-      pythonSupport = true;
-      shellSupport = true;
-    };
-
     programs.rx-nvim.finalPackage = cfg.package.override { inherit (cfg) extraConfig; };
 
-    environment.systemPackages =
-      [ cfg.finalPackage ]
-      ++ optionals languages.cppSupport cppPkgs
-      ++ optionals languages.goSupport goPkgs
-      ++ optionals languages.luaSupport luaPkgs
-      ++ optionals languages.nixSupport nixPkgs
-      ++ optionals languages.pythonSupport pythonPkgs
-      ++ optionals languages.shellSupport shellPkgs
-      ++ otherPkgs
-      ++ cfg.extraPackages;
+    environment.systemPackages = [ cfg.finalPackage ] ++ languagesPkgs;
 
     environment.variables.EDITOR = mkIf cfg.defaultEditor "nvim";
   };
