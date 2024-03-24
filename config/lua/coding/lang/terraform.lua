@@ -1,8 +1,6 @@
 return {
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = { terraformls = {} },
-    },
+  "neovim/nvim-lspconfig",
+  opts = {
+    servers = { terraformls = {} },
   },
 }

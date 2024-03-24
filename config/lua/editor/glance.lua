@@ -1,5 +1,5 @@
 return {
   "dnlhc/glance.nvim",
-  event = { "BufReadPre", "BufNewFile" },
+  event = "LazyFile",
   opts = {},
 }

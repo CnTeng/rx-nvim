@@ -1,6 +1,6 @@
 return {
   "luukvbaal/statuscol.nvim",
-  event = { "BufReadPre", "BufNewFile" },
+  event = "LazyFile",
   init = function()
     vim.opt.foldenable = true
     vim.opt.foldcolumn = "1"

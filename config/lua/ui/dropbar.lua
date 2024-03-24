@@ -1,6 +1,7 @@
 return {
   "Bekaboo/dropbar.nvim",
-  event = { "BufReadPre", "BufNewFile" },
+  event = "LazyFile",
+
   keys = {
     {
       "<Leader>D",

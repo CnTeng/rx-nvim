@@ -1,6 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  event = { "BufReadPost", "BufNewFile" },
+  event = "LazyFile",
   init = function() vim.opt.rtp:prepend(vim.g.treesitter_path) end,
   opts = {
     highlight = {

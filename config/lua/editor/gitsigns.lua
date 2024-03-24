@@ -1,6 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
-  event = { "BufReadPre", "BufNewFile" },
+  event = "LazyFile",
   keys = {
     { "]h", function() require("gitsigns").next_hunk() end, desc = "Next hunk" },
     { "[h", function() require("gitsigns").prev_hunk() end, desc = "Previous hunk" },
