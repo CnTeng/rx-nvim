@@ -30,6 +30,9 @@ let
     nodePackages.pyright
     black
 
+    # Rust
+    rust-analyzer
+
     # Shell
     nodePackages.bash-language-server
     shfmt
