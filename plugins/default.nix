@@ -33,6 +33,7 @@ let
       neogit
       nvim-treesitter
       conform-nvim
+      cmake-tools-nvim
       comment-nvim
       outline-nvim
       nvim-cmp
