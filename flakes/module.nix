@@ -32,6 +32,7 @@ let
 
     # Rust
     rust-analyzer
+    rustfmt
 
     # Shell
     nodePackages.bash-language-server
