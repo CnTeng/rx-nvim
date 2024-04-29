@@ -13,5 +13,8 @@ return {
     { mode = { "o", "x" }, "R", function() require("flash").freesitter_search() end, desc = "Treesitter Search" },
     { mode = { "c" }, "<c-s>", function() require("flash").toggle() end, desc = "Toggle Flash Search" },
   },
-  opts = {},
+  opts = {
+    search = { enabled = false },
+    char = { enabled = false },
+  },
 }

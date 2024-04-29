@@ -37,8 +37,8 @@ keymap("x", "<A-j>", ":move '>+1<cr>gv-gv", { desc = "Move text down" })
 
 --[[ Terminal ]]
 -- Better terminal navigation
-keymap("t", "<esc>", "<C-\\><C-n>", { desc = "Terminal normal mode" })
-keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", { desc = "Terminal left window navigation" })
-keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", { desc = "Terminal down window navigation" })
-keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", { desc = "Terminal up window navigation" })
-keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", { desc = "Terminal right window naviation" })
+-- keymap("t", "<esc>", "<C-\\><C-n>", { desc = "Terminal normal mode" })
+-- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", { desc = "Terminal left window navigation" })
+-- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", { desc = "Terminal down window navigation" })
+-- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", { desc = "Terminal up window navigation" })
+-- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", { desc = "Terminal right window naviation" })

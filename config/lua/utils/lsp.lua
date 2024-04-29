@@ -61,10 +61,9 @@ local function on_attach(client, bufnr)
   keymap { "[d", vim.diagnostic.goto_prev, "Previous diagnostic" }
 
   if client.supports_method "textDocument/inlayHint" then
-    vim.lsp.inlay_hint.enable(bufnr, true)
     keymap {
       "<leader>lI",
-      function() vim.lsp.inlay_hint.enable(bufnr) end,
+      function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end,
       "Toggle inlay hints",
     }
   end
