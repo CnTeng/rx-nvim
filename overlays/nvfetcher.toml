@@ -1,0 +1,7 @@
+[gp-nvim]
+src.git = "https://github.com/Robitx/gp.nvim"
+fetch.github = "Robitx/gp.nvim"
+
+[bufferline-nvim]
+src.git = "https://github.com/akinsho/bufferline.nvim"
+fetch.github = "akinsho/bufferline.nvim"

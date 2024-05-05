@@ -6,6 +6,18 @@
   dockerTools,
 }:
 {
+  bufferline-nvim = {
+    pname = "bufferline-nvim";
+    version = "73540cb95f8d95aa1af3ed57713c6720c78af915";
+    src = fetchFromGitHub {
+      owner = "akinsho";
+      repo = "bufferline.nvim";
+      rev = "73540cb95f8d95aa1af3ed57713c6720c78af915";
+      fetchSubmodules = false;
+      sha256 = "sha256-bHlmaNXfZTlTm/8v48FwCde9ljZFLv25efYF5355bnw=";
+    };
+    date = "2024-04-22";
+  };
   gp-nvim = {
     pname = "gp-nvim";
     version = "52938ffbd47b5e06d0f9b7c8b146f26d6021fbac";

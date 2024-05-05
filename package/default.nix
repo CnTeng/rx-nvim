@@ -1,48 +1,22 @@
+{ inputs, self, ... }:
 {
-  lib,
-  wrapNeovimUnstable,
-  neovim-unwrapped,
-  neovimUtils,
-  writeTextFile,
-  vimPlugins,
-  extraConfig ? "",
-  symlinkJoin,
-  callPackage,
-}:
-let
-  plugins = callPackage ../plugins { };
+  perSystem =
+    {
+      pkgs,
+      system,
+      config,
+      ...
+    }:
+    {
+      _module.args.pkgs = import inputs.nixpkgs {
+        inherit system;
+        overlays = [
+          self.overlays.default
+          inputs.neovim-nightly.overlays.default
+        ];
+      };
 
-  inherit (plugins) pluginsPath binPath;
-
-  treesitterPath = symlinkJoin {
-    name = "treesitter-parsers";
-    paths = vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
-  };
-
-  extraConfigFile = writeTextFile {
-    name = "extra.lua";
-    text = extraConfig;
-  };
-
-  neovimConfig =
-    neovimUtils.makeNeovimConfig {
-      customRC = ''
-        let g:config_path = "${../config}"
-        let g:lazy_path = "${vimPlugins.lazy-nvim}"
-        let g:plugins_path = "${pluginsPath}"
-        let g:treesitter_path = "${treesitterPath}"
-
-        luafile ${../config/init.lua}
-        luafile ${extraConfigFile}
-      '';
-    }
-    // {
-      wrapperArgs = lib.escapeShellArgs [
-        "--suffix"
-        "PATH"
-        ":"
-        binPath
-      ];
+      packages.rx-nvim = pkgs.callPackage ./rx-nvim.nix { };
+      packages.default = config.packages.rx-nvim;
     };
-in
-wrapNeovimUnstable neovim-unwrapped neovimConfig
+}

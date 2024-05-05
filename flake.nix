@@ -31,6 +31,11 @@
         "aarch64-linux"
       ];
 
-      imports = [ ./flakes ];
+      imports = [
+        ./flakes
+        ./modules
+        ./overlays
+        ./package
+      ];
     };
 }
