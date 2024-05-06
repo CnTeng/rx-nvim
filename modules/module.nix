@@ -37,9 +37,6 @@ let
     nodePackages.bash-language-server
     shfmt
 
-    # Terraform
-    terraform-ls
-
     # Other
     nodePackages.prettier
     xmlformat

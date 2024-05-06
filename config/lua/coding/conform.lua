@@ -15,6 +15,8 @@ return {
       yaml = { "prettier" },
       xml = { "xmlformat" },
       toml = { "taplo" },
+      terraform = { "tofu_fmt" },
+      tf = { "tofu_fmt" },
     },
     format_on_save = {
       timeout_ms = 500,
