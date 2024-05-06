@@ -18,7 +18,7 @@
       withSystem prev.stdenv.hostPlatform.system (
         { config, ... }:
         {
-          inherit (config.packages) rx-nvim;
+          rx-nvim = config.packages.default;
         }
       );
 
