@@ -5,6 +5,7 @@
   perSystem = {
     pre-commit.settings.hooks = {
       treefmt.enable = true;
+      commitizen.enable = true;
     };
   };
 }
