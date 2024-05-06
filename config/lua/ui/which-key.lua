@@ -26,6 +26,7 @@ return {
       ["<leader>l"] = { name = "+LSP" },
       ["<leader>s"] = { name = "+Search" },
       ["<leader>t"] = { name = "+Term" },
+      ["<leader><leader>"] = { name = "+Swap" },
     },
   },
   config = function(_, opts)
