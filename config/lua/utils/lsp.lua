@@ -55,18 +55,14 @@ local function on_attach(client, bufnr)
     keymap { "<leader>ls", vim.lsp.buf.signature_help, "Signature help" }
   end
 
+  if client.supports_method "textDocument/inlayHint" then
+    keymap { "<leader>lI", vim.lsp.inlay_hint.enable, "Toggle inlay hints" }
+  end
+
   keymap { "<leader>lk", vim.diagnostic.open_float, "Line diagnostics" }
   keymap { "<leader>lq", vim.diagnostic.setloclist, "List diagnostic" }
   keymap { "]d", vim.diagnostic.goto_next, "Next diagnostic" }
   keymap { "[d", vim.diagnostic.goto_prev, "Previous diagnostic" }
-
-  if client.supports_method "textDocument/inlayHint" then
-    keymap {
-      "<leader>lI",
-      function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end,
-      "Toggle inlay hints",
-    }
-  end
 end
 
 function M.setup_lspconfig(servers)
