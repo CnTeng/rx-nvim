@@ -18,6 +18,18 @@
     };
     date = "2024-04-22";
   };
+  flash-nvim = {
+    pname = "flash-nvim";
+    version = "7bb4a9c75d1e20cd24185afedeaa11681829ba23";
+    src = fetchFromGitHub {
+      owner = "folke";
+      repo = "flash.nvim";
+      rev = "7bb4a9c75d1e20cd24185afedeaa11681829ba23";
+      fetchSubmodules = false;
+      sha256 = "sha256-HYKwF9MtRVsX6d5QxmSAGMWTqeFkkEDrHQA+oyoWxYE=";
+    };
+    date = "2024-05-03";
+  };
   gp-nvim = {
     pname = "gp-nvim";
     version = "52938ffbd47b5e06d0f9b7c8b146f26d6021fbac";

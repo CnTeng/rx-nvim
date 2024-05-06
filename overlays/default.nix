@@ -17,6 +17,7 @@
         gp-nvim = mkPackage "gp-nvim" "gp.nvim";
 
         bufferline-nvim = mkOverride "bufferline-nvim";
+        flash-nvim = mkOverride "flash-nvim";
       };
     };
 }

@@ -5,3 +5,7 @@ fetch.github = "Robitx/gp.nvim"
 [bufferline-nvim]
 src.git = "https://github.com/akinsho/bufferline.nvim"
 fetch.github = "akinsho/bufferline.nvim"
+
+[flash-nvim]
+src.git = "https://github.com/folke/flash.nvim"
+fetch.github = "folke/flash.nvim"
