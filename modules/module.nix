@@ -1,4 +1,3 @@
-self:
 {
   lib,
   config,
@@ -51,7 +50,7 @@ in
   options.programs.rx-nvim = {
     enable = mkEnableOption "rx-nvim";
 
-    package = mkPackageOption self.packages.${pkgs.system} "rx-nvim" { };
+    package = mkPackageOption pkgs "rx-nvim" { };
 
     finalPackage = mkOption {
       type = types.package;

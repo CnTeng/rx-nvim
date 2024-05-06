@@ -34,8 +34,8 @@
       imports = [
         ./flakes
         ./modules
-        ./overlays
         ./package
+        ./pkgs
       ];
     };
 }
