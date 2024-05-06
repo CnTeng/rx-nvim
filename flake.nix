@@ -34,7 +34,6 @@
       imports = [
         ./flakes
         ./modules
-        ./package
         ./pkgs
       ];
     };

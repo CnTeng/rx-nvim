@@ -2,7 +2,6 @@
   inputs,
   lib,
   self,
-  withSystem,
   ...
 }:
 {
@@ -13,14 +12,7 @@
       self.overlays.plugins
     ]);
 
-    rx-nvim =
-      final: prev:
-      withSystem prev.stdenv.hostPlatform.system (
-        { config, ... }:
-        {
-          rx-nvim = config.packages.default;
-        }
-      );
+    rx-nvim = final: prev: { rx-nvim = final.callPackage ../package { }; };
 
     plugins =
       final: prev:
@@ -46,11 +38,13 @@
   };
 
   perSystem =
-    { system, ... }:
+    { pkgs, system, ... }:
     {
       _module.args.pkgs = import inputs.nixpkgs {
         inherit system;
         overlays = [ self.overlays.default ];
       };
+
+      packages.default = pkgs.rx-nvim;
     };
 }
