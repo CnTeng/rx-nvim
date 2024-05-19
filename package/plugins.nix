@@ -55,6 +55,7 @@ let
     bamboo-nvim
     lualine-nvim
     fzfWrapper
+    flatten-nvim
     bufferline-nvim
     indent-blankline-nvim
     nvim-bqf

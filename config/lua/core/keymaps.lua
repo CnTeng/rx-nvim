@@ -21,4 +21,4 @@ keymap("x", "J", ":move '>+1<cr>gv-gv", { desc = "Move text down" })
 keymap("x", "K", ":move '<-2<cr>gv-gv", { desc = "Move text up" })
 
 -- Better terminal
-keymap("t", "<C-/>", "<C-\\><C-n>", { desc = "Terminal normal mode" })
+keymap("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Terminal normal mode" })
