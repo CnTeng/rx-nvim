@@ -15,6 +15,11 @@
           prettier.enable = true;
           stylua.enable = true;
         };
+
+        settings.formatter = {
+          nixfmt.excludes = [ "pkgs/_sources/*" ];
+          prettier.excludes = [ "pkgs/_sources/*" ];
+        };
       };
     };
 }

@@ -1,62 +1,22 @@
 {
-  "bufferline-nvim": {
-    "cargoLocks": null,
-    "date": "2024-04-22",
-    "extract": null,
-    "name": "bufferline-nvim",
-    "passthru": null,
-    "pinned": false,
-    "src": {
-      "deepClone": false,
-      "fetchSubmodules": false,
-      "leaveDotGit": false,
-      "name": null,
-      "owner": "akinsho",
-      "repo": "bufferline.nvim",
-      "rev": "73540cb95f8d95aa1af3ed57713c6720c78af915",
-      "sha256": "sha256-bHlmaNXfZTlTm/8v48FwCde9ljZFLv25efYF5355bnw=",
-      "type": "github"
-    },
-    "version": "73540cb95f8d95aa1af3ed57713c6720c78af915"
-  },
-  "flash-nvim": {
-    "cargoLocks": null,
-    "date": "2024-05-03",
-    "extract": null,
-    "name": "flash-nvim",
-    "passthru": null,
-    "pinned": false,
-    "src": {
-      "deepClone": false,
-      "fetchSubmodules": false,
-      "leaveDotGit": false,
-      "name": null,
-      "owner": "folke",
-      "repo": "flash.nvim",
-      "rev": "7bb4a9c75d1e20cd24185afedeaa11681829ba23",
-      "sha256": "sha256-HYKwF9MtRVsX6d5QxmSAGMWTqeFkkEDrHQA+oyoWxYE=",
-      "type": "github"
-    },
-    "version": "7bb4a9c75d1e20cd24185afedeaa11681829ba23"
-  },
-  "gp-nvim": {
-    "cargoLocks": null,
-    "date": "2024-03-26",
-    "extract": null,
-    "name": "gp-nvim",
-    "passthru": null,
-    "pinned": false,
-    "src": {
-      "deepClone": false,
-      "fetchSubmodules": false,
-      "leaveDotGit": false,
-      "name": null,
-      "owner": "Robitx",
-      "repo": "gp.nvim",
-      "rev": "52938ffbd47b5e06d0f9b7c8b146f26d6021fbac",
-      "sha256": "sha256-nowrrgdRxxJ81xsmuUYKsbPNLTGVKO6KbSpU0U98lWE=",
-      "type": "github"
-    },
-    "version": "52938ffbd47b5e06d0f9b7c8b146f26d6021fbac"
-  }
+    "gp-nvim": {
+        "cargoLocks": null,
+        "date": "2024-03-26",
+        "extract": null,
+        "name": "gp-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "Robitx",
+            "repo": "gp.nvim",
+            "rev": "52938ffbd47b5e06d0f9b7c8b146f26d6021fbac",
+            "sha256": "sha256-nowrrgdRxxJ81xsmuUYKsbPNLTGVKO6KbSpU0U98lWE=",
+            "type": "github"
+        },
+        "version": "52938ffbd47b5e06d0f9b7c8b146f26d6021fbac"
+    }
 }

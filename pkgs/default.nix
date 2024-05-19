@@ -7,7 +7,6 @@
 {
   flake.overlays = {
     default = lib.composeManyExtensions ([
-      inputs.neovim-nightly.overlays.default
       self.overlays.rx-nvim
       self.overlays.plugins
     ]);
@@ -30,9 +29,6 @@
       {
         vimPlugins = prev.vimPlugins // {
           gp-nvim = mkPackage "gp-nvim" "gp.nvim";
-
-          bufferline-nvim = mkOverride "bufferline-nvim";
-          flash-nvim = mkOverride "flash-nvim";
         };
       };
   };
