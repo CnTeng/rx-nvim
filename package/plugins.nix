@@ -81,7 +81,8 @@ let
     nvim-ufo
     guess-indent-nvim
     smart-splits-nvim
-    # gp-nvim
+    mini-nvim
+    CopilotChat-nvim
   ];
 
   plugins = codingPlugins ++ editorPlugins ++ uiPlugins;

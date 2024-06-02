@@ -1,9 +1,9 @@
 {
-    "gp-nvim": {
+    "CopilotChat-nvim": {
         "cargoLocks": null,
-        "date": "2024-03-26",
+        "date": "2024-06-01",
         "extract": null,
-        "name": "gp-nvim",
+        "name": "CopilotChat-nvim",
         "passthru": null,
         "pinned": false,
         "src": {
@@ -11,12 +11,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "owner": "Robitx",
-            "repo": "gp.nvim",
-            "rev": "52938ffbd47b5e06d0f9b7c8b146f26d6021fbac",
-            "sha256": "sha256-nowrrgdRxxJ81xsmuUYKsbPNLTGVKO6KbSpU0U98lWE=",
+            "owner": "CopilotC-Nvim",
+            "repo": "CopilotChat.nvim",
+            "rev": "82923efe22b604cf9c0cad0bb2a74aa9247755ab",
+            "sha256": "sha256-bdGql7WBn4yk44rd+6fK3CwBZNOZOlatnKjJLoyHBDY=",
             "type": "github"
         },
-        "version": "52938ffbd47b5e06d0f9b7c8b146f26d6021fbac"
+        "version": "82923efe22b604cf9c0cad0bb2a74aa9247755ab"
     }
 }

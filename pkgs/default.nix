@@ -28,7 +28,8 @@
       in
       {
         vimPlugins = prev.vimPlugins // {
-          gp-nvim = mkPackage "gp-nvim" "gp.nvim";
+
+          CopilotChat-nvim = mkOverride "CopilotChat-nvim";
         };
       };
   };
