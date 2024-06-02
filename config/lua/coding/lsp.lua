@@ -1,9 +1,13 @@
 return {
   "neovim/nvim-lspconfig",
   event = "LazyFile",
-  dependencies = { "hrsh7th/cmp-nvim-lsp" },
+  dependencies = {
+    "hrsh7th/cmp-nvim-lsp",
+    { "hedyhli/outline.nvim", opts = {} },
+  },
   keys = {
     { "<leader>lI", "<cmd>LspInfo<cr>", desc = "LSP info" },
+    { "<leader>lo", function() require("outline").toggle() end, desc = "Toggle outline" },
   },
   opts = {
     keys = {
