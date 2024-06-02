@@ -30,14 +30,14 @@ return {
     },
   },
   config = function(_, opts)
-    require("which-key").setup {
+    require("which-key").setup({
       plugins = opts.plugins,
       key_labels = opts.key_labels,
       triggers_blacklist = opts.triggers_blacklist,
-    }
+    })
 
-    require("which-key").register {
+    require("which-key").register({
       opts.register,
-    }
+    })
   end,
 }

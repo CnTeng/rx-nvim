@@ -5,12 +5,26 @@ return {
     "kevinhwang91/promise-async",
   },
   keys = {
-    { "zR", function() require("ufo").openAllFolds() end, desc = "Open all folds" },
-    { "zM", function() require("ufo").closeAllFolds() end, desc = "Close all folds" },
+    {
+      "zR",
+      function()
+        require("ufo").openAllFolds()
+      end,
+      desc = "Open all folds",
+    },
+    {
+      "zM",
+      function()
+        require("ufo").closeAllFolds()
+      end,
+      desc = "Close all folds",
+    },
     {
       "K",
       function()
-        if not require("ufo").peekFoldedLinesUnderCursor() then vim.lsp.buf.hover() end
+        if not require("ufo").peekFoldedLinesUnderCursor() then
+          vim.lsp.buf.hover()
+        end
       end,
       desc = "Hover",
     },

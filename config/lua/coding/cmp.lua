@@ -14,23 +14,23 @@ return {
     },
   },
   opts = function()
-    local cmp = require "cmp"
+    local cmp = require("cmp")
 
     return {
       formatting = {
-        format = require("lspkind").cmp_format {
+        format = require("lspkind").cmp_format({
           maxwidth = 50,
           ellipsis_char = "...",
-        },
+        }),
       },
-      mapping = cmp.mapping.preset.insert {
+      mapping = cmp.mapping.preset.insert({
         ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
         ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-        ["<CR>"] = cmp.mapping.confirm { select = true },
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
-          elseif vim.snippet.active { direction = 1 } then
+          elseif vim.snippet.active({ direction = 1 }) then
             vim.snippet.jump(1)
           else
             fallback()
@@ -39,13 +39,13 @@ return {
         ["<S-Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
-          elseif vim.snippet.active { direction = 1 } then
+          elseif vim.snippet.active({ direction = 1 }) then
             vim.snippet.jump(-1)
           else
             fallback()
           end
         end),
-      },
+      }),
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "snippets" },
@@ -59,7 +59,7 @@ return {
     }
   end,
   config = function(_, opts)
-    local cmp = require "cmp"
+    local cmp = require("cmp")
     cmp.setup(opts)
 
     cmp.setup.cmdline("/", {
@@ -77,7 +77,7 @@ return {
     })
 
     cmp.setup.cmdline(":", {
-      mapping = cmp.mapping.preset.cmdline {},
+      mapping = cmp.mapping.preset.cmdline({}),
       sources = cmp.config.sources({
         { name = "path" },
       }, {

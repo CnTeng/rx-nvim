@@ -6,7 +6,7 @@ return {
     { "<leader>a", "<cmd>Alpha<cr>", desc = "Alpha" },
   },
   opts = function()
-    local dashboard = require "alpha.themes.dashboard"
+    local dashboard = require("alpha.themes.dashboard")
 
     dashboard.section.header.val = {
       [[                                                          ]],
@@ -37,5 +37,7 @@ return {
     return dashboard
   end,
 
-  config = function(_, dashboard) require("alpha").setup(dashboard.opts) end,
+  config = function(_, dashboard)
+    require("alpha").setup(dashboard.opts)
+  end,
 }

@@ -5,7 +5,9 @@ return {
   keys = {
     {
       "<Leader>D",
-      function() require("dropbar.api").pick() end,
+      function()
+        require("dropbar.api").pick()
+      end,
       desc = "Dropbar",
     },
   },

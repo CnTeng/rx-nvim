@@ -9,12 +9,16 @@ return {
   keys = {
     {
       "<leader>ge",
-      function() require("neo-tree.command").execute { source = "git_status", position = "float", toggle = true } end,
+      function()
+        require("neo-tree.command").execute({ source = "git_status", position = "float", toggle = true })
+      end,
       desc = "Git explorer",
     },
     {
       "<leader>e",
-      function() require("neo-tree.command").execute { toggle = true } end,
+      function()
+        require("neo-tree.command").execute({ toggle = true })
+      end,
       desc = "Explorer",
     },
   },

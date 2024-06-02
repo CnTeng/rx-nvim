@@ -9,7 +9,7 @@ return {
     vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
   end,
   opts = function()
-    local builtin = require "statuscol.builtin"
+    local builtin = require("statuscol.builtin")
 
     return {
       relculright = true,

@@ -3,7 +3,9 @@ return {
   keys = {
     {
       "<leader>gg",
-      function() require("neogit").open() end,
+      function()
+        require("neogit").open()
+      end,
       desc = "Neogit",
     },
   },

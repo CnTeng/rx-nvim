@@ -7,7 +7,13 @@ return {
   },
   keys = {
     { "<leader>lI", "<cmd>LspInfo<cr>", desc = "LSP info" },
-    { "<leader>lo", function() require("outline").toggle() end, desc = "Toggle outline" },
+    {
+      "<leader>lo",
+      function()
+        require("outline").toggle()
+      end,
+      desc = "Toggle outline",
+    },
   },
   opts = {
     keys = {
@@ -23,7 +29,9 @@ return {
       { "<leader>lr", vim.lsp.buf.rename, desc = "Rename current symbol", has = "rename" },
       {
         "<leader>li",
-        function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {}) end,
+        function()
+          vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
+        end,
         desc = "Toggle inlay hints",
         has = "inlayHint",
       },

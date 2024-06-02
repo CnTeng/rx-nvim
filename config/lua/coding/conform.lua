@@ -1,12 +1,16 @@
 return {
   "stevearc/conform.nvim",
   event = "LazyFile",
-  init = function() vim.o.formatexpr = "v:lua.require'conform'.formatexpr()" end,
+  init = function()
+    vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+  end,
   keys = {
     {
       mode = { "n", "v" },
       "<leader>lf",
-      function() require("conform").format { lsp_fallback = true } end,
+      function()
+        require("conform").format({ lsp_fallback = true })
+      end,
       desc = "Format code",
     },
   },

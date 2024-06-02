@@ -13,7 +13,9 @@ return {
       lualine_a = {
         {
           "mode",
-          fmt = function(str) return vim.fn.winwidth(0) > 80 and " " .. str .. " " or " " end,
+          fmt = function(str)
+            return vim.fn.winwidth(0) > 80 and " " .. str .. " " or " "
+          end,
           padding = 0,
         },
       },
@@ -34,7 +36,9 @@ return {
       },
       lualine_z = {
         {
-          function() return vim.fn.winwidth(0) > 80 and "  " .. os.date "%R " or " " end,
+          function()
+            return vim.fn.winwidth(0) > 80 and "  " .. os.date("%R ") or " "
+          end,
           padding = 0,
         },
       },

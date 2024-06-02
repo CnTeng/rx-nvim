@@ -1,7 +1,9 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   event = "LazyFile",
-  init = function() vim.opt.rtp:prepend(vim.g.treesitter_path) end,
+  init = function()
+    vim.opt.rtp:prepend(vim.g.treesitter_path)
+  end,
   opts = {
     highlight = {
       enable = true,
@@ -11,5 +13,7 @@ return {
     incremental_selection = { enable = true },
     indent = { enable = true },
   },
-  config = function(_, opts) require("nvim-treesitter.configs").setup(opts) end,
+  config = function(_, opts)
+    require("nvim-treesitter.configs").setup(opts)
+  end,
 }
