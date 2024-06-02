@@ -1,25 +1,19 @@
 return {
-  "windwp/nvim-autopairs",
-  event = "InsertEnter",
+  "altermo/ultimate-autopair.nvim",
+  event = { "InsertEnter", "CmdlineEnter" },
   opts = {
-    check_ts = true,
-    fast_wrap = {
-      map = "<M-e>",
-      chars = { "{", "[", "(", '"', "'" },
-      pattern = [=[[%'%"%>%]%)%}%,]]=],
-      end_key = "$",
-      keys = "qwertyuiopzxcvbnmasdfghjkl",
-      check_comma = true,
-      manual_position = true,
-      highlight = "Search",
-      highlight_grey = "Comment",
+    tabout = {
+      enable = true,
+      map = "<Tab>",
+      hopout = true,
+      do_nothing_if_fail = false,
     },
   },
-  config = function(_, opts)
-    require("nvim-autopairs").setup(opts)
-
-    local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-    local cmp = require "cmp"
-    cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-  end,
+  -- config = function(_, opts)
+  --   local autopair = require "ultimate-autopair"
+  --   autopair.init {
+  --     autopair.extend_default(opts),
+  --     { profile = require("ultimate-autopair.experimental.cmpair").init },
+  --   }
+  -- end,
 }
