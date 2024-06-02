@@ -8,16 +8,13 @@
       treefmt = {
         projectRootFile = "flake.nix";
         programs = {
-          nixfmt = {
-            enable = true;
-            package = pkgs.nixfmt-rfc-style;
-          };
+          nixfmt-rfc-style.enable = true;
           prettier.enable = true;
           stylua.enable = true;
         };
 
         settings.formatter = {
-          nixfmt.excludes = [ "pkgs/_sources/*" ];
+          nixfmt-rfc-style.excludes = [ "pkgs/_sources/*" ];
           prettier.excludes = [ "pkgs/_sources/*" ];
         };
       };
