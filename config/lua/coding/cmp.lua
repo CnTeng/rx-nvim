@@ -16,40 +16,17 @@ return {
 
       return {
         formatting = {
-          fields = { "abbr", "kind", "menu" },
           format = require("lspkind").cmp_format {
-            mode = "symbol_text",
-            maxwidth = 30,
+            maxwidth = 50,
             ellipsis_char = "...",
-
-            before = function(entry, vim_item)
-              vim_item.menu = ({
-                nvim_lsp = "[LSP]",
-                luasnip = "[Snippet]",
-                orgmode = "[Org]",
-                cmdline = "[Cmd]",
-                buffer = "[Buffer]",
-                path = "[Path]",
-              })[entry.source.name]
-              return vim_item
-            end,
           },
         },
         snippet = {
           expand = function(args) luasnip.lsp_expand(args.body) end,
         },
-        mapping = {
-          ["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
-          ["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
+        mapping = cmp.mapping.preset.insert {
           ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
           ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-          ["<C-a>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-          ["<C-e>"] = cmp.mapping {
-            i = cmp.mapping.abort(),
-            c = cmp.mapping.close(),
-          },
-          -- Accept currently selected item. If none selected, `select` first item.
-          -- Set `select` to `false` to only confirm explicitly selected items.
           ["<CR>"] = cmp.mapping.confirm { select = true },
           ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
@@ -59,7 +36,7 @@ return {
             else
               fallback()
             end
-          end, { "i", "s" }),
+          end),
           ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_prev_item()
@@ -68,14 +45,16 @@ return {
             else
               fallback()
             end
-          end, { "i", "s" }),
+          end),
         },
-        sources = {
+        sources = cmp.config.sources({
           { name = "nvim_lsp" },
           { name = "luasnip" },
-          { name = "buffer" },
           { name = "path" },
-        },
+          { name = "codeium" },
+        }, {
+          { name = "buffer" },
+        }),
         experimental = {
           ghost_text = true,
         },
@@ -101,11 +80,12 @@ return {
 
       cmp.setup.cmdline(":", {
         mapping = cmp.mapping.preset.cmdline {},
-        sources = {
+        sources = cmp.config.sources({
+          { name = "path" },
+        }, {
           { name = "cmdline" },
           { name = "buffer" },
-          { name = "path" },
-        },
+        }),
       })
     end,
   },
