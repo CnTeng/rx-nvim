@@ -33,16 +33,12 @@ let
     outline-nvim
     nvim-cmp
     cmp-nvim-lsp
-    cmp_luasnip
     cmp-buffer
     cmp-path
     cmp-cmdline
+    nvim-snippets
     friendly-snippets
     nvim-lspconfig
-    {
-      name = "LuaSnip";
-      path = luasnip;
-    }
     luvit-meta
     lazydev-nvim
     {
