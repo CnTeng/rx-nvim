@@ -22,6 +22,7 @@ let
     if lib.isDerivation plugin then [ (mkEntry plugin) ] ++ dependencies else [ plugin ];
 
   codingPlugins = with vimPlugins; [
+    flutter-tools-nvim
     clangd_extensions-nvim
     markdown-preview-nvim
     neogit
