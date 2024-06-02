@@ -19,7 +19,6 @@
         sources = final.callPackage ./_sources/generated.nix { };
 
         mkPackage = src: pname: final.vimUtils.buildVimPlugin sources.${src} // { inherit pname; };
-
         mkOverride =
           n:
           prev.vimPlugins.${n}.overrideAttrs (_: {
@@ -28,6 +27,8 @@
       in
       {
         vimPlugins = prev.vimPlugins // {
+          lazydev-nvim = mkPackage "lazydev-nvim" "lazydev.nvim";
+          luvit-meta = mkPackage "luvit-meta" "luvit-meta";
 
           CopilotChat-nvim = mkOverride "CopilotChat-nvim";
         };

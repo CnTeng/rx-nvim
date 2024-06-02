@@ -13,4 +13,28 @@
     };
     date = "2024-06-01";
   };
+  lazydev-nvim = {
+    pname = "lazydev-nvim";
+    version = "f2fe95553b21fb7596c7cb060063886f17eb38c8";
+    src = fetchFromGitHub {
+      owner = "folke";
+      repo = "lazydev.nvim";
+      rev = "f2fe95553b21fb7596c7cb060063886f17eb38c8";
+      fetchSubmodules = false;
+      sha256 = "sha256-CVlD7yZleqKOZWCHghuCRr/Jw5VKv1X7ddqnW5PrQco=";
+    };
+    date = "2024-06-02";
+  };
+  luvit-meta = {
+    pname = "luvit-meta";
+    version = "ce76f6f6cdc9201523a5875a4471dcfe0186eb60";
+    src = fetchFromGitHub {
+      owner = "Bilal2453";
+      repo = "luvit-meta";
+      rev = "ce76f6f6cdc9201523a5875a4471dcfe0186eb60";
+      fetchSubmodules = false;
+      sha256 = "sha256-zAAptV/oLuLAAsa2zSB/6fxlElk4+jNZd/cPr9oxFig=";
+    };
+    date = "2024-01-20";
+  };
 }

@@ -39,11 +39,12 @@ let
     cmp-cmdline
     friendly-snippets
     nvim-lspconfig
-    neodev-nvim
     {
       name = "LuaSnip";
       path = luasnip;
     }
+    luvit-meta
+    lazydev-nvim
     {
       name = "lspkind.nvim";
       path = lspkind-nvim;

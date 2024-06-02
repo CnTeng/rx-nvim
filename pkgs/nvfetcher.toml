@@ -1,3 +1,11 @@
 [CopilotChat-nvim]
 src.git = "https://github.com/CopilotC-Nvim/CopilotChat.nvim"
 fetch.github = "CopilotC-Nvim/CopilotChat.nvim"
+
+[lazydev-nvim]
+src.git = "https://github.com/folke/lazydev.nvim"
+fetch.github = "folke/lazydev.nvim"
+
+[luvit-meta]
+src.git = "https://github.com/Bilal2453/luvit-meta"
+fetch.github = "Bilal2453/luvit-meta"
