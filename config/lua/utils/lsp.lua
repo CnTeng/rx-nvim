@@ -1,83 +1,59 @@
 local M = {}
 
-local function setup_lsp_capabilities()
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
+local function has(client, method)
+  method = method:find "/" and method or "textDocument/" .. method
+  return client.supports_method(method)
+end
 
-  capabilities.textDocument.foldingRange = {
+function M.capabilities(extra_caps)
+  local caps = vim.lsp.protocol.make_client_capabilities()
+
+  caps = require("cmp_nvim_lsp").default_capabilities(caps)
+
+  caps.textDocument.foldingRange = {
     dynamicRegistration = false,
     lineFoldingOnly = true,
   }
-  capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-  return capabilities
+  if extra_caps then caps = vim.tbl_deep_extend("force", caps, extra_caps) end
+
+  return caps
 end
 
-local function on_attach(client, bufnr)
-  local function keymap(key)
-    local mode = key.mode ~= nil and key.mode or "n"
-    key[3] = { silent = true, buffer = bufnr, desc = key[3] }
-    vim.keymap.set(mode, key[1], key[2], key[3])
-  end
+function M.on_attach(check_method, extra_keys, callback)
+  local keys = require "lazy.core.handler.keys"
 
-  if client.supports_method "textDocument/definition" then
-    keymap { "gd", "<cmd>Glance definitions<cr>", "Goto definition" }
-  end
+  local spec = vim.deepcopy(require("utils.lazy").opts("nvim-lspconfig").keys)
 
-  if client.supports_method "textDocument/declaration" then
-    keymap { "gD", vim.lsp.buf.declaration, "Go todeclaration" }
-  end
+  if extra_keys then vim.list_extend(spec, extra_keys) end
 
-  if client.supports_method "textDocument/implementation" then
-    keymap { "gI", "<cmd>Glance implementations<cr>", "Goto implementation" }
-  end
+  return function(client, bufnr)
+    if not check_method or has(client, "inlayHint") then vim.lsp.inlay_hint.enable() end
 
-  if client.supports_method "textDocument/references" then
-    keymap { "gr", "<cmd>Glance references<cr>", "Goto references" }
-  end
+    local keymaps = keys.resolve(spec)
+    for _, keymap in pairs(keymaps) do
+      if not check_method or not keymap.has or has(client, keymap.has) then
+        local opts = keys.opts(keymap)
+        opts.has = nil
+        opts.silent = opts.silent ~= false
+        opts.buffer = bufnr
+        vim.keymap.set(keymap.mode or "n", keymap.lhs, keymap.rhs, opts)
+      end
+    end
 
-  if client.supports_method "textDocument/typeDefinition" then
-    keymap { "gt", "<cmd>Glance type_definitions<cr>", "Goto type definitions" }
+    if callback then callback(client, bufnr) end
   end
-
-  if client.supports_method "textDocument/codeAction" then
-    keymap { mode = { "n", "v" }, "<leader>la", vim.lsp.buf.code_action, "Code action" }
-  end
-
-  if client.supports_method "textDocument/codeLens" then
-    keymap { "<leader>lL", vim.lsp.codelens.run, "CodeLens run" }
-  end
-
-  if client.supports_method "textDocument/rename" then
-    keymap { "<leader>lr", vim.lsp.buf.rename, "Rename current symbol" }
-  end
-
-  if client.supports_method "textDocument/signatureHelp" then
-    keymap { "<leader>ls", vim.lsp.buf.signature_help, "Signature help" }
-  end
-
-  if client.supports_method "textDocument/inlayHint" then
-    keymap { "<leader>lI", vim.lsp.inlay_hint.enable, "Toggle inlay hints" }
-  end
-
-  keymap { "<leader>lk", vim.diagnostic.open_float, "Line diagnostics" }
-  keymap { "<leader>lq", vim.diagnostic.setloclist, "List diagnostic" }
-  keymap { "]d", vim.diagnostic.goto_next, "Next diagnostic" }
-  keymap { "[d", vim.diagnostic.goto_prev, "Previous diagnostic" }
 end
 
-function M.setup_lspconfig(servers)
-  local default_handlers = {
-    on_attach = on_attach,
-    capabilities = setup_lsp_capabilities(),
+function M.handlers(server_opts)
+  local handlers = {
+    capabilities = M.capabilities(server_opts.capabilities),
+    on_attach = M.on_attach(true, server_opts.keys, server_opts.callback),
   }
 
-  for server, server_opts in pairs(servers) do
-    if server_opts then
-      require("lspconfig")[server].setup(vim.tbl_deep_extend("force", default_handlers, server_opts))
-    else
-      require("lspconfig")[server].setup(default_handlers)
-    end
-  end
+  if server_opts then handlers = vim.tbl_deep_extend("force", handlers, server_opts) end
+
+  return handlers
 end
 
 return M
