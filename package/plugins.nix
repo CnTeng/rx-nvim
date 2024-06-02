@@ -2,9 +2,6 @@
   lib,
   linkFarm,
   vimPlugins,
-  fswatch,
-  ripgrep,
-  fd,
   ...
 }:
 let
@@ -65,7 +62,7 @@ let
   ];
 
   editorPlugins = with vimPlugins; [
-    nvim-autopairs
+    ultimate-autopair-nvim
     fzf-lua
     gitsigns-nvim
     glance-nvim
@@ -87,9 +84,9 @@ in
 {
   pluginsPath = linkFarm "lazy-plugins" (lib.concatMap mkLazyPlugin plugins);
 
-  binPath = lib.makeBinPath [
-    fswatch
-    ripgrep
-    fd
-  ];
+  extraLuaPackages =
+    p: with p; [
+      tiktoken_core
+      jsregexp
+    ];
 }
