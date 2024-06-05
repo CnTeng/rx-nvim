@@ -3,15 +3,18 @@ return {
     "folke/lazydev.nvim",
     ft = "lua",
     opts = {
-      library = { uv = "luvit-meta/library" },
-      enabled = function(root_dir) return vim.uv.fs_stat(root_dir .. "/config/lua") and true or false end,
+      library = { uv = "luvit-meta/library", words = { "vim%.uv" } },
     },
   },
+
   { "Bilal2453/luvit-meta", lazy = true },
   {
     "hrsh7th/nvim-cmp",
-    opts = function(_, opts) table.insert(opts.sources, { name = "lazydev", group_index = 0 }) end,
+    opts = function(_, opts)
+      table.insert(opts.sources, { name = "lazydev", group_index = 0 })
+    end,
   },
+
   {
     "neovim/nvim-lspconfig",
     opts = {
@@ -29,6 +32,7 @@ return {
       },
     },
   },
+
   {
     "stevearc/conform.nvim",
     opts = {
