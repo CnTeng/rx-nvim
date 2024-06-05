@@ -2,9 +2,6 @@ return {
   "goolord/alpha-nvim",
   event = "VimEnter",
   dependencies = "nvim-tree/nvim-web-devicons",
-  keys = {
-    { "<leader>a", "<cmd>Alpha<cr>", desc = "Alpha" },
-  },
   opts = function()
     local dashboard = require("alpha.themes.dashboard")
 

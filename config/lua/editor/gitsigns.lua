@@ -1,71 +1,20 @@
 return {
   "lewis6991/gitsigns.nvim",
   event = "LazyFile",
-  keys = {
-    {
-      "]h",
-      function()
-        require("gitsigns").next_hunk()
-      end,
-      desc = "Next hunk",
-    },
-    {
-      "[h",
-      function()
-        require("gitsigns").prev_hunk()
-      end,
-      desc = "Previous hunk",
-    },
-    {
-      "<leader>gl",
-      function()
-        require("gitsigns").blame_line()
-      end,
-      desc = "View blame",
-    },
-    {
-      "<leader>gp",
-      function()
-        require("gitsigns").preview_hunk()
-      end,
-      desc = "Preview hunk",
-    },
-    {
-      "<leader>gr",
-      function()
-        require("gitsigns").reset_hunk()
-      end,
-      desc = "Reset hunk",
-    },
-    {
-      "<leader>gR",
-      function()
-        require("gitsigns").reset_buffer()
-      end,
-      desc = "Reset buffer",
-    },
-    {
-      "<leader>gs",
-      function()
-        require("gitsigns").stage_hunk()
-      end,
-      desc = "Stage hunk",
-    },
-    {
-      "<leader>gu",
-      function()
-        require("gitsigns").undo_stage_hunk()
-      end,
-      desc = "Unstage hunk",
-    },
-    {
-      "<leader>gd",
-      function()
-        require("gitsigns").diffthis()
-      end,
-      desc = "View diff",
-    },
-  },
+  keys = function()
+    local gitsigns = require("gitsigns")
+    return {
+      { "]h", gitsigns.next_hunk, desc = "Next hunk" },
+      { "[h", gitsigns.prev_hunk, desc = "Previous hunk" },
+      { "<leader>gl", gitsigns.blame_line, desc = "View blame" },
+      { "<leader>gp", gitsigns.preview_hunk, desc = "Preview hunk" },
+      { "<leader>gr", gitsigns.reset_hunk, desc = "Reset hunk" },
+      { "<leader>gR", gitsigns.reset_buffer, desc = "Reset buffer" },
+      { "<leader>gs", gitsigns.stage_hunk, desc = "Stage hunk" },
+      { "<leader>gu", gitsigns.undo_stage_hunk, desc = "Unstage hunk" },
+      { "<leader>gd", gitsigns.diffthis, desc = "View diff" },
+    }
+  end,
   opts = {
     signs = {
       add = { text = "┃" },
@@ -75,6 +24,7 @@ return {
       changedelete = { text = "┃" },
       untracked = { text = "┃" },
     },
+    word_diff = true,
     current_line_blame = true,
     preview_config = { border = "none" },
   },
