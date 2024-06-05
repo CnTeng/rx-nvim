@@ -17,12 +17,17 @@ return {
             "--function-arg-placeholders",
             "--header-insertion=iwyu",
           },
+
+          capabilities = {
+            offsetEncoding = { "utf-16" },
+          },
         },
 
         cmake = {},
       },
     },
   },
+
   {
     "hrsh7th/nvim-cmp",
     opts = function(_, opts)
