@@ -53,9 +53,6 @@ return {
       }, {
         { name = "buffer" },
       }),
-      experimental = {
-        ghost_text = true,
-      },
     }
   end,
   config = function(_, opts)

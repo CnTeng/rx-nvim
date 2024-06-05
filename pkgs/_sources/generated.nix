@@ -13,17 +13,41 @@
     };
     date = "2024-06-01";
   };
+  copilot-status-nvim = {
+    pname = "copilot-status-nvim";
+    version = "ea9e7000e82a89aac9d8434675dfed3da4ec1158";
+    src = fetchFromGitHub {
+      owner = "ofseed";
+      repo = "copilot-status.nvim";
+      rev = "ea9e7000e82a89aac9d8434675dfed3da4ec1158";
+      fetchSubmodules = false;
+      sha256 = "sha256-DR9H8ZDmEidXCyCIzuQTQFpvnPiV0xfUfQC6XOc2RkM=";
+    };
+    date = "2024-05-29";
+  };
+  copilot-vim = {
+    pname = "copilot-vim";
+    version = "53d3091be388ff1edacdb84421ccfa19a446a84d";
+    src = fetchFromGitHub {
+      owner = "github";
+      repo = "copilot.vim";
+      rev = "53d3091be388ff1edacdb84421ccfa19a446a84d";
+      fetchSubmodules = false;
+      sha256 = "sha256-FHqlO3Pot89Dy8iW1RQzZNgaXh1mmgEgzY/j/J67Z7Q=";
+    };
+    date = "2024-05-30";
+  };
   lazydev-nvim = {
     pname = "lazydev-nvim";
-    version = "f2fe95553b21fb7596c7cb060063886f17eb38c8";
+    version = "107231114623e2c4f90c626ec83b3120816b554e";
     src = fetchFromGitHub {
       owner = "folke";
       repo = "lazydev.nvim";
-      rev = "f2fe95553b21fb7596c7cb060063886f17eb38c8";
+      rev = "107231114623e2c4f90c626ec83b3120816b554e";
       fetchSubmodules = false;
-      sha256 = "sha256-CVlD7yZleqKOZWCHghuCRr/Jw5VKv1X7ddqnW5PrQco=";
+      sha256 = "sha256-bIJCZkwS+q2Q2gDc6V1j6l9HjowZTI0hnHtJusu77Z4=";
     };
-    date = "2024-06-02";
+    date = "2024-06-05";
   };
   luvit-meta = {
     pname = "luvit-meta";

@@ -27,10 +27,19 @@
       in
       {
         vimPlugins = prev.vimPlugins // {
+          copilot-vim = prev.vimPlugins.copilot-vim.overrideAttrs (_: {
+            inherit (sources.copilot-vim) src;
+            postInstall = ''
+              substituteInPlace $out/autoload/copilot/client.vim \
+                  --replace "  let node = get(g:, 'copilot_node_command', '''' )" \
+                            "  let node = get(g:, 'copilot_node_command', '${prev.nodejs}/bin/node')"
+            '';
+          });
+          CopilotChat-nvim = mkOverride "CopilotChat-nvim";
+
+          copilot-status-nvim = mkPackage "copilot-status-nvim" "copilot-status.nvim";
           lazydev-nvim = mkPackage "lazydev-nvim" "lazydev.nvim";
           luvit-meta = mkPackage "luvit-meta" "luvit-meta";
-
-          CopilotChat-nvim = mkOverride "CopilotChat-nvim";
         };
       };
   };

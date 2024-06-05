@@ -20,6 +20,7 @@ return {
       ["g"] = { name = "+Goto" },
       ["gz"] = { name = "+Surround" },
       ["gr"] = { name = "+Go to references" },
+      ["<leader>a"] = { name = "+AI" },
       ["<leader>b"] = { name = "+Buffer" },
       ["<leader>f"] = { name = "+File" },
       ["<leader>g"] = { name = "+Git" },

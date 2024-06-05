@@ -1,6 +1,7 @@
 return {
   "nvim-lualine/lualine.nvim",
   event = "BufEnter",
+  dependencies = { "ofseed/copilot-status.nvim" },
   opts = {
     options = {
       theme = "bamboo",
@@ -27,6 +28,7 @@ return {
         { "diagnostics", sources = { "nvim_diagnostic" } },
       },
       lualine_x = {
+        "copilot",
         { "filetype", icon_only = true },
         "encoding",
       },
@@ -43,6 +45,6 @@ return {
         },
       },
     },
-    extensions = { "neo-tree", "lazy" },
+    extensions = { "fzf", "lazy", "neo-tree", "toggleterm" },
   },
 }

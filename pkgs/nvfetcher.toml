@@ -1,6 +1,14 @@
+[copilot-vim]
+src.git = "https://github.com/github/copilot.vim"
+fetch.github = "github/copilot.vim"
+
 [CopilotChat-nvim]
 src.git = "https://github.com/CopilotC-Nvim/CopilotChat.nvim"
 fetch.github = "CopilotC-Nvim/CopilotChat.nvim"
+
+[copilot-status-nvim]
+src.git = "https://github.com/ofseed/copilot-status.nvim"
+fetch.github = "ofseed/copilot-status.nvim"
 
 [lazydev-nvim]
 src.git = "https://github.com/folke/lazydev.nvim"

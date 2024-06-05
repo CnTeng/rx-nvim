@@ -33,6 +33,7 @@ let
     cmp-buffer
     cmp-path
     cmp-cmdline
+    copilot-status-nvim
     nvim-snippets
     friendly-snippets
     nvim-lspconfig
@@ -77,6 +78,7 @@ let
     smart-splits-nvim
     mini-nvim
     CopilotChat-nvim
+    copilot-vim
   ];
 
   plugins = codingPlugins ++ editorPlugins ++ uiPlugins;
