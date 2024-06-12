@@ -26,7 +26,7 @@ let
     nixfmt-rfc-style
 
     # Python
-    nodePackages.pyright
+    pyright
     black
 
     # Rust
