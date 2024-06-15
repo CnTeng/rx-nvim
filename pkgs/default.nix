@@ -27,14 +27,6 @@
       in
       {
         vimPlugins = prev.vimPlugins // {
-          copilot-vim = prev.vimPlugins.copilot-vim.overrideAttrs (_: {
-            inherit (sources.copilot-vim) src;
-            postInstall = ''
-              substituteInPlace $out/autoload/copilot/client.vim \
-                  --replace "  let node = get(g:, 'copilot_node_command', '''' )" \
-                            "  let node = get(g:, 'copilot_node_command', '${prev.nodejs}/bin/node')"
-            '';
-          });
           CopilotChat-nvim = mkOverride "CopilotChat-nvim";
 
           copilot-status-nvim = mkPackage "copilot-status-nvim" "copilot-status.nvim";
@@ -49,6 +41,7 @@
     {
       _module.args.pkgs = import inputs.nixpkgs {
         inherit system;
+        config.allowUnfree = true;
         overlays = [ self.overlays.default ];
       };
 
