@@ -29,6 +29,7 @@
         ./flakes
         ./modules
         ./pkgs
+        ./test
       ];
     };
 }
