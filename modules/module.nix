@@ -34,7 +34,7 @@ let
     rustfmt
 
     # Shell
-    nodePackages.bash-language-server
+    bash-language-server
     shfmt
 
     # Other
