@@ -1,7 +1,9 @@
 return {
   "akinsho/toggleterm.nvim",
   cmd = "ToggleTerm",
-  init = function() vim.keymap.set("t", "<C-/>", "<C-\\><C-n>", { desc = "Terminal normal mode" }) end,
+  init = function()
+    vim.keymap.set("t", "<C-/>", "<C-\\><C-n>", { desc = "Terminal normal mode" })
+  end,
   keys = {
     { "<C-\\>" },
     { "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "ToggleTerm float" },

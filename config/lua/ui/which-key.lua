@@ -20,6 +20,7 @@ return {
       ["g"] = { name = "+Goto" },
       ["gz"] = { name = "+Surround" },
       ["gr"] = { name = "+Go to references" },
+      ["<leader><tab>"] = { name = "+Tab" },
       ["<leader>a"] = { name = "+AI" },
       ["<leader>b"] = { name = "+Buffer" },
       ["<leader>f"] = { name = "+File" },
@@ -27,7 +28,6 @@ return {
       ["<leader>l"] = { name = "+LSP" },
       ["<leader>s"] = { name = "+Search" },
       ["<leader>t"] = { name = "+Term" },
-      ["<leader><leader>"] = { name = "+Swap" },
     },
   },
   config = function(_, opts)

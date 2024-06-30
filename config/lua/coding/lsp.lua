@@ -26,7 +26,7 @@ return {
       { "gy", "<cmd>Glance type_definitions<cr>", desc = "Go to type definitions", has = "typeDefinition" },
       { mode = { "n", "v" }, "<leader>la", vim.lsp.buf.code_action, desc = "Code action", has = "codeAction" },
       { "<leader>lL", vim.lsp.codelens.run, desc = "CodeLens run", has = "codeLens" },
-      { "<leader>lr", vim.lsp.buf.rename, desc = "Rename current symbol", has = "rename" },
+      { "<leader>lr", vim.lsp.buf.rename, desc = "Rename", has = "rename" },
       {
         "<leader>li",
         function()
