@@ -10,7 +10,7 @@
 
 ## 🌟 Preview
 
-<!-- ![startup](./assets/screenshots/startup.png) -->
+![Preview](https://github.com/CnTeng/rx-nvim/assets/56501688/e57dd052-debe-4e93-b649-8a4f262a9e9c)
 
 ## ✨ Features
 
