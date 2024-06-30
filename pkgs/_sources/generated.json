@@ -1,24 +1,4 @@
 {
-    "CopilotChat-nvim": {
-        "cargoLocks": null,
-        "date": "2024-06-01",
-        "extract": null,
-        "name": "CopilotChat-nvim",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "CopilotC-Nvim",
-            "repo": "CopilotChat.nvim",
-            "rev": "82923efe22b604cf9c0cad0bb2a74aa9247755ab",
-            "sha256": "sha256-bdGql7WBn4yk44rd+6fK3CwBZNOZOlatnKjJLoyHBDY=",
-            "type": "github"
-        },
-        "version": "82923efe22b604cf9c0cad0bb2a74aa9247755ab"
-    },
     "copilot-status-nvim": {
         "cargoLocks": null,
         "date": "2024-05-29",
@@ -39,46 +19,6 @@
         },
         "version": "ea9e7000e82a89aac9d8434675dfed3da4ec1158"
     },
-    "copilot-vim": {
-        "cargoLocks": null,
-        "date": "2024-05-30",
-        "extract": null,
-        "name": "copilot-vim",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "github",
-            "repo": "copilot.vim",
-            "rev": "53d3091be388ff1edacdb84421ccfa19a446a84d",
-            "sha256": "sha256-FHqlO3Pot89Dy8iW1RQzZNgaXh1mmgEgzY/j/J67Z7Q=",
-            "type": "github"
-        },
-        "version": "53d3091be388ff1edacdb84421ccfa19a446a84d"
-    },
-    "lazydev-nvim": {
-        "cargoLocks": null,
-        "date": "2024-06-05",
-        "extract": null,
-        "name": "lazydev-nvim",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "folke",
-            "repo": "lazydev.nvim",
-            "rev": "107231114623e2c4f90c626ec83b3120816b554e",
-            "sha256": "sha256-bIJCZkwS+q2Q2gDc6V1j6l9HjowZTI0hnHtJusu77Z4=",
-            "type": "github"
-        },
-        "version": "107231114623e2c4f90c626ec83b3120816b554e"
-    },
     "luvit-meta": {
         "cargoLocks": null,
         "date": "2024-01-20",
@@ -98,5 +38,45 @@
             "type": "github"
         },
         "version": "ce76f6f6cdc9201523a5875a4471dcfe0186eb60"
+    },
+    "markdown-nvim": {
+        "cargoLocks": null,
+        "date": "2024-06-28",
+        "extract": null,
+        "name": "markdown-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "MeanderingProgrammer",
+            "repo": "markdown.nvim",
+            "rev": "0d6ebe032367eb77082d28585c7872e93f88df01",
+            "sha256": "sha256-X960v2sIjW0E/Tyf1uZfOoqTjyXuwcMKn0+67wsCQZI=",
+            "type": "github"
+        },
+        "version": "0d6ebe032367eb77082d28585c7872e93f88df01"
+    },
+    "precognition-nvim": {
+        "cargoLocks": null,
+        "date": "2024-06-25",
+        "extract": null,
+        "name": "precognition-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "tris203",
+            "repo": "precognition.nvim",
+            "rev": "2a566f03eb06859298eff837f3a6686dfa5304a5",
+            "sha256": "sha256-XLcyRB4ow5nPoQ0S29bx0utV9Z/wogg7c3rozYSqlWE=",
+            "type": "github"
+        },
+        "version": "2a566f03eb06859298eff837f3a6686dfa5304a5"
     }
 }

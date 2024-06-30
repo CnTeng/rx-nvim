@@ -27,11 +27,9 @@
       in
       {
         vimPlugins = prev.vimPlugins // {
-          CopilotChat-nvim = mkOverride "CopilotChat-nvim";
-
           copilot-status-nvim = mkPackage "copilot-status-nvim" "copilot-status.nvim";
-          lazydev-nvim = mkPackage "lazydev-nvim" "lazydev.nvim";
           luvit-meta = mkPackage "luvit-meta" "luvit-meta";
+          precognition-nvim = mkPackage "precognition-nvim" "precognition.nvim";
         };
       };
   };

@@ -61,6 +61,7 @@ let
     which-key-nvim
     statuscol-nvim
     toggleterm-nvim
+    precognition-nvim
   ];
 
   editorPlugins = with vimPlugins; [
