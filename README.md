@@ -1,12 +1,10 @@
-<h1 align = "center">🚀RX-Nvim</h1>
+# 🚀 rx-nvim
 
-<p align = "center">RX-Nvim is a custom neovim config that use lazy.vim</p>
+[![Neovim][neovim-shield]][neovim-url]
+[![Lua][lua-shield]][lua-url]
+[![Nix][nix-shield]][nix-url]
 
-<p align = "center">
-  <a href = "https://neovim.io/">
-    <img src = "https://img.shields.io/static/v1?style=for-the-badge&logo=lua&logoColor=white&label=&message=Built%20with%20Lua&color=8aadf4"/>
-  </a>
-</p>
+A custom Neovim configuration for Nix users.
 
 ## 🌟 Preview
 
@@ -14,118 +12,70 @@
 
 ## ✨ Features
 
-#### CORE
+- Install plugins with [Nix](https://nixos.org)
+- Setup and lazy-load plugins with [Lazy.nvim](https://github.com/folke/lazy.nvim)
+- File explorer with [Neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)
+- Buffer and tab line with [Bufferline](https://github.com/akinsho/bufferline.nvim)
+- Statusline with [Lualine](https://github.com/nvim-lualine/lualine.nvim)
+- Fuzzy finding with [Fzf-lua](https://github.com/ibhagwan/fzf-lua)
+- Autocompletion with [Cmp](https://github.com/hrsh7th/nvim-cmp)
+- Terminal with [Toggleterm](https://github.com/akinsho/toggleterm.nvim)
+- Language Server Protocol with [Native LSP](https://github.com/neovim/nvim-lspconfig)
+- Syntax highlighting with [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- Formatting and Linting with [Conform](https://github.com/stevearc/conform.nvim)
+- Git integration with [Gitsigns](https://github.com/lewis6991/gitsigns.nvim)
 
-- Plugin manager with [lazy](https://github.com/folke/lazy.nvim)
+## 🛠️ Usage
 
-#### UI
+> [!WARNING]
+> This configuration has only been tested in NixOS.
 
-- Startup with [alpha](https://github.com/goolord/alpha-nvim)
-- Statusline with [lualine](https://github.com/nvim-lualine/lualine.nvim)
-- Tabline with [bufferline](https://github.com/akinsho/bufferline.nvim)
-- File explorer with [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)
-- Notification manager with [notify](https://github.com/rcarriga/nvim-notify)
-- Colorscheme with [catppuccin](https://github.com/catppuccin/nvim)
-
-#### EDITOR
-
-- Autopairs with [autopairs](https://github.com/windwp/nvim-autopairs)
-- Color highlighter with [colorizer](https://github.com/NvChad/nvim-colorizer.lua)
-- Git integration with [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
-- Highlight the word with [illuminate](https://github.com/RRethy/vim-illuminate)
-- Indentline with [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
-- Split resizing and navigation with [smart-splits](https://github.com/mrjones2014/smart-splits.nvim)
-- Surround selections with [surround](https://github.com/kylechui/nvim-surround)
-- Fuzzy finder with [telescope](https://github.com/nvim-telescope/telescope.nvim)
-- Todo comments with [todo-comments](https://github.com/folke/todo-comments.nvim)
-- Terminal with [toggleterm](https://github.com/akinsho/toggleterm.nvim)
-- Key bindings with [which-key](https://github.com/folke/which-key.nvim)
-
-#### CODING
-
-- Completion with [CMP](https://github.com/hrsh7th/nvim-cmp)
-- Comments with [Comment](https://github.com/numToStr/Comment.nvim)
-- Snippet engine with [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
-- Markdown preview with [markdown-preview](https://github.com/iamcco/markdown-preview.nvim)
-- Syntax with [treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-- Inject LSP features with [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)
-
-## ⚡ Requirements
-
-- Neovim >= 0.8.2
-- Git >= 2.39.0
-- [Nerd Font](https://github.com/ryanoasis/nerd-fonts)(_optional_) require for telescope
-- [Ripgrep](https://github.com/BurntSushi/ripgrep)(_optional_) require for telescope
-- [fd](https://github.com/sharkdp/fd)(_optional_) require for telescope
-- [nixpkgs](https://github.com/nix-community/nixpkgs-fmt)(_optional_) require for NixOS user
-
-## 🛠 Installation
-
-### FHS linux
-
-Make a backup of your current neovim config
+Directly run
 
 ```shell
-mv ~/.config/nvim ~/.config/nvim.bak
+nix run github:CnTeng/rx-nvim
 ```
 
-Clone this repository
-
-```shell
-git clone https://github.com/CnTeng/RX-Nvim.git ~/.config/nvim
-```
-
-### NixOS
-
-Clone this repository to your NixOS config
-
-```shell
-git clone https://github.com/CnTeng/RX-Nvim.git ~/anywhere you want
-```
-
-Add this config to your NixOS config
+NixOS module
 
 ```nix
 {
-  # Require for Telescope man_pages
-  documentation.man.generateCaches = true;
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-  home-manager.users.${user} = {
-    home.packages = with pkgs; [
-      # Require for telescope(optional)
-      ripgrep
-      fd
-      tree-sitter
-      # Require for nix format(optional)
-      nixpkgs-fmt
-    ];
-
-    home.sessionVariables = {
-      # Require for marksman
-      DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = 1;
-    };
-
-    programs.neovim = {
-      enable = true;
-      defaultEditor = true;
-      withNodeJs = true;
-      extraPython3Packages = ps: with ps; [
-        pip
-      ];
-    };
-
-    xdg.configFile."nvim" = {
-      source = ./nvim;
-      recursive = true;
+    rx-nvim = {
+      url = "github:CnTeng/rx-nvim";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+
+  outputs =
+    { nixpkgs, rx-nvim, ... }:
+    {
+      nixosConfigurations = {
+        example = nixpkgs.lib.nixosSystem {
+          modules = [
+            rx-nvim.nixosModules.default
+            { programs.rx-nvim.enable = true; }
+            ./configuration.nix
+          ];
+        };
+      };
+    };
 }
 ```
-
-Also, you can use [FHS linux installation guide](#fhs-linux)
 
 ## ⭐ Credits
 
 - [AstroNvim](https://github.com/AstroNvim/AstroNvim)
 - [LazyVim](https://github.com/LazyVim/LazyVim)
 - [nvimrc](https://github.com/XXiaoA/nvimrc)
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+[neovim-shield]: https://img.shields.io/badge/NeoVim-%252357A143.svg?style=for-the-badge&logo=neovim&logoColor=white
+[neovim-url]: https://neovim.io
+[lua-shield]: https://img.shields.io/badge/Lua-%232C2D72?style=for-the-badge&logo=lua&logoColor=white
+[lua-url]: https://www.lua.org
+[nix-shield]: https://img.shields.io/badge/NixOS-%235277C3?style=for-the-badge&logo=nixos&logoColor=white
+[nix-url]: https://nixos.org
