@@ -6,6 +6,7 @@ return {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-emoji",
     "onsails/lspkind.nvim",
     {
       "garymjr/nvim-snippets",
@@ -17,6 +18,9 @@ return {
     local cmp = require("cmp")
 
     return {
+      completion = {
+        completeopt = "menu,menuone,noinsert",
+      },
       formatting = {
         format = require("lspkind").cmp_format({
           maxwidth = 50,
@@ -52,6 +56,7 @@ return {
         { name = "path" },
       }, {
         { name = "buffer" },
+        { name = "emoji" },
       }),
     }
   end,

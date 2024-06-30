@@ -33,6 +33,7 @@ let
     cmp-buffer
     cmp-path
     cmp-cmdline
+    cmp-emoji
     copilot-status-nvim
     nvim-snippets
     friendly-snippets
