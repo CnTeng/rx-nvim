@@ -62,6 +62,7 @@ let
     statuscol-nvim
     toggleterm-nvim
     precognition-nvim
+    image-nvim
   ];
 
   editorPlugins = with vimPlugins; [
