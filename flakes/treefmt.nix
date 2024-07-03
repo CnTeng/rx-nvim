@@ -7,16 +7,15 @@
     {
       treefmt = {
         projectRootFile = "flake.nix";
+
         programs = {
-          nixfmt-rfc-style.enable = true;
+          nixfmt.enable = true;
           prettier.enable = true;
           stylua.enable = true;
+          taplo.enable = true;
         };
 
-        settings.formatter = {
-          nixfmt-rfc-style.excludes = [ "pkgs/_sources/*" ];
-          prettier.excludes = [ "pkgs/_sources/*" ];
-        };
+        settings.global.excludes = [ "pkgs/_sources/*" ];
       };
     };
 }

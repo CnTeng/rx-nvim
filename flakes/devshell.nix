@@ -6,6 +6,7 @@
         packages = with pkgs; [
           nvfetcher
           rx-nvim
+          config.treefmt.build.wrapper
         ];
 
         shellHook = config.pre-commit.installationScript;
