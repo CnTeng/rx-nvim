@@ -7,7 +7,7 @@ return {
   opts = {
     highlight = {
       enable = true,
-      disable = { "c", "cpp", "nix" },
+      disable = { "c", "cpp" },
       additional_vim_regex_highlighting = { "markdown" },
     },
     incremental_selection = { enable = true },
