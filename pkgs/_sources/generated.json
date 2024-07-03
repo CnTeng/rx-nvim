@@ -38,45 +38,5 @@
             "type": "github"
         },
         "version": "ce76f6f6cdc9201523a5875a4471dcfe0186eb60"
-    },
-    "markdown-nvim": {
-        "cargoLocks": null,
-        "date": "2024-06-28",
-        "extract": null,
-        "name": "markdown-nvim",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "MeanderingProgrammer",
-            "repo": "markdown.nvim",
-            "rev": "0d6ebe032367eb77082d28585c7872e93f88df01",
-            "sha256": "sha256-X960v2sIjW0E/Tyf1uZfOoqTjyXuwcMKn0+67wsCQZI=",
-            "type": "github"
-        },
-        "version": "0d6ebe032367eb77082d28585c7872e93f88df01"
-    },
-    "precognition-nvim": {
-        "cargoLocks": null,
-        "date": "2024-06-25",
-        "extract": null,
-        "name": "precognition-nvim",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "tris203",
-            "repo": "precognition.nvim",
-            "rev": "2a566f03eb06859298eff837f3a6686dfa5304a5",
-            "sha256": "sha256-XLcyRB4ow5nPoQ0S29bx0utV9Z/wogg7c3rozYSqlWE=",
-            "type": "github"
-        },
-        "version": "2a566f03eb06859298eff837f3a6686dfa5304a5"
     }
 }

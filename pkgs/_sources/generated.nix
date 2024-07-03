@@ -25,28 +25,4 @@
     };
     date = "2024-01-20";
   };
-  markdown-nvim = {
-    pname = "markdown-nvim";
-    version = "0d6ebe032367eb77082d28585c7872e93f88df01";
-    src = fetchFromGitHub {
-      owner = "MeanderingProgrammer";
-      repo = "markdown.nvim";
-      rev = "0d6ebe032367eb77082d28585c7872e93f88df01";
-      fetchSubmodules = false;
-      sha256 = "sha256-X960v2sIjW0E/Tyf1uZfOoqTjyXuwcMKn0+67wsCQZI=";
-    };
-    date = "2024-06-28";
-  };
-  precognition-nvim = {
-    pname = "precognition-nvim";
-    version = "2a566f03eb06859298eff837f3a6686dfa5304a5";
-    src = fetchFromGitHub {
-      owner = "tris203";
-      repo = "precognition.nvim";
-      rev = "2a566f03eb06859298eff837f3a6686dfa5304a5";
-      fetchSubmodules = false;
-      sha256 = "sha256-XLcyRB4ow5nPoQ0S29bx0utV9Z/wogg7c3rozYSqlWE=";
-    };
-    date = "2024-06-25";
-  };
 }

@@ -5,11 +5,3 @@ fetch.github = "ofseed/copilot-status.nvim"
 [luvit-meta]
 src.git = "https://github.com/Bilal2453/luvit-meta"
 fetch.github = "Bilal2453/luvit-meta"
-
-[markdown-nvim]
-src.git = "https://github.com/MeanderingProgrammer/markdown.nvim"
-fetch.github = "MeanderingProgrammer/markdown.nvim"
-
-[precognition-nvim]
-src.git = "https://github.com/tris203/precognition.nvim"
-fetch.github = "tris203/precognition.nvim"

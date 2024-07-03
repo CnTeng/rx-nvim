@@ -29,7 +29,6 @@
         vimPlugins = prev.vimPlugins // {
           copilot-status-nvim = mkPackage "copilot-status-nvim" "copilot-status.nvim";
           luvit-meta = mkPackage "luvit-meta" "luvit-meta";
-          precognition-nvim = mkPackage "precognition-nvim" "precognition.nvim";
         };
       };
   };

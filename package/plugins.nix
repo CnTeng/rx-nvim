@@ -61,7 +61,6 @@ let
     which-key-nvim
     statuscol-nvim
     toggleterm-nvim
-    precognition-nvim
     image-nvim
   ];
 
