@@ -10,12 +10,15 @@ require("lazy").setup({
     { import = "editor" },
     { import = "ui" },
   },
+  rocks = { enabled = false },
   ---@diagnostic disable-next-line: assign-type-mismatch
   dev = {
     path = vim.g.plugins_path,
     patterns = { "." },
   },
   performance = {
-    rtp = { paths = { vim.g.config_path } },
+    rtp = {
+      paths = { vim.g.config_path },
+    },
   },
 })
