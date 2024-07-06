@@ -15,6 +15,7 @@ let
     cmake-format
 
     # Go
+    go
     gopls
 
     # Lua
