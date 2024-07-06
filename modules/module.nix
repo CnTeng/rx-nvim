@@ -37,6 +37,9 @@ let
     bash-language-server
     shfmt
 
+    # SQL
+    pgformatter
+
     # Other
     nodePackages.prettier
     xmlformat
