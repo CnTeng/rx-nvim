@@ -17,6 +17,8 @@ let
     # Go
     go
     gopls
+    golangci-lint
+    golangci-lint-langserver
 
     # Lua
     lua-language-server
