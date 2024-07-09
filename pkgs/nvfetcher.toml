@@ -5,3 +5,7 @@ fetch.github = "ofseed/copilot-status.nvim"
 [luvit-meta]
 src.git = "https://github.com/Bilal2453/luvit-meta"
 fetch.github = "Bilal2453/luvit-meta"
+
+[kulala-nvim]
+src.git = "https://github.com/mistweaverco/kulala.nvim"
+fetch.github = "mistweaverco/kulala.nvim"

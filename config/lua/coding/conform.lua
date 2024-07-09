@@ -16,11 +16,12 @@ return {
   },
   opts = {
     formatters_by_ft = {
-      yaml = { "prettier" },
-      xml = { "xmlformat" },
-      toml = { "taplo" },
+      json = { "jq" },
       terraform = { "tofu_fmt" },
       tf = { "tofu_fmt" },
+      toml = { "taplo" },
+      xml = { "xmllint" },
+      yaml = { "prettier" },
     },
     format_on_save = {
       timeout_ms = 500,

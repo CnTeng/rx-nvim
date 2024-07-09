@@ -40,6 +40,7 @@ let
     nvim-lspconfig
     luvit-meta
     lazydev-nvim
+    kulala-nvim
     {
       name = "lspkind.nvim";
       path = lspkind-nvim;

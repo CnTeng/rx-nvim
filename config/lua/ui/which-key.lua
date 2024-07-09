@@ -26,6 +26,7 @@ return {
       ["<leader>f"] = { name = "+File" },
       ["<leader>g"] = { name = "+Git" },
       ["<leader>l"] = { name = "+LSP" },
+      ["<leader>r"] = { name = "+REST" },
       ["<leader>s"] = { name = "+Search" },
       ["<leader>t"] = { name = "+Term" },
     },

@@ -44,9 +44,10 @@ let
     pgformatter
 
     # Other
-    nodePackages.prettier
-    xmlformat
+    jq
     taplo
+    libxml2
+    nodePackages.prettier
   ];
 in
 {
