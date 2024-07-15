@@ -9,3 +9,11 @@ fetch.github = "Bilal2453/luvit-meta"
 [kulala-nvim]
 src.git = "https://github.com/mistweaverco/kulala.nvim"
 fetch.github = "mistweaverco/kulala.nvim"
+
+[which-key-nvim]
+src.git = "https://github.com/folke/which-key.nvim"
+fetch.github = "folke/which-key.nvim"
+
+[mini-nvim]
+src.git = "https://github.com/echasnovski/mini.nvim"
+fetch.github = "echasnovski/mini.nvim"

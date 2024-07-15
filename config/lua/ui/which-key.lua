@@ -1,45 +1,26 @@
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
-  init = function()
-    vim.opt.timeout = true
-    vim.opt.timeoutlen = 300
-  end,
   opts = {
-    plugins = { spelling = true },
-    key_labels = { ["<leader>"] = "SPC" },
-    triggers_blacklist = {
-      i = { "j", "k" },
-      v = { "j", "k" },
-      n = { "L" },
+    spec = {
+      {
+        mode = { "n", "v" },
+        { "<leader><tab>", group = "tabs" },
+        { "<leader>a", group = "ai" },
+        { "<leader>b", group = "buffer" },
+        { "<leader>f", group = "file" },
+        { "<leader>g", group = "git" },
+        { "<leader>l", group = "code" },
+        { "<leader>r", group = "web" },
+        { "<leader>s", group = "search" },
+        { "<leader>t", group = "term" },
+        { "[", group = "prev" },
+        { "]", group = "next" },
+        { "g", group = "goto" },
+        { "gz", group = "surround" },
+      },
     },
-    register = {
-      mode = { "n", "v" },
-      ["]"] = { name = "+Next" },
-      ["["] = { name = "+Prev" },
-      ["g"] = { name = "+Goto" },
-      ["gz"] = { name = "+Surround" },
-      ["gr"] = { name = "+Go to references" },
-      ["<leader><tab>"] = { name = "+Tab" },
-      ["<leader>a"] = { name = "+AI" },
-      ["<leader>b"] = { name = "+Buffer" },
-      ["<leader>f"] = { name = "+File" },
-      ["<leader>g"] = { name = "+Git" },
-      ["<leader>l"] = { name = "+LSP" },
-      ["<leader>r"] = { name = "+REST" },
-      ["<leader>s"] = { name = "+Search" },
-      ["<leader>t"] = { name = "+Term" },
-    },
+    win = { no_overlap = false },
+    icons = { rules = false },
   },
-  config = function(_, opts)
-    require("which-key").setup({
-      plugins = opts.plugins,
-      key_labels = opts.key_labels,
-      triggers_blacklist = opts.triggers_blacklist,
-    })
-
-    require("which-key").register({
-      opts.register,
-    })
-  end,
 }

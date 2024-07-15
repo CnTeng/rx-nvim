@@ -37,4 +37,28 @@
     };
     date = "2024-01-20";
   };
+  mini-nvim = {
+    pname = "mini-nvim";
+    version = "eb19e8442edd63b033c36daf8d29c0158c9f1eb9";
+    src = fetchFromGitHub {
+      owner = "echasnovski";
+      repo = "mini.nvim";
+      rev = "eb19e8442edd63b033c36daf8d29c0158c9f1eb9";
+      fetchSubmodules = false;
+      sha256 = "sha256-zQR+yTYBX2DPP05zYG52T2TscM5V1jynpGGbUc/N8O8=";
+    };
+    date = "2024-07-13";
+  };
+  which-key-nvim = {
+    pname = "which-key-nvim";
+    version = "f0e99d48f33193526fe66e699174670d5856b6b8";
+    src = fetchFromGitHub {
+      owner = "folke";
+      repo = "which-key.nvim";
+      rev = "f0e99d48f33193526fe66e699174670d5856b6b8";
+      fetchSubmodules = false;
+      sha256 = "sha256-u+MxxJ/Rpv05mgs7x0c6E2Al80SXfITn6MG8LoRcn/k=";
+    };
+    date = "2024-07-14";
+  };
 }
