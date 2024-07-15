@@ -8,6 +8,7 @@ require("lazy").setup({
     { import = "coding" },
     { import = "coding.lang" },
     { import = "editor" },
+    { import = "git" },
     { import = "ui" },
   },
   rocks = { enabled = false },

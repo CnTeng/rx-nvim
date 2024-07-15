@@ -18,11 +18,11 @@ let
     in
     if lib.isDerivation plugin then [ (mkEntry plugin) ] ++ dependencies else [ plugin ];
 
-  codingPlugins = with vimPlugins; [
+  plugins = with vimPlugins; [
+    # coding
     flutter-tools-nvim
     clangd_extensions-nvim
     markdown-preview-nvim
-    neogit
     nvim-treesitter
     conform-nvim
     cmake-tools-nvim
@@ -45,9 +45,30 @@ let
       name = "lspkind.nvim";
       path = lspkind-nvim;
     }
-  ];
 
-  uiPlugins = with vimPlugins; [
+    # editor
+    ultimate-autopair-nvim
+    fzf-lua
+    glance-nvim
+    fcitx-vim
+    todo-comments-nvim
+    neo-tree-nvim
+    vim-illuminate
+    nvim-surround
+    flash-nvim
+    nvim-ufo
+    guess-indent-nvim
+    smart-splits-nvim
+    mini-nvim
+    CopilotChat-nvim
+    copilot-vim
+
+    # git
+    diffview-nvim
+    gitsigns-nvim
+    neogit
+
+    # ui
     dropbar-nvim
     alpha-nvim
     bamboo-nvim
@@ -64,27 +85,6 @@ let
     toggleterm-nvim
     image-nvim
   ];
-
-  editorPlugins = with vimPlugins; [
-    ultimate-autopair-nvim
-    fzf-lua
-    gitsigns-nvim
-    glance-nvim
-    fcitx-vim
-    todo-comments-nvim
-    neo-tree-nvim
-    vim-illuminate
-    nvim-surround
-    flash-nvim
-    nvim-ufo
-    guess-indent-nvim
-    smart-splits-nvim
-    mini-nvim
-    CopilotChat-nvim
-    copilot-vim
-  ];
-
-  plugins = codingPlugins ++ editorPlugins ++ uiPlugins;
 in
 {
   pluginsPath = linkFarm "lazy-plugins" (lib.concatMap mkLazyPlugin plugins);
