@@ -28,7 +28,6 @@
       {
         vimPlugins = prev.vimPlugins // {
           which-key-nvim = mkOverride "which-key-nvim";
-          mini-nvim = mkOverride "mini-nvim";
 
           copilot-status-nvim = mkPackage "copilot-status-nvim" "copilot-status.nvim";
           luvit-meta = mkPackage "luvit-meta" "luvit-meta";
