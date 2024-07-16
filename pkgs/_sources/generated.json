@@ -21,7 +21,7 @@
     },
     "kulala-nvim": {
         "cargoLocks": null,
-        "date": "2024-07-14",
+        "date": "2024-07-15",
         "extract": null,
         "name": "kulala-nvim",
         "passthru": null,
@@ -33,11 +33,11 @@
             "name": null,
             "owner": "mistweaverco",
             "repo": "kulala.nvim",
-            "rev": "b86f8a13dd24a6536e1ecaa529d8dd07acbfbe13",
-            "sha256": "sha256-JxxBtRf/Am8KPqzL09duWfvaEPVyoyXHHkW7Camcvd0=",
+            "rev": "29e23d7abc4cd32966230ea786991fc344096829",
+            "sha256": "sha256-hwueAxYOM2qTHiHPelbgEeutvwJkwB3yShMg5iB09YQ=",
             "type": "github"
         },
-        "version": "b86f8a13dd24a6536e1ecaa529d8dd07acbfbe13"
+        "version": "29e23d7abc4cd32966230ea786991fc344096829"
     },
     "luvit-meta": {
         "cargoLocks": null,
@@ -59,29 +59,9 @@
         },
         "version": "ce76f6f6cdc9201523a5875a4471dcfe0186eb60"
     },
-    "mini-nvim": {
-        "cargoLocks": null,
-        "date": "2024-07-13",
-        "extract": null,
-        "name": "mini-nvim",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "echasnovski",
-            "repo": "mini.nvim",
-            "rev": "eb19e8442edd63b033c36daf8d29c0158c9f1eb9",
-            "sha256": "sha256-zQR+yTYBX2DPP05zYG52T2TscM5V1jynpGGbUc/N8O8=",
-            "type": "github"
-        },
-        "version": "eb19e8442edd63b033c36daf8d29c0158c9f1eb9"
-    },
     "which-key-nvim": {
         "cargoLocks": null,
-        "date": "2024-07-14",
+        "date": "2024-07-15",
         "extract": null,
         "name": "which-key-nvim",
         "passthru": null,
@@ -93,10 +73,10 @@
             "name": null,
             "owner": "folke",
             "repo": "which-key.nvim",
-            "rev": "f0e99d48f33193526fe66e699174670d5856b6b8",
-            "sha256": "sha256-u+MxxJ/Rpv05mgs7x0c6E2Al80SXfITn6MG8LoRcn/k=",
+            "rev": "b55a568ae69724e334aec3ef291ea4e1768ba47a",
+            "sha256": "sha256-i9ZTBdvQFwAa1+0AJP5qz6o2/yWU3Nj3Cy570o7hqIQ=",
             "type": "github"
         },
-        "version": "f0e99d48f33193526fe66e699174670d5856b6b8"
+        "version": "b55a568ae69724e334aec3ef291ea4e1768ba47a"
     }
 }
