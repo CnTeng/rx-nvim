@@ -15,15 +15,15 @@
   };
   kulala-nvim = {
     pname = "kulala-nvim";
-    version = "29e23d7abc4cd32966230ea786991fc344096829";
+    version = "6ebb042addcb95b4b8d8ec0bc39fb4fb79778ae1";
     src = fetchFromGitHub {
       owner = "mistweaverco";
       repo = "kulala.nvim";
-      rev = "29e23d7abc4cd32966230ea786991fc344096829";
+      rev = "6ebb042addcb95b4b8d8ec0bc39fb4fb79778ae1";
       fetchSubmodules = false;
-      sha256 = "sha256-hwueAxYOM2qTHiHPelbgEeutvwJkwB3yShMg5iB09YQ=";
+      sha256 = "sha256-ajBSGKmZ7t8Zb6oZclFqXqaQbLznCsJucTh7z0v0Ew4=";
     };
-    date = "2024-07-15";
+    date = "2024-07-16";
   };
   luvit-meta = {
     pname = "luvit-meta";
@@ -39,14 +39,14 @@
   };
   which-key-nvim = {
     pname = "which-key-nvim";
-    version = "b55a568ae69724e334aec3ef291ea4e1768ba47a";
+    version = "bb4e82bdaff50a4a93867e4c90938d18e7615af6";
     src = fetchFromGitHub {
       owner = "folke";
       repo = "which-key.nvim";
-      rev = "b55a568ae69724e334aec3ef291ea4e1768ba47a";
+      rev = "bb4e82bdaff50a4a93867e4c90938d18e7615af6";
       fetchSubmodules = false;
-      sha256 = "sha256-i9ZTBdvQFwAa1+0AJP5qz6o2/yWU3Nj3Cy570o7hqIQ=";
+      sha256 = "sha256-af893q7+0vJQ78OzVO/jeA2VxqM9v0XGwcvQKrh6GrE=";
     };
-    date = "2024-07-15";
+    date = "2024-07-16";
   };
 }

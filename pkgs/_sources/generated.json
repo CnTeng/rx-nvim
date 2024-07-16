@@ -21,7 +21,7 @@
     },
     "kulala-nvim": {
         "cargoLocks": null,
-        "date": "2024-07-15",
+        "date": "2024-07-16",
         "extract": null,
         "name": "kulala-nvim",
         "passthru": null,
@@ -33,11 +33,11 @@
             "name": null,
             "owner": "mistweaverco",
             "repo": "kulala.nvim",
-            "rev": "29e23d7abc4cd32966230ea786991fc344096829",
-            "sha256": "sha256-hwueAxYOM2qTHiHPelbgEeutvwJkwB3yShMg5iB09YQ=",
+            "rev": "6ebb042addcb95b4b8d8ec0bc39fb4fb79778ae1",
+            "sha256": "sha256-ajBSGKmZ7t8Zb6oZclFqXqaQbLznCsJucTh7z0v0Ew4=",
             "type": "github"
         },
-        "version": "29e23d7abc4cd32966230ea786991fc344096829"
+        "version": "6ebb042addcb95b4b8d8ec0bc39fb4fb79778ae1"
     },
     "luvit-meta": {
         "cargoLocks": null,
@@ -61,7 +61,7 @@
     },
     "which-key-nvim": {
         "cargoLocks": null,
-        "date": "2024-07-15",
+        "date": "2024-07-16",
         "extract": null,
         "name": "which-key-nvim",
         "passthru": null,
@@ -73,10 +73,10 @@
             "name": null,
             "owner": "folke",
             "repo": "which-key.nvim",
-            "rev": "b55a568ae69724e334aec3ef291ea4e1768ba47a",
-            "sha256": "sha256-i9ZTBdvQFwAa1+0AJP5qz6o2/yWU3Nj3Cy570o7hqIQ=",
+            "rev": "bb4e82bdaff50a4a93867e4c90938d18e7615af6",
+            "sha256": "sha256-af893q7+0vJQ78OzVO/jeA2VxqM9v0XGwcvQKrh6GrE=",
             "type": "github"
         },
-        "version": "b55a568ae69724e334aec3ef291ea4e1768ba47a"
+        "version": "bb4e82bdaff50a4a93867e4c90938d18e7615af6"
     }
 }
