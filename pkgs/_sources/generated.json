@@ -61,7 +61,7 @@
     },
     "which-key-nvim": {
         "cargoLocks": null,
-        "date": "2024-07-18",
+        "date": "2024-07-19",
         "extract": null,
         "name": "which-key-nvim",
         "passthru": null,
@@ -73,10 +73,10 @@
             "name": null,
             "owner": "folke",
             "repo": "which-key.nvim",
-            "rev": "8600b0029896ad2e36eb27a0808614ab8a0c057a",
-            "sha256": "sha256-qKhVC1IyLske2TLL9mVDkaXPVQIBrfGAg/bMnJcnVR0=",
+            "rev": "6e61b0904e9c038b6c511c43591ae2d811b4975e",
+            "sha256": "sha256-cI3OzzT7Que15ayqkX0+jCiJsfQz2UI1s5L1rHhM+vU=",
             "type": "github"
         },
-        "version": "8600b0029896ad2e36eb27a0808614ab8a0c057a"
+        "version": "6e61b0904e9c038b6c511c43591ae2d811b4975e"
     }
 }
