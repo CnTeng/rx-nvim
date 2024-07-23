@@ -2,14 +2,14 @@ return {
   "stevearc/conform.nvim",
   event = "LazyFile",
   init = function()
-    vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+    vim.opt.formatexpr = "v:lua.require'conform'.formatexpr()"
   end,
   keys = {
     {
       mode = { "n", "v" },
       "<leader>lf",
       function()
-        require("conform").format({ lsp_fallback = true })
+        require("conform").format()
       end,
       desc = "Format code",
     },
@@ -17,12 +17,12 @@ return {
   opts = {
     formatters_by_ft = {
       json = { "jq" },
-      just = { "just" },
       terraform = { "tofu_fmt" },
       tf = { "tofu_fmt" },
       toml = { "taplo" },
       xml = { "xmllint" },
       yaml = { "prettier" },
+      ["_"] = { "trim_whitespace" },
     },
     format_on_save = {
       timeout_ms = 500,

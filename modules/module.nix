@@ -46,7 +46,6 @@ let
 
     # Other
     jq
-    just
     taplo
     libxml2
     nodePackages.prettier
