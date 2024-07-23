@@ -4,31 +4,23 @@ return {
   dependencies = {
     "kevinhwang91/promise-async",
   },
-  keys = {
-    {
-      "zR",
-      function()
-        require("ufo").openAllFolds()
-      end,
-      desc = "Open all folds",
-    },
-    {
-      "zM",
-      function()
-        require("ufo").closeAllFolds()
-      end,
-      desc = "Close all folds",
-    },
-    {
-      "K",
-      function()
-        if not require("ufo").peekFoldedLinesUnderCursor() then
-          vim.lsp.buf.hover()
-        end
-      end,
-      desc = "Hover",
-    },
-  },
+  keys = function()
+    local ufo = require("ufo")
+
+    return {
+      { "zR", ufo.openAllFolds, desc = "Open all folds" },
+      { "zM", ufo.closeAllFolds, desc = "Close all folds" },
+      {
+        "K",
+        function()
+          if not ufo.peekFoldedLinesUnderCursor() then
+            vim.lsp.buf.hover()
+          end
+        end,
+        desc = "Hover",
+      },
+    }
+  end,
   opts = function()
     local handler = function(virtText, lnum, endLnum, width, truncate)
       local newVirtText = {}
