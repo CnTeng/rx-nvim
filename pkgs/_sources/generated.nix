@@ -39,14 +39,14 @@
   };
   which-key-nvim = {
     pname = "which-key-nvim";
-    version = "c1b062ae95c3ca3e6eb87c075da991523605d79b";
+    version = "058486e5b001f11ef48f180dd57ae3088f5bb6dc";
     src = fetchFromGitHub {
       owner = "folke";
       repo = "which-key.nvim";
-      rev = "c1b062ae95c3ca3e6eb87c075da991523605d79b";
+      rev = "058486e5b001f11ef48f180dd57ae3088f5bb6dc";
       fetchSubmodules = false;
-      sha256 = "sha256-bjr20pDQ0u9XXHInANPDEi3uIWqmm+2P11z5mAi2jr8=";
+      sha256 = "sha256-5Xx+YG5rsbzTstjGjPh8GjobJMwWHF2ZFwM/nI9dNN4=";
     };
-    date = "2024-07-23";
+    date = "2024-07-24";
   };
 }
