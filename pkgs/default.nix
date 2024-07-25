@@ -9,6 +9,7 @@
     default = lib.composeManyExtensions ([
       self.overlays.rx-nvim
       self.overlays.plugins
+      self.overlays.packages
     ]);
 
     rx-nvim = final: prev: { rx-nvim = final.callPackage ../package { }; };
@@ -33,6 +34,13 @@
           luvit-meta = mkPackage "luvit-meta" "luvit-meta";
           kulala-nvim = mkPackage "kulala-nvim" "kulala.nvim";
         };
+      };
+
+    packages =
+      final: prev:
+      lib.packagesFromDirectoryRecursive {
+        inherit (final) callPackage;
+        directory = ./packages;
       };
   };
 
