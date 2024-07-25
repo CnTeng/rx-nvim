@@ -7,12 +7,9 @@
 {
   flake.overlays = {
     default = lib.composeManyExtensions ([
-      self.overlays.rx-nvim
       self.overlays.plugins
       self.overlays.packages
     ]);
-
-    rx-nvim = final: prev: { rx-nvim = final.callPackage ../package { }; };
 
     plugins =
       final: prev:

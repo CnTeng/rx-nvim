@@ -9,6 +9,7 @@
 }:
 let
   plugins = callPackage ./plugins.nix { };
+  configPath = ../../../config;
   inherit (plugins) pluginsPath extraLuaPackages;
 
   mkTreesitterPath =
@@ -27,14 +28,14 @@ let
     plugins = [ vimPlugins.lazy-nvim ];
     inherit extraLuaPackages;
     luaRcContent = ''
-      vim.g.config_path = "${../config}"
+      vim.g.config_path = "${configPath}"
       vim.g.plugins_path = "${pluginsPath}"
       vim.g.parsers_path = "${parsersPath}"
       vim.g.queries_path = "${queriesPath}"
 
       vim.opt.rtp:prepend(vim.g.config_path)
 
-      ${builtins.readFile ../config/init.lua}
+      ${builtins.readFile "${configPath}/init.lua"}
 
       ${extraConfig}
     '';
