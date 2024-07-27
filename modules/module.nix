@@ -10,7 +10,7 @@ let
 
   languagesPkgs = with pkgs; [
     # C/C++
-    clang-tools
+    libclang
     cmake-language-server
     cmake-format
 
