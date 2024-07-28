@@ -15,15 +15,15 @@
   };
   kulala-nvim = {
     pname = "kulala-nvim";
-    version = "d73329e39bae217f74f1037434e5fcadf926d5a9";
+    version = "e689258add345e00f46968988ad3b1201ce00c41";
     src = fetchFromGitHub {
       owner = "mistweaverco";
       repo = "kulala.nvim";
-      rev = "d73329e39bae217f74f1037434e5fcadf926d5a9";
+      rev = "e689258add345e00f46968988ad3b1201ce00c41";
       fetchSubmodules = false;
-      sha256 = "sha256-OOL8HkiqYtiRbLV6QjtCUK7bS3XESN8x8Ann+ZZRLP8=";
+      sha256 = "sha256-tgLaFLE6ORQnVueJpjbIGYsYf77sSFJkAnxfS2unT3I=";
     };
-    date = "2024-07-27";
+    date = "2024-07-28";
   };
   luvit-meta = {
     pname = "luvit-meta";
