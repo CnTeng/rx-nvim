@@ -21,7 +21,7 @@
     },
     "kulala-nvim": {
         "cargoLocks": null,
-        "date": "2024-07-30",
+        "date": "2024-08-01",
         "extract": null,
         "name": "kulala-nvim",
         "passthru": null,
@@ -33,11 +33,11 @@
             "name": null,
             "owner": "mistweaverco",
             "repo": "kulala.nvim",
-            "rev": "e9702dadb0443ceace983c4569e27de416715b07",
-            "sha256": "sha256-ubJxC3QQgdvHNXxKcpSTK1kZLbHxfRMSY8X+pwLRWw4=",
+            "rev": "db8d08b4a918beeac6558b291727e83a94ce5d70",
+            "sha256": "sha256-+ImKzskC6VtuhDZq+dSvYJMIfp/Uq3ABUsY472kvyas=",
             "type": "github"
         },
-        "version": "e9702dadb0443ceace983c4569e27de416715b07"
+        "version": "db8d08b4a918beeac6558b291727e83a94ce5d70"
     },
     "luvit-meta": {
         "cargoLocks": null,
