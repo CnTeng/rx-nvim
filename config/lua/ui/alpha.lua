@@ -19,7 +19,7 @@ return {
       dashboard.button("LDR f n", "  > New file", "<cmd>ene<cr>"),
       dashboard.button("LDR f r", "  > Recent file", "<cmd>FzfLua oldfiles<cr>"),
       dashboard.button("LDR s w", "  > Search text", "<cmd>FzfLua live_grep_native<cr>"),
-      dashboard.button("LDR q", "  > Quit Neovim", "<cmd>qa<CR>"),
+      dashboard.button("CTRL q", "  > Quit Neovim", "<cmd>qa<CR>"),
     }
     dashboard.section.footer.val = "Just For Fun!"
 

@@ -86,6 +86,13 @@ return {
         complete = {
           insert = "",
         },
+        close = {
+          normal = "<C-q>",
+        },
+        reset = {
+          normal = "<C-d>",
+          insert = "<C-d>",
+        },
       },
     },
     config = function(_, opts)

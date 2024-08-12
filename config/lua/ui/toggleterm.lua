@@ -1,14 +1,11 @@
 return {
   "akinsho/toggleterm.nvim",
   cmd = "ToggleTerm",
-  init = function()
-    vim.keymap.set("t", "<C-/>", "<C-\\><C-n>", { desc = "Terminal normal mode" })
-  end,
   keys = {
     { "<C-\\>" },
     { "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "ToggleTerm float" },
-    { "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "ToggleTerm horizontal split" },
-    { "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "ToggleTerm vertical split" },
+    { "<leader>ts", "<cmd>ToggleTerm direction=horizontal<cr>", desc = "ToggleTerm horizontal" },
+    { "<leader>tv", "<cmd>ToggleTerm direction=vertical<cr>", desc = "ToggleTerm vertical" },
   },
   opts = {
     size = function(term)
@@ -17,6 +14,9 @@ return {
       elseif term.direction == "vertical" then
         return vim.o.columns * 0.4
       end
+    end,
+    on_create = function()
+      vim.opt_local.signcolumn = "no"
     end,
     open_mapping = [[<C-\>]],
     shading_factor = 2,
