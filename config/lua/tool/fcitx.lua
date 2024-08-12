@@ -1,6 +1,5 @@
 ---@type LazyPluginSpec
 return {
-  "Bekaboo/dropbar.nvim",
+  "lilydjwg/fcitx.vim",
   event = "LazyFile",
-  opts = {},
 }

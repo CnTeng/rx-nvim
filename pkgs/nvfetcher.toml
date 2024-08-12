@@ -2,22 +2,18 @@
 src.git = "https://github.com/ofseed/copilot-status.nvim"
 fetch.github = "ofseed/copilot-status.nvim"
 
-[luvit-meta]
-src.git = "https://github.com/Bilal2453/luvit-meta"
-fetch.github = "Bilal2453/luvit-meta"
+[kitty-scrollback-nvim]
+src.git = "https://github.com/mikesmithgh/kitty-scrollback.nvim"
+fetch.github = "mikesmithgh/kitty-scrollback.nvim"
 
 [kulala-nvim]
 src.git = "https://github.com/mistweaverco/kulala.nvim"
 fetch.github = "mistweaverco/kulala.nvim"
 
-[which-key-nvim]
-src.git = "https://github.com/folke/which-key.nvim"
-fetch.github = "folke/which-key.nvim"
+[luvit-meta]
+src.git = "https://github.com/Bilal2453/luvit-meta"
+fetch.github = "Bilal2453/luvit-meta"
 
 [quicker-nvim]
 src.git = "https://github.com/stevearc/quicker.nvim"
 fetch.github = "stevearc/quicker.nvim"
-
-[kitty-scrollback-nvim]
-src.git = "https://github.com/mikesmithgh/kitty-scrollback.nvim"
-fetch.github = "mikesmithgh/kitty-scrollback.nvim"

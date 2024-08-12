@@ -1,3 +1,4 @@
+---@type LazyPluginSpec
 return {
   "RRethy/vim-illuminate",
   event = "LazyFile",

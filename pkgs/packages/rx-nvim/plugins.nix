@@ -19,74 +19,74 @@ let
     if lib.isDerivation plugin then [ (mkEntry plugin) ] ++ dependencies else [ plugin ];
 
   plugins = with vimPlugins; [
+    # editor
+    ultimate-autopair-nvim
+    flash-nvim
+    vim-illuminate
+    guess-indent-nvim
+    indent-blankline-nvim
+    mini-nvim
+    neo-tree-nvim
+    nvim-bqf
+    quicker-nvim
+    smart-splits-nvim
+    nvim-surround
+    nvim-ufo
+
+    # git
+    gitsigns-nvim
+    neogit
+    diffview-nvim
+
     # coding
-    flutter-tools-nvim
-    clangd_extensions-nvim
-    markdown-preview-nvim
-    nvim-treesitter
-    conform-nvim
-    cmake-tools-nvim
-    comment-nvim
-    outline-nvim
     nvim-cmp
     cmp-nvim-lsp
     cmp-buffer
     cmp-path
     cmp-cmdline
     cmp-emoji
-    copilot-status-nvim
     nvim-snippets
     friendly-snippets
+    comment-nvim
+    todo-comments-nvim
+    conform-nvim
     nvim-lspconfig
-    luvit-meta
-    lazydev-nvim
+    outline-nvim
+    nvim-treesitter
+    cmake-tools-nvim
+    clangd_extensions-nvim
+    flutter-tools-nvim
     kulala-nvim
+    lazydev-nvim
+    luvit-meta
+    markdown-preview-nvim
     {
       name = "lspkind.nvim";
       path = lspkind-nvim;
     }
 
-    # editor
-    ultimate-autopair-nvim
-    fzf-lua
-    glance-nvim
-    fcitx-vim
-    todo-comments-nvim
-    neo-tree-nvim
-    vim-illuminate
-    nvim-surround
-    flash-nvim
-    nvim-ufo
-    guess-indent-nvim
-    smart-splits-nvim
-    kitty-scrollback-nvim
-    mini-nvim
-    CopilotChat-nvim
+    # tool
     copilot-vim
-
-    # git
-    diffview-nvim
-    gitsigns-nvim
-    neogit
+    copilot-status-nvim
+    CopilotChat-nvim
+    fcitx-vim
+    fzf-lua
+    fzfWrapper
+    kitty-scrollback-nvim
+    flatten-nvim
+    image-nvim
+    toggleterm-nvim
 
     # ui
-    dropbar-nvim
     alpha-nvim
     bamboo-nvim
-    lualine-nvim
-    fzfWrapper
-    flatten-nvim
     bufferline-nvim
-    indent-blankline-nvim
-    nvim-bqf
     dressing-nvim
+    dropbar-nvim
     fidget-nvim
-    which-key-nvim
+    lualine-nvim
     statuscol-nvim
-    toggleterm-nvim
-    image-nvim
-
-    quicker-nvim
+    which-key-nvim
   ];
 in
 {

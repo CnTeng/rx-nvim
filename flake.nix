@@ -26,10 +26,41 @@
       ];
 
       imports = [
-        ./flakes
-        ./modules
+        inputs.pre-commit.flakeModule
+        inputs.treefmt.flakeModule
         ./pkgs
-        ./test
       ];
+
+      perSystem =
+        { config, pkgs, ... }:
+        {
+          devShells.default = pkgs.mkShell {
+            packages = with pkgs; [
+              nvfetcher
+              rx-nvim
+              config.treefmt.build.wrapper
+            ];
+
+            shellHook = config.pre-commit.installationScript;
+          };
+
+          pre-commit.settings.hooks = {
+            treefmt.enable = true;
+            commitizen.enable = true;
+          };
+
+          treefmt = {
+            projectRootFile = "flake.nix";
+
+            programs = {
+              nixfmt.enable = true;
+              prettier.enable = true;
+              stylua.enable = true;
+              taplo.enable = true;
+            };
+
+            settings.global.excludes = [ "pkgs/_sources/*" ];
+          };
+        };
     };
 }

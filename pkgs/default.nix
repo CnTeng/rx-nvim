@@ -17,21 +17,14 @@
         sources = final.callPackage ./_sources/generated.nix { };
 
         mkPackage = src: pname: final.vimUtils.buildVimPlugin sources.${src} // { inherit pname; };
-        mkOverride =
-          n:
-          prev.vimPlugins.${n}.overrideAttrs (_: {
-            inherit (sources.${n}) src;
-          });
       in
       {
         vimPlugins = prev.vimPlugins // {
-          which-key-nvim = mkOverride "which-key-nvim";
-
           copilot-status-nvim = mkPackage "copilot-status-nvim" "copilot-status.nvim";
-          luvit-meta = mkPackage "luvit-meta" "luvit-meta";
-          kulala-nvim = mkPackage "kulala-nvim" "kulala.nvim";
-          quicker-nvim = mkPackage "quicker-nvim" "quicker.nvim";
           kitty-scrollback-nvim = mkPackage "kitty-scrollback-nvim" "kitty-scrollback.nvim";
+          kulala-nvim = mkPackage "kulala-nvim" "kulala.nvim";
+          luvit-meta = mkPackage "luvit-meta" "luvit-meta";
+          quicker-nvim = mkPackage "quicker-nvim" "quicker.nvim";
         };
       };
 
