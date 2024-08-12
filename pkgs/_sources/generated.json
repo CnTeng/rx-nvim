@@ -19,6 +19,26 @@
         },
         "version": "ea9e7000e82a89aac9d8434675dfed3da4ec1158"
     },
+    "kitty-scrollback-nvim": {
+        "cargoLocks": null,
+        "date": "2024-08-09",
+        "extract": null,
+        "name": "kitty-scrollback-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "mikesmithgh",
+            "repo": "kitty-scrollback.nvim",
+            "rev": "b3d5cdf5bccafa9e724430ca88adb95c851d664a",
+            "sha256": "sha256-g6dg0xxgA8A1RjASUTWUkum1EBAKpsg3LNcYveCKdFA=",
+            "type": "github"
+        },
+        "version": "b3d5cdf5bccafa9e724430ca88adb95c851d664a"
+    },
     "kulala-nvim": {
         "cargoLocks": null,
         "date": "2024-08-11",
@@ -58,6 +78,26 @@
             "type": "github"
         },
         "version": "ce76f6f6cdc9201523a5875a4471dcfe0186eb60"
+    },
+    "quicker-nvim": {
+        "cargoLocks": null,
+        "date": "2024-08-11",
+        "extract": null,
+        "name": "quicker-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "stevearc",
+            "repo": "quicker.nvim",
+            "rev": "514817dfb0a2828fe2c6183f996a31847c8aa789",
+            "sha256": "sha256-7zHu0DH9a3BtYeiHHHnJcq3fVCov864EAGvp5yYB3/k=",
+            "type": "github"
+        },
+        "version": "514817dfb0a2828fe2c6183f996a31847c8aa789"
     },
     "which-key-nvim": {
         "cargoLocks": null,

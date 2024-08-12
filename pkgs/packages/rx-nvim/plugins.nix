@@ -59,6 +59,7 @@ let
     nvim-ufo
     guess-indent-nvim
     smart-splits-nvim
+    kitty-scrollback-nvim
     mini-nvim
     CopilotChat-nvim
     copilot-vim
@@ -84,6 +85,8 @@ let
     statuscol-nvim
     toggleterm-nvim
     image-nvim
+
+    quicker-nvim
   ];
 in
 {

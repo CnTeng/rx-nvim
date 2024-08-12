@@ -13,3 +13,11 @@ fetch.github = "mistweaverco/kulala.nvim"
 [which-key-nvim]
 src.git = "https://github.com/folke/which-key.nvim"
 fetch.github = "folke/which-key.nvim"
+
+[quicker-nvim]
+src.git = "https://github.com/stevearc/quicker.nvim"
+fetch.github = "stevearc/quicker.nvim"
+
+[kitty-scrollback-nvim]
+src.git = "https://github.com/mikesmithgh/kitty-scrollback.nvim"
+fetch.github = "mikesmithgh/kitty-scrollback.nvim"

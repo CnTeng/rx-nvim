@@ -30,6 +30,8 @@
           copilot-status-nvim = mkPackage "copilot-status-nvim" "copilot-status.nvim";
           luvit-meta = mkPackage "luvit-meta" "luvit-meta";
           kulala-nvim = mkPackage "kulala-nvim" "kulala.nvim";
+          quicker-nvim = mkPackage "quicker-nvim" "quicker.nvim";
+          kitty-scrollback-nvim = mkPackage "kitty-scrollback-nvim" "kitty-scrollback.nvim";
         };
       };
 

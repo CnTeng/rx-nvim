@@ -13,6 +13,18 @@
     };
     date = "2024-05-29";
   };
+  kitty-scrollback-nvim = {
+    pname = "kitty-scrollback-nvim";
+    version = "b3d5cdf5bccafa9e724430ca88adb95c851d664a";
+    src = fetchFromGitHub {
+      owner = "mikesmithgh";
+      repo = "kitty-scrollback.nvim";
+      rev = "b3d5cdf5bccafa9e724430ca88adb95c851d664a";
+      fetchSubmodules = false;
+      sha256 = "sha256-g6dg0xxgA8A1RjASUTWUkum1EBAKpsg3LNcYveCKdFA=";
+    };
+    date = "2024-08-09";
+  };
   kulala-nvim = {
     pname = "kulala-nvim";
     version = "ca130b5daf6c36c2cdd3843f15f5c8556037e37c";
@@ -36,6 +48,18 @@
       sha256 = "sha256-zAAptV/oLuLAAsa2zSB/6fxlElk4+jNZd/cPr9oxFig=";
     };
     date = "2024-01-20";
+  };
+  quicker-nvim = {
+    pname = "quicker-nvim";
+    version = "514817dfb0a2828fe2c6183f996a31847c8aa789";
+    src = fetchFromGitHub {
+      owner = "stevearc";
+      repo = "quicker.nvim";
+      rev = "514817dfb0a2828fe2c6183f996a31847c8aa789";
+      fetchSubmodules = false;
+      sha256 = "sha256-7zHu0DH9a3BtYeiHHHnJcq3fVCov864EAGvp5yYB3/k=";
+    };
+    date = "2024-08-11";
   };
   which-key-nvim = {
     pname = "which-key-nvim";
