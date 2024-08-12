@@ -28,6 +28,7 @@
       imports = [
         inputs.pre-commit.flakeModule
         inputs.treefmt.flakeModule
+        ./modules
         ./pkgs
       ];
 
