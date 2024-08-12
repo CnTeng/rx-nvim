@@ -3,7 +3,6 @@ return {
   event = "LazyFile",
   init = function()
     vim.opt.rtp:prepend(vim.g.parsers_path)
-    vim.opt.rtp:append(vim.g.queries_path)
   end,
   opts = {
     highlight = {

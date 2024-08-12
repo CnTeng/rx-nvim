@@ -12,16 +12,11 @@ let
   configPath = ../../../config;
   inherit (plugins) pluginsPath extraLuaPackages;
 
-  mkTreesitterPath =
-    path: removePath:
-    symlinkJoin {
-      name = "treesitter-${path}";
-      paths = vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
-      postBuild = "rm -r $out/${removePath}";
-    };
-
-  parsersPath = mkTreesitterPath "parsers" "queries";
-  queriesPath = mkTreesitterPath "queries" "parser";
+  parsersPath = symlinkJoin {
+    name = "treesitter-parsers";
+    paths = vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
+    postBuild = "rm -r $out/queries";
+  };
 
   neovimConfig = neovimUtils.makeNeovimConfig {
     withNodeJs = true;
@@ -31,7 +26,6 @@ let
       vim.g.config_path = "${configPath}"
       vim.g.plugins_path = "${pluginsPath}"
       vim.g.parsers_path = "${parsersPath}"
-      vim.g.queries_path = "${queriesPath}"
 
       vim.opt.rtp:prepend(vim.g.config_path)
 
