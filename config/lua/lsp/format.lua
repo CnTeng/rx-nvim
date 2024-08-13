@@ -25,9 +25,11 @@ return {
       yaml = { "prettier" },
       ["_"] = { "trim_whitespace" },
     },
+    default_format_opts = {
+      lsp_format = "fallback",
+    },
     format_on_save = {
       timeout_ms = 500,
-      lsp_fallback = true,
     },
   },
 }
