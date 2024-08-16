@@ -15,22 +15,13 @@ return {
       { mode = { "n", "t" }, "<C-w>k", smart_splits.swap_buf_up, desc = "Swap window up" },
       { mode = { "n", "t" }, "<C-w>l", smart_splits.swap_buf_right, desc = "Swap window right" },
 
-      { mode = { "n", "t" }, "<C-w>r", smart_splits.start_resize_mode, desc = "Enter resize mode" },
+      { mode = { "n", "t" }, "<A-h>", smart_splits.resize_left, desc = "Resize left" },
+      { mode = { "n", "t" }, "<A-j>", smart_splits.resize_down, desc = "Resize down" },
+      { mode = { "n", "t" }, "<A-k>", smart_splits.resize_up, desc = "Resize up" },
+      { mode = { "n", "t" }, "<A-l>", smart_splits.resize_right, desc = "Resize right" },
     }
   end,
   opts = {
     cursor_follows_swapped_bufs = true,
-    resize_mode = {
-      resize_keys = { "h", "j", "k", "l" },
-      silent = true,
-      hooks = {
-        on_enter = function()
-          vim.notify("Enter resize mode")
-        end,
-        on_leave = function()
-          vim.notify("Exit resize mode")
-        end,
-      },
-    },
   },
 }
