@@ -9,13 +9,6 @@ return {
   },
   keys = {
     {
-      "<leader>ge",
-      function()
-        require("neo-tree.command").execute({ source = "git_status", position = "float", toggle = true })
-      end,
-      desc = "Git explorer",
-    },
-    {
       "<leader>e",
       function()
         require("neo-tree.command").execute({ toggle = true })
@@ -38,20 +31,16 @@ return {
       width = 30,
       mappings = {
         ["<space>"] = "noop",
-        ["<cr>"] = "noop",
         ["l"] = "open",
         ["h"] = "close_node",
-        ["K"] = "focus_preview",
-        ["a"] = { "add", config = { show_path = "relative" } },
+
+        ["S"] = "open_vsplit",
+        ["s"] = "open_split",
       },
     },
     filesystem = {
-      window = { mappings = { ["<cr>"] = "set_root" } },
       follow_current_file = { enabled = true },
       use_libuv_file_watcher = true,
-    },
-    buffers = {
-      window = { mappings = { ["<cr>"] = "set_root" } },
     },
     event_handlers = {
       {
