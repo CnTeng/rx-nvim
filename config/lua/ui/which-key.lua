@@ -6,9 +6,9 @@ return {
     spec = {
       {
         mode = { "n", "v" },
+        { "<localleader>", group = "local" },
         { "<leader><tab>", group = "tabs" },
         { "<leader>a", group = "ai" },
-        { "<leader>b", group = "buffer" },
         { "<leader>f", group = "find" },
         { "<leader>g", group = "git" },
         { "<leader>l", group = "code" },
@@ -18,7 +18,6 @@ return {
         { "]", group = "next" },
         { "g", group = "goto" },
         { "gz", group = "surround" },
-        { "<localleader>", group = "local" },
       },
     },
     win = { no_overlap = false },

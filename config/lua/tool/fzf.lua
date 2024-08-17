@@ -4,21 +4,7 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   cmd = { "FzfLua" },
   keys = {
-    -- Find
-    {
-      "<leader>fr",
-      function()
-        require("fzf-lua").oldfiles()
-      end,
-      desc = "Recent files",
-    },
-    {
-      "<leader>ff",
-      function()
-        require("fzf-lua").files()
-      end,
-      desc = "Find files",
-    },
+    -- Buffers
     {
       "<leader>b",
       function()
@@ -26,6 +12,79 @@ return {
       end,
       desc = "Buffers",
     },
+
+    -- Files
+    {
+      "<leader>ff",
+      function()
+        require("fzf-lua").files()
+      end,
+      desc = "Files",
+    },
+    {
+      "<leader>fr",
+      function()
+        require("fzf-lua").oldfiles()
+      end,
+      desc = "Recent files",
+    },
+
+    -- Text
+    {
+      "<leader>fw",
+      function()
+        require("fzf-lua").live_grep_native()
+      end,
+      desc = "Word",
+    },
+    {
+      "<leader>fu",
+      function()
+        require("fzf-lua").grep_cword()
+      end,
+      desc = "Current word",
+    },
+
+    -- Git
+    {
+      "<leader>gc",
+      function()
+        require("fzf-lua").git_commits()
+      end,
+      desc = "Commits",
+    },
+    {
+      "<leader>gb",
+      function()
+        require("fzf-lua").git_branches()
+      end,
+      desc = "Branches",
+    },
+    {
+      "<leader>gt",
+      function()
+        require("fzf-lua").git_tags()
+      end,
+      desc = "Tags",
+    },
+
+    -- Lsp
+    {
+      "<leader>fs",
+      function()
+        require("fzf-lua").lsp_document_symbols()
+      end,
+      desc = "Document symbols",
+    },
+    {
+      "<leader>fS",
+      function()
+        require("fzf-lua").lsp_workspace_symbols()
+      end,
+      desc = "Workspace symbols",
+    },
+
+    -- Misc
     {
       "<leader>fc",
       function()
@@ -41,32 +100,18 @@ return {
       desc = "Command history",
     },
     {
-      "<leader>fh",
-      function()
-        require("fzf-lua").help_tags()
-      end,
-      desc = "Help pages",
-    },
-    {
-      "<leader>fH",
-      function()
-        require("fzf-lua").highlights()
-      end,
-      desc = "Highlight groups",
-    },
-    {
-      "<leader>fk",
-      function()
-        require("fzf-lua").keymaps()
-      end,
-      desc = "Key maps",
-    },
-    {
       "<leader>fm",
       function()
-        require("fzf-lua").man_pages()
+        require("fzf-lua").marks()
       end,
-      desc = "Man pages",
+      desc = "Marks",
+    },
+    {
+      "<leader>fj",
+      function()
+        require("fzf-lua").jumps()
+      end,
+      desc = "Jumps",
     },
     {
       "<leader>fR",
@@ -76,41 +121,18 @@ return {
       desc = "Registers",
     },
     {
-      "<leader>fu",
+      "<leader>fk",
       function()
-        require("fzf-lua").grep_cword()
+        require("fzf-lua").keymaps()
       end,
-      desc = "Current word",
+      desc = "Keymaps",
     },
     {
-      "<leader>fw",
+      "<leader>fh",
       function()
-        require("fzf-lua").live_grep_native()
+        require("fzf-lua").help_tags()
       end,
-      desc = "Word",
-    },
-
-    -- Git
-    {
-      "<leader>gt",
-      function()
-        require("fzf-lua").git_status()
-      end,
-      desc = "Git status",
-    },
-    {
-      "<leader>gb",
-      function()
-        require("fzf-lua").git_branches()
-      end,
-      desc = "Git branches",
-    },
-    {
-      "<leader>gc",
-      function()
-        require("fzf-lua").git_commits()
-      end,
-      desc = "Git commits",
+      desc = "Help tags",
     },
   },
   opts = { "borderless_full" },

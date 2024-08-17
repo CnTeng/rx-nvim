@@ -31,7 +31,13 @@ return {
         end,
         desc = "Previous todo comment",
       },
-      { "<leader>ft", "<cmd>TodoQuickFix<cr>", "Todo comment" },
+      {
+        "<leader>ft",
+        function()
+          require("todo-comments.fzf").todo()
+        end,
+        desc = "Todo comments",
+      },
     },
     opts = {},
   },
