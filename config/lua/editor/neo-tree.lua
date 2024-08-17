@@ -17,7 +17,7 @@ return {
     },
   },
   opts = {
-    sources = { "filesystem", "git_status" },
+    sources = { "filesystem" },
     close_if_last_window = true,
     default_component_configs = {
       indent = {
