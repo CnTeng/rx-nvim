@@ -31,7 +31,7 @@ return {
         end,
         desc = "Previous todo comment",
       },
-      { "<leader>st", "<cmd>TodoQuickFix<cr>", "Todo comment" },
+      { "<leader>ft", "<cmd>TodoQuickFix<cr>", "Todo comment" },
     },
     opts = {},
   },

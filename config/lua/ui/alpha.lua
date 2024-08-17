@@ -16,12 +16,12 @@ return {
       [[                                                          ]],
     }
     dashboard.section.buttons.val = {
-      dashboard.button("LDR f f", "  > Find files", "<cmd>FzfLua files<cr>"),
-      dashboard.button("LDR f n", "  > New file", "<cmd>ene<cr>"),
+      dashboard.button("e", "  > New file", "<cmd>ene<cr>"),
+      dashboard.button("LDR f f", "  > Find file", "<cmd>FzfLua files<cr>"),
+      dashboard.button("LDR f w", "  > Find text", "<cmd>FzfLua live_grep_native<cr>"),
       dashboard.button("LDR f r", "  > Recent file", "<cmd>FzfLua oldfiles<cr>"),
-      dashboard.button("LDR s w", "  > Search text", "<cmd>FzfLua live_grep_native<cr>"),
-      dashboard.button("CTRL q", "  > Quit Neovim", "<cmd>qa<CR>"),
       dashboard.button("LDR s s", "  > Load session", "<cmd>SessionManager load_session<cr>"),
+      dashboard.button("LDR q", "  > Quit all", "<cmd>qa<CR>"),
     }
     dashboard.section.footer.val = "Just For Fun!"
 
