@@ -31,7 +31,7 @@ return {
       mapping = cmp.mapping.preset.insert({
         ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
         ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<CR>"] = cmp.mapping(cmp.mapping.confirm(), { "i", "c" }),
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
@@ -65,14 +65,10 @@ return {
     local cmp = require("cmp")
     cmp.setup(opts)
 
-    cmp.setup.cmdline("/", {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = {
-        { name = "buffer" },
+    cmp.setup.cmdline({ "/", "?" }, {
+      completion = {
+        completeopt = "menu,menuone,noselect",
       },
-    })
-
-    cmp.setup.cmdline("?", {
       mapping = cmp.mapping.preset.cmdline(),
       sources = {
         { name = "buffer" },
@@ -80,10 +76,13 @@ return {
     })
 
     cmp.setup.cmdline(":", {
+      completion = {
+        completeopt = "menu,menuone,noselect",
+      },
       mapping = cmp.mapping.preset.cmdline(),
       sources = cmp.config.sources({
-        { name = "cmdline" },
         { name = "path" },
+        { name = "cmdline" },
       }, {
         { name = "buffer" },
       }),
