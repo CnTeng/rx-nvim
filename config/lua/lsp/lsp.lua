@@ -6,7 +6,7 @@ return {
     { "hedyhli/outline.nvim", opts = {} },
   },
   keys = {
-    { "<leader>lI", "<cmd>LspInfo<cr>", desc = "LSP info" },
+    { "<leader>li", "<cmd>LspInfo<cr>", desc = "LSP info" },
     {
       "<leader>lo",
       function()
@@ -17,20 +17,20 @@ return {
   },
   opts = {
     keys = {
-      { "n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" } },
-      { "n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" } },
-      { "n", "gI", vim.lsp.buf.implementation, { desc = "Go to implementation" } },
-      { "n", "gr", vim.lsp.buf.references, { desc = "Go to references" } },
-      { "n", "gK", vim.lsp.buf.signature_help, { desc = "Go to signature help" } },
-      { "i", "<C-k>", vim.lsp.buf.signature_help, { desc = "Go to signature help" } },
-      { "n", "gy", vim.lsp.buf.type_definition, { desc = "Go to type definitions" } },
+      { "n", "gd", vim.lsp.buf.definition, { desc = "Definition" } },
+      { "n", "gD", vim.lsp.buf.declaration, { desc = "Declaration" } },
+      { "n", "gI", vim.lsp.buf.implementation, { desc = "Implementation" } },
+      { "n", "gK", vim.lsp.buf.signature_help, { desc = "Signature help" } },
+      { "i", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature help" } },
+      { "n", "gr", vim.lsp.buf.references, { desc = "References" } },
+      { "n", "gy", vim.lsp.buf.type_definition, { desc = "Type definitions" } },
       { { "n", "v" }, "<leader>la", vim.lsp.buf.code_action, { desc = "Code action" } },
-      { "n", "<leader>lL", vim.lsp.codelens.run, { desc = "CodeLens run" } },
-      { "n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" } },
-      { "n", "<leader>lq", vim.diagnostic.setloclist, { desc = "List diagnostic" } },
+      { { "n", "x" }, "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" } },
+      { "n", "<leader>ld", vim.diagnostic.setloclist, { desc = "List diagnostic" } },
+      { "n", "<leader>ll", vim.lsp.codelens.run, { desc = "Run codelens" } },
       {
         "n",
-        "<leader>li",
+        "<leader>lh",
         function()
           local is_enabled = vim.lsp.inlay_hint.is_enabled()
           vim.lsp.inlay_hint.enable(not is_enabled)

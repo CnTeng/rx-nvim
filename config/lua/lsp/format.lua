@@ -12,7 +12,7 @@ return {
       function()
         require("conform").format()
       end,
-      desc = "Format code",
+      desc = "Format",
     },
   },
   opts = {

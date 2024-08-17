@@ -47,3 +47,7 @@ opt.undofile = true
 opt.updatetime = 300
 opt.virtualedit = "block"
 opt.wrap = false
+
+vim.filetype.add({
+  extension = { ["http"] = "http" },
+})
