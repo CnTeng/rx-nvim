@@ -17,3 +17,7 @@ fetch.github = "Bilal2453/luvit-meta"
 [quicker-nvim]
 src.git = "https://github.com/stevearc/quicker.nvim"
 fetch.github = "stevearc/quicker.nvim"
+
+[neovim-session-manager]
+src.git = "https://github.com/Shatur/neovim-session-manager"
+fetch.github = "Shatur/neovim-session-manager"

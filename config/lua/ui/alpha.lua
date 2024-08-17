@@ -21,6 +21,7 @@ return {
       dashboard.button("LDR f r", "  > Recent file", "<cmd>FzfLua oldfiles<cr>"),
       dashboard.button("LDR s w", "  > Search text", "<cmd>FzfLua live_grep_native<cr>"),
       dashboard.button("CTRL q", "  > Quit Neovim", "<cmd>qa<CR>"),
+      dashboard.button("LDR s s", "  > Load session", "<cmd>SessionManager load_session<cr>"),
     }
     dashboard.section.footer.val = "Just For Fun!"
 

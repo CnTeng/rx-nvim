@@ -49,16 +49,28 @@
     };
     date = "2024-01-20";
   };
+  neovim-session-manager = {
+    pname = "neovim-session-manager";
+    version = "cbaebd92dce84e9ba63cb07d3199e5a19b204c1a";
+    src = fetchFromGitHub {
+      owner = "Shatur";
+      repo = "neovim-session-manager";
+      rev = "cbaebd92dce84e9ba63cb07d3199e5a19b204c1a";
+      fetchSubmodules = false;
+      sha256 = "sha256-HnNbB5Nx65Zb5oTjED0et+bAAEVX5+8pZxwTZvxRtQ8=";
+    };
+    date = "2024-08-02";
+  };
   quicker-nvim = {
     pname = "quicker-nvim";
-    version = "6b79167543f1b18e76319217a29bb4e177a5e1ae";
+    version = "2dc0f800770f8956c24a6d70fa61e7ec2e102d8a";
     src = fetchFromGitHub {
       owner = "stevearc";
       repo = "quicker.nvim";
-      rev = "6b79167543f1b18e76319217a29bb4e177a5e1ae";
+      rev = "2dc0f800770f8956c24a6d70fa61e7ec2e102d8a";
       fetchSubmodules = false;
-      sha256 = "sha256-5r4Di7ve8Ro6GNLgKG+iSZiDAtQP2VsodgFVD2sRJT4=";
+      sha256 = "sha256-vS/H2V6geR83x+ZNQXu2PqD6UDllBuQZ2qZJGwp8bGQ=";
     };
-    date = "2024-08-12";
+    date = "2024-08-16";
   };
 }

@@ -29,6 +29,7 @@ let
     neo-tree-nvim
     nvim-bqf
     quicker-nvim
+    neovim-session-manager
     smart-splits-nvim
     nvim-surround
     nvim-ufo
