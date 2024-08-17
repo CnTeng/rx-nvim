@@ -6,14 +6,14 @@ return {
     spec = {
       {
         mode = { "n", "v" },
-        { "<localleader>", group = "local" },
-        { "<leader><tab>", group = "tabs" },
         { "<leader>a", group = "ai" },
         { "<leader>f", group = "find" },
         { "<leader>g", group = "git" },
-        { "<leader>l", group = "code" },
+        { "<leader>l", group = "lsp" },
         { "<leader>s", group = "session" },
         { "<leader>t", group = "terminal" },
+        { "<leader><tab>", group = "tab" },
+        { "<localleader>", group = "local" },
         { "[", group = "prev" },
         { "]", group = "next" },
         { "g", group = "goto" },

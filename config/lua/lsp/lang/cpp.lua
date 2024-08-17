@@ -47,12 +47,13 @@ return {
       }
     end,
   },
+
   {
     "Civitasv/cmake-tools.nvim",
-    lazy = true,
     ft = { "c", "cpp" },
     opts = {},
   },
+
   {
     "p00f/clangd_extensions.nvim",
     ft = { "c", "cpp" },

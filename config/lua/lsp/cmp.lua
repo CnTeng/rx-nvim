@@ -1,7 +1,6 @@
 ---@type LazyPluginSpec
 return {
   "hrsh7th/nvim-cmp",
-  event = "VeryLazy",
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
@@ -15,6 +14,7 @@ return {
       opts = { friendly_snippets = true },
     },
   },
+  event = "VeryLazy",
   opts = function()
     local cmp = require("cmp")
 

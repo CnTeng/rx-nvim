@@ -3,9 +3,6 @@ return {
   {
     "github/copilot.vim",
     event = "VeryLazy",
-    init = function()
-      vim.g.copilot_no_tab_map = true
-    end,
     keys = {
       {
         mode = "i",
@@ -17,12 +14,15 @@ return {
       },
       { mode = "i", "<C-l>", "<Plug>(copilot-accept-word)" },
     },
+    init = function()
+      vim.g.copilot_no_tab_map = true
+    end,
   },
 
   {
     "ofseed/copilot-status.nvim",
-    event = "VeryLazy",
     dependencies = { "github/copilot.vim" },
+    event = "VeryLazy",
   },
 
   {

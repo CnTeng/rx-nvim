@@ -3,10 +3,10 @@ return {
   {
     "numToStr/Comment.nvim",
     name = "comment.nvim",
+    event = "LazyFile",
     init = function()
       vim.keymap.del("n", "gcc")
     end,
-    event = "LazyFile",
     opts = {
       mappings = { extra = false },
     },
@@ -14,7 +14,6 @@ return {
 
   {
     "folke/todo-comments.nvim",
-    cmd = "TodoQuickFix",
     event = "LazyFile",
     keys = {
       {

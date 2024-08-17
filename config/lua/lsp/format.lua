@@ -2,9 +2,6 @@
 return {
   "stevearc/conform.nvim",
   event = "LazyFile",
-  init = function()
-    vim.opt.formatexpr = "v:lua.require'conform'.formatexpr()"
-  end,
   keys = {
     {
       mode = { "n", "v" },
@@ -15,6 +12,9 @@ return {
       desc = "Format",
     },
   },
+  init = function()
+    vim.opt.formatexpr = "v:lua.require'conform'.formatexpr()"
+  end,
   opts = {
     formatters_by_ft = {
       json = { "jq" },

@@ -8,8 +8,8 @@ return {
 
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = "LazyFile",
     main = "ibl",
+    event = "LazyFile",
     opts = {
       indent = { char = "▏" },
       scope = {

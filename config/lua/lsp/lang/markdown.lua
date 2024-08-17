@@ -2,8 +2,8 @@ return {
   ---@type LazyPluginSpec
   {
     "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreview", "MarkdownPreviewStop", "MarkdownPreviewToggle" },
     ft = { "markdown" },
+    cmd = { "MarkdownPreview", "MarkdownPreviewStop", "MarkdownPreviewToggle" },
     init = function()
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "markdown",
