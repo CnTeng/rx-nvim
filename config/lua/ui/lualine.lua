@@ -2,7 +2,6 @@
 return {
   "nvim-lualine/lualine.nvim",
   event = "BufEnter",
-  dependencies = { "ofseed/copilot-status.nvim" },
   opts = {
     options = {
       theme = "bamboo",
@@ -13,39 +12,25 @@ return {
     },
     sections = {
       lualine_a = {
-        {
-          "mode",
-          fmt = function(str)
-            return vim.fn.winwidth(0) > 80 and " " .. str .. " " or " "
-          end,
-          padding = 0,
-        },
+        { "mode", icon = "" },
       },
       lualine_b = {
-        { "branch", icon = "" },
+        { "branch", icon = "" },
         { "diff", colored = false, symbols = { added = " ", modified = " ", removed = " " } },
       },
-      lualine_c = {
-        { "diagnostics", sources = { "nvim_diagnostic" } },
-      },
+      lualine_c = { "diagnostics" },
       lualine_x = {
         "copilot",
         { "filetype", icon_only = true },
         "encoding",
       },
       lualine_y = {
-        { "location", separator = " ", padding = { left = 1, right = 0 } },
-        { "progress", padding = { left = 0, right = 1 } },
+        { "progress", icon = "" },
       },
       lualine_z = {
-        {
-          function()
-            return vim.fn.winwidth(0) > 80 and "  " .. os.date("%R ") or " "
-          end,
-          padding = 0,
-        },
+        { "location", icon = "" },
       },
     },
-    extensions = { "fzf", "lazy", "neo-tree", "toggleterm" },
+    extensions = { "fzf", "lazy", "man", "neo-tree", "quickfix", "toggleterm" },
   },
 }
