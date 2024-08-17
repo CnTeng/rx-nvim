@@ -1,7 +1,7 @@
 ---@type LazyPluginSpec
 return {
   "luukvbaal/statuscol.nvim",
-  event = "LazyFile",
+  event = "VeryLazy",
   opts = function()
     local builtin = require("statuscol.builtin")
 

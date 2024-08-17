@@ -32,10 +32,6 @@ return {
       { "nvim-lua/plenary.nvim" },
     },
     keys = function()
-      local CopilotChat = require("CopilotChat")
-      local actions = require("CopilotChat.actions")
-      local fzflua = require("CopilotChat.integrations.fzflua")
-
       local function fzflua_opts(title)
         return {
           prompt = false,
@@ -50,8 +46,22 @@ return {
       end
 
       return {
-        { mode = { "n", "v" }, "<leader>aa", CopilotChat.toggle, desc = "Chat" },
-        { mode = { "n", "v" }, "<leader>ac", CopilotChat.reset, desc = "Chat clear" },
+        {
+          mode = { "n", "v" },
+          "<leader>aa",
+          function()
+            require("CopilotChat").toggle()
+          end,
+          desc = "Chat",
+        },
+        {
+          mode = { "n", "v" },
+          "<leader>ac",
+          function()
+            require("CopilotChat").reset()
+          end,
+          desc = "Chat clear",
+        },
         {
           mode = { "n", "v" },
           "<leader>aq",
@@ -67,6 +77,8 @@ return {
           mode = { "n", "v" },
           "<leader>ah",
           function()
+            local actions = require("CopilotChat.actions")
+            local fzflua = require("CopilotChat.integrations.fzflua")
             fzflua.pick(actions.help_actions(), fzflua_opts("Help"))
           end,
           desc = "Help actions",
@@ -76,6 +88,8 @@ return {
           mode = { "n", "v" },
           "<leader>ap",
           function()
+            local actions = require("CopilotChat.actions")
+            local fzflua = require("CopilotChat.integrations.fzflua")
             fzflua.pick(actions.prompt_actions(), fzflua_opts("Prompt"))
           end,
           desc = "Prompt actions",
