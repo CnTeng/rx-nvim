@@ -19,6 +19,37 @@ let
     if lib.isDerivation plugin then [ (mkEntry plugin) ] ++ dependencies else [ plugin ];
 
   plugins = with vimPlugins; [
+    # code
+    nvim-cmp
+    cmp-nvim-lsp
+    cmp-buffer
+    cmp-path
+    cmp-cmdline
+    cmp-emoji
+    nvim-snippets
+    friendly-snippets
+    nvim-dap
+    nvim-dap-go
+    nvim-dap-ui
+    nvim-dap-virtual-text
+    comment-nvim
+    todo-comments-nvim
+    conform-nvim
+    nvim-lspconfig
+    outline-nvim
+    nvim-treesitter
+    cmake-tools-nvim
+    clangd_extensions-nvim
+    flutter-tools-nvim
+    kulala-nvim
+    lazydev-nvim
+    luvit-meta
+    markdown-preview-nvim
+    {
+      name = "lspkind.nvim";
+      path = lspkind-nvim;
+    }
+
     # editor
     ultimate-autopair-nvim
     flash-nvim
@@ -38,33 +69,6 @@ let
     gitsigns-nvim
     neogit
     diffview-nvim
-
-    # coding
-    nvim-cmp
-    cmp-nvim-lsp
-    cmp-buffer
-    cmp-path
-    cmp-cmdline
-    cmp-emoji
-    nvim-snippets
-    friendly-snippets
-    comment-nvim
-    todo-comments-nvim
-    conform-nvim
-    nvim-lspconfig
-    outline-nvim
-    nvim-treesitter
-    cmake-tools-nvim
-    clangd_extensions-nvim
-    flutter-tools-nvim
-    kulala-nvim
-    lazydev-nvim
-    luvit-meta
-    markdown-preview-nvim
-    {
-      name = "lspkind.nvim";
-      path = lspkind-nvim;
-    }
 
     # tool
     copilot-vim
@@ -88,6 +92,7 @@ let
     lualine-nvim
     statuscol-nvim
     which-key-nvim
+
   ];
 in
 {

@@ -7,6 +7,7 @@ return {
       {
         mode = { "n", "v" },
         { "<leader>a", group = "ai" },
+        { "<leader>d", group = "debug" },
         { "<leader>f", group = "find" },
         { "<leader>g", group = "git" },
         { "<leader>l", group = "lsp" },

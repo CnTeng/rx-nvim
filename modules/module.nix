@@ -13,6 +13,7 @@ let
     clang-tools
     cmake-language-server
     cmake-format
+    gdb
 
     # Go
     go
@@ -20,6 +21,7 @@ let
     gofumpt
     golangci-lint
     golangci-lint-langserver
+    delve
 
     # Lua
     lua-language-server

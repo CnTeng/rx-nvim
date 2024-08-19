@@ -8,10 +8,10 @@ require("lazy").setup({
     cond = vim.env.KITTY_SCROLLBACK_NVIM ~= "true",
   },
   spec = {
+    { import = "code" },
+    { import = "code.lang" },
     { import = "editor" },
     { import = "git" },
-    { import = "lsp" },
-    { import = "lsp.lang" },
     { import = "tool" },
     { import = "ui" },
   },

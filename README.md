@@ -21,6 +21,7 @@ A custom Neovim configuration for Nix users.
 - Autocompletion with [Cmp](https://github.com/hrsh7th/nvim-cmp)
 - Terminal with [Toggleterm](https://github.com/akinsho/toggleterm.nvim)
 - Language Server Protocol with [Native LSP](https://github.com/neovim/nvim-lspconfig)
+- Debug Adapter Protocol with [nvim-dap](https://github.com/mfussenegger/nvim-dap)
 - Syntax highlighting with [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - Formatting and Linting with [Conform](https://github.com/stevearc/conform.nvim)
 - Git integration with [Gitsigns](https://github.com/lewis6991/gitsigns.nvim)
@@ -70,6 +71,7 @@ NixOS module
 - [AstroNvim](https://github.com/AstroNvim/AstroNvim)
 - [LazyVim](https://github.com/LazyVim/LazyVim)
 - [nvimrc](https://github.com/XXiaoA/nvimrc)
+- [nvim](https://github.com/ofseed/nvim)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
