@@ -10,7 +10,7 @@ return {
         callback = function(args)
           vim.keymap.set(
             "n",
-            "<localleader>p",
+            "<leader>cp",
             "<cmd>MarkdownPreviewToggle<cr>",
             { buffer = args.buf, desc = "Toggle markdown preview" }
           )

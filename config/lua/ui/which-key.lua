@@ -7,6 +7,7 @@ return {
       {
         mode = { "n", "v" },
         { "<leader>a", group = "ai" },
+        { "<leader>c", group = "code" },
         { "<leader>d", group = "debug" },
         { "<leader>f", group = "find" },
         { "<leader>g", group = "git" },
@@ -14,7 +15,6 @@ return {
         { "<leader>s", group = "session" },
         { "<leader>t", group = "terminal" },
         { "<leader><tab>", group = "tab" },
-        { "<localleader>", group = "local" },
         { "[", group = "prev" },
         { "]", group = "next" },
         { "g", group = "goto" },

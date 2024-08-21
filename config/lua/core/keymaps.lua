@@ -1,7 +1,7 @@
 local keymap = vim.keymap.set
 
 vim.g.mapleader = " "
-vim.g.maplocalleader = "  "
+vim.g.maplocalleader = " "
 
 -- Standed operations
 keymap("n", "<ESC>", "<cmd>noh<cr>", { noremap = true, desc = "No highlight" })

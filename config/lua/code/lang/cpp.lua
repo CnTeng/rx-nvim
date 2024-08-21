@@ -6,8 +6,8 @@ return {
       servers = {
         clangd = {
           keys = {
-            { "n", "<localleader>s", "<cmd>ClangdSwitchSourceHeader<cr>", { desc = "Switch between source/header" } },
-            { "n", "<localleader>t", "<cmd>ClangdAST<cr>", { desc = "View AST" } },
+            { "n", "<leader>cs", "<cmd>ClangdSwitchSourceHeader<cr>", { desc = "Switch between source/header" } },
+            { "n", "<leader>ct", "<cmd>ClangdAST<cr>", { desc = "View AST" } },
           },
 
           cmd = {
