@@ -13,6 +13,7 @@ let
     clang-tools
     cmake-language-server
     cmake-format
+    lldb
     gdb
 
     # Go

@@ -133,6 +133,9 @@ return {
       for lang, configuration in pairs(opts.configurations) do
         dap.configurations[lang] = configuration
       end
+
+      dap.configurations.cpp = dap.configurations.c
+      dap.configurations.rust = dap.configurations.c
     end,
   },
 
