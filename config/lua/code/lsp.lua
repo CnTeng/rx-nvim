@@ -47,6 +47,24 @@ return {
     config = function(_, opts)
       vim.diagnostic.config(opts.diagnostics)
 
+      local function set_keymaps(keys, bufnr)
+        for _, key in pairs(keys) do
+          vim.keymap.set(key[1], key[2], key[3], {
+            silent = true,
+            buffer = bufnr,
+            desc = key[4].desc,
+          })
+        end
+      end
+
+      vim.api.nvim_create_autocmd("LspAttach", {
+        desc = "General LSP Attach",
+        callback = function(args)
+          vim.lsp.inlay_hint.enable()
+          set_keymaps(opts.keys, args.buf)
+        end,
+      })
+
       local function capabilities(extra_caps)
         local caps = vim.lsp.protocol.make_client_capabilities()
 
@@ -64,30 +82,14 @@ return {
         return caps
       end
 
-      local function on_attach(extra_keys)
-        local keys = vim.deepcopy(opts.keys)
-
-        if extra_keys then
-          vim.list_extend(keys, extra_keys)
-        end
-
-        return function(_, bufnr)
-          vim.lsp.inlay_hint.enable()
-
-          for _, key in pairs(keys) do
-            vim.keymap.set(key[1], key[2], key[3], {
-              silent = true,
-              buffer = bufnr,
-              desc = key[4].desc,
-            })
-          end
-        end
-      end
-
       local function handlers(server_opts)
         local handler = {
           capabilities = capabilities(server_opts.capabilities),
-          on_attach = on_attach(server_opts.keys),
+          on_attach = function(_, bufnr)
+            if server_opts.keys then
+              set_keymaps(server_opts.keys, bufnr)
+            end
+          end,
         }
 
         if server_opts then
