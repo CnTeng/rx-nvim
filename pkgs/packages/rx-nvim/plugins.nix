@@ -74,6 +74,7 @@ let
     copilot-vim
     copilot-status-nvim
     CopilotChat-nvim
+    gp-nvim
     fcitx-vim
     fzf-lua
     fzfWrapper
@@ -92,7 +93,6 @@ let
     lualine-nvim
     statuscol-nvim
     which-key-nvim
-
   ];
 in
 {

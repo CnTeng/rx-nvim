@@ -26,6 +26,7 @@
           luvit-meta = mkPackage "luvit-meta" "luvit-meta";
           neovim-session-manager = mkPackage "neovim-session-manager" "neovim-session-manager";
           quicker-nvim = mkPackage "quicker-nvim" "quicker.nvim";
+          gp-nvim = mkPackage "gp-nvim" "gp.nvim";
         };
       };
 

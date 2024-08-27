@@ -21,3 +21,7 @@ fetch.github = "Shatur/neovim-session-manager"
 [quicker-nvim]
 src.git = "https://github.com/stevearc/quicker.nvim"
 fetch.github = "stevearc/quicker.nvim"
+
+[gp-nvim]
+src.git = "https://github.com/Robitx/gp.nvim"
+fetch.github = "Robitx/gp.nvim"
