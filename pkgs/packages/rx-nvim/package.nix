@@ -15,7 +15,6 @@ let
   parsersPath = symlinkJoin {
     name = "treesitter-parsers";
     paths = vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
-    postBuild = "rm -r $out/queries";
   };
 
   neovimConfig = neovimUtils.makeNeovimConfig {
