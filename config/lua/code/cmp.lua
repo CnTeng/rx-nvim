@@ -10,7 +10,7 @@ return {
     "onsails/lspkind.nvim",
     {
       "garymjr/nvim-snippets",
-      dependencies = { "rafamadriz/friendly-snippets" },
+      dependencies = "rafamadriz/friendly-snippets",
       opts = { friendly_snippets = true },
     },
   },

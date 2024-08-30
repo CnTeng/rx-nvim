@@ -1,7 +1,7 @@
 ---@type LazyPluginSpec
 return {
   "Shatur/neovim-session-manager",
-  dependencies = { "nvim-lua/plenary.nvim" },
+  dependencies = "nvim-lua/plenary.nvim",
   event = "VeryLazy",
   opts = function()
     local config = require("session_manager.config")

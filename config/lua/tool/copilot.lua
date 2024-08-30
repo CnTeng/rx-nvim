@@ -21,15 +21,15 @@ return {
 
   {
     "ofseed/copilot-status.nvim",
-    dependencies = { "github/copilot.vim" },
+    dependencies = "github/copilot.vim",
     event = "VeryLazy",
   },
 
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     dependencies = {
-      { "github/copilot.vim" },
-      { "nvim-lua/plenary.nvim" },
+      "github/copilot.vim",
+      "nvim-lua/plenary.nvim",
     },
     keys = function()
       local function fzflua_opts(title)

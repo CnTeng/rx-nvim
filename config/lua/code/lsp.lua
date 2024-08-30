@@ -69,17 +69,12 @@ return {
         local caps = vim.lsp.protocol.make_client_capabilities()
 
         caps = require("cmp_nvim_lsp").default_capabilities(caps)
-
         caps.textDocument.foldingRange = {
           dynamicRegistration = false,
           lineFoldingOnly = true,
         }
 
-        if extra_caps then
-          caps = vim.tbl_deep_extend("force", caps, extra_caps)
-        end
-
-        return caps
+        return vim.tbl_deep_extend("force", caps, extra_caps or {})
       end
 
       local function handlers(server_opts)
@@ -92,11 +87,7 @@ return {
           end,
         }
 
-        if server_opts then
-          handler = vim.tbl_deep_extend("force", handler, server_opts)
-        end
-
-        return handler
+        return vim.tbl_deep_extend("force", handler, server_opts or {})
       end
 
       for server, server_opts in pairs(opts.servers) do
