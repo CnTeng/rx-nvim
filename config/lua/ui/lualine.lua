@@ -1,7 +1,7 @@
 ---@type LazyPluginSpec
 return {
   "nvim-lualine/lualine.nvim",
-  event = "VeryLazy",
+  event = "BufEnter",
   opts = {
     options = {
       theme = "bamboo",

@@ -2,6 +2,7 @@
 return {
   "goolord/alpha-nvim",
   dependencies = "nvim-tree/nvim-web-devicons",
+  event = "VimEnter",
   opts = function()
     local dashboard = require("alpha.themes.dashboard")
 
@@ -37,12 +38,5 @@ return {
 
   config = function(_, dashboard)
     require("alpha").setup(dashboard.opts)
-    vim.api.nvim_create_autocmd("User", {
-      pattern = "AlphaReady",
-      callback = function()
-        vim.opt.showtabline = 0
-        vim.opt.laststatus = 0
-      end,
-    })
   end,
 }

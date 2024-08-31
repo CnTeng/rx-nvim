@@ -1,7 +1,7 @@
 ---@type LazyPluginSpec
 return {
   "akinsho/bufferline.nvim",
-  event = "VeryLazy",
+  event = "BufEnter",
   keys = {
     { "[b", "<cmd>bprevious<cr>", desc = "Previous buffer" },
     { "]b", "<cmd>bnext<cr>", desc = "Next buffer" },
