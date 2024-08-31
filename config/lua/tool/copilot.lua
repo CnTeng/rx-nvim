@@ -12,10 +12,23 @@ return {
         silent = true,
         replace_keycodes = false,
       },
-      { mode = "i", "<C-l>", "<Plug>(copilot-accept-word)" },
+      { mode = "i", "<C-l>", "<Plug>(copilot-accept-word)", desc = "Accept word" },
+      {
+        "<leader>at",
+        function()
+          if vim.fn["copilot#Enabled"]() == 1 then
+            vim.cmd("Copilot disable")
+          else
+            vim.cmd("Copilot enable")
+          end
+          vim.cmd("Copilot status")
+        end,
+        desc = "Toggle copilot",
+      },
     },
-    init = function()
+    config = function()
       vim.g.copilot_no_tab_map = true
+      vim.cmd("Copilot disable")
     end,
   },
 
