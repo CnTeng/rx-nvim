@@ -74,7 +74,6 @@ let
     copilot-vim
     copilot-status-nvim
     CopilotChat-nvim
-    gp-nvim
     fcitx-vim
     fzf-lua
     fzfWrapper

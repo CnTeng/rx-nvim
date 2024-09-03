@@ -19,26 +19,6 @@
         },
         "version": "ea9e7000e82a89aac9d8434675dfed3da4ec1158"
     },
-    "gp-nvim": {
-        "cargoLocks": null,
-        "date": "2024-08-12",
-        "extract": null,
-        "name": "gp-nvim",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "Robitx",
-            "repo": "gp.nvim",
-            "rev": "861ed5240214dc76b00edeaec15e71370a7a5046",
-            "sha256": "sha256-2vjPoRiT26dftA0t4hdGedN6qZyIgQUjGMRF4IND/O4=",
-            "type": "github"
-        },
-        "version": "861ed5240214dc76b00edeaec15e71370a7a5046"
-    },
     "kitty-scrollback-nvim": {
         "cargoLocks": null,
         "date": "2024-08-20",

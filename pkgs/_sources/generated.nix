@@ -13,18 +13,6 @@
     };
     date = "2024-05-29";
   };
-  gp-nvim = {
-    pname = "gp-nvim";
-    version = "861ed5240214dc76b00edeaec15e71370a7a5046";
-    src = fetchFromGitHub {
-      owner = "Robitx";
-      repo = "gp.nvim";
-      rev = "861ed5240214dc76b00edeaec15e71370a7a5046";
-      fetchSubmodules = false;
-      sha256 = "sha256-2vjPoRiT26dftA0t4hdGedN6qZyIgQUjGMRF4IND/O4=";
-    };
-    date = "2024-08-12";
-  };
   kitty-scrollback-nvim = {
     pname = "kitty-scrollback-nvim";
     version = "3f430ff8829dc2b0f5291d87789320231fdb65a1";
