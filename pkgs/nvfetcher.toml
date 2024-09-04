@@ -2,13 +2,13 @@
 src.git = "https://github.com/ofseed/copilot-status.nvim"
 fetch.github = "ofseed/copilot-status.nvim"
 
+[hurl-nvim]
+src.git = "https://github.com/jellydn/hurl.nvim"
+fetch.github = "jellydn/hurl.nvim"
+
 [kitty-scrollback-nvim]
 src.git = "https://github.com/mikesmithgh/kitty-scrollback.nvim"
 fetch.github = "mikesmithgh/kitty-scrollback.nvim"
-
-[kulala-nvim]
-src.git = "https://github.com/mistweaverco/kulala.nvim"
-fetch.github = "mistweaverco/kulala.nvim"
 
 [luvit-meta]
 src.git = "https://github.com/Bilal2453/luvit-meta"

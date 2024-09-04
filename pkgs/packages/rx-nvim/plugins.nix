@@ -20,6 +20,7 @@ let
 
   plugins = with vimPlugins; [
     # code
+    nvim-treesitter-parsers.http
     nvim-cmp
     cmp-nvim-lsp
     cmp-buffer
@@ -41,7 +42,7 @@ let
     cmake-tools-nvim
     clangd_extensions-nvim
     flutter-tools-nvim
-    kulala-nvim
+    hurl-nvim
     lazydev-nvim
     luvit-meta
     markdown-preview-nvim
