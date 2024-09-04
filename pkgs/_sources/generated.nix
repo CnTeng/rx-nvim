@@ -13,18 +13,6 @@
     };
     date = "2024-05-29";
   };
-  hurl-nvim = {
-    pname = "hurl-nvim";
-    version = "c02e58be1e3941c1ee06c8cf15affaf3f740a26e";
-    src = fetchFromGitHub {
-      owner = "jellydn";
-      repo = "hurl.nvim";
-      rev = "c02e58be1e3941c1ee06c8cf15affaf3f740a26e";
-      fetchSubmodules = false;
-      sha256 = "sha256-zjB2+8G1TltBmCXJZfje26B58jPwsluToCL4JDvvAtw=";
-    };
-    date = "2024-08-26";
-  };
   kitty-scrollback-nvim = {
     pname = "kitty-scrollback-nvim";
     version = "3f430ff8829dc2b0f5291d87789320231fdb65a1";
@@ -36,6 +24,18 @@
       sha256 = "sha256-6aU9lXfRtxJA/MYkaJ4iRQYAnpBBSGI1R6Ny048aJx8=";
     };
     date = "2024-08-20";
+  };
+  kulala-nvim = {
+    pname = "kulala-nvim";
+    version = "18fd207fbf01ba311f2c4bc7b9ad60b1cad633ec";
+    src = fetchFromGitHub {
+      owner = "mistweaverco";
+      repo = "kulala.nvim";
+      rev = "18fd207fbf01ba311f2c4bc7b9ad60b1cad633ec";
+      fetchSubmodules = false;
+      sha256 = "sha256-JcYM/B2c/N7emcpLD5Ag3BhqcIv+/IKJYnCF7XmMc5I=";
+    };
+    date = "2024-09-02";
   };
   luvit-meta = {
     pname = "luvit-meta";

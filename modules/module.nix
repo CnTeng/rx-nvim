@@ -24,13 +24,6 @@ let
     golangci-lint-langserver
     delve
 
-    # Http
-    hurl
-    jq
-    taplo
-    html-tidy
-    nodePackages.prettier
-
     # Lua
     lua-language-server
     stylua
@@ -53,6 +46,13 @@ let
 
     # SQL
     pgformatter
+
+    # Other
+    jq
+    kulala-fmt
+    taplo
+    libxml2
+    nodePackages.prettier
   ];
 in
 {

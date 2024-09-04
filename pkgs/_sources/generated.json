@@ -19,26 +19,6 @@
         },
         "version": "ea9e7000e82a89aac9d8434675dfed3da4ec1158"
     },
-    "hurl-nvim": {
-        "cargoLocks": null,
-        "date": "2024-08-26",
-        "extract": null,
-        "name": "hurl-nvim",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "jellydn",
-            "repo": "hurl.nvim",
-            "rev": "c02e58be1e3941c1ee06c8cf15affaf3f740a26e",
-            "sha256": "sha256-zjB2+8G1TltBmCXJZfje26B58jPwsluToCL4JDvvAtw=",
-            "type": "github"
-        },
-        "version": "c02e58be1e3941c1ee06c8cf15affaf3f740a26e"
-    },
     "kitty-scrollback-nvim": {
         "cargoLocks": null,
         "date": "2024-08-20",
@@ -58,6 +38,26 @@
             "type": "github"
         },
         "version": "3f430ff8829dc2b0f5291d87789320231fdb65a1"
+    },
+    "kulala-nvim": {
+        "cargoLocks": null,
+        "date": "2024-09-02",
+        "extract": null,
+        "name": "kulala-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "mistweaverco",
+            "repo": "kulala.nvim",
+            "rev": "18fd207fbf01ba311f2c4bc7b9ad60b1cad633ec",
+            "sha256": "sha256-JcYM/B2c/N7emcpLD5Ag3BhqcIv+/IKJYnCF7XmMc5I=",
+            "type": "github"
+        },
+        "version": "18fd207fbf01ba311f2c4bc7b9ad60b1cad633ec"
     },
     "luvit-meta": {
         "cargoLocks": null,

@@ -21,8 +21,8 @@
       {
         vimPlugins = prev.vimPlugins // {
           copilot-status-nvim = mkPackage "copilot-status-nvim" "copilot-status.nvim";
-          hurl-nvim = mkPackage "hurl-nvim" "hurl.nvim";
           kitty-scrollback-nvim = mkPackage "kitty-scrollback-nvim" "kitty-scrollback.nvim";
+          kulala-nvim = mkPackage "kulala-nvim" "kulala.nvim";
           luvit-meta = mkPackage "luvit-meta" "luvit-meta";
           neovim-session-manager = mkPackage "neovim-session-manager" "neovim-session-manager";
           quicker-nvim = mkPackage "quicker-nvim" "quicker.nvim";
