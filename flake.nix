@@ -2,7 +2,8 @@
   description = "A custom Neovim configuration for Nix users.";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:GaetanLepage/nixpkgs/vim-plugins-update";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
@@ -38,6 +39,7 @@
           devShells.default = pkgs.mkShell {
             packages = with pkgs; [
               nvfetcher
+              nix-update
               rx-nvim
               config.treefmt.build.wrapper
             ];
