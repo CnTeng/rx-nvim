@@ -39,12 +39,23 @@
           devShells.default = pkgs.mkShell {
             packages = with pkgs; [
               nvfetcher
-              nix-update
-              rx-nvim
               config.treefmt.build.wrapper
             ];
 
             shellHook = config.pre-commit.installationScript;
+          };
+
+          checks.rx-nvim = pkgs.nixosTest {
+            name = "rx-nvim";
+            nodes.machine = {
+              imports = [ self.nixosModules.default ];
+              programs.rx-nvim.enable = true;
+            };
+
+            testScript = ''
+              machine.wait_for_unit("default.target")
+              machine.succeed("which nvim")
+            '';
           };
 
           pre-commit.settings.hooks = {

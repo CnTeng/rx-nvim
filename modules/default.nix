@@ -1,1 +1,8 @@
-{ flake.nixosModules.default = import ./module.nix; }
+{ self, ... }:
+{
+  flake.nixosModules.default = {
+    nixpkgs.overlays = [ self.overlays.default ];
+
+    imports = [ ./module.nix ];
+  };
+}

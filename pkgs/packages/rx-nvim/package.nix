@@ -1,11 +1,11 @@
 {
+  callPackage,
+  symlinkJoin,
+  vimPlugins,
+  neovimUtils,
   wrapNeovimUnstable,
   neovim-unwrapped,
-  neovimUtils,
-  vimPlugins,
   extraConfig ? "",
-  symlinkJoin,
-  callPackage,
 }:
 let
   plugins = callPackage ./plugins.nix { };

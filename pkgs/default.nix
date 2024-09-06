@@ -15,7 +15,6 @@
       final: prev:
       let
         sources = final.callPackage ./_sources/generated.nix { };
-
         mkPackage = src: pname: final.vimUtils.buildVimPlugin sources.${src} // { inherit pname; };
       in
       {
