@@ -3,7 +3,7 @@
 
   inputs = {
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:GaetanLepage/nixpkgs/vim-plugins-update";
+    nixpkgs.url = "github:CnTeng/nixpkgs/vim-plugins-update";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
