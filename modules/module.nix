@@ -45,7 +45,7 @@ let
     shfmt
 
     # SQL
-    pgformatter
+    nodePackages.sql-formatter
 
     # Other
     jq
