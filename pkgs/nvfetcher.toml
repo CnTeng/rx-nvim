@@ -10,10 +10,6 @@ fetch.github = "mikesmithgh/kitty-scrollback.nvim"
 src.git = "https://github.com/mistweaverco/kulala.nvim"
 fetch.github = "mistweaverco/kulala.nvim"
 
-[luvit-meta]
-src.git = "https://github.com/Bilal2453/luvit-meta"
-fetch.github = "Bilal2453/luvit-meta"
-
 [neovim-session-manager]
 src.git = "https://github.com/Shatur/neovim-session-manager"
 fetch.github = "Shatur/neovim-session-manager"
