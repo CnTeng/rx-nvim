@@ -23,14 +23,7 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        http = { "kulala" },
-      },
-      formatters = {
-        kulala = {
-          command = "kulala-fmt",
-          args = { "$FILENAME" },
-          stdin = false,
-        },
+        http = { "kulala-fmt" },
       },
     },
   },

@@ -1,4 +1,24 @@
 {
+    "conform-nvim": {
+        "cargoLocks": null,
+        "date": "2024-09-12",
+        "extract": null,
+        "name": "conform-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "stevearc",
+            "repo": "conform.nvim",
+            "rev": "1a99fdc1d3aa9ccdf3021e67982a679a8c5c740c",
+            "sha256": "sha256-AWgG+16Bh/xu50pU78mKIcQy9MKzWF1YKdbEt5jX0WQ=",
+            "type": "github"
+        },
+        "version": "1a99fdc1d3aa9ccdf3021e67982a679a8c5c740c"
+    },
     "copilot-status-nvim": {
         "cargoLocks": null,
         "date": "2024-05-29",
