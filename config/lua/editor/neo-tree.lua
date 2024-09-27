@@ -18,7 +18,6 @@ return {
   },
   opts = {
     sources = { "filesystem" },
-    close_if_last_window = true,
     default_component_configs = {
       indent = {
         indent_size = 2,
@@ -48,6 +47,12 @@ return {
         handler = function()
           vim.opt.foldenable = false
           vim.opt.foldcolumn = "0"
+        end,
+      },
+      {
+        event = "neo_tree_popup_input_ready",
+        handler = function(args)
+          vim.keymap.set("i", "<Esc>", vim.cmd.stopinsert, { noremap = true, buffer = args.bufnr })
         end,
       },
     },
