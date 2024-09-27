@@ -1,7 +1,3 @@
-[conform-nvim]
-src.git = "https://github.com/stevearc/conform.nvim"
-fetch.github = "stevearc/conform.nvim"
-
 [copilot-status-nvim]
 src.git = "https://github.com/ofseed/copilot-status.nvim"
 fetch.github = "ofseed/copilot-status.nvim"

@@ -20,7 +20,6 @@
       {
         vimPlugins = prev.vimPlugins.extend (
           _: prev': {
-            conform-nvim = mkPackage "conform-nvim" "conform.nvim";
             copilot-status-nvim = mkPackage "copilot-status-nvim" "copilot-status.nvim";
             kitty-scrollback-nvim = mkPackage "kitty-scrollback-nvim" "kitty-scrollback.nvim";
             kulala-nvim = mkPackage "kulala-nvim" "kulala.nvim";
