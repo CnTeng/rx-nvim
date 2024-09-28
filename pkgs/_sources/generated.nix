@@ -15,15 +15,15 @@
   };
   kitty-scrollback-nvim = {
     pname = "kitty-scrollback-nvim";
-    version = "3f430ff8829dc2b0f5291d87789320231fdb65a1";
+    version = "d51725a6b71d65dd9df83ddc07903de2fb2736ee";
     src = fetchFromGitHub {
       owner = "mikesmithgh";
       repo = "kitty-scrollback.nvim";
-      rev = "3f430ff8829dc2b0f5291d87789320231fdb65a1";
+      rev = "d51725a6b71d65dd9df83ddc07903de2fb2736ee";
       fetchSubmodules = false;
-      sha256 = "sha256-6aU9lXfRtxJA/MYkaJ4iRQYAnpBBSGI1R6Ny048aJx8=";
+      sha256 = "sha256-K2etlw89afHYR791keUF5+BBRybfp2mKaVYWigEXczs=";
     };
-    date = "2024-08-20";
+    date = "2024-09-27";
   };
   kulala-nvim = {
     pname = "kulala-nvim";
