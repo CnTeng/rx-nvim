@@ -92,6 +92,7 @@ let
     lualine-nvim
     statuscol-nvim
     which-key-nvim
+    nvim-web-devicons
   ];
 in
 {
