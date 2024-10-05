@@ -27,15 +27,15 @@
   };
   kulala-nvim = {
     pname = "kulala-nvim";
-    version = "39ce81edc135c21800d03333eb1e7625b8d03f70";
+    version = "c7d258d925c113ef75dd35e4d4376c9f4500155d";
     src = fetchFromGitHub {
       owner = "mistweaverco";
       repo = "kulala.nvim";
-      rev = "39ce81edc135c21800d03333eb1e7625b8d03f70";
+      rev = "c7d258d925c113ef75dd35e4d4376c9f4500155d";
       fetchSubmodules = false;
-      sha256 = "sha256-VXaDIhpKzp0xSiaormuNtVzAyxMY+6p89auB4ZPqYX0=";
+      sha256 = "sha256-/iGreXm7NNI52SZrsxWKaeD1Xf/ucIswQACUlBtr+6g=";
     };
-    date = "2024-10-04";
+    date = "2024-10-05";
   };
   neovim-session-manager = {
     pname = "neovim-session-manager";
