@@ -6,10 +6,6 @@ fetch.github = "ofseed/copilot-status.nvim"
 src.git = "https://github.com/mikesmithgh/kitty-scrollback.nvim"
 fetch.github = "mikesmithgh/kitty-scrollback.nvim"
 
-[kulala-nvim]
-src.git = "https://github.com/mistweaverco/kulala.nvim"
-fetch.github = "mistweaverco/kulala.nvim"
-
 [neovim-session-manager]
 src.git = "https://github.com/Shatur/neovim-session-manager"
 fetch.github = "Shatur/neovim-session-manager"
