@@ -27,15 +27,15 @@
   };
   neovim-session-manager = {
     pname = "neovim-session-manager";
-    version = "cbaebd92dce84e9ba63cb07d3199e5a19b204c1a";
+    version = "ce43f2eb2a52492157d7742e5f684b9a42bb3e5c";
     src = fetchFromGitHub {
       owner = "Shatur";
       repo = "neovim-session-manager";
-      rev = "cbaebd92dce84e9ba63cb07d3199e5a19b204c1a";
+      rev = "ce43f2eb2a52492157d7742e5f684b9a42bb3e5c";
       fetchSubmodules = false;
-      sha256 = "sha256-HnNbB5Nx65Zb5oTjED0et+bAAEVX5+8pZxwTZvxRtQ8=";
+      sha256 = "sha256-W9jtfVXHC8MQJwdbxakNqhd+xh/auQb3U09XKdN2Wzw=";
     };
-    date = "2024-08-02";
+    date = "2024-10-09";
   };
   quicker-nvim = {
     pname = "quicker-nvim";
