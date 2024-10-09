@@ -37,6 +37,7 @@ let
     conform-nvim
     nvim-lspconfig
     outline-nvim
+    tiny-inline-diagnostic-nvim
     nvim-treesitter
     cmake-tools-nvim
     clangd_extensions-nvim

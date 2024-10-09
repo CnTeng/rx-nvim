@@ -30,7 +30,7 @@ return {
         },
       },
       diagnostics = {
-        virtual_text = { spacing = 2, prefix = "●" },
+        virtual_text = false,
         signs = {
           text = {
             [vim.diagnostic.severity.ERROR] = "󰅚",
@@ -107,6 +107,12 @@ return {
         desc = "Toggle outline",
       },
     },
+    opts = {},
+  },
+
+  {
+    "rachartier/tiny-inline-diagnostic.nvim",
+    event = "LspAttach",
     opts = {},
   },
 }
