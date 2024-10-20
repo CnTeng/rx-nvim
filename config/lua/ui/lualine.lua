@@ -6,7 +6,7 @@ return {
     options = {
       theme = "bamboo",
       component_separators = { left = "", right = "" },
-      section_separators = { left = "", right = "" },
+      section_separators = { left = "", right = "" },
       disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
       globalstatus = true,
     },
@@ -15,8 +15,6 @@ return {
         {
           "mode",
           icon = vim.bo.modified and "" or "",
-          separator = { left = "", right = "" },
-          padding = 0,
         },
       },
       lualine_b = {
@@ -33,12 +31,7 @@ return {
         { "progress", icon = "" },
       },
       lualine_z = {
-        {
-          "location",
-          icon = "",
-          separator = { left = "", right = "" },
-          padding = 0,
-        },
+        { "location", icon = "" },
       },
     },
     extensions = { "fzf", "lazy", "man", "neo-tree", "quickfix", "toggleterm" },
