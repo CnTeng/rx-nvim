@@ -19,7 +19,6 @@ let
   };
 
   neovimConfig = neovimUtils.makeNeovimConfig {
-    withNodeJs = true;
     plugins = [ vimPlugins.lazy-nvim ];
     inherit extraLuaPackages;
     luaRcContent = ''

@@ -45,7 +45,7 @@ let
     shfmt
 
     # SQL
-    nodePackages.sql-formatter
+    sql-formatter
 
     # Other
     jq
