@@ -24,6 +24,18 @@ return {
       lualine_c = { "diagnostics" },
       lualine_x = {
         "copilot",
+        {
+          function()
+            return " "
+          end,
+          color = function()
+            if vim.g.disable_autoformat or vim.b.disable_autoformat then
+              return "lualine_c_diagnostics_error_normal"
+            else
+              return "lualine_c_normal"
+            end
+          end,
+        },
         { "filetype", icon_only = true },
         "encoding",
       },
