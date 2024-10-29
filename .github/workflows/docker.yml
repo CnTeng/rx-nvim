@@ -4,8 +4,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  docker:
+  build-push:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ubuntu_version: [latest, 24.04, 22.04]
     steps:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -20,5 +23,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: cnteng/rx-nvim:latest
+          build-args: |
+            UBUNTU_VERSION=${{ matrix.ubuntu_version }}
+          tags: cnteng/rx-nvim:${{ matrix.ubuntu_version }}
           file: "docker/Dockerfile"
