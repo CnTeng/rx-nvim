@@ -29,7 +29,13 @@ A custom Neovim configuration for Nix users.
 ## 🛠️ Usage
 
 > [!WARNING]
-> This configuration has only been tested in NixOS.
+> This configuration has only been tested in Docker and NixOS.
+
+Docker run
+
+```shell
+podman run -it cnteng/rx-nvim:latest
+```
 
 Directly run
 
