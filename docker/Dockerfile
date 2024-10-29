@@ -9,8 +9,12 @@ LABEL maintainer="rxsnakepi@gmail.com" \
 RUN apt update && apt install -y sudo curl git xz-utils
 
 # create user dev
-RUN useradd -m -s /bin/bash dev && usermod -aG sudo dev
-RUN echo "dev ALL=(ALL) NOPASSWD:ALL" >>/etc/sudoers
+ARG USER_UID=1000
+
+RUN id "ubuntu" >/dev/null 2>&1 && userdel -r ubuntu || echo "user ubuntu not found"
+
+RUN useradd -m -G users,sudo -N -s /bin/bash -u ${USER_UID} dev && \
+    echo "dev ALL=(ALL) NOPASSWD:ALL" >>/etc/sudoers
 
 USER dev
 
