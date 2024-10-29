@@ -16,6 +16,9 @@ let
     lldb
     gdb
 
+    # Dockerfile
+    dockerfile-language-server-nodejs
+
     # Go
     go
     gopls
