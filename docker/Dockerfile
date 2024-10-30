@@ -6,7 +6,7 @@ LABEL maintainer="rxsnakepi@gmail.com" \
       description="Dockerfile for setting up a development environment with rx-nvim"
 
 # install basic tools
-RUN apt update && apt install -y sudo curl git xz-utils
+RUN apt update && apt install -y sudo curl git xz-utils fzf
 
 # create user dev
 ARG USER_UID=1000
