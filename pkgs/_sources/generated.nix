@@ -15,15 +15,15 @@
   };
   kitty-scrollback-nvim = {
     pname = "kitty-scrollback-nvim";
-    version = "d51725a6b71d65dd9df83ddc07903de2fb2736ee";
+    version = "90ff0b2c32e5aff1eb04125f54b4e4e6944ef321";
     src = fetchFromGitHub {
       owner = "mikesmithgh";
       repo = "kitty-scrollback.nvim";
-      rev = "d51725a6b71d65dd9df83ddc07903de2fb2736ee";
+      rev = "90ff0b2c32e5aff1eb04125f54b4e4e6944ef321";
       fetchSubmodules = false;
-      sha256 = "sha256-K2etlw89afHYR791keUF5+BBRybfp2mKaVYWigEXczs=";
+      sha256 = "sha256-ySM5DllHA3kDIBS0xXtJ2LD3rWJiXGBeIXVONqlwu2Y=";
     };
-    date = "2024-09-27";
+    date = "2024-11-01";
   };
   neovim-session-manager = {
     pname = "neovim-session-manager";
