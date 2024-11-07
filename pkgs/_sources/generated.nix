@@ -39,14 +39,14 @@
   };
   quicker-nvim = {
     pname = "quicker-nvim";
-    version = "11f9eb0c803bb9ced8c6043805de89c62bd04515";
+    version = "1fc29de2172235c076aa1ead6f1ee772398de732";
     src = fetchFromGitHub {
       owner = "stevearc";
       repo = "quicker.nvim";
-      rev = "11f9eb0c803bb9ced8c6043805de89c62bd04515";
+      rev = "1fc29de2172235c076aa1ead6f1ee772398de732";
       fetchSubmodules = false;
-      sha256 = "sha256-sTjDmfQacpvhGdKPyoMxqmoOSw5ceXi6Td48gYaDotE=";
+      sha256 = "sha256-kxY9Kutk60ha+YW3u9CheQ2YaPUR0gmapGNKmlRK0Ls=";
     };
-    date = "2024-10-23";
+    date = "2024-11-06";
   };
 }
