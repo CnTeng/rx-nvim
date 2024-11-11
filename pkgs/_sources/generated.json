@@ -61,7 +61,7 @@
     },
     "quicker-nvim": {
         "cargoLocks": null,
-        "date": "2024-11-06",
+        "date": "2024-11-11",
         "extract": null,
         "name": "quicker-nvim",
         "passthru": null,
@@ -73,10 +73,10 @@
             "name": null,
             "owner": "stevearc",
             "repo": "quicker.nvim",
-            "rev": "1fc29de2172235c076aa1ead6f1ee772398de732",
-            "sha256": "sha256-kxY9Kutk60ha+YW3u9CheQ2YaPUR0gmapGNKmlRK0Ls=",
+            "rev": "d568188e17d1215af55d46d75828435b17b07c46",
+            "sha256": "sha256-3xKpNNcDAGfEEdqMUO+gfD1ay1YETcc8b7iO6U6+BTU=",
             "type": "github"
         },
-        "version": "1fc29de2172235c076aa1ead6f1ee772398de732"
+        "version": "d568188e17d1215af55d46d75828435b17b07c46"
     }
 }
