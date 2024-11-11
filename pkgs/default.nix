@@ -13,7 +13,7 @@
     in
     lib.packagesFromDirectoryRecursive {
       callPackage = lib.callPackageWith (prev.pkgs // { inherit prev mkPlugin; });
-      directory = ./packages;
+      directory = ./.;
     };
 
   perSystem =

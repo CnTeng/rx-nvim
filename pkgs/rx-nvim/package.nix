@@ -9,7 +9,7 @@
 }:
 let
   plugins = callPackage ./plugins.nix { };
-  configPath = ../../../config;
+  configPath = ../../config;
   inherit (plugins) pluginsPath extraLuaPackages;
 
   parsersPath = symlinkJoin {
