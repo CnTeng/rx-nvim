@@ -9,7 +9,7 @@ opt.completeopt = { "menu", "menuone", "noinsert" }
 opt.confirm = true
 opt.cursorline = true
 opt.expandtab = true
-opt.fileencodings = { "ucs-bom", "utf-8", "gbk", "default", "latin1" }
+opt.fileencodings:append("gbk")
 opt.fillchars = {
   eob = " ",
   foldopen = "",
@@ -47,7 +47,3 @@ opt.undofile = true
 opt.updatetime = 300
 opt.virtualedit = "block"
 opt.wrap = false
-
-vim.filetype.add({
-  extension = { ["http"] = "http" },
-})

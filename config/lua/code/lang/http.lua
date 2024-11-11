@@ -1,3 +1,7 @@
+vim.filetype.add({
+  extension = { ["http"] = "http" },
+})
+
 return {
   ---@type LazyPluginSpec
   {

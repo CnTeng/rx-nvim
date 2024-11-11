@@ -5,36 +5,16 @@
   ...
 }:
 {
-  flake.overlays = {
-    default = lib.composeManyExtensions ([
-      self.overlays.plugins
-      self.overlays.packages
-    ]);
-
-    plugins =
-      final: prev:
-      let
-        sources = final.callPackage ./_sources/generated.nix { };
-        mkPackage = src: pname: final.vimUtils.buildVimPlugin sources.${src} // { inherit pname; };
-      in
-      {
-        vimPlugins = prev.vimPlugins.extend (
-          _: prev': {
-            copilot-status-nvim = mkPackage "copilot-status-nvim" "copilot-status.nvim";
-            kitty-scrollback-nvim = mkPackage "kitty-scrollback-nvim" "kitty-scrollback.nvim";
-            neovim-session-manager = mkPackage "neovim-session-manager" "neovim-session-manager";
-            quicker-nvim = mkPackage "quicker-nvim" "quicker.nvim";
-          }
-        );
-      };
-
-    packages =
-      final: prev:
-      lib.packagesFromDirectoryRecursive {
-        inherit (final) callPackage;
-        directory = ./packages;
-      };
-  };
+  flake.overlays.default =
+    final: prev:
+    let
+      sources = final.callPackage ./_sources/generated.nix { };
+      mkPlugin = src: pname: final.vimUtils.buildVimPlugin sources.${src} // { inherit pname; };
+    in
+    lib.packagesFromDirectoryRecursive {
+      callPackage = lib.callPackageWith (prev.pkgs // { inherit prev mkPlugin; });
+      directory = ./packages;
+    };
 
   perSystem =
     { pkgs, system, ... }:
