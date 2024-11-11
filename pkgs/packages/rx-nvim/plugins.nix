@@ -80,7 +80,6 @@ let
     fzfWrapper
     kitty-scrollback-nvim
     flatten-nvim
-    image-nvim
     toggleterm-nvim
 
     # ui

@@ -23,10 +23,4 @@ return {
       one_per = { kitty = true },
     },
   },
-
-  {
-    "3rd/image.nvim",
-    event = "VeryLazy",
-    opts = {},
-  },
 }
