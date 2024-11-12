@@ -22,5 +22,11 @@ prev.vimPlugins.extend (
         ];
       }
     );
+
+    blink-cmp = prev.vimPlugins.blink-cmp.overrideAttrs (old: {
+      patches = [
+        (prev.replaceVars ./force-version.patch { inherit (old.src) tag; })
+      ];
+    });
   }
 )

@@ -5,19 +5,10 @@ return {
     ft = "lua",
     opts = {
       library = {
-        { path = "luvit-meta/library", words = { "vim%.uv" } },
-        { path = "lazy.nvim", words = { "LazyPluginSpec" } },
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+        { path = "lazy.nvim", words = { "LazyVim" } },
       },
     },
-  },
-
-  { "Bilal2453/luvit-meta", lazy = true },
-
-  {
-    "hrsh7th/nvim-cmp",
-    opts = function(_, opts)
-      table.insert(opts.sources, { name = "lazydev", group_index = 0 })
-    end,
   },
 
   {

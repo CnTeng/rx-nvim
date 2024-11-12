@@ -20,13 +20,7 @@ let
 
   plugins = with vimPlugins; [
     # code
-    nvim-cmp
-    cmp-nvim-lsp
-    cmp-buffer
-    cmp-path
-    cmp-cmdline
-    cmp-emoji
-    nvim-snippets
+    blink-cmp
     friendly-snippets
     nvim-dap
     nvim-dap-go
@@ -44,7 +38,6 @@ let
     flutter-tools-nvim
     kulala-nvim
     lazydev-nvim
-    luvit-meta
     markdown-preview-nvim
     {
       name = "lspkind.nvim";
