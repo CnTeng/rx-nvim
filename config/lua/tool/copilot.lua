@@ -124,8 +124,6 @@ return {
     },
     config = function(_, opts)
       require("CopilotChat").setup(opts)
-
-      require("CopilotChat.integrations.cmp").setup()
     end,
   },
 }

@@ -22,7 +22,10 @@
       _module.args.pkgs = import inputs.nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        overlays = [ self.overlays.default ];
+        overlays = [
+          self.overlays.default
+          inputs.blink-cmp.overlays.default
+        ];
       };
 
       packages.default = pkgs.rx-nvim;

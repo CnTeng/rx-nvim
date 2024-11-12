@@ -14,10 +14,18 @@ return {
   { "Bilal2453/luvit-meta", lazy = true },
 
   {
-    "hrsh7th/nvim-cmp",
-    opts = function(_, opts)
-      table.insert(opts.sources, { name = "lazydev", group_index = 0 })
-    end,
+    "saghen/blink.cmp",
+    opts = {
+      sources = {
+        completion = {
+          enabled_providers = { "lsp", "path", "snippets", "buffer", "lazydev" },
+        },
+        providers = {
+          lsp = { fallback_for = { "lazydev" } },
+          lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
+        },
+      },
+    },
   },
 
   {

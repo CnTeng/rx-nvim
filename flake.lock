@@ -1,5 +1,52 @@
 {
   "nodes": {
+    "blink-cmp": {
+      "inputs": {
+        "fenix": "fenix",
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1731424945,
+        "narHash": "sha256-GyFp9cNFIlPaTaSEwPTnczNBXcDb3FnMXHiunfYFPbA=",
+        "owner": "CnTeng",
+        "repo": "blink.cmp",
+        "rev": "ac0ade784d7ad46606883211552d105b4e81fe72",
+        "type": "github"
+      },
+      "original": {
+        "owner": "CnTeng",
+        "ref": "flake",
+        "repo": "blink.cmp",
+        "type": "github"
+      }
+    },
+    "fenix": {
+      "inputs": {
+        "nixpkgs": [
+          "blink-cmp",
+          "nixpkgs"
+        ],
+        "rust-analyzer-src": "rust-analyzer-src"
+      },
+      "locked": {
+        "lastModified": 1731306807,
+        "narHash": "sha256-Z8r5l7GdIPt3sP9D3mZSiAdpLc75/ohmtLheG/Lo44w=",
+        "owner": "nix-community",
+        "repo": "fenix",
+        "rev": "b7206c170fa6b4695eb8211e10fdd0be0de9a248",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "fenix",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -124,10 +171,28 @@
     },
     "root": {
       "inputs": {
+        "blink-cmp": "blink-cmp",
         "flake-parts": "flake-parts",
         "nixpkgs": "nixpkgs",
         "pre-commit": "pre-commit",
         "treefmt": "treefmt"
+      }
+    },
+    "rust-analyzer-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1731264417,
+        "narHash": "sha256-TDI1s2Sc/rpMLwful1NcTjYBbqzbQ4Mjw5PPOuOXVfg=",
+        "owner": "rust-lang",
+        "repo": "rust-analyzer",
+        "rev": "30e71b609b493897ed81f4fec95eb75d903820c9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rust-lang",
+        "ref": "nightly",
+        "repo": "rust-analyzer",
+        "type": "github"
       }
     },
     "treefmt": {

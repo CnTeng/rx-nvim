@@ -20,13 +20,10 @@ let
 
   plugins = with vimPlugins; [
     # code
-    nvim-cmp
-    cmp-nvim-lsp
-    cmp-buffer
-    cmp-path
-    cmp-cmdline
-    cmp-emoji
-    nvim-snippets
+    {
+      name = "blink.cmp";
+      path = blink-cmp;
+    }
     friendly-snippets
     nvim-dap
     nvim-dap-go
