@@ -9,7 +9,7 @@ opt.completeopt = { "menu", "menuone", "noinsert" }
 opt.confirm = true
 opt.cursorline = true
 opt.expandtab = true
-opt.fileencodings:prepend("gbk")
+opt.fileencodings = { "ucs-bom", "utf-8", "gbk", "default", "latin1" }
 opt.fillchars = {
   eob = " ",
   foldopen = "",
