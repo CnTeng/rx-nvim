@@ -15,15 +15,15 @@
   };
   kitty-scrollback-nvim = {
     pname = "kitty-scrollback-nvim";
-    version = "90ff0b2c32e5aff1eb04125f54b4e4e6944ef321";
+    version = "fbc29ccdd0b3b6ef640221f7184696b1a49def7c";
     src = fetchFromGitHub {
       owner = "mikesmithgh";
       repo = "kitty-scrollback.nvim";
-      rev = "90ff0b2c32e5aff1eb04125f54b4e4e6944ef321";
+      rev = "fbc29ccdd0b3b6ef640221f7184696b1a49def7c";
       fetchSubmodules = false;
-      sha256 = "sha256-ySM5DllHA3kDIBS0xXtJ2LD3rWJiXGBeIXVONqlwu2Y=";
+      sha256 = "sha256-x7HlH+n4GrNkzUirhB/hMGUfGxqy5wtWfPQAsr4yWGM=";
     };
-    date = "2024-11-01";
+    date = "2024-11-14";
   };
   neovim-session-manager = {
     pname = "neovim-session-manager";
@@ -39,14 +39,14 @@
   };
   quicker-nvim = {
     pname = "quicker-nvim";
-    version = "a3cf5256998f9387ad8e293c6f295d286be6453f";
+    version = "049d66534d3de5920663ee1b8dd0096d70f55a67";
     src = fetchFromGitHub {
       owner = "stevearc";
       repo = "quicker.nvim";
-      rev = "a3cf5256998f9387ad8e293c6f295d286be6453f";
+      rev = "049d66534d3de5920663ee1b8dd0096d70f55a67";
       fetchSubmodules = false;
-      sha256 = "sha256-CWQ1u+j4qE+x0xEOKlNmLBKQdCWZq1jnseRMSn6Vsg4=";
+      sha256 = "sha256-XdzL/rm1KAYnHE/1+iBx1OrRxElbx4s3QPCNKR/WSxQ=";
     };
-    date = "2024-11-12";
+    date = "2024-11-13";
   };
 }
