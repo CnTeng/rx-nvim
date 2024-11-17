@@ -52,6 +52,7 @@ let
 
     # Other
     jq
+    kdlfmt
     kulala-fmt
     taplo
     libxml2
