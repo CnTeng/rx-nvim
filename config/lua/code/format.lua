@@ -35,7 +35,6 @@ return {
   opts = {
     formatters_by_ft = {
       json = { "jq" },
-      kdl = { "kdlfmt" },
       terraform = { "tofu_fmt" },
       tf = { "tofu_fmt" },
       toml = { "taplo" },
