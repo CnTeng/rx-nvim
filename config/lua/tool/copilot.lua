@@ -95,7 +95,6 @@ return {
           end,
           desc = "Help actions",
         },
-
         {
           mode = { "n", "v" },
           "<leader>ap",
@@ -109,10 +108,8 @@ return {
       }
     end,
     opts = {
+      model = "claude-3.5-sonnet",
       mappings = {
-        complete = {
-          insert = "",
-        },
         close = {
           normal = "<C-q>",
         },
@@ -122,10 +119,5 @@ return {
         },
       },
     },
-    config = function(_, opts)
-      require("CopilotChat").setup(opts)
-
-      require("CopilotChat.integrations.cmp").setup()
-    end,
   },
 }
