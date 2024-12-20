@@ -21,7 +21,7 @@
     },
     "kitty-scrollback-nvim": {
         "cargoLocks": null,
-        "date": "2024-12-18",
+        "date": "2024-12-20",
         "extract": null,
         "name": "kitty-scrollback-nvim",
         "passthru": null,
@@ -33,11 +33,11 @@
             "name": null,
             "owner": "mikesmithgh",
             "repo": "kitty-scrollback.nvim",
-            "rev": "bb45cb94d905f79ef1f99238b42e89bd02326f45",
-            "sha256": "sha256-M3V8GmefbtWjUxsmyXMkMc5NRVKCLIcydfnY2y+V/zs=",
+            "rev": "29319ede897deb5a7e8bb1b4497f99320e60cf47",
+            "sha256": "sha256-yN92hn4GIHzSnam1jE5G/IgkJBRo2dD+nYUSloYDLV4=",
             "type": "github"
         },
-        "version": "bb45cb94d905f79ef1f99238b42e89bd02326f45"
+        "version": "29319ede897deb5a7e8bb1b4497f99320e60cf47"
     },
     "neovim-session-manager": {
         "cargoLocks": null,
