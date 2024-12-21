@@ -56,6 +56,7 @@ let
     taplo
     libxml2
     nodePackages.prettier
+    xxd
   ];
 in
 {

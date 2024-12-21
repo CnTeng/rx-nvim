@@ -78,6 +78,7 @@ let
     fcitx-vim
     fzf-lua
     fzfWrapper
+    hex-nvim
     kitty-scrollback-nvim
     flatten-nvim
     toggleterm-nvim

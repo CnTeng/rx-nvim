@@ -18,6 +18,7 @@ let
   };
 
   neovimConfig = neovimUtils.makeNeovimConfig {
+    autowrapRuntimeDeps = true;
     plugins = [ vimPlugins.lazy-nvim ];
     inherit extraLuaPackages;
     luaRcContent = ''
