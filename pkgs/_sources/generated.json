@@ -21,7 +21,7 @@
     },
     "kitty-scrollback-nvim": {
         "cargoLocks": null,
-        "date": "2024-12-20",
+        "date": "2024-12-25",
         "extract": null,
         "name": "kitty-scrollback-nvim",
         "passthru": null,
@@ -33,11 +33,11 @@
             "name": null,
             "owner": "mikesmithgh",
             "repo": "kitty-scrollback.nvim",
-            "rev": "29319ede897deb5a7e8bb1b4497f99320e60cf47",
-            "sha256": "sha256-yN92hn4GIHzSnam1jE5G/IgkJBRo2dD+nYUSloYDLV4=",
+            "rev": "ec6fce6900b64acab7d4a86be6d8d3c2bda3d7b6",
+            "sha256": "sha256-BA8092GeQqEh8YQ6ecAigNISTXtVwzbf63eZEWpYb90=",
             "type": "github"
         },
-        "version": "29319ede897deb5a7e8bb1b4497f99320e60cf47"
+        "version": "ec6fce6900b64acab7d4a86be6d8d3c2bda3d7b6"
     },
     "neovim-session-manager": {
         "cargoLocks": null,
@@ -58,25 +58,5 @@
             "type": "github"
         },
         "version": "ce43f2eb2a52492157d7742e5f684b9a42bb3e5c"
-    },
-    "quicker-nvim": {
-        "cargoLocks": null,
-        "date": "2024-11-13",
-        "extract": null,
-        "name": "quicker-nvim",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "stevearc",
-            "repo": "quicker.nvim",
-            "rev": "049d66534d3de5920663ee1b8dd0096d70f55a67",
-            "sha256": "sha256-XdzL/rm1KAYnHE/1+iBx1OrRxElbx4s3QPCNKR/WSxQ=",
-            "type": "github"
-        },
-        "version": "049d66534d3de5920663ee1b8dd0096d70f55a67"
     }
 }

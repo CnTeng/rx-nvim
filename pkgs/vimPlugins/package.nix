@@ -26,13 +26,5 @@ prev.vimPlugins.extend (
         ];
       }
     );
-
-    quicker-nvim = buildVimPlugin (
-      sources.quicker-nvim
-      // {
-        pname = "quicker.nvim";
-        vimRequireCheck = "quicker";
-      }
-    );
   }
 )

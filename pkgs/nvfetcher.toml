@@ -9,7 +9,3 @@ fetch.github = "mikesmithgh/kitty-scrollback.nvim"
 [neovim-session-manager]
 src.git = "https://github.com/Shatur/neovim-session-manager"
 fetch.github = "Shatur/neovim-session-manager"
-
-[quicker-nvim]
-src.git = "https://github.com/stevearc/quicker.nvim"
-fetch.github = "stevearc/quicker.nvim"
