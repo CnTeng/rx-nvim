@@ -7,12 +7,14 @@
 {
   flake.overlays.default =
     final: prev:
-    let
-      sources = final.callPackage ./_sources/generated.nix { };
-      mkPlugin = src: pname: final.vimUtils.buildVimPlugin sources.${src} // { inherit pname; };
-    in
     lib.packagesFromDirectoryRecursive {
-      callPackage = lib.callPackageWith (prev.pkgs // { inherit prev mkPlugin; });
+      callPackage = lib.callPackageWith (
+        prev.pkgs
+        // {
+          inherit prev;
+          sources = final.callPackage ./_sources/generated.nix { };
+        }
+      );
       directory = ./.;
     };
 
