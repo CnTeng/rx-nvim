@@ -11,10 +11,6 @@ prev.vimPlugins.extend (
       sources.copilot-status-nvim // { pname = "copilot-status.nvim"; }
     );
 
-    kitty-scrollback-nvim = buildVimPlugin (
-      sources.kitty-scrollback-nvim // { pname = "kitty-scrollback.nvim"; }
-    );
-
     neovim-session-manager = buildVimPlugin (
       sources.neovim-session-manager
       // {
