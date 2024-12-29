@@ -18,7 +18,7 @@ A custom Neovim configuration for Nix users.
 - Buffer and tab line with [Bufferline](https://github.com/akinsho/bufferline.nvim)
 - Statusline with [Lualine](https://github.com/nvim-lualine/lualine.nvim)
 - Fuzzy finding with [Fzf-lua](https://github.com/ibhagwan/fzf-lua)
-- Autocompletion with [Cmp](https://github.com/hrsh7th/nvim-cmp)
+- Autocompletion with [Blink](https://github.com/Saghen/blink.cmp)
 - Terminal with [Toggleterm](https://github.com/akinsho/toggleterm.nvim)
 - Language Server Protocol with [Native LSP](https://github.com/neovim/nvim-lspconfig)
 - Debug Adapter Protocol with [nvim-dap](https://github.com/mfussenegger/nvim-dap)
