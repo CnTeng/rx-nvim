@@ -1,5 +1,5 @@
+---@type LazyPluginSpec[]
 return {
-  ---@type LazyPluginSpec
   {
     "nmac427/guess-indent.nvim",
     event = "LazyFile",

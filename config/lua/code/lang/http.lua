@@ -2,8 +2,8 @@ vim.filetype.add({
   extension = { ["http"] = "http" },
 })
 
+---@type LazyPluginSpec[]
 return {
-  ---@type LazyPluginSpec
   {
     "mistweaverco/kulala.nvim",
     ft = "http",

@@ -1,5 +1,5 @@
+---@type LazyPluginSpec[]
 return {
-  ---@type LazyPluginSpec
   {
     "github/copilot.vim",
     event = "VeryLazy",

@@ -1,5 +1,5 @@
+---@type LazyPluginSpec[]
 return {
-  ---@type LazyPluginSpec
   {
     "neovim/nvim-lspconfig",
     event = "LazyFile",

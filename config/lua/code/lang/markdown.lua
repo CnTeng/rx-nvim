@@ -1,5 +1,5 @@
+---@type LazyPluginSpec[]
 return {
-  ---@type LazyPluginSpec
   {
     "iamcco/markdown-preview.nvim",
     ft = { "markdown" },

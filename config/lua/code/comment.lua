@@ -1,5 +1,5 @@
+---@type LazyPluginSpec[]
 return {
-  ---@type LazyPluginSpec
   {
     "numToStr/Comment.nvim",
     name = "comment.nvim",
