@@ -52,6 +52,7 @@ let
     indent-blankline-nvim
     mini-nvim
     neo-tree-nvim
+    nvim-lsp-file-operations
     nvim-bqf
     quicker-nvim
     neovim-session-manager
