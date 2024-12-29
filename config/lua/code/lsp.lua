@@ -66,15 +66,12 @@ return {
       })
 
       local function capabilities(extra_caps)
-        local caps = vim.lsp.protocol.make_client_capabilities()
-
-        caps = require("blink.cmp").get_lsp_capabilities(caps)
+        local caps = require("blink.cmp").get_lsp_capabilities(extra_caps, true)
         caps.textDocument.foldingRange = {
           dynamicRegistration = false,
           lineFoldingOnly = true,
         }
-
-        return vim.tbl_deep_extend("force", caps, extra_caps or {})
+        return caps
       end
 
       local function handlers(server_opts)
@@ -86,7 +83,6 @@ return {
             end
           end,
         }
-
         return vim.tbl_deep_extend("force", handler, server_opts or {})
       end
 
