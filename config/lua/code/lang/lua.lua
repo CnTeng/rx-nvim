@@ -18,10 +18,11 @@ return {
         lua_ls = {
           settings = {
             Lua = {
-              workspace = { checkThirdParty = false },
+              codeLens = { enable = true },
               format = { enable = false },
-              completion = { callSnippet = "Replace" },
               hint = { enable = true },
+              runtime = { version = "LuaJIT" },
+              workspace = { checkThirdParty = false },
             },
           },
         },

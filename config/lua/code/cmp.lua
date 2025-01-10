@@ -7,9 +7,11 @@ return {
     keymap = { preset = "enter" },
     completion = {
       list = {
-        selection = function(ctx)
-          return ctx.mode == "cmdline" and "auto_insert" or "preselect"
-        end,
+        selection = {
+          preselect = function(ctx)
+            return ctx.mode ~= "cmdline"
+          end,
+        },
       },
       documentation = {
         auto_show = true,
