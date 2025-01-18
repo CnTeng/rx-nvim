@@ -12,6 +12,24 @@ return {
   },
 
   {
+    "saghen/blink.cmp",
+    opts = {
+      sources = {
+        per_filetype = {
+          lua = { "lazydev", "lsp", "path", "snippets", "buffer" },
+        },
+        providers = {
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            score_offset = 100,
+          },
+        },
+      },
+    },
+  },
+
+  {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
