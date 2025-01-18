@@ -38,83 +38,28 @@ return {
   },
 
   {
-    "CopilotC-Nvim/CopilotChat.nvim",
+    "olimorris/codecompanion.nvim",
     dependencies = {
-      "github/copilot.vim",
       "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "github/copilot.vim",
     },
-    keys = function()
-      local function fzflua_opts(title)
-        return {
-          prompt = false,
-          winopts = {
-            height = 0.40,
-            width = 0.60,
-            title = " CopilotChat " .. title .. " ",
-            title_pos = "center",
-            preview = { hidden = "hidden" },
-          },
-        }
-      end
+    cmd = "CodeCompanion",
+    keys = {
+      { mode = { "n", "v" }, "<leader>aa", "<cmd>CodeCompanionChat Toggle<cr>", desc = "Toggle Chat" },
+      { mode = { "n", "v" }, "<leader>an", "<cmd>CodeCompanionChat<cr>", desc = "New Chat" },
+      { mode = { "n", "v" }, "<leader>ap", "<cmd>CodeCompanionActions<cr>", desc = "Actions" },
+      { mode = "v", "ga", ":CodeCompanionChat Add | normal<cr>", desc = "Add to chat" },
+    },
+    opts = {},
+  },
 
-      return {
-        {
-          mode = { "n", "v" },
-          "<leader>aa",
-          function()
-            require("CopilotChat").toggle()
-          end,
-          desc = "Chat",
-        },
-        {
-          mode = { "n", "v" },
-          "<leader>ac",
-          function()
-            require("CopilotChat").reset()
-          end,
-          desc = "Chat clear",
-        },
-        {
-          mode = { "n", "v" },
-          "<leader>aq",
-          function()
-            local input = vim.fn.input("Quick Chat: ")
-            if input ~= "" then
-              require("CopilotChat").ask(input)
-            end
-          end,
-          desc = "Quick chat",
-        },
-        {
-          mode = { "n", "v" },
-          "<leader>ah",
-          function()
-            local actions = require("CopilotChat.actions")
-            local fzflua = require("CopilotChat.integrations.fzflua")
-            fzflua.pick(actions.help_actions(), fzflua_opts("Help"))
-          end,
-          desc = "Help actions",
-        },
-        {
-          mode = { "n", "v" },
-          "<leader>ap",
-          function()
-            local actions = require("CopilotChat.actions")
-            local fzflua = require("CopilotChat.integrations.fzflua")
-            fzflua.pick(actions.prompt_actions(), fzflua_opts("Prompt"))
-          end,
-          desc = "Prompt actions",
-        },
-      }
-    end,
+  {
+    "saghen/blink.cmp",
     opts = {
-      mappings = {
-        close = {
-          normal = "<C-q>",
-        },
-        reset = {
-          normal = "<C-d>",
-          insert = "<C-d>",
+      sources = {
+        per_filetype = {
+          codecompanion = { "codecompanion", "buffer" },
         },
       },
     },

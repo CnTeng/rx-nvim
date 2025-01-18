@@ -68,7 +68,7 @@ let
     # tool
     copilot-vim
     copilot-status-nvim
-    CopilotChat-nvim
+    codecompanion-nvim
     fcitx-vim
     fzf-lua
     fzfWrapper

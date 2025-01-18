@@ -50,6 +50,7 @@ return {
       local function set_keymaps(keys, bufnr)
         for _, key in pairs(keys) do
           vim.keymap.set(key[1], key[2], key[3], {
+            noremap = false,
             silent = true,
             buffer = bufnr,
             desc = key[4].desc,
