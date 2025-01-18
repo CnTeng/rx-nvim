@@ -19,11 +19,8 @@ keymap("n", "<leader><tab>o", "<cmd>tabonly<cr>", { desc = "Close Other Tabs" })
 keymap("n", "<leader><tab>c", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 
 -- Cmdline
-keymap("c", "<C-a>", "<home>")
-keymap("c", "<C-b>", "<Left>")
-keymap("c", "<C-f>", "<Right>")
-keymap("c", "<A-b>", "<S-Left>")
-keymap("c", "<A-f>", "<S-Right>")
+keymap("c", "<C-p>", "<Up>")
+keymap("c", "<C-n>", "<Down>")
 
 -- Terminal
 keymap("t", "<Esc>", "<C-\\><C-N>", { desc = "Exit normal mode" })
