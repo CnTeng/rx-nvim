@@ -55,10 +55,10 @@ return {
         map("n", "<leader>gu", gitsigns.undo_stage_hunk, "Unstage hunk")
         map("n", "<leader>gk", gitsigns.preview_hunk, "Preview hunk")
         map("n", "<leader>gB", gitsigns.blame, "Blame")
-        map("n", "<leader>gd", gitsigns.diffthis, "View diff")
+        map("n", "<leader>gd", gitsigns.diffthis, "Diff this")
         map("n", "<leader>gD", function()
           gitsigns.diffthis("~")
-        end, "View diff (cached)")
+        end, "Diff this (cached)")
 
         -- Text object
         map({ "o", "x" }, "ih", ":<C-u>Gitsigns select_hunk<cr>", "Select hunk")

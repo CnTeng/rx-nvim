@@ -65,9 +65,9 @@ let
     nvim-ufo
 
     # git
+    diffview-nvim
     gitsigns-nvim
     neogit
-    diffview-nvim
 
     # tool
     copilot-vim
