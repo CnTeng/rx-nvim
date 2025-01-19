@@ -83,6 +83,21 @@
         "url": "https://github.com/NixOS/nixpkgs/archive/e9b51731911566bbf7e4895475a87fe06961de0b.tar.gz"
       }
     },
+    "nixpkgs-master": {
+      "locked": {
+        "lastModified": 1737285820,
+        "narHash": "sha256-GsdMgu7ZcUt9uKUCGW7dPCYz3tQeBxagbcoM3Yy3p6g=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "58afe3786d18b45cbbe5a67edeab77623dabf116",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "pre-commit": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -109,6 +124,7 @@
       "inputs": {
         "flake-parts": "flake-parts",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-master": "nixpkgs-master",
         "pre-commit": "pre-commit",
         "treefmt": "treefmt"
       }

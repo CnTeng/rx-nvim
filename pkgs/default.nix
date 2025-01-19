@@ -13,6 +13,7 @@
         // {
           inherit prev;
           sources = final.callPackage ./_sources/generated.nix { };
+          pkgs-master = import inputs.nixpkgs-master { inherit (prev) system; };
         }
       );
       directory = ./.;
