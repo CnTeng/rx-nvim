@@ -10,7 +10,7 @@
 let
   plugins = callPackage ./plugins.nix { };
   configPath = ../../config;
-  inherit (plugins) pluginsPath extraLuaPackages;
+  inherit (plugins) pluginsPath runtimeDeps;
 
   parsersPath = symlinkJoin {
     name = "treesitter-parsers";
@@ -20,7 +20,6 @@ let
   neovimConfig = neovimUtils.makeNeovimConfig {
     autowrapRuntimeDeps = true;
     plugins = [ vimPlugins.lazy-nvim ];
-    inherit extraLuaPackages;
     luaRcContent = ''
       vim.g.config_path = "${configPath}"
       vim.g.plugins_path = "${pluginsPath}"
@@ -33,5 +32,9 @@ let
       ${extraConfig}
     '';
   };
+
+  nvim-wrapped = wrapNeovimUnstable neovim-unwrapped neovimConfig;
 in
-wrapNeovimUnstable neovim-unwrapped neovimConfig
+nvim-wrapped.overrideAttrs (old: {
+  runtimeDeps = old.runtimeDeps ++ runtimeDeps;
+})

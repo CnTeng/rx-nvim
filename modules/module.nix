@@ -56,7 +56,6 @@ let
     taplo
     libxml2
     nodePackages.prettier
-    xxd
   ];
 in
 {
@@ -89,5 +88,7 @@ in
     environment.systemPackages = [ cfg.finalPackage ] ++ languagesPkgs;
 
     environment.variables.EDITOR = mkIf cfg.defaultEditor "nvim";
+
+    environment.pathsToLink = [ "/share/nvim" ];
   };
 }

@@ -18,6 +18,13 @@ let
     in
     if lib.isDerivation plugin then [ (mkEntry plugin) ] ++ dependencies else [ plugin ];
 
+  mkRuntimeDeps =
+    plugins:
+    let
+      op = acc: plugin: acc ++ plugin.runtimeDeps or [ ];
+    in
+    lib.foldl' op [ ] plugins;
+
   plugins = with vimPlugins; [
     # code
     blink-cmp
@@ -39,10 +46,7 @@ let
     kulala-nvim
     lazydev-nvim
     markdown-preview-nvim
-    {
-      name = "lspkind.nvim";
-      path = lspkind-nvim;
-    }
+    lspkind-nvim
 
     # editor
     ultimate-autopair-nvim
@@ -91,10 +95,5 @@ let
 in
 {
   pluginsPath = linkFarm "lazy-plugins" (lib.concatMap mkLazyPlugin plugins);
-
-  extraLuaPackages =
-    p: with p; [
-      tiktoken_core
-      jsregexp
-    ];
+  runtimeDeps = mkRuntimeDeps plugins;
 }
