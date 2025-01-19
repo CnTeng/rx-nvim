@@ -46,8 +46,8 @@ return {
     },
     cmd = "CodeCompanion",
     keys = {
-      { mode = { "n", "v" }, "<leader>aa", "<cmd>CodeCompanionChat Toggle<cr>", desc = "Toggle Chat" },
-      { mode = { "n", "v" }, "<leader>an", "<cmd>CodeCompanionChat<cr>", desc = "New Chat" },
+      { mode = { "n", "v" }, "<leader>aa", "<cmd>CodeCompanionChat Toggle<cr>", desc = "Toggle chat" },
+      { mode = { "n", "v" }, "<leader>an", "<cmd>CodeCompanionChat<cr>", desc = "New chat" },
       { mode = { "n", "v" }, "<leader>ap", "<cmd>CodeCompanionActions<cr>", desc = "Actions" },
       { mode = "v", "ga", ":CodeCompanionChat Add | normal<cr>", desc = "Add to chat" },
     },
