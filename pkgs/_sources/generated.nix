@@ -15,14 +15,14 @@
   };
   neovim-session-manager = {
     pname = "neovim-session-manager";
-    version = "ce43f2eb2a52492157d7742e5f684b9a42bb3e5c";
+    version = "270e235b014f0c37bf362eb1e8913d66bba33a2e";
     src = fetchFromGitHub {
       owner = "Shatur";
       repo = "neovim-session-manager";
-      rev = "ce43f2eb2a52492157d7742e5f684b9a42bb3e5c";
+      rev = "270e235b014f0c37bf362eb1e8913d66bba33a2e";
       fetchSubmodules = false;
-      sha256 = "sha256-W9jtfVXHC8MQJwdbxakNqhd+xh/auQb3U09XKdN2Wzw=";
+      sha256 = "sha256-0CB7/hqj3zEZPQUOQoaETcNzFJcQyKt3k7hIXoArhZg=";
     };
-    date = "2024-10-09";
+    date = "2025-01-19";
   };
 }
