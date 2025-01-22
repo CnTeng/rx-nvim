@@ -54,15 +54,16 @@ jobs:
       - name: Update sources
         id: update-sources
         run: |
-          nix run nixpkgs#nvfetcher -- \
-            --build-dir pkgs/_sources \
-            --config pkgs/nvfetcher.toml \
-            --changelog /tmp/changelog
+          export LANG=en_US.UTF-8
+          export LC_ALL=en_US.UTF-8
+          pushd pkgs
+          nix run nixpkgs#nvfetcher -- --changelog /tmp/changelog
           {
             echo "changelog<<EOF"
             cat /tmp/changelog
             echo "EOF"
           } >>"$GITHUB_OUTPUT"
+          popd
 
       - name: Create PR
         uses: peter-evans/create-pull-request@v7
