@@ -4,8 +4,7 @@
   vimPlugins,
   neovimUtils,
   wrapNeovimUnstable,
-  # neovim-unwrapped,
-  pkgs-master,
+  neovim-unwrapped,
   extraConfig ? "",
 }:
 let
@@ -34,7 +33,7 @@ let
     '';
   };
 
-  nvim-wrapped = wrapNeovimUnstable pkgs-master.neovim-unwrapped neovimConfig;
+  nvim-wrapped = wrapNeovimUnstable neovim-unwrapped neovimConfig;
 in
 nvim-wrapped.overrideAttrs (old: {
   runtimeDeps = old.runtimeDeps ++ runtimeDeps;
