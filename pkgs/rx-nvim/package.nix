@@ -18,7 +18,6 @@ let
   };
 
   neovimConfig = neovimUtils.makeNeovimConfig {
-    autowrapRuntimeDeps = true;
     plugins = [ vimPlugins.lazy-nvim ];
     luaRcContent = ''
       vim.g.config_path = "${configPath}"

@@ -2,6 +2,7 @@
   lib,
   linkFarm,
   vimPlugins,
+  python3Packages,
   ...
 }:
 let
@@ -45,6 +46,7 @@ let
     flutter-tools-nvim
     kulala-nvim
     lazydev-nvim
+    render-markdown-nvim
     markdown-preview-nvim
     lspkind-nvim
 
@@ -95,5 +97,5 @@ let
 in
 {
   pluginsPath = linkFarm "lazy-plugins" (lib.concatMap mkLazyPlugin plugins);
-  runtimeDeps = mkRuntimeDeps plugins;
+  runtimeDeps = mkRuntimeDeps plugins ++ [ python3Packages.pylatexenc ];
 }
