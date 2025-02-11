@@ -4,9 +4,6 @@ event.mappings.LazyFile = { id = "LazyFile", event = { "BufReadPost", "BufNewFil
 event.mappings["User LazyFile"] = event.mappings.LazyFile
 
 require("lazy").setup({
-  defaults = {
-    cond = vim.env.KITTY_SCROLLBACK_NVIM ~= "true",
-  },
   spec = {
     { import = "code" },
     { import = "code.lang" },
