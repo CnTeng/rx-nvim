@@ -26,6 +26,14 @@ return {
         width = "block",
         right_pad = 10,
       },
+      overrides = {
+        buftype = {
+          nofile = { enabled = false },
+        },
+        filetype = {
+          codecompanion = { enabled = true },
+        },
+      },
     },
   },
 
