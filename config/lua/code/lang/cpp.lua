@@ -83,23 +83,23 @@ return {
 
       configurations = {
         c = {
-          -- {
-          --   name = "lldb: Launch file",
-          --   type = "codelldb",
-          --   request = "launch",
-          --   program = function()
-          --     return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-          --   end,
-          --   cwd = "${workspaceFolder}",
-          --   stopOnEntry = false,
-          -- },
-          -- {
-          --   name = "lldb: Attach to process",
-          --   type = "codelldb",
-          --   request = "attach",
-          --   pid = require("dap.utils").pick_process,
-          --   cwd = "${workspaceFolder}",
-          -- },
+          {
+            name = "lldb: Launch file",
+            type = "codelldb",
+            request = "launch",
+            program = function()
+              return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+            end,
+            cwd = "${workspaceFolder}",
+            stopOnEntry = false,
+          },
+          {
+            name = "lldb: Attach to process",
+            type = "codelldb",
+            request = "attach",
+            pid = require("dap.utils").pick_process,
+            cwd = "${workspaceFolder}",
+          },
 
           {
             name = "gdb: Launch file",

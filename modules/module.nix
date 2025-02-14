@@ -13,7 +13,7 @@ let
     clang-tools
     cmake-language-server
     cmake-format
-    # lldb
+    lldb
     gdb
 
     # Dockerfile
