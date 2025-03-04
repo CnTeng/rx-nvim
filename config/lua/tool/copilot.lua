@@ -51,7 +51,17 @@ return {
       { mode = { "n", "v" }, "<leader>ap", "<cmd>CodeCompanionActions<cr>", desc = "Actions" },
       { mode = "v", "ga", ":CodeCompanionChat Add | normal<cr>", desc = "Add to chat" },
     },
-    opts = {},
+    opts = {
+      adapters = {
+        copilot = function()
+          return require("codecompanion.adapters").extend("copilot", {
+            schema = {
+              model = { default = "claude-3.7-sonnet" },
+            },
+          })
+        end,
+      },
+    },
   },
 
   {
