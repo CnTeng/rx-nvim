@@ -9,7 +9,7 @@ return {
       list = {
         selection = {
           preselect = function(ctx)
-            return ctx.mode ~= "cmdline"
+            return ctx.mode ~= "cmdline" and not require("blink.cmp").snippet_active({ direction = 1 })
           end,
         },
       },
@@ -20,5 +20,10 @@ return {
       },
     },
     signature = { enabled = true },
+    cmdline = {
+      completion = {
+        menu = { auto_show = true },
+      },
+    },
   },
 }
