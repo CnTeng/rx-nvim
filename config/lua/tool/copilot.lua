@@ -38,38 +38,64 @@ return {
   },
 
   {
-    "olimorris/codecompanion.nvim",
+    "CopilotC-Nvim/CopilotChat.nvim",
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
       "github/copilot.vim",
+      "nvim-lua/plenary.nvim",
     },
-    cmd = "CodeCompanion",
     keys = {
-      { mode = { "n", "v" }, "<leader>aa", "<cmd>CodeCompanionChat Toggle<cr>", desc = "Toggle chat" },
-      { mode = { "n", "v" }, "<leader>an", "<cmd>CodeCompanionChat<cr>", desc = "New chat" },
-      { mode = { "n", "v" }, "<leader>ap", "<cmd>CodeCompanionActions<cr>", desc = "Actions" },
-      { mode = "v", "ga", ":CodeCompanionChat Add | normal<cr>", desc = "Add to chat" },
-    },
-    opts = {
-      adapters = {
-        copilot = function()
-          return require("codecompanion.adapters").extend("copilot", {
-            schema = {
-              model = { default = "claude-3.7-sonnet" },
-            },
-          })
+      {
+        mode = { "n", "v" },
+        "<leader>aa",
+        function()
+          require("CopilotChat").toggle()
         end,
+        desc = "Toggle chat",
+      },
+      {
+        mode = { "n", "v" },
+        "<leader>ac",
+        function()
+          require("CopilotChat").stop()
+        end,
+        desc = "Stop Chat",
+      },
+      {
+        mode = { "n", "v" },
+        "<leader>aq",
+        function()
+          local input = vim.fn.input("Quick Chat: ")
+          if input ~= "" then
+            require("CopilotChat").ask(input)
+          end
+        end,
+        desc = "Quick chat",
+      },
+      {
+        mode = { "n", "v" },
+        "<leader>ap",
+        function()
+          require("CopilotChat").select_prompt()
+        end,
+        desc = "select prompt",
+      },
+      {
+        "<leader>am",
+        function()
+          require("CopilotChat").select_model()
+        end,
+        desc = "select model",
       },
     },
-  },
-
-  {
-    "saghen/blink.cmp",
     opts = {
-      sources = {
-        per_filetype = {
-          codecompanion = { "codecompanion", "buffer" },
+      model = "claude-3.7-sonnet",
+      mappings = {
+        close = {
+          normal = "<C-q>",
+        },
+        reset = {
+          normal = "<C-d>",
+          insert = "<C-d>",
         },
       },
     },

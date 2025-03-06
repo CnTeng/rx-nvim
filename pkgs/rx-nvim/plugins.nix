@@ -3,6 +3,7 @@
   linkFarm,
   vimPlugins,
   python3Packages,
+  lynx,
   ...
 }:
 let
@@ -74,7 +75,7 @@ let
     # tool
     copilot-vim
     copilot-status-nvim
-    codecompanion-nvim
+    CopilotChat-nvim
     fcitx-vim
     fzf-lua
     fzfWrapper
@@ -97,5 +98,9 @@ let
 in
 {
   pluginsPath = linkFarm "lazy-plugins" (lib.concatMap mkLazyPlugin plugins);
-  runtimeDeps = mkRuntimeDeps plugins ++ [ python3Packages.pylatexenc ];
+  runtimeDeps = mkRuntimeDeps plugins ++ [
+    python3Packages.pylatexenc
+    lynx
+  ];
+  extraLuaPackages = p: with p; [ tiktoken_core ];
 }

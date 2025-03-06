@@ -10,7 +10,7 @@
 let
   plugins = callPackage ./plugins.nix { };
   configPath = ../../config;
-  inherit (plugins) pluginsPath runtimeDeps;
+  inherit (plugins) pluginsPath runtimeDeps extraLuaPackages;
 
   parsersPath = symlinkJoin {
     name = "treesitter-parsers";
@@ -19,6 +19,7 @@ let
 
   neovimConfig = neovimUtils.makeNeovimConfig {
     plugins = [ vimPlugins.lazy-nvim ];
+    inherit extraLuaPackages;
     luaRcContent = ''
       vim.g.config_path = "${configPath}"
       vim.g.plugins_path = "${pluginsPath}"

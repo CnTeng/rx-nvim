@@ -6,7 +6,7 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
     },
-    ft = { "markdown", "codecompanion" },
+    ft = { "markdown" },
     init = function()
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "markdown",
@@ -25,14 +25,6 @@ return {
         position = "right",
         width = "block",
         right_pad = 10,
-      },
-      overrides = {
-        buftype = {
-          nofile = { enabled = false },
-        },
-        filetype = {
-          codecompanion = { enabled = true },
-        },
       },
     },
   },
