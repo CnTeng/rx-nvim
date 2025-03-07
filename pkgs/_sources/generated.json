@@ -22,7 +22,7 @@
     },
     "neovim-session-manager": {
         "cargoLocks": null,
-        "date": "2025-01-19",
+        "date": "2025-03-07",
         "extract": null,
         "name": "neovim-session-manager",
         "passthru": null,
@@ -34,11 +34,11 @@
             "name": null,
             "owner": "Shatur",
             "repo": "neovim-session-manager",
-            "rev": "270e235b014f0c37bf362eb1e8913d66bba33a2e",
-            "sha256": "sha256-0CB7/hqj3zEZPQUOQoaETcNzFJcQyKt3k7hIXoArhZg=",
+            "rev": "3409dc920d40bec4c901c0a122a80bee03d6d1e1",
+            "sha256": "sha256-k2akj/s6qJx/sCnz3UNHo5zbENTpw+OPuo2WPF1W7rg=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "270e235b014f0c37bf362eb1e8913d66bba33a2e"
+        "version": "3409dc920d40bec4c901c0a122a80bee03d6d1e1"
     }
 }
