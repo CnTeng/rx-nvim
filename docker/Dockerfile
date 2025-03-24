@@ -7,20 +7,15 @@ LABEL description="Dockerfile for setting up a development environment with rx-n
 
 # install basic tools
 RUN apt update && \
-    apt install --no-install-recommends -y \
-    sudo \
-    curl \
-    git \
-    xz-utils \
-    fzf && \
+    apt install -y sudo curl git xz-utils fzf && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
 
 # create user dev
 ARG USER_UID=1000
 
-RUN id "ubuntu" >/dev/null 2>&1 && userdel -r ubuntu || echo "user ubuntu not found" && \
-    useradd -m -G users,sudo -N -s /bin/bash -u ${USER_UID} dev && \
+RUN if id "ubuntu" >/dev/null 2>&1; then userdel -r ubuntu; fi && \
+    useradd -m -G users,sudo -N -s /bin/bash -u "${USER_UID}" dev && \
     echo "dev ALL=(ALL) NOPASSWD:ALL" >>/etc/sudoers
 
 USER dev
