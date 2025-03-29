@@ -35,6 +35,10 @@ return {
   opts = {
     formatters_by_ft = {
       json = { "jq" },
+      lua = { "stylua" },
+      markdown = { "prettier" },
+      python = { "black" },
+      sql = { "sql-formatter" },
       terraform = { "tofu_fmt" },
       tf = { "tofu_fmt" },
       toml = { "taplo" },

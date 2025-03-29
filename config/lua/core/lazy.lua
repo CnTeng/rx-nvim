@@ -6,7 +6,6 @@ event.mappings["User LazyFile"] = event.mappings.LazyFile
 require("lazy").setup({
   spec = {
     { import = "code" },
-    { import = "code.lang" },
     { import = "editor" },
     { import = "git" },
     { import = "tool" },

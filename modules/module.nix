@@ -52,7 +52,6 @@ let
 
     # Other
     jq
-    kulala-fmt
     taplo
     libxml2
     nodePackages.prettier

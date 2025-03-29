@@ -118,6 +118,62 @@ return {
         DapStopped = { "󰁔", "DiagnosticWarn", "debugPC" },
         DapBreakpointRejected = { "󰗖", "DiagnosticError" },
       },
+
+      adapters = {
+        codelldb = {
+          type = "server",
+          port = "${port}",
+          executable = {
+            command = "lldb-dap",
+            args = { "--port", "${port}" },
+          },
+        },
+        gdb = {
+          type = "executable",
+          command = "gdb",
+          args = { "-i", "dap", "-q" },
+        },
+      },
+
+      configurations = {
+        c = {
+          -- {
+          --   name = "lldb: Launch file",
+          --   type = "codelldb",
+          --   request = "launch",
+          --   program = function()
+          --     return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+          --   end,
+          --   cwd = "${workspaceFolder}",
+          --   stopOnEntry = false,
+          -- },
+          -- {
+          --   name = "lldb: Attach to process",
+          --   type = "codelldb",
+          --   request = "attach",
+          --   pid = require("dap.utils").pick_process,
+          --   cwd = "${workspaceFolder}",
+          -- },
+          --
+          -- {
+          --   name = "gdb: Launch file",
+          --   type = "gdb",
+          --   request = "launch",
+          --   program = function()
+          --     return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+          --   end,
+          --   cwd = "${workspaceFolder}",
+          --   stopAtBeginningOfMainSubprogram = false,
+          -- },
+          -- {
+          --   name = "gdb: Attach to process",
+          --   type = "gdb",
+          --   request = "attach",
+          --   pid = require("dap.utils").pick_process,
+          --   cwd = "${workspaceFolder}",
+          -- },
+        },
+      },
     },
     config = function(_, opts)
       for name, sign in pairs(opts.signs) do
@@ -164,6 +220,30 @@ return {
         collapsed = "",
         current_frame = "",
         expanded = "",
+      },
+    },
+  },
+
+  {
+    "leoluz/nvim-dap-go",
+    ft = "go",
+    opts = {
+      dap_configurations = {
+        {
+          type = "go",
+          name = "Debug main.go",
+          request = "launch",
+          program = "${workspaceFolder}/main.go",
+          args = function()
+            return coroutine.create(function(dap_run_co)
+              local args = {}
+              vim.ui.input({ prompt = "Args: " }, function(input)
+                args = vim.split(input or "", " ")
+                coroutine.resume(dap_run_co, args)
+              end)
+            end)
+          end,
+        },
       },
     },
   },
