@@ -3,8 +3,6 @@ return {
   "akinsho/bufferline.nvim",
   event = "BufEnter",
   keys = {
-    { "[b", "<cmd>bprevious<cr>", desc = "Previous buffer" },
-    { "]b", "<cmd>bnext<cr>", desc = "Next buffer" },
     { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous buffer" },
     { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
     { "[B", "<cmd>BufferLineMovePrev<cr>", desc = "Move buffer prev" },
