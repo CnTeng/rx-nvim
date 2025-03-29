@@ -70,6 +70,7 @@ return {
       library = {
         { path = "${3rd}/luv/library", words = { "vim%.uv" } },
         { path = "lazy.nvim", words = { "Lazy" } },
+        { path = "snacks.nvim", words = { "Snacks", "snacks" } },
       },
     },
     config = function(_, opts)
