@@ -34,6 +34,8 @@ return {
   end,
   opts = {
     formatters_by_ft = {
+      css = { "prettier" },
+      html = { "prettier" },
       json = { "jq" },
       lua = { "stylua" },
       markdown = { "prettier" },
