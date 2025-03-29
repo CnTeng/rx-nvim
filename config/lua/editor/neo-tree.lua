@@ -1,73 +1,65 @@
----@type LazyPluginSpec[]
+---@type LazyPluginSpec
 return {
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
+  "nvim-neo-tree/neo-tree.nvim",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons",
+    "MunifTanjim/nui.nvim",
+  },
+  cmd = "Neotree",
+  keys = {
+    {
+      "<leader>e",
+      function()
+        require("neo-tree.command").execute({ toggle = true })
+      end,
+      desc = "Explorer",
     },
-    cmd = "Neotree",
-    keys = {
+  },
+  opts = {
+    sources = { "filesystem" },
+    default_component_configs = {
+      indent = {
+        indent_size = 2,
+        padding = 0,
+        with_expanders = true,
+      },
+      name = { highlight_opened_files = true },
+    },
+    window = {
+      width = 30,
+      mappings = {
+        ["<space>"] = "noop",
+        ["l"] = "open",
+        ["h"] = "close_node",
+
+        ["S"] = "open_vsplit",
+        ["s"] = "open_split",
+      },
+    },
+    filesystem = {
+      follow_current_file = { enabled = true },
+      use_libuv_file_watcher = true,
+    },
+  },
+  config = function(_, opts)
+    local events = require("neo-tree.events")
+    local function on_move(data)
+      Snacks.rename.on_rename_file(data.source, data.destination)
+    end
+
+    opts.event_handlers = opts.event_handlers or {}
+    vim.list_extend(opts.event_handlers, {
       {
-        "<leader>e",
-        function()
-          require("neo-tree.command").execute({ toggle = true })
+        event = events.NEO_TREE_POPUP_INPUT_READY,
+        handler = function(args)
+          vim.keymap.set("i", "<Esc>", vim.cmd.stopinsert, { noremap = true, buffer = args.bufnr })
         end,
-        desc = "Explorer",
       },
-    },
-    opts = {
-      sources = { "filesystem" },
-      default_component_configs = {
-        indent = {
-          indent_size = 2,
-          padding = 0,
-          with_expanders = true,
-        },
-        name = { highlight_opened_files = true },
-      },
-      window = {
-        width = 30,
-        mappings = {
-          ["<space>"] = "noop",
-          ["l"] = "open",
-          ["h"] = "close_node",
+      { event = events.FILE_MOVED, handler = on_move },
+      { event = events.FILE_RENAMED, handler = on_move },
+    })
 
-          ["S"] = "open_vsplit",
-          ["s"] = "open_split",
-        },
-      },
-      filesystem = {
-        follow_current_file = { enabled = true },
-        use_libuv_file_watcher = true,
-      },
-      event_handlers = {
-        {
-          event = "neo_tree_buffer_enter",
-          handler = function()
-            vim.opt.foldenable = false
-            vim.opt.foldcolumn = "0"
-          end,
-        },
-        {
-          event = "neo_tree_popup_input_ready",
-          handler = function(args)
-            vim.keymap.set("i", "<Esc>", vim.cmd.stopinsert, { noremap = true, buffer = args.bufnr })
-          end,
-        },
-      },
-    },
-    config = function(_, opts)
-      require("lsp-file-operations").setup({})
-      require("neo-tree").setup(opts)
-    end,
-  },
-
-  {
-    "antosha417/nvim-lsp-file-operations",
-    dependencies = "nvim-lua/plenary.nvim",
-    event = "VeryLazy",
-    opts = {},
-  },
+    require("neo-tree").setup(opts)
+  end,
 }
