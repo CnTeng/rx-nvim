@@ -3,9 +3,18 @@ return {
   {
     "mfussenegger/nvim-dap",
     dependencies = {
+      { "igorlfs/nvim-dap-view", opts = {} },
       { "theHamsta/nvim-dap-virtual-text", opts = {} },
     },
     keys = {
+      {
+        "<leader>dd",
+        function()
+          require("dap-view").toggle()
+        end,
+        desc = "Toggle UI",
+      },
+
       {
         "<leader>dc",
         function()
@@ -118,62 +127,6 @@ return {
         DapStopped = { "󰁔", "DiagnosticWarn", "debugPC" },
         DapBreakpointRejected = { "󰗖", "DiagnosticError" },
       },
-
-      adapters = {
-        codelldb = {
-          type = "server",
-          port = "${port}",
-          executable = {
-            command = "lldb-dap",
-            args = { "--port", "${port}" },
-          },
-        },
-        gdb = {
-          type = "executable",
-          command = "gdb",
-          args = { "-i", "dap", "-q" },
-        },
-      },
-
-      configurations = {
-        c = {
-          -- {
-          --   name = "lldb: Launch file",
-          --   type = "codelldb",
-          --   request = "launch",
-          --   program = function()
-          --     return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-          --   end,
-          --   cwd = "${workspaceFolder}",
-          --   stopOnEntry = false,
-          -- },
-          -- {
-          --   name = "lldb: Attach to process",
-          --   type = "codelldb",
-          --   request = "attach",
-          --   pid = require("dap.utils").pick_process,
-          --   cwd = "${workspaceFolder}",
-          -- },
-          --
-          -- {
-          --   name = "gdb: Launch file",
-          --   type = "gdb",
-          --   request = "launch",
-          --   program = function()
-          --     return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-          --   end,
-          --   cwd = "${workspaceFolder}",
-          --   stopAtBeginningOfMainSubprogram = false,
-          -- },
-          -- {
-          --   name = "gdb: Attach to process",
-          --   type = "gdb",
-          --   request = "attach",
-          --   pid = require("dap.utils").pick_process,
-          --   cwd = "${workspaceFolder}",
-          -- },
-        },
-      },
     },
     config = function(_, opts)
       for name, sign in pairs(opts.signs) do
@@ -182,46 +135,62 @@ return {
 
       local dap = require("dap")
 
-      for lang, adapter in pairs(opts.adapters) do
-        dap.adapters[lang] = adapter
-      end
+      dap.adapters.codelldb = {
+        type = "server",
+        port = "${port}",
+        executable = {
+          command = "lldb-dap",
+          args = { "--port", "${port}" },
+        },
+      }
 
-      for lang, configuration in pairs(opts.configurations) do
-        dap.configurations[lang] = configuration
-      end
+      dap.adapters.gdb = {
+        type = "executable",
+        command = "gdb",
+        args = { "-i", "dap", "-q" },
+      }
+
+      dap.configurations.c = {
+        {
+          name = "lldb: Launch file",
+          type = "codelldb",
+          request = "launch",
+          program = function()
+            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+          end,
+          cwd = "${workspaceFolder}",
+          stopOnEntry = false,
+        },
+        {
+          name = "lldb: Attach to process",
+          type = "codelldb",
+          request = "attach",
+          pid = require("dap.utils").pick_process,
+          cwd = "${workspaceFolder}",
+        },
+
+        {
+          name = "gdb: Launch file",
+          type = "gdb",
+          request = "launch",
+          program = function()
+            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+          end,
+          cwd = "${workspaceFolder}",
+          stopAtBeginningOfMainSubprogram = false,
+        },
+        {
+          name = "gdb: Attach to process",
+          type = "gdb",
+          request = "attach",
+          pid = require("dap.utils").pick_process,
+          cwd = "${workspaceFolder}",
+        },
+      }
 
       dap.configurations.cpp = dap.configurations.c
       dap.configurations.rust = dap.configurations.c
     end,
-  },
-
-  {
-    "rcarriga/nvim-dap-ui",
-    dependencies = "nvim-neotest/nvim-nio",
-    keys = {
-      {
-        "<leader>dd",
-        function()
-          require("dapui").toggle()
-        end,
-        desc = "Toggle full UI",
-      },
-      {
-        mode = { "n", "v" },
-        "<leader>de",
-        function()
-          require("dapui").eval()
-        end,
-        desc = "Evaluate expression",
-      },
-    },
-    opts = {
-      icons = {
-        collapsed = "",
-        current_frame = "",
-        expanded = "",
-      },
-    },
   },
 
   {

@@ -31,20 +31,20 @@ let
     # code
     blink-cmp
     friendly-snippets
-    nvim-dap
-    nvim-dap-go
-    nvim-dap-ui
-    nvim-dap-virtual-text
     comment-nvim
     todo-comments-nvim
     conform-nvim
+    nvim-dap
+    nvim-dap-view
+    nvim-dap-virtual-text
+    nvim-dap-go
     outline-nvim
-    nvim-treesitter
     clangd_extensions-nvim
     flutter-tools-nvim
     lazydev-nvim
     render-markdown-nvim
     markdown-preview-nvim
+    nvim-treesitter
     lspkind-nvim
 
     # editor
