@@ -22,20 +22,22 @@ vim.keymap.del("n", "gri")
 vim.api.nvim_create_autocmd("LspAttach", {
   desc = "General LSP Attach",
   callback = function(args)
-    vim.lsp.inlay_hint.enable()
-
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     if not client then
       return
     end
 
     if client:supports_method("textDocument/inlayHint") then
-      vim.lsp.inlay_hint.enable(true, {
-        bufnr = args.buf,
-      })
+      vim.lsp.inlay_hint.enable()
+    end
+
+    if client:supports_method("textDocument/foldingRange") then
+      local win = vim.api.nvim_get_current_win()
+      vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
     end
 
     local keymaps = {
+      { "n", "K", vim.lsp.buf.hover, { desc = "Hover" } },
       { "n", "gd", vim.lsp.buf.definition, { desc = "Definition" } },
       { "n", "gD", vim.lsp.buf.declaration, { desc = "Declaration" } },
       { "n", "gI", vim.lsp.buf.implementation, { desc = "Implementation" } },

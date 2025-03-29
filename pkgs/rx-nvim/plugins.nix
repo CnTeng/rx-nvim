@@ -60,8 +60,8 @@ let
     quicker-nvim
     neovim-session-manager
     smart-splits-nvim
+    snacks-nvim
     nvim-surround
-    nvim-ufo
 
     # git
     diffview-nvim
@@ -87,7 +87,6 @@ let
     dropbar-nvim
     fidget-nvim
     lualine-nvim
-    statuscol-nvim
     which-key-nvim
     nvim-web-devicons
   ];
