@@ -40,7 +40,6 @@ let
     conform-nvim
     outline-nvim
     nvim-treesitter
-    cmake-tools-nvim
     clangd_extensions-nvim
     flutter-tools-nvim
     lazydev-nvim

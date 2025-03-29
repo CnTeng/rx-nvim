@@ -15,12 +15,6 @@ return {
   },
 
   {
-    "Civitasv/cmake-tools.nvim",
-    ft = { "c", "cpp" },
-    opts = {},
-  },
-
-  {
     "p00f/clangd_extensions.nvim",
     ft = { "c", "cpp" },
     opts = {
@@ -48,27 +42,6 @@ return {
   },
 
   {
-    "folke/lazydev.nvim",
-    ft = "lua",
-    opts = {
-      library = {
-        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-        { path = "lazy.nvim", words = { "Lazy" } },
-      },
-    },
-    config = function(_, opts)
-      require("blink-cmp").add_source_provider("lazydev", {
-        name = "LazyDev",
-        module = "lazydev.integrations.blink",
-        score_offset = 100,
-      })
-      require("blink-cmp").add_filetype_source("lua", "lazydev")
-
-      require("lazydev").setup(opts)
-    end,
-  },
-
-  {
     "akinsho/flutter-tools.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -88,5 +61,26 @@ return {
         end,
       },
     },
+  },
+
+  {
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {
+      library = {
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+        { path = "lazy.nvim", words = { "Lazy" } },
+      },
+    },
+    config = function(_, opts)
+      require("blink-cmp").add_source_provider("lazydev", {
+        name = "LazyDev",
+        module = "lazydev.integrations.blink",
+        score_offset = 100,
+      })
+      require("blink-cmp").add_filetype_source("lua", "lazydev")
+
+      require("lazydev").setup(opts)
+    end,
   },
 }
