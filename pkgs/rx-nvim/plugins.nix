@@ -82,7 +82,6 @@ let
     alpha-nvim
     bamboo-nvim
     bufferline-nvim
-    dressing-nvim
     dropbar-nvim
     fidget-nvim
     lualine-nvim

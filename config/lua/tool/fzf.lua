@@ -135,5 +135,8 @@ return {
       desc = "Help tags",
     },
   },
+  init = function()
+    require("fzf-lua").register_ui_select()
+  end,
   opts = { "borderless_full" },
 }
