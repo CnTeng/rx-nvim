@@ -136,7 +136,11 @@ return {
     },
   },
   init = function()
-    require("fzf-lua").register_ui_select()
+    ---@diagnostic disable-next-line: duplicate-set-field
+    vim.ui.select = function(...)
+      require("fzf-lua").register_ui_select()
+      vim.ui.select(...)
+    end
   end,
   opts = { "borderless_full" },
 }
