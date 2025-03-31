@@ -40,7 +40,7 @@ return {
       lua = { "stylua" },
       markdown = { "prettier" },
       python = { "black" },
-      sql = { "sql-formatter" },
+      sql = { "sql_formatter" },
       terraform = { "tofu_fmt" },
       tf = { "tofu_fmt" },
       toml = { "taplo" },
