@@ -27,6 +27,10 @@ let
     golangci-lint-langserver
     delve
 
+    # JSON
+    vscode-langservers-extracted
+    jq
+
     # Lua
     lua-language-server
     stylua
@@ -50,9 +54,13 @@ let
     # SQL
     sql-formatter
 
-    # Other
-    jq
+    # TOML
     taplo
+
+    # YAML
+    yaml-language-server
+
+    # Other
     libxml2
     nodePackages.prettier
   ];

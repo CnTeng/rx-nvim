@@ -81,4 +81,6 @@ return {
       require("lazydev").setup(opts)
     end,
   },
+
+  { "b0o/SchemaStore.nvim", event = "VeryLazy" },
 }

@@ -36,16 +36,13 @@ return {
     formatters_by_ft = {
       css = { "prettier" },
       html = { "prettier" },
-      json = { "jq" },
       lua = { "stylua" },
       markdown = { "prettier" },
       python = { "black" },
       sql = { "sql_formatter" },
       terraform = { "tofu_fmt" },
       tf = { "tofu_fmt" },
-      toml = { "taplo" },
       xml = { "xmllint" },
-      yaml = { "prettier" },
       ["_"] = { "trim_whitespace" },
     },
     default_format_opts = {

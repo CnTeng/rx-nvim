@@ -42,6 +42,7 @@ let
     clangd_extensions-nvim
     flutter-tools-nvim
     lazydev-nvim
+    SchemaStore-nvim
     render-markdown-nvim
     markdown-preview-nvim
     nvim-treesitter

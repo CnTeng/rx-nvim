@@ -76,8 +76,11 @@ vim.lsp.enable({
   "dockerls",
   "golangci_lint_ls",
   "gopls",
+  "jsonls",
   "lua_ls",
   "nil_ls",
   "pyright",
   "rust_analyzer",
+  "taplo",
+  "yamlls",
 })
