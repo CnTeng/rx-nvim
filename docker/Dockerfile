@@ -7,7 +7,7 @@ LABEL maintainer="rxsnakepi@gmail.com" \
 
 # install basic tools
 RUN apt update && \
-    apt install -y sudo curl git xz-utils fzf && \
+    apt install -y sudo curl git fzf && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -22,6 +22,9 @@ RUN curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/
 
 ENV PATH="${PATH}:/nix/var/nix/profiles/default/bin"
 
+# install rx-nvim
+RUN nix profile install github:CnTeng/rx-nvim nixpkgs#nil nixpkgs#nixfmt-rfc-style
+
 # create user dev
 ARG USER_UID=1000
 
@@ -30,8 +33,5 @@ RUN if id "ubuntu" >/dev/null 2>&1; then userdel -r ubuntu; fi && \
     echo "dev ALL=(ALL) NOPASSWD:ALL" >>/etc/sudoers
 
 USER dev
-
-# install rx-nvim
-RUN nix profile install github:CnTeng/rx-nvim nixpkgs#nil nixpkgs#nixfmt-rfc-style
 
 WORKDIR /home/dev
