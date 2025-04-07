@@ -15,7 +15,8 @@ return {
     ".clang-format",
     "compile_commands.json",
     "compile_flags.txt",
-    "configure.ac", -- AutoTools
+    "configure.ac",
+    ".git",
   },
   capabilities = {
     textDocument = {
@@ -23,7 +24,7 @@ return {
         editsNearCursor = true,
       },
     },
-    offsetEncoding = { "utf-8", "utf-16" },
+    offsetEncoding = { "utf-16" },
   },
   on_attach = function(_, bufnr)
     vim.keymap.set("n", "<leader>cs", "<cmd>ClangdSwitchSourceHeader<CR>", {
