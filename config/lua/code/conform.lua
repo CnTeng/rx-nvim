@@ -43,16 +43,13 @@ return {
       terraform = { "tofu_fmt" },
       tf = { "tofu_fmt" },
       xml = { "xmllint" },
-      ["_"] = { "trim_whitespace" },
-    },
-    default_format_opts = {
-      lsp_format = "fallback",
+      ["_"] = { "trim_whitespace", lsp_format = "last" },
     },
     format_on_save = function(bufnr)
       if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
         return
       end
-      return { timeout_ms = 500, lsp_format = "fallback" }
+      return { timeout_ms = 500 }
     end,
   },
 }
