@@ -22,5 +22,9 @@ prev.vimPlugins.extend (
         ];
       }
     );
+
+    nvim-lspconfig = prev.vimPlugins.nvim-lspconfig.overrideAttrs {
+      src = sources.nvim-lspconfig.src;
+    };
   }
 )

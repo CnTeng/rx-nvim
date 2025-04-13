@@ -5,3 +5,7 @@ fetch.github = "ofseed/copilot-status.nvim"
 [neovim-session-manager]
 src.git = "https://github.com/Shatur/neovim-session-manager"
 fetch.github = "Shatur/neovim-session-manager"
+
+[nvim-lspconfig]
+src.git = "https://github.com/neovim/nvim-lspconfig"
+fetch.github = "neovim/nvim-lspconfig"

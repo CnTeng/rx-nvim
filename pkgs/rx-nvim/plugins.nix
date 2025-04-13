@@ -38,8 +38,8 @@ let
     nvim-dap-view
     nvim-dap-virtual-text
     nvim-dap-go
+    nvim-lspconfig
     outline-nvim
-    clangd_extensions-nvim
     flutter-tools-nvim
     lazydev-nvim
     SchemaStore-nvim
