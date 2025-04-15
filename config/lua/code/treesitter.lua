@@ -1,7 +1,7 @@
 ---@type LazyPluginSpec
 return {
   "nvim-treesitter/nvim-treesitter",
-  event = "LazyFile",
+  event = "VeryLazy",
   init = function()
     vim.opt.rtp:prepend(vim.g.parsers_path)
   end,
