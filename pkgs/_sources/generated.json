@@ -43,7 +43,7 @@
     },
     "nvim-lspconfig": {
         "cargoLocks": null,
-        "date": "2025-04-16",
+        "date": "2025-04-17",
         "extract": null,
         "name": "nvim-lspconfig",
         "passthru": null,
@@ -55,11 +55,11 @@
             "name": null,
             "owner": "neovim",
             "repo": "nvim-lspconfig",
-            "rev": "cb5680882ed1f18e67429516e45b810de3d148b8",
-            "sha256": "sha256-Lac8Blyjwg4JOdE3xOnJK0RfndjxpIHs86coJNEUqyE=",
+            "rev": "a56f4b9dde5daf3d4c7bb50cf78ab609537f2259",
+            "sha256": "sha256-npuuani4GhwwihY3kf85uPzI5AsV2BQD7dqt5fmA7WM=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "cb5680882ed1f18e67429516e45b810de3d148b8"
+        "version": "a56f4b9dde5daf3d4c7bb50cf78ab609537f2259"
     }
 }
