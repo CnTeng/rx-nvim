@@ -25,16 +25,4 @@
     };
     date = "2025-03-07";
   };
-  nvim-lspconfig = {
-    pname = "nvim-lspconfig";
-    version = "8b0f47d851ee5343d38fe194a06ad16b9b9bd086";
-    src = fetchFromGitHub {
-      owner = "neovim";
-      repo = "nvim-lspconfig";
-      rev = "8b0f47d851ee5343d38fe194a06ad16b9b9bd086";
-      fetchSubmodules = false;
-      sha256 = "sha256-qbWDjb5Twow/KMr9x0mK4PJzgc3JzPwKYGwULfAHGUA=";
-    };
-    date = "2025-04-23";
-  };
 }

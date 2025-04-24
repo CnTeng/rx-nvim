@@ -40,26 +40,5 @@
             "type": "github"
         },
         "version": "3409dc920d40bec4c901c0a122a80bee03d6d1e1"
-    },
-    "nvim-lspconfig": {
-        "cargoLocks": null,
-        "date": "2025-04-23",
-        "extract": null,
-        "name": "nvim-lspconfig",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "neovim",
-            "repo": "nvim-lspconfig",
-            "rev": "8b0f47d851ee5343d38fe194a06ad16b9b9bd086",
-            "sha256": "sha256-qbWDjb5Twow/KMr9x0mK4PJzgc3JzPwKYGwULfAHGUA=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "8b0f47d851ee5343d38fe194a06ad16b9b9bd086"
     }
 }
