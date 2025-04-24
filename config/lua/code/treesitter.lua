@@ -9,9 +9,7 @@ return {
     highlight = {
       enable = true,
       disable = { "c", "cpp" },
-      additional_vim_regex_highlighting = { "markdown" },
     },
-    incremental_selection = { enable = true },
     indent = { enable = true },
   },
   config = function(_, opts)
