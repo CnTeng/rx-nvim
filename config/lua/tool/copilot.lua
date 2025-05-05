@@ -88,7 +88,6 @@ return {
       },
     },
     opts = {
-      model = "claude-3.7-sonnet",
       mappings = {
         close = {
           normal = "<C-q>",
