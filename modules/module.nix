@@ -7,7 +7,7 @@
 let
   cfg = config.programs.rx-nvim;
 
-  languagesPkgs = with pkgs; [
+  extraPkgs = with pkgs; [
     # C/C++
     clang-tools
     cmake-language-server
@@ -33,10 +33,6 @@ let
     # Lua
     lua-language-server
     stylua
-
-    # Nix
-    nil
-    nixfmt-rfc-style
 
     # Python
     pyright
@@ -74,11 +70,24 @@ in
       type = lib.types.package;
       visible = false;
       readOnly = true;
-      description = lib.mdDoc "Resulting customized neovim package.";
+      description = "Resulting customized neovim package.";
     };
 
-    defaultEditor = lib.mkEnableOption "neovim as default editor" // {
-      default = true;
+    defaultEditor = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = ''
+        Whether to configure {command}`nvim` as the default
+        editor using the {env}`EDITOR` environment variable.
+      '';
+    };
+
+    withExtraPackages = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = ''
+        Whether to install extra packages.
+      '';
     };
 
     extraConfig = lib.mkOption {
@@ -91,7 +100,11 @@ in
   config = lib.mkIf cfg.enable {
     programs.rx-nvim.finalPackage = cfg.package.override { inherit (cfg) extraConfig; };
 
-    environment.systemPackages = [ cfg.finalPackage ] ++ languagesPkgs;
+    environment.systemPackages = [
+      cfg.finalPackage
+      pkgs.nil
+      pkgs.nixfmt-rfc-style
+    ] ++ (lib.optionals cfg.withExtraPackages extraPkgs);
 
     environment.variables.EDITOR = lib.mkIf cfg.defaultEditor "nvim";
 
