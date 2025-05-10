@@ -67,8 +67,8 @@ return {
 
       extra_keys = {
         clangd = {
-          { "n", "<leader>cs", "<cmd>ClangdSwitchSourceHeader<cr>", { desc = "Switch source/header" } },
-          { "n", "<leader>ci", "<cmd>ClangdShowSymbolInfo<cr>", { desc = "Show symbol info" } },
+          { "n", "<leader>cs", "<cmd>LspClangdSwitchSourceHeader<cr>", { desc = "Switch source/header" } },
+          { "n", "<leader>ci", "<cmd>LspClangdShowSymbolInfo<cr>", { desc = "Show symbol info" } },
         },
       },
     },
