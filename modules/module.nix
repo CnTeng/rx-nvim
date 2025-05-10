@@ -4,7 +4,6 @@
   pkgs,
   ...
 }:
-with lib;
 let
   cfg = config.programs.rx-nvim;
 
@@ -67,34 +66,34 @@ let
 in
 {
   options.programs.rx-nvim = {
-    enable = mkEnableOption "rx-nvim";
+    enable = lib.mkEnableOption "rx-nvim";
 
-    package = mkPackageOption pkgs "rx-nvim" { };
+    package = lib.mkPackageOption pkgs "rx-nvim" { };
 
-    finalPackage = mkOption {
-      type = types.package;
+    finalPackage = lib.mkOption {
+      type = lib.types.package;
       visible = false;
       readOnly = true;
-      description = mdDoc "Resulting customized neovim package.";
+      description = lib.mdDoc "Resulting customized neovim package.";
     };
 
-    defaultEditor = mkEnableOption "neovim as default editor" // {
+    defaultEditor = lib.mkEnableOption "neovim as default editor" // {
       default = true;
     };
 
-    extraConfig = mkOption {
-      type = types.lines;
+    extraConfig = lib.mkOption {
+      type = lib.types.lines;
       default = "";
       description = "Extra configuration appended to nvim.";
     };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     programs.rx-nvim.finalPackage = cfg.package.override { inherit (cfg) extraConfig; };
 
     environment.systemPackages = [ cfg.finalPackage ] ++ languagesPkgs;
 
-    environment.variables.EDITOR = mkIf cfg.defaultEditor "nvim";
+    environment.variables.EDITOR = lib.mkIf cfg.defaultEditor "nvim";
 
     environment.pathsToLink = [ "/share/nvim" ];
   };
