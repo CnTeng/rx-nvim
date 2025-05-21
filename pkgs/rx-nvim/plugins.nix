@@ -75,7 +75,6 @@ let
     fcitx-vim
     fzf-lua
     fzfWrapper
-    hex-nvim
     flatten-nvim
     toggleterm-nvim
 
