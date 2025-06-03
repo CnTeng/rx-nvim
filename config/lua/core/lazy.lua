@@ -1,6 +1,6 @@
 local event = require("lazy.core.handler.event")
 
-event.mappings.LazyFile = { id = "LazyFile", event = { "BufReadPost", "BufNewFile", "BufWritePre" } }
+event.mappings.LazyFile = { id = "LazyFile", event = { "BufReadPre", "BufNewFile", "BufWritePre" } }
 event.mappings["User LazyFile"] = event.mappings.LazyFile
 
 require("lazy").setup({
