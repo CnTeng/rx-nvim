@@ -60,7 +60,7 @@ let
 
     # Other
     libxml2
-    nodePackages.prettier
+    prettier
   ];
 in
 {
