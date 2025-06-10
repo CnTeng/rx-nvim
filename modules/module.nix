@@ -52,6 +52,9 @@ let
     # TOML
     taplo
 
+    # TypeScript/JavaScript
+    vtsls
+
     # YAML
     yaml-language-server
 
