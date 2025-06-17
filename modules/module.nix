@@ -38,10 +38,6 @@ let
     pyright
     black
 
-    # Rust
-    rust-analyzer
-    rustfmt
-
     # Shell
     bash-language-server
     shfmt
