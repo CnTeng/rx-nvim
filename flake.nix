@@ -10,11 +10,6 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    treefmt = {
-      url = "github:numtide/treefmt-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -27,7 +22,6 @@
 
       imports = [
         inputs.git-hooks-nix.flakeModule
-        inputs.treefmt.flakeModule
         ./modules
         ./pkgs
       ];
@@ -36,11 +30,7 @@
         { config, pkgs, ... }:
         {
           devShells.default = pkgs.mkShell {
-            packages = with pkgs; [
-              nvfetcher
-              config.treefmt.build.wrapper
-            ];
-
+            packages = [ pkgs.nvfetcher ];
             shellHook = config.pre-commit.installationScript;
           };
 
@@ -57,20 +47,23 @@
             '';
           };
 
-          pre-commit.settings.hooks = {
-            treefmt.enable = true;
-            commitizen.enable = true;
+          formatter = pkgs.nixfmt-tree.override {
+            settings = {
+              formatter.stylua = {
+                command = "stylua";
+                includes = [ "*.lua" ];
+              };
+              global.excludes = [ "pkgs/_sources/*" ];
+            };
+            runtimeInputs = [ pkgs.stylua ];
           };
 
-          treefmt = {
-            programs = {
-              nixfmt.enable = true;
-              prettier.enable = true;
-              stylua.enable = true;
-              taplo.enable = true;
+          pre-commit.settings.hooks = {
+            treefmt = {
+              enable = true;
+              package = config.formatter;
             };
-
-            settings.global.excludes = [ "pkgs/_sources/*" ];
+            commitizen.enable = true;
           };
         };
     };
