@@ -20,7 +20,7 @@ let
   neovimConfig = neovimUtils.makeNeovimConfig {
     plugins = [ vimPlugins.lazy-nvim ];
     inherit extraLuaPackages;
-    luaRcContent = ''
+    customLuaRC = ''
       vim.g.config_path = "${configPath}"
       vim.g.plugins_path = "${pluginsPath}"
       vim.g.parsers_path = "${parsersPath}"
