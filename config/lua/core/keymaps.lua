@@ -21,6 +21,3 @@ keymap("n", "<leader><tab>c", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 -- Cmdline
 keymap("c", "<C-p>", "<Up>")
 keymap("c", "<C-n>", "<Down>")
-
--- Terminal
-keymap("t", "<Esc>", "<C-\\><C-N>", { desc = "Exit normal mode" })

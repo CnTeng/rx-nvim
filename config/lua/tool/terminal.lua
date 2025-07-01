@@ -16,9 +16,8 @@ return {
         return vim.o.columns * 0.4
       end
     end,
-    on_create = function()
-      vim.opt_local.foldcolumn = "0"
-      vim.opt_local.signcolumn = "no"
+    on_create = function(t)
+      vim.keymap.set("t", "\\\\", "<C-\\><C-N>", { buffer = t.bufnr, desc = "Exit normal mode" })
     end,
     open_mapping = [[<C-\>]],
     shading_factor = 2,
