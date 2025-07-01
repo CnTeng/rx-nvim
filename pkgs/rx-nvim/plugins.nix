@@ -50,7 +50,6 @@ let
 
     # editor
     ultimate-autopair-nvim
-    flash-nvim
     vim-illuminate
     guess-indent-nvim
     indent-blankline-nvim
