@@ -134,6 +134,19 @@ return {
       end,
       desc = "Help tags",
     },
+
+    -- Todo comments
+    {
+      "<leader>ft",
+      function()
+        require("fzf-lua").grep({
+          search = [[\b(TODO|WIP|NOTE|XXX|INFO|DOCS|PERF|TEST|HACK|WARNING|WARN|FIX|FIXME|BUG|ERROR):]],
+          no_esc = true,
+          multiline = true,
+        })
+      end,
+      desc = "Todo comments",
+    },
   },
   init = function()
     ---@diagnostic disable-next-line: duplicate-set-field

@@ -32,7 +32,6 @@ let
     blink-cmp
     friendly-snippets
     comment-nvim
-    todo-comments-nvim
     conform-nvim
     nvim-dap
     nvim-dap-view
