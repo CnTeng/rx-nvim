@@ -40,8 +40,6 @@ return {
       markdown = { "prettier" },
       python = { "black" },
       sql = { "sql_formatter" },
-      terraform = { "tofu_fmt" },
-      tf = { "tofu_fmt" },
       xml = { "xmllint" },
       ["_"] = { "trim_whitespace", lsp_format = "last" },
     },

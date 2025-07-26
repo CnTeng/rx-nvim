@@ -45,6 +45,9 @@ let
     # SQL
     sql-formatter
 
+    # Tofu
+    tofu-ls
+
     # TOML
     taplo
 
@@ -103,7 +106,8 @@ in
       cfg.finalPackage
       pkgs.nil
       pkgs.nixfmt-rfc-style
-    ] ++ (lib.optionals cfg.withExtraPackages extraPkgs);
+    ]
+    ++ (lib.optionals cfg.withExtraPackages extraPkgs);
 
     environment.variables.EDITOR = lib.mkIf cfg.defaultEditor "nvim";
 

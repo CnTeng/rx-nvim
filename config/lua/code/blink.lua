@@ -21,6 +21,12 @@ return {
 
     signature = { enabled = true },
 
+    sources = {
+      per_filetype = {
+        lua = { inherit_defaults = true },
+      },
+    },
+
     cmdline = {
       completion = {
         list = {

@@ -40,6 +40,7 @@ return {
         "pyright",
         "rust_analyzer",
         "taplo",
+        "tofu_ls",
         "vtsls",
         "yamlls",
       },
