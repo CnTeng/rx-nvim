@@ -30,12 +30,12 @@ return {
       servers = {
         "bashls",
         "clangd",
-        "cmake",
         "dockerls",
         "golangci_lint_ls",
         "gopls",
         "jsonls",
         "lua_ls",
+        "neocmake",
         "nil_ls",
         "pyright",
         "rust_analyzer",

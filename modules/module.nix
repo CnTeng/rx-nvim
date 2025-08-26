@@ -10,8 +10,7 @@ let
   extraPkgs = with pkgs; [
     # C/C++
     clang-tools
-    cmake-language-server
-    cmake-format
+    neocmakelsp
     lldb
     gdb
 
