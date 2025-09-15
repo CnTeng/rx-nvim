@@ -15,7 +15,7 @@ let
     gdb
 
     # Dockerfile
-    dockerfile-language-server-nodejs
+    dockerfile-language-server
 
     # Go
     go
