@@ -9,6 +9,9 @@ jobs:
   automerge:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@main
+
       - name: Enable Automerge
         if: contains(github.event.pull_request.labels.*.name, 'auto-merge')
         run: gh pr merge --auto --squash ${{ github.event.pull_request.number }}
