@@ -1,12 +1,13 @@
-name: Auto-merge
-on: pull_request
+name: Auto Merge
+on:
+  pull_request:
 
 permissions:
   pull-requests: write
   contents: write
 
 jobs:
-  automerge:
+  auto-merge:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
