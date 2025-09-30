@@ -66,7 +66,7 @@ jobs:
             ```
             {{ env.GIT_COMMIT_MESSAGE }}
             ```
-          pr-labels: merge-queue
+          pr-labels: auto-merge
 
   update-nvfetcher:
     runs-on: ubuntu-latest
@@ -104,7 +104,7 @@ jobs:
           committer: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
           author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
           title: "bump: pkgs sources"
-          labels: merge-queue
+          labels: auto-merge
           body: |
             Automated changes by GitHub Action.
 
