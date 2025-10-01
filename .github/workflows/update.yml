@@ -57,6 +57,7 @@ jobs:
         uses: DeterminateSystems/update-flake-lock@main
         if: steps.check.outputs.upgrade == 'true'
         with:
+          token: ${{ secrets.GH_TOKEN }}
           commit-msg: "bump: flake inputs"
           branch: bump_flake_inputs
           pr-title: "bump: flake inputs"
@@ -98,16 +99,17 @@ jobs:
       - name: Create PR
         uses: peter-evans/create-pull-request@v7
         with:
+          token: ${{ secrets.GH_TOKEN }}
           commit-message: "bump: pkgs sources"
-          branch: bump_pkgs_sources
-          delete-branch: true
           committer: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
           author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+          branch: bump_pkgs_sources
+          delete-branch: true
           title: "bump: pkgs sources"
-          labels: auto-merge
           body: |
             Automated changes by GitHub Action.
 
             ```
             ${{ steps.update-sources.outputs.changelog }}
             ```
+          labels: auto-merge
