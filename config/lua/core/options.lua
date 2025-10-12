@@ -1,5 +1,8 @@
 vim.opt.breakindent = true
-vim.opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
+vim.opt.clipboard = "unnamedplus"
+if vim.env.SSH_TTY then
+  vim.g.clipboard = "osc52"
+end
 vim.opt.colorcolumn = "80"
 vim.opt.completeopt = { "menu", "menuone", "noinsert" }
 vim.opt.confirm = true
