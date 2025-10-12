@@ -39,7 +39,6 @@ let
     nvim-dap-go
     nvim-lspconfig
     outline-nvim
-    flutter-tools-nvim
     lazydev-nvim
     SchemaStore-nvim
     render-markdown-nvim
