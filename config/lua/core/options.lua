@@ -1,11 +1,9 @@
 vim.opt.breakindent = true
-vim.opt.clipboard = "unnamedplus"
 vim.opt.colorcolumn = "80"
 vim.opt.completeopt = { "menu", "menuone", "noinsert" }
 vim.opt.confirm = true
 vim.opt.cursorline = true
 vim.opt.expandtab = true
-vim.opt.fileencodings = { "ucs-bom", "utf-8", "gbk", "default", "latin1" }
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldtext = ""
