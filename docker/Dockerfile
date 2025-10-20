@@ -23,7 +23,7 @@ RUN curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/
 ENV PATH="${PATH}:/nix/var/nix/profiles/default/bin"
 
 # install rx-nvim
-RUN nix profile install github:CnTeng/rx-nvim nixpkgs#nil nixpkgs#nixfmt-rfc-style
+RUN nix profile install github:CnTeng/rx-nvim
 
 # create user dev
 ARG USER_UID=1000
