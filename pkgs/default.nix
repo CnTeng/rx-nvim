@@ -1,7 +1,6 @@
-{ lib, ... }:
 final: prev:
-lib.packagesFromDirectoryRecursive {
-  callPackage = lib.callPackageWith (
+prev.lib.packagesFromDirectoryRecursive {
+  callPackage = prev.lib.callPackageWith (
     prev.pkgs
     // {
       inherit prev;

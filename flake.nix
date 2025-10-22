@@ -22,7 +22,7 @@
         ] (system: f (mkPkgs system));
     in
     {
-      overlays.default = import ./pkgs { inherit (nixpkgs) lib; };
+      overlays.default = import ./pkgs;
 
       packages = forEachSystem (pkgs: {
         default = pkgs.rx-nvim;
