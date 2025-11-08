@@ -13,6 +13,18 @@
     };
     date = "2024-05-29";
   };
+  im-select-nvim = {
+    pname = "im-select-nvim";
+    version = "113a6905a1c95d2990269f96abcbad9718209557";
+    src = fetchFromGitHub {
+      owner = "keaising";
+      repo = "im-select.nvim";
+      rev = "113a6905a1c95d2990269f96abcbad9718209557";
+      fetchSubmodules = false;
+      sha256 = "sha256-rtbqJjih9yy2svMIro7FbdH9DqGTumAmfcRICfqT8tQ=";
+    };
+    date = "2025-07-24";
+  };
   neovim-session-manager = {
     pname = "neovim-session-manager";
     version = "3409dc920d40bec4c901c0a122a80bee03d6d1e1";
