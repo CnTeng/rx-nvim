@@ -29,6 +29,7 @@ return {
       },
 
       servers = {
+        "basedpyright",
         "bashls",
         "clangd",
         "dockerls",
@@ -38,7 +39,7 @@ return {
         "lua_ls",
         "neocmake",
         "nil_ls",
-        "pyright",
+        "ruff",
         "rust_analyzer",
         "taplo",
         "tofu_ls",

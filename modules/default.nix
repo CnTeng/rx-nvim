@@ -34,8 +34,8 @@ let
     stylua
 
     # Python
-    pyright
-    black
+    basedpyright
+    ruff
 
     # Shell
     bash-language-server
