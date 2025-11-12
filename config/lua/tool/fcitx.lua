@@ -1,6 +1,5 @@
 ---@type LazyPluginSpec
 return {
-  "keaising/im-select.nvim",
+  "lilydjwg/fcitx.vim",
   event = "LazyFile",
-  opts = {},
 }

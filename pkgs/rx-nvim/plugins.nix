@@ -69,9 +69,9 @@ let
     copilot-vim
     copilot-status-nvim
     CopilotChat-nvim
+    fcitx-vim
     fzf-lua
     fzfWrapper
-    im-select-nvim
     flatten-nvim
     toggleterm-nvim
 

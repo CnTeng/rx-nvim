@@ -11,8 +11,6 @@ prev.vimPlugins.extend (
       sources.copilot-status-nvim // { pname = "copilot-status.nvim"; }
     );
 
-    im-select-nvim = buildVimPlugin (sources.im-select-nvim // { pname = "im-select.nvim"; });
-
     neovim-session-manager = buildVimPlugin (
       sources.neovim-session-manager
       // {

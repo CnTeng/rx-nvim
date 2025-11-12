@@ -20,27 +20,6 @@
         },
         "version": "ea9e7000e82a89aac9d8434675dfed3da4ec1158"
     },
-    "im-select-nvim": {
-        "cargoLocks": null,
-        "date": "2025-07-24",
-        "extract": null,
-        "name": "im-select-nvim",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "keaising",
-            "repo": "im-select.nvim",
-            "rev": "113a6905a1c95d2990269f96abcbad9718209557",
-            "sha256": "sha256-rtbqJjih9yy2svMIro7FbdH9DqGTumAmfcRICfqT8tQ=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "113a6905a1c95d2990269f96abcbad9718209557"
-    },
     "neovim-session-manager": {
         "cargoLocks": null,
         "date": "2025-03-07",
