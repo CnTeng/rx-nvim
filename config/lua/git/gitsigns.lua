@@ -1,3 +1,4 @@
+---@diagnostic disable: param-type-mismatch
 ---@type LazyPluginSpec
 return {
   "lewis6991/gitsigns.nvim",
@@ -48,8 +49,8 @@ return {
       end, "Diff this (cached)")
 
       -- Text object
-      map({ "o", "x" }, "ih", ":<C-u>Gitsigns select_hunk<cr>", "Select hunk")
-      map({ "o", "x" }, "ah", ":<C-u>Gitsigns select_hunk<cr>", "Select hunk")
+      map({ "o", "x" }, "ih", gitsigns.select_hunk, "Select hunk")
+      map({ "o", "x" }, "ah", gitsigns.select_hunk, "Select hunk")
     end,
   },
 }

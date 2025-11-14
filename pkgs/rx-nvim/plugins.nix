@@ -61,9 +61,9 @@ let
     nvim-surround
 
     # git
-    diffview-nvim
+    vim-fugitive
+    vim-flog
     gitsigns-nvim
-    neogit
 
     # tool
     copilot-vim
