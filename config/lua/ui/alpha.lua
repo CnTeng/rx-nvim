@@ -1,7 +1,6 @@
 ---@type LazyPluginSpec
 return {
   "goolord/alpha-nvim",
-  dependencies = "nvim-tree/nvim-web-devicons",
   event = "VimEnter",
   opts = function()
     local dashboard = require("alpha.themes.dashboard")
@@ -16,12 +15,11 @@ return {
       [[                                                          ]],
     }
     dashboard.section.buttons.val = {
-      dashboard.button("e", "  > New file", "<cmd>ene<cr>"),
       dashboard.button("LDR f f", "  > Find file", "<cmd>FzfLua files<cr>"),
       dashboard.button("LDR f w", "  > Find text", "<cmd>FzfLua live_grep_native<cr>"),
       dashboard.button("LDR f r", "  > Recent file", "<cmd>FzfLua oldfiles<cr>"),
       dashboard.button("LDR s s", "  > Load session", "<cmd>SessionManager load_session<cr>"),
-      dashboard.button("LDR q", "  > Quit all", "<cmd>qa<CR>"),
+      dashboard.button("LDR q", "  > Quit all", "<cmd>qa<cr>"),
     }
     dashboard.section.footer.val = "Just For Fun!"
 
