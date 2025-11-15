@@ -13,16 +13,4 @@
     };
     date = "2024-05-29";
   };
-  neovim-session-manager = {
-    pname = "neovim-session-manager";
-    version = "3409dc920d40bec4c901c0a122a80bee03d6d1e1";
-    src = fetchFromGitHub {
-      owner = "Shatur";
-      repo = "neovim-session-manager";
-      rev = "3409dc920d40bec4c901c0a122a80bee03d6d1e1";
-      fetchSubmodules = false;
-      sha256 = "sha256-k2akj/s6qJx/sCnz3UNHo5zbENTpw+OPuo2WPF1W7rg=";
-    };
-    date = "2025-03-07";
-  };
 }

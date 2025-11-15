@@ -1,7 +1,3 @@
 [copilot-status-nvim]
 src.git = "https://github.com/ofseed/copilot-status.nvim"
 fetch.github = "ofseed/copilot-status.nvim"
-
-[neovim-session-manager]
-src.git = "https://github.com/Shatur/neovim-session-manager"
-fetch.github = "Shatur/neovim-session-manager"

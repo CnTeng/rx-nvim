@@ -55,7 +55,7 @@ let
     neo-tree-nvim
     nvim-bqf
     quicker-nvim
-    neovim-session-manager
+    auto-session
     smart-splits-nvim
     snacks-nvim
     nvim-surround
