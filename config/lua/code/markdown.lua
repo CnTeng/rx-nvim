@@ -18,6 +18,7 @@ return {
       })
     end,
     opts = {
+      enabled = false,
       heading = {
         icons = { "󰼏 ", "󰎨 ", "󰼑 ", "󰎲 ", "󰼓 ", "󰎴 " },
       },

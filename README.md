@@ -33,13 +33,13 @@ A custom Neovim configuration for Nix users.
 
 Docker run
 
-```shell
+```bash
 podman run -it cnteng/rx-nvim:latest
 ```
 
 Directly run
 
-```shell
+```bash
 nix run github:CnTeng/rx-nvim
 ```
 
