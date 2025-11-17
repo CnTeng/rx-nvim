@@ -15,8 +15,5 @@ return {
     keys = {
       { "<leader>gl", "<cmd>Flog<cr>", desc = "Logs" },
     },
-    init = function()
-      vim.g.flog_enable_extended_chars = 1
-    end,
   },
 }
