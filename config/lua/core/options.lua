@@ -19,12 +19,14 @@ vim.opt.numberwidth = 2
 vim.opt.pumheight = 10
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 8
+vim.opt.sessionoptions:append("localoptions")
 vim.opt.shiftwidth = 0
 vim.opt.shortmess:append("I")
 vim.opt.showmode = false
 vim.opt.showtabline = 2
 vim.opt.sidescrolloff = 5
 vim.opt.signcolumn = "yes"
+
 vim.opt.smartcase = true
 vim.opt.smartindent = true
 vim.opt.smoothscroll = true
