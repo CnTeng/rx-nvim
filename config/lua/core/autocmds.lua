@@ -9,3 +9,10 @@ autocmd("TextYankPost", {
     vim.hl.on_yank()
   end,
 })
+
+autocmd("FileType", {
+  pattern = "gitcommit",
+  callback = function()
+    vim.opt_local.spell = true
+  end,
+})
