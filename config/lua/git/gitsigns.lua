@@ -43,10 +43,6 @@ return {
       map("n", "<leader>gR", gitsigns.reset_buffer, "Reset buffer")
       map("n", "<leader>gk", gitsigns.preview_hunk, "Preview hunk")
       map("n", "<leader>gB", gitsigns.blame, "Blame")
-      map("n", "<leader>gd", gitsigns.diffthis, "Diff this")
-      map("n", "<leader>gD", function()
-        gitsigns.diffthis("~")
-      end, "Diff this (cached)")
 
       -- Text object
       map({ "o", "x" }, "ih", gitsigns.select_hunk, "Select hunk")
