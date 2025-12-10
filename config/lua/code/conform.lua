@@ -15,9 +15,8 @@ return {
   init = function()
     vim.opt.formatexpr = "v:lua.require'conform'.formatexpr()"
 
-    require("editorconfig").properties.autoformat = function(bufnr, val)
-      vim.b[bufnr].disable_autoformat = val == "false"
-    end
+    local env = os.getenv("DISABLE_AUTOFORMAT")
+    vim.g.disable_autoformat = env and env ~= "0"
 
     vim.api.nvim_create_user_command("FormatBufToggle", function()
       vim.b.disable_autoformat = not vim.b.disable_autoformat
