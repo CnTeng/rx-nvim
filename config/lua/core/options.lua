@@ -26,7 +26,6 @@ vim.opt.showmode = false
 vim.opt.showtabline = 2
 vim.opt.sidescrolloff = 5
 vim.opt.signcolumn = "yes"
-
 vim.opt.smartcase = true
 vim.opt.smartindent = true
 vim.opt.smoothscroll = true

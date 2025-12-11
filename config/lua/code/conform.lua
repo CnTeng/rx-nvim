@@ -41,7 +41,6 @@ return {
       html = { "prettier" },
       lua = { "stylua" },
       markdown = { "prettier" },
-      python = { "black" },
       sql = { "sql_formatter" },
       xml = { "xmllint" },
       ["_"] = { "trim_whitespace", lsp_format = "last" },
