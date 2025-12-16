@@ -66,6 +66,7 @@ let
     gitsigns-nvim
 
     # tool
+    vim-plugin-AnsiEsc
     copilot-vim
     copilot-status-nvim
     CopilotChat-nvim
