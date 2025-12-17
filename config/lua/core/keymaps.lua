@@ -21,3 +21,8 @@ keymap("n", "<leader><tab>c", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 -- Cmdline
 keymap("c", "<C-p>", "<Up>")
 keymap("c", "<C-n>", "<Down>")
+keymap("c", "<C-a>", "<Home>")
+
+-- Clipboard
+keymap({ "n", "x" }, "<leader>y", '"+y', { desc = "Yank to clipboard" })
+keymap({ "n", "x" }, "<leader>p", '"+p', { desc = "Paste from clipboard" })
