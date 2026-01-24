@@ -1,6 +1,6 @@
 {
     "copilot-status-nvim": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": "2024-05-29",
         "extract": null,
         "name": "copilot-status-nvim",
