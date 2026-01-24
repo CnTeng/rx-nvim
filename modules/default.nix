@@ -104,7 +104,7 @@ in
     environment.systemPackages = [
       cfg.finalPackage
       pkgs.nil
-      pkgs.nixfmt-rfc-style
+      pkgs.nixfmt
     ]
     ++ (lib.optionals cfg.withExtraPackages extraPkgs);
 
