@@ -17,6 +17,8 @@ let
     paths = vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
   };
 
+  queriesPath = "${vimPlugins.nvim-treesitter}/runtime";
+
   neovimConfig = neovimUtils.makeNeovimConfig {
     plugins = [ vimPlugins.lazy-nvim ];
     inherit extraLuaPackages;
@@ -24,6 +26,7 @@ let
       vim.g.config_path = "${configPath}"
       vim.g.plugins_path = "${pluginsPath}"
       vim.g.parsers_path = "${parsersPath}"
+      vim.g.queries_path = "${queriesPath}"
 
       vim.opt.rtp:prepend(vim.g.config_path)
 

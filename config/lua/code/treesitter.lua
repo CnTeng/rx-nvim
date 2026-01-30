@@ -2,6 +2,9 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   event = "VeryLazy",
+  init = function()
+    vim.opt.rtp:prepend(vim.g.queries_path)
+  end,
   opts = {
     install_dir = vim.g.parsers_path,
     highlight_disable = { "c", "cpp" },
