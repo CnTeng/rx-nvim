@@ -31,6 +31,7 @@ return {
       servers = {
         "basedpyright",
         "bashls",
+        "biome",
         "clangd",
         "dockerls",
         "golangci_lint_ls",
@@ -43,7 +44,7 @@ return {
         "rust_analyzer",
         "taplo",
         "tofu_ls",
-        "vtsls",
+        "tsgo",
         "yamlls",
       },
 

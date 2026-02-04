@@ -51,14 +51,12 @@ let
     taplo
 
     # TypeScript/JavaScript
-    vtsls
+    typescript-go
+    prettier
+    biome
 
     # YAML
     yaml-language-server
-
-    # Other
-    libxml2
-    prettier
   ];
 in
 {

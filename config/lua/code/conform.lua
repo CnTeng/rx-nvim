@@ -41,8 +41,8 @@ return {
       html = { "prettier" },
       lua = { "stylua" },
       markdown = { "prettier" },
+      scss = { "prettier" },
       sql = { "sql_formatter" },
-      xml = { "xmllint" },
       ["_"] = { "trim_whitespace", lsp_format = "last" },
     },
     format_on_save = function(bufnr)
