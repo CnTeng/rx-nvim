@@ -72,7 +72,7 @@ let
     CopilotChat-nvim
     fcitx-vim
     fzf-lua
-    fzfWrapper
+    fzf-wrapper
     flatten-nvim
     toggleterm-nvim
 
