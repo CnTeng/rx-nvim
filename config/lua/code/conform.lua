@@ -37,12 +37,18 @@ return {
   end,
   opts = {
     formatters_by_ft = {
-      css = { "prettier" },
-      html = { "prettier" },
       lua = { "stylua" },
       markdown = { "prettier" },
-      scss = { "prettier" },
       sql = { "sql_formatter" },
+
+      html = { "prettier" },
+      css = { "prettier" },
+      scss = { "prettier" },
+      javascript = { "prettier" },
+      typescript = { "prettier" },
+      json = { "prettier" },
+      jsonc = { "prettier" },
+
       ["_"] = { "trim_whitespace", lsp_format = "last" },
     },
     format_on_save = function(bufnr)

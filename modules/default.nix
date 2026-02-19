@@ -52,6 +52,7 @@ let
 
     # TypeScript/JavaScript
     typescript-go
+    tailwindcss-language-server
     prettier
     biome
 

@@ -42,6 +42,7 @@ return {
         "nil_ls",
         "ruff",
         "rust_analyzer",
+        "tailwindcss",
         "taplo",
         "tofu_ls",
         "tsgo",
