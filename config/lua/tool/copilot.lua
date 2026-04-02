@@ -1,48 +1,8 @@
 ---@type LazyPluginSpec[]
 return {
   {
-    "github/copilot.vim",
-    event = "VeryLazy",
-    keys = {
-      {
-        mode = "i",
-        "<C-j>",
-        'copilot#Accept("<CR>")',
-        expr = true,
-        silent = true,
-        replace_keycodes = false,
-      },
-      { mode = "i", "<C-l>", "<Plug>(copilot-accept-word)", desc = "Accept word" },
-      {
-        "<leader>at",
-        function()
-          if vim.fn["copilot#Enabled"]() == 1 then
-            vim.cmd("Copilot disable")
-          else
-            vim.cmd("Copilot enable")
-          end
-          vim.cmd("Copilot status")
-        end,
-        desc = "Toggle copilot",
-      },
-    },
-    init = function()
-      vim.g.copilot_no_tab_map = true
-    end,
-  },
-
-  {
-    "ofseed/copilot-status.nvim",
-    dependencies = "github/copilot.vim",
-    event = "VeryLazy",
-  },
-
-  {
     "CopilotC-Nvim/CopilotChat.nvim",
-    dependencies = {
-      "github/copilot.vim",
-      "nvim-lua/plenary.nvim",
-    },
+    dependencies = "nvim-lua/plenary.nvim",
     keys = {
       {
         mode = { "n", "v" },

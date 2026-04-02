@@ -58,6 +58,9 @@ let
 
     # YAML
     yaml-language-server
+
+    # Others
+    copilot-language-server
   ];
 in
 {

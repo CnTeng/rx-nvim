@@ -1,3 +1,0 @@
-[copilot-status-nvim]
-src.git = "https://github.com/ofseed/copilot-status.nvim"
-fetch.github = "ofseed/copilot-status.nvim"
