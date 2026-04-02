@@ -2,7 +2,6 @@
   callPackage,
   symlinkJoin,
   vimPlugins,
-  neovimUtils,
   wrapNeovimUnstable,
   neovim-unwrapped,
   extraConfig ? "",
@@ -19,10 +18,10 @@ let
 
   queriesPath = "${vimPlugins.nvim-treesitter}/runtime";
 
-  neovimConfig = neovimUtils.makeNeovimConfig {
+  nvim-wrapped = wrapNeovimUnstable neovim-unwrapped {
     plugins = [ vimPlugins.lazy-nvim ];
     inherit extraLuaPackages;
-    customLuaRC = ''
+    luaRcContent = ''
       vim.g.config_path = "${configPath}"
       vim.g.plugins_path = "${pluginsPath}"
       vim.g.parsers_path = "${parsersPath}"
@@ -35,8 +34,6 @@ let
       ${extraConfig}
     '';
   };
-
-  nvim-wrapped = wrapNeovimUnstable neovim-unwrapped neovimConfig;
 in
 nvim-wrapped.overrideAttrs (old: {
   runtimeDeps = old.runtimeDeps ++ runtimeDeps;
