@@ -38,3 +38,5 @@ vim.opt.undofile = true
 vim.opt.updatetime = 300
 vim.opt.virtualedit = "block"
 vim.opt.wrap = false
+
+require("vim._core.ui2").enable({})
