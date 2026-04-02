@@ -35,7 +35,7 @@
 
       devShells = forEachSystem (pkgs: {
         default = pkgs.mkShell {
-          packages = [ pkgs.nvfetcher ];
+          packages = [ ];
         };
       });
 

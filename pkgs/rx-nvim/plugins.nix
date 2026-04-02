@@ -67,8 +67,6 @@ let
 
     # tool
     vim-plugin-AnsiEsc
-    copilot-vim
-    copilot-status-nvim
     CopilotChat-nvim
     fcitx-vim
     fzf-lua

@@ -22,7 +22,6 @@ return {
       },
       lualine_c = { "diagnostics" },
       lualine_x = {
-        "copilot",
         {
           function()
             return " "

@@ -7,11 +7,12 @@ return {
       { "<leader>li", "<cmd>LspInfo<cr>", desc = "LSP info" },
     },
     init = function()
-      vim.keymap.del("n", "grn")
       vim.keymap.del({ "n", "x" }, "gra")
-      vim.keymap.del("n", "grr")
       vim.keymap.del("n", "gri")
+      vim.keymap.del("n", "grn")
+      vim.keymap.del("n", "grr")
       vim.keymap.del("n", "grt")
+      vim.keymap.del("n", "grx")
     end,
     opts = {
       diagnostics = {
@@ -33,6 +34,7 @@ return {
         "bashls",
         "biome",
         "clangd",
+        "copilot",
         "dockerls",
         "golangci_lint_ls",
         "gopls",
@@ -67,7 +69,26 @@ return {
             local is_enabled = vim.lsp.inlay_hint.is_enabled()
             vim.lsp.inlay_hint.enable(not is_enabled)
           end,
-          { desc = "Toggle inlay hints" },
+          { desc = "Toggle inlay hint" },
+        },
+        {
+          "n",
+          "<leader>lc",
+          function()
+            local is_enabled = vim.lsp.inline_completion.is_enabled()
+            vim.lsp.inline_completion.enable(not is_enabled)
+          end,
+          { desc = "Toggle inline completion" },
+        },
+        {
+          "i",
+          "<C-j>",
+          function()
+            if not vim.lsp.inline_completion.get() then
+              return "<C-j>"
+            end
+          end,
+          { expr = true, desc = "Accept inline completion" },
         },
       },
 
@@ -90,14 +111,13 @@ return {
             return
           end
 
-          if client:supports_method("textDocument/inlayHint") then
-            vim.lsp.inlay_hint.enable()
-          end
-
           if client:supports_method("textDocument/foldingRange") then
             local win = vim.api.nvim_get_current_win()
             vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
           end
+
+          vim.lsp.inlay_hint.enable()
+          vim.lsp.inline_completion.enable()
 
           local keymaps = vim.tbl_deep_extend("force", opts.keys or {}, opts.extra_keys[client.name] or {})
           for _, key in pairs(keymaps) do
