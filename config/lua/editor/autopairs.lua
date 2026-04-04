@@ -1,13 +1,16 @@
----@type LazyPluginSpec
+---@module "lz.n"
+---@type lz.n.Spec
 return {
-  "altermo/ultimate-autopair.nvim",
+  "ultimate-autopair.nvim",
   event = { "InsertEnter", "CmdlineEnter" },
-  opts = {
-    tabout = {
-      enable = true,
-      map = "<Tab>",
-      hopout = true,
-      do_nothing_if_fail = false,
-    },
-  },
+  after = function()
+    require("ultimate-autopair").setup({
+      tabout = {
+        enable = true,
+        map = "<Tab>",
+        hopout = true,
+        do_nothing_if_fail = false,
+      },
+    })
+  end,
 }

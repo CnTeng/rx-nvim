@@ -1,6 +1,7 @@
----@type LazyPluginSpec
+---@module "lz.n"
+---@type lz.n.Spec
 return {
-  "echasnovski/mini.nvim",
+  "mini.nvim",
   keys = {
     {
       mode = "x",

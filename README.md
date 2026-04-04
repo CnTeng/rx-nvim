@@ -13,7 +13,7 @@ A custom Neovim configuration for Nix users.
 ## ✨ Features
 
 - Install plugins with [Nix](https://nixos.org)
-- Setup and lazy-load plugins with [Lazy.nvim](https://github.com/folke/lazy.nvim)
+- Setup and lazy-load plugins with [lz.n](https://github.com/nvim-neorocks/lz.n)
 - File explorer with [Neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - Buffer and tab line with [Bufferline](https://github.com/akinsho/bufferline.nvim)
 - Statusline with [Lualine](https://github.com/nvim-lualine/lualine.nvim)

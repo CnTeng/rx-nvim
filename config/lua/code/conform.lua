@@ -1,7 +1,8 @@
----@type LazyPluginSpec
+---@module "lz.n"
+---@type lz.n.Spec
 return {
-  "stevearc/conform.nvim",
-  event = "LazyFile",
+  "conform.nvim",
+  event = { "BufReadPre", "BufNewFile", "BufWritePre" },
   keys = {
     {
       mode = { "n", "v" },
@@ -12,7 +13,7 @@ return {
       desc = "Format",
     },
   },
-  init = function()
+  beforeAll = function()
     vim.opt.formatexpr = "v:lua.require'conform'.formatexpr()"
 
     local env = os.getenv("DISABLE_AUTOFORMAT")
@@ -35,27 +36,29 @@ return {
       desc = "Toggle global autoformat",
     })
   end,
-  opts = {
-    formatters_by_ft = {
-      lua = { "stylua" },
-      markdown = { "prettier" },
-      sql = { "sql_formatter" },
+  after = function()
+    require("conform").setup({
+      formatters_by_ft = {
+        lua = { "stylua" },
+        markdown = { "prettier" },
+        sql = { "sql_formatter" },
 
-      html = { "prettier" },
-      css = { "prettier" },
-      scss = { "prettier" },
-      javascript = { "prettier" },
-      typescript = { "prettier" },
-      json = { "prettier" },
-      jsonc = { "prettier" },
+        html = { "prettier" },
+        css = { "prettier" },
+        scss = { "prettier" },
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        json = { "prettier" },
+        jsonc = { "prettier" },
 
-      ["_"] = { "trim_whitespace", lsp_format = "last" },
-    },
-    format_on_save = function(bufnr)
-      if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-        return
-      end
-      return { timeout_ms = 500 }
-    end,
-  },
+        ["_"] = { "trim_whitespace", lsp_format = "last" },
+      },
+      format_on_save = function(bufnr)
+        if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+          return
+        end
+        return { timeout_ms = 500 }
+      end,
+    })
+  end,
 }

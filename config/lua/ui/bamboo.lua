@@ -1,8 +1,9 @@
----@type LazyPluginSpec
+---@module "lz.n"
+---@type lz.n.Spec
 return {
-  "ribru17/bamboo.nvim",
+  "bamboo.nvim",
   priority = 1000,
-  config = function()
+  after = function()
     require("bamboo").load()
   end,
 }

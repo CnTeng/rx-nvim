@@ -1,7 +1,8 @@
----@type LazyPluginSpec
+---@module "lz.n"
+---@type lz.n.Spec
 return {
-  "mrjones2014/smart-splits.nvim",
-  event = "VeryLazy",
+  "smart-splits.nvim",
+  event = "DeferredUIEnter",
   keys = {
     {
       mode = { "n", "t" },
@@ -35,7 +36,6 @@ return {
       end,
       desc = "Move cursor right",
     },
-
     {
       mode = { "n", "t" },
       "<C-w>h",
@@ -68,7 +68,6 @@ return {
       end,
       desc = "Swap window right",
     },
-
     {
       mode = { "n", "t" },
       "<A-h>",
@@ -102,7 +101,10 @@ return {
       desc = "Resize right",
     },
   },
-  opts = {
-    cursor_follows_swapped_bufs = true,
-  },
+  after = function()
+    ---@diagnostic disable-next-line: missing-fields
+    require("smart-splits").setup({
+      cursor_follows_swapped_bufs = true,
+    })
+  end,
 }

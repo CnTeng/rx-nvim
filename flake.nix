@@ -33,12 +33,6 @@
         imports = [ ./modules ];
       };
 
-      devShells = forEachSystem (pkgs: {
-        default = pkgs.mkShell {
-          packages = [ ];
-        };
-      });
-
       checks = forEachSystem (pkgs: {
         rx-nvim = pkgs.nixosTest {
           name = "rx-nvim";

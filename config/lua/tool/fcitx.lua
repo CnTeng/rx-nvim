@@ -1,5 +1,6 @@
----@type LazyPluginSpec
+---@module "lz.n"
+---@type lz.n.Spec
 return {
-  "lilydjwg/fcitx.vim",
-  event = "LazyFile",
+  "fcitx.vim",
+  event = { "BufReadPre", "BufNewFile", "BufWritePre" },
 }

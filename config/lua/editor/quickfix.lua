@@ -1,34 +1,43 @@
----@type LazyPluginSpec[]
+---@module "lz.n"
+---@type lz.n.Spec
 return {
+  { "fzf", lazy = true },
+
   {
-    "kevinhwang91/nvim-bqf",
-    dependencies = "junegunn/fzf",
+    "nvim-bqf",
     ft = "qf",
-    opts = {
-      auto_resize_height = true,
-    },
+    before = function()
+      require("lz.n").trigger_load("fzf")
+    end,
+    after = function()
+      require("bqf").setup({
+        auto_resize_height = true,
+      })
+    end,
   },
 
   {
-    "stevearc/quicker.nvim",
+    "quicker.nvim",
     ft = "qf",
-    opts = {
-      keys = {
-        {
-          "zo",
-          function()
-            require("quicker").expand({ before = 2, after = 2, add_to_existing = true })
-          end,
-          desc = "Expand quickfix context",
+    after = function()
+      require("quicker").setup({
+        keys = {
+          {
+            "zo",
+            function()
+              require("quicker").expand({ before = 2, after = 2, add_to_existing = true })
+            end,
+            desc = "Expand quickfix context",
+          },
+          {
+            "zc",
+            function()
+              require("quicker").collapse()
+            end,
+            desc = "Collapse quickfix context",
+          },
         },
-        {
-          "zc",
-          function()
-            require("quicker").collapse()
-          end,
-          desc = "Collapse quickfix context",
-        },
-      },
-    },
+      })
+    end,
   },
 }

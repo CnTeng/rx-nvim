@@ -1,0 +1,5 @@
+require("lz.n").load("code")
+require("lz.n").load("editor")
+require("lz.n").load("git")
+require("lz.n").load("tool")
+require("lz.n").load("ui")
