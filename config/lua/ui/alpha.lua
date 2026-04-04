@@ -33,7 +33,7 @@ return {
           local header = #dashboard.section.header.val
           local buttons = #dashboard.section.buttons.val * 2
           local content = header + 1 + buttons + 1
-          return math.floor((vim.fn.winheight(0) - content) / 2)
+          return math.max(0, math.floor((vim.fn.winheight(0) - content) / 2))
         end,
       },
       dashboard.section.header,
