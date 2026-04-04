@@ -34,7 +34,7 @@
       };
 
       checks = forEachSystem (pkgs: {
-        rx-nvim = pkgs.nixosTest {
+        rx-nvim = pkgs.testers.nixosTest {
           name = "rx-nvim";
           nodes.machine = {
             imports = [ self.nixosModules.default ];
