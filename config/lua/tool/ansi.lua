@@ -1,5 +1,6 @@
----@type LazyPluginSpec
+---@module "lz.n"
+---@type lz.n.Spec
 return {
-  "powerman/vim-plugin-AnsiEsc",
+  "vim-plugin-AnsiEsc",
   cmd = "AnsiEsc",
 }

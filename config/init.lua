@@ -1,1 +1,6 @@
-require("core")
+require("core.options")
+require("core.keymaps")
+require("core.autocmds")
+require("core.treesitter")
+require("core.lsp")
+require("core.lz")

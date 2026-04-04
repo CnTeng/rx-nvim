@@ -1,0 +1,25 @@
+local highlight_disable = { "c", "cpp" }
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("treesitter", { clear = true }),
+  callback = function(args)
+    local buf = args.buf
+    local ft = args.match
+    local lang = vim.treesitter.language.get_lang(ft) or ft
+
+    if vim.tbl_contains(highlight_disable, lang) then
+      return
+    end
+
+    if not vim.treesitter.language.add(lang) then
+      return
+    end
+
+    vim.wo.foldmethod = "expr"
+    vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
+    vim.treesitter.start(buf)
+
+    vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+  end,
+})

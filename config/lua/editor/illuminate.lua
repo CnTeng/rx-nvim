@@ -1,7 +1,8 @@
----@type LazyPluginSpec
+---@module "lz.n"
+---@type lz.n.Spec
 return {
-  "RRethy/vim-illuminate",
-  event = "LazyFile",
+  "vim-illuminate",
+  event = { "BufReadPre", "BufNewFile", "BufWritePre" },
   keys = {
     {
       "]]",
@@ -18,14 +19,13 @@ return {
       desc = "Previous reference",
     },
   },
-  opts = {
-    filetype_overrides = { "neo-tree" },
-    large_file_cutoff = 2000,
-    large_file_overrides = {
-      providers = { "lsp" },
-    },
-  },
-  config = function(_, opts)
-    require("illuminate").configure(opts)
+  after = function()
+    require("illuminate").configure({
+      filetype_overrides = { "neo-tree" },
+      large_file_cutoff = 2000,
+      large_file_overrides = {
+        providers = { "lsp" },
+      },
+    })
   end,
 }

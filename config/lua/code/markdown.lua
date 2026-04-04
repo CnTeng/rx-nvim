@@ -1,13 +1,10 @@
----@type LazyPluginSpec[]
+---@module "lz.n"
+---@type lz.n.Spec
 return {
   {
-    "MeanderingProgrammer/render-markdown.nvim",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons",
-    },
-    ft = { "markdown" },
-    init = function()
+    "render-markdown.nvim",
+    ft = "markdown",
+    beforeAll = function()
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "markdown",
         callback = function(args)
@@ -17,24 +14,29 @@ return {
         end,
       })
     end,
-    opts = {
-      enabled = false,
-      heading = {
-        icons = { "󰼏 ", "󰎨 ", "󰼑 ", "󰎲 ", "󰼓 ", "󰎴 " },
-      },
-      code = {
-        position = "right",
-        width = "block",
-        right_pad = 10,
-      },
-    },
+    before = function()
+      require("lz.n").trigger_load("nvim-web-devicons")
+    end,
+    after = function()
+      require("render-markdown").setup({
+        enabled = false,
+        heading = {
+          icons = { "󰼏 ", "󰎨 ", "󰼑 ", "󰎲 ", "󰼓 ", "󰎴 " },
+        },
+        code = {
+          position = "right",
+          width = "block",
+          right_pad = 10,
+        },
+      })
+    end,
   },
 
   {
-    "iamcco/markdown-preview.nvim",
-    ft = { "markdown" },
+    "markdown-preview.nvim",
+    ft = "markdown",
     cmd = { "MarkdownPreview", "MarkdownPreviewStop", "MarkdownPreviewToggle" },
-    init = function()
+    beforeAll = function()
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "markdown",
         callback = function(args)

@@ -1,11 +1,14 @@
----@type LazyPluginSpec
+---@module "lz.n"
+---@type lz.n.Spec
 return {
-  "j-hui/fidget.nvim",
-  event = "VeryLazy",
-  opts = {
-    notification = {
-      override_vim_notify = true,
-      window = { winblend = 0 },
-    },
-  },
+  "fidget.nvim",
+  event = "DeferredUIEnter",
+  after = function()
+    require("fidget").setup({
+      notification = {
+        override_vim_notify = true,
+        window = { winblend = 0 },
+      },
+    })
+  end,
 }

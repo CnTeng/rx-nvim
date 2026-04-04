@@ -1,6 +1,7 @@
----@type LazyPluginSpec
+---@module "lz.n"
+---@type lz.n.Spec
 return {
-  "akinsho/bufferline.nvim",
+  "bufferline.nvim",
   event = "BufEnter",
   keys = {
     { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous buffer" },
@@ -8,21 +9,23 @@ return {
     { "[B", "<cmd>BufferLineMovePrev<cr>", desc = "Move buffer prev" },
     { "]B", "<cmd>BufferLineMoveNext<cr>", desc = "Move buffer next" },
   },
-  opts = {
-    options = {
-      mode = "tabs",
-      diagnostics = "nvim_lsp",
-      offsets = {
-        {
-          filetype = "neo-tree",
-          text = "File Explorer",
-          text_align = "center",
-          separator = true,
+  after = function()
+    require("bufferline").setup({
+      options = {
+        mode = "tabs",
+        diagnostics = "nvim_lsp",
+        offsets = {
+          {
+            filetype = "neo-tree",
+            text = "File Explorer",
+            text_align = "center",
+            separator = true,
+          },
         },
+        enforce_regular_tabs = true,
+        always_show_bufferline = false,
+        sort_by = "tabs",
       },
-      enforce_regular_tabs = true,
-      always_show_bufferline = false,
-      sort_by = "tabs",
-    },
-  },
+    })
+  end,
 }

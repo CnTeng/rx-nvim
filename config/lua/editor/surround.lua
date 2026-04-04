@@ -1,5 +1,6 @@
----@type LazyPluginSpec
+---@module "lz.n"
+---@type lz.n.Spec
 return {
-  "kylechui/nvim-surround",
-  event = "LazyFile",
+  "nvim-surround",
+  event = { "BufReadPre", "BufNewFile", "BufWritePre" },
 }

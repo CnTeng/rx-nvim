@@ -1,11 +1,12 @@
----@type LazyPluginSpec[]
+---@module "lz.n"
+---@type lz.n.Spec
 return {
+  { "nvim-dap-view", lazy = true },
+
+  { "nvim-dap-virtual-text", lazy = true },
+
   {
-    "mfussenegger/nvim-dap",
-    dependencies = {
-      { "igorlfs/nvim-dap-view", opts = {} },
-      { "theHamsta/nvim-dap-virtual-text", opts = {} },
-    },
+    "nvim-dap",
     keys = {
       {
         "<leader>dd",
@@ -14,7 +15,6 @@ return {
         end,
         desc = "Toggle UI",
       },
-
       {
         "<leader>dc",
         function()
@@ -36,7 +36,6 @@ return {
         end,
         desc = "Terminate",
       },
-
       {
         "<leader>di",
         function()
@@ -58,7 +57,6 @@ return {
         end,
         desc = "Step out",
       },
-
       {
         "<leader>db",
         function()
@@ -73,7 +71,6 @@ return {
         end,
         desc = "Condition breakpoint",
       },
-
       {
         "<leader>dj",
         function()
@@ -88,7 +85,6 @@ return {
         end,
         desc = "Up",
       },
-
       {
         "<leader>dr",
         function()
@@ -110,7 +106,6 @@ return {
         end,
         desc = "Run last",
       },
-
       {
         "<leader>ds",
         function()
@@ -119,17 +114,18 @@ return {
         desc = "Session",
       },
     },
-    opts = {
-      signs = {
+    before = function()
+      require("lz.n").trigger_load("nvim-dap-view")
+      require("lz.n").trigger_load("nvim-dap-virtual-text")
+    end,
+    after = function()
+      for name, sign in pairs({
         DapBreakpoint = { "󰄯", "DiagnosticError" },
         DapBreakpointCondition = { "󰘥", "DiagnosticError" },
         DapLogPoint = { "󰰎", "DiagnosticInfo" },
         DapStopped = { "󰁔", "DiagnosticWarn", "debugPC" },
         DapBreakpointRejected = { "󰗖", "DiagnosticError" },
-      },
-    },
-    config = function(_, opts)
-      for name, sign in pairs(opts.signs) do
+      }) do
         vim.fn.sign_define(name, { text = sign[1], texthl = sign[2], linehl = sign[3], numhl = sign[3] })
       end
 
@@ -168,7 +164,6 @@ return {
           pid = require("dap.utils").pick_process,
           cwd = "${workspaceFolder}",
         },
-
         {
           name = "gdb: Launch file",
           type = "gdb",
@@ -194,26 +189,28 @@ return {
   },
 
   {
-    "leoluz/nvim-dap-go",
+    "nvim-dap-go",
     ft = "go",
-    opts = {
-      dap_configurations = {
-        {
-          type = "go",
-          name = "Debug main.go",
-          request = "launch",
-          program = "${workspaceFolder}/main.go",
-          args = function()
-            return coroutine.create(function(dap_run_co)
-              local args = {}
-              vim.ui.input({ prompt = "Args: " }, function(input)
-                args = vim.split(input or "", " ")
-                coroutine.resume(dap_run_co, args)
+    after = function()
+      require("dap-go").setup({
+        dap_configurations = {
+          {
+            type = "go",
+            name = "Debug main.go",
+            request = "launch",
+            program = "${workspaceFolder}/main.go",
+            args = function()
+              return coroutine.create(function(dap_run_co)
+                local args = {}
+                vim.ui.input({ prompt = "Args: " }, function(input)
+                  args = vim.split(input or "", " ")
+                  coroutine.resume(dap_run_co, args)
+                end)
               end)
-            end)
-          end,
+            end,
+          },
         },
-      },
-    },
+      })
+    end,
   },
 }

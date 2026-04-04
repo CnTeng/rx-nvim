@@ -1,10 +1,9 @@
----@type LazyPluginSpec
+---@module "lz.n"
+---@type lz.n.Spec
 return {
-  "ibhagwan/fzf-lua",
-  dependencies = "nvim-tree/nvim-web-devicons",
-  cmd = { "FzfLua" },
+  "fzf-lua",
+  cmd = "FzfLua",
   keys = {
-    -- Buffers
     {
       "<leader>b",
       function()
@@ -12,8 +11,6 @@ return {
       end,
       desc = "Buffers",
     },
-
-    -- Files
     {
       "<leader>ff",
       function()
@@ -28,8 +25,6 @@ return {
       end,
       desc = "Recent files",
     },
-
-    -- Text
     {
       "<leader>fw",
       function()
@@ -44,8 +39,6 @@ return {
       end,
       desc = "Current word",
     },
-
-    -- Git
     {
       "<leader>gc",
       function()
@@ -67,8 +60,6 @@ return {
       end,
       desc = "Tags",
     },
-
-    -- Lsp
     {
       "<leader>fs",
       function()
@@ -83,8 +74,6 @@ return {
       end,
       desc = "Workspace symbols",
     },
-
-    -- Misc
     {
       "<leader>fc",
       function()
@@ -134,8 +123,6 @@ return {
       end,
       desc = "Help tags",
     },
-
-    -- Todo comments
     {
       "<leader>ft",
       function()
@@ -148,12 +135,18 @@ return {
       desc = "Todo comments",
     },
   },
-  init = function()
+  beforeAll = function()
     ---@diagnostic disable-next-line: duplicate-set-field
     vim.ui.select = function(...)
+      require("lz.n").trigger_load("fzf-lua")
       require("fzf-lua").register_ui_select()
       vim.ui.select(...)
     end
   end,
-  opts = { "borderless_full" },
+  before = function()
+    require("lz.n").trigger_load("nvim-web-devicons")
+  end,
+  after = function()
+    require("fzf-lua").setup({ "borderless-full" })
+  end,
 }

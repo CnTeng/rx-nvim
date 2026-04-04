@@ -1,25 +1,29 @@
----@type LazyPluginSpec[]
+---@module "lz.n"
+---@type lz.n.Spec
 return {
   {
-    "nmac427/guess-indent.nvim",
-    event = "LazyFile",
-    opts = {},
+    "guess-indent.nvim",
+    event = { "BufReadPre", "BufNewFile", "BufWritePre" },
+    after = function()
+      require("guess-indent").setup({})
+    end,
   },
 
   {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    event = "LazyFile",
-    opts = {
-      indent = { char = "▏" },
-      scope = {
-        char = "▎",
-        show_start = false,
-        show_end = false,
-      },
-      exclude = {
-        filetypes = { "alpha", "neo-tree" },
-      },
-    },
+    "indent-blankline.nvim",
+    event = { "BufReadPre", "BufNewFile", "BufWritePre" },
+    after = function()
+      require("ibl").setup({
+        indent = { char = "▏" },
+        scope = {
+          char = "▎",
+          show_start = false,
+          show_end = false,
+        },
+        exclude = {
+          filetypes = { "alpha", "neo-tree" },
+        },
+      })
+    end,
   },
 }
