@@ -76,7 +76,7 @@ wrapNeovimUnstable neovim-unwrapped {
       which-key-nvim
     ];
   luaRcContent = ''
-    vim.opt.rtp:prepend("${configPath}")
+    vim.opt.rtp:append("${configPath}")
     dofile("${configPath}/init.lua")
 
     ${extraConfig}
