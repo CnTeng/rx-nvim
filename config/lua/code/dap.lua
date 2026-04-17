@@ -191,6 +191,9 @@ return {
   {
     "nvim-dap-go",
     ft = "go",
+    before = function()
+      require("lz.n").trigger_load("nvim-dap")
+    end,
     after = function()
       require("dap-go").setup({
         dap_configurations = {
