@@ -21,14 +21,13 @@ return {
     },
     {
       mode = { "n", "v" },
-      "<leader>aq",
+      "<leader>ak",
       function()
-        local input = vim.fn.input("Quick Chat: ")
-        if input ~= "" then
+        vim.ui.input({ prompt = "Ask: " }, function(input)
           require("CopilotChat").ask(input)
-        end
+        end)
       end,
-      desc = "Quick chat",
+      desc = "Inline ask",
     },
     {
       mode = { "n", "v" },
@@ -36,18 +35,19 @@ return {
       function()
         require("CopilotChat").select_prompt()
       end,
-      desc = "select prompt",
+      desc = "Select prompt",
     },
     {
       "<leader>am",
       function()
         require("CopilotChat").select_model()
       end,
-      desc = "select model",
+      desc = "Select model",
     },
   },
   after = function()
     require("CopilotChat").setup({
+      model = "gpt-5-mini",
       mappings = {
         close = {
           normal = "<C-q>",
