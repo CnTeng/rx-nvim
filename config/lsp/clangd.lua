@@ -71,11 +71,6 @@ return {
       { buf = bufnr, desc = "Switch source/header" }
     )
 
-    vim.keymap.set(
-      "n",
-      "<leader>ci",
-      "<cmd>LspClangdShowSymbolInfo<cr>",
-      { buf = bufnr, desc = "Switch source/header" }
-    )
+    vim.keymap.set("n", "<leader>ci", "<cmd>LspClangdShowSymbolInfo<cr>", { buf = bufnr, desc = "Show symbol info" })
   end,
 }
