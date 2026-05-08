@@ -3,7 +3,6 @@
 return {
   {
     "render-markdown.nvim",
-    ft = "markdown",
     beforeAll = function()
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "markdown",
@@ -34,12 +33,12 @@ return {
 
   {
     "markdown-preview.nvim",
-    ft = "markdown",
     cmd = { "MarkdownPreview", "MarkdownPreviewStop", "MarkdownPreviewToggle" },
     beforeAll = function()
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "markdown",
         callback = function(args)
+          require("lz.n").trigger_load("markdown-preview.nvim")
           vim.keymap.set(
             "n",
             "<leader>cp",
