@@ -53,8 +53,8 @@ let
     # TypeScript/JavaScript
     typescript-go
     tailwindcss-language-server
-    prettier
-    biome
+    oxfmt
+    oxlint
 
     # YAML
     yaml-language-server

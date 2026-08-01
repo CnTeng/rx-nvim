@@ -13,7 +13,6 @@ return {
       vim.lsp.enable({
         "basedpyright",
         "bashls",
-        "biome",
         "clangd",
         "copilot",
         "dockerls",
@@ -23,6 +22,7 @@ return {
         "lua_ls",
         "neocmake",
         "nil_ls",
+        "oxlint",
         "ruff",
         "rust_analyzer",
         "tailwindcss",

@@ -40,16 +40,16 @@ return {
     require("conform").setup({
       formatters_by_ft = {
         lua = { "stylua" },
-        markdown = { "prettier" },
+        markdown = { "oxfmt" },
         sql = { "sql_formatter" },
 
-        html = { "prettier" },
-        css = { "prettier" },
-        scss = { "prettier" },
-        javascript = { "prettier" },
-        typescript = { "prettier" },
-        json = { "prettier" },
-        jsonc = { "prettier" },
+        html = { "oxfmt" },
+        css = { "oxfmt" },
+        scss = { "oxfmt" },
+        javascript = { "oxfmt" },
+        typescript = { "oxfmt" },
+        json = { "oxfmt" },
+        jsonc = { "oxfmt" },
 
         ["_"] = { "trim_whitespace", lsp_format = "last" },
       },
