@@ -51,7 +51,7 @@ let
     taplo
 
     # TypeScript/JavaScript
-    typescript-go
+    typescript
     tailwindcss-language-server
     oxfmt
     oxlint
