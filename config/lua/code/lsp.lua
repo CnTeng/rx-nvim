@@ -28,7 +28,7 @@ return {
         "tailwindcss",
         "taplo",
         "tofu_ls",
-        "tsgo",
+        "tsc",
         "yamlls",
       })
     end,
