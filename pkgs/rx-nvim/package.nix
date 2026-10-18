@@ -2,6 +2,7 @@
   vimPlugins,
   wrapNeovimUnstable,
   neovim-unwrapped,
+  smart-splits-backend-kitty,
   extraConfig ? "",
 }:
 let
@@ -47,6 +48,7 @@ wrapNeovimUnstable neovim-unwrapped {
       quicker-nvim
       auto-session
       smart-splits-nvim
+      smart-splits-backend-kitty
       snacks-nvim
       nvim-surround
 

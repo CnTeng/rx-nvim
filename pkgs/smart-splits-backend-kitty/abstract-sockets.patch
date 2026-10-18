@@ -1,0 +1,13 @@
+diff --git a/lua/smart-splits-backend-kitty/socket.lua b/lua/smart-splits-backend-kitty/socket.lua
+--- a/lua/smart-splits-backend-kitty/socket.lua
++++ b/lua/smart-splits-backend-kitty/socket.lua
+@@ -103,6 +103,9 @@ local function connect(addr)
+   if kind == 'tcp' then
+     local host = host_or_path == 'localhost' and '127.0.0.1' or host_or_path
+     client:connect(host, port, on_connect)
++  elseif host_or_path:sub(1, 1) == '@' then
++    -- Linux abstract sockets use a leading NUL byte and require connect2.
++    client:connect2('\0' .. host_or_path:sub(2), 0, on_connect)
+   else
+     client:connect(host_or_path, on_connect)
+   end
